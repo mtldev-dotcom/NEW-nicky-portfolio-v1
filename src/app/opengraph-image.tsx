@@ -19,14 +19,15 @@ export default function OpengraphImage() {
           justifyContent: 'center',
           alignItems: 'flex-start',
           padding: '96px',
-          background: 'radial-gradient(circle at 20% 20%, rgba(0,255,209,0.2), transparent 60%), radial-gradient(circle at 80% 30%, rgba(0,255,209,0.1), transparent 55%), #040404',
+          background: 'radial-gradient(circle at 20% 20%, rgba(0,255,209,0.2), transparent 60%), radial-gradient(circle at 80% 30%, rgba(0,255,209,0.1), transparent 55%)',
+          backgroundColor: '#040404',
           color: '#f5f5f5',
           fontFamily: 'Space Grotesk, Inter, sans-serif',
         }}
       >
         <div
           style={{
-            display: 'inline-flex',
+            display: 'flex',
             padding: '12px 20px',
             borderRadius: '9999px',
             border: '1px solid rgba(0,255,209,0.4)',
