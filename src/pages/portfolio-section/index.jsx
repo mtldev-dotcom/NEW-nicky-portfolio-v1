@@ -15,7 +15,7 @@ const PortfolioSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Mock project data
-  const projects = [
+  const projects = useMemo(() => ([
     {
       id: 1,
       title: "AIAA.dev - AI Automation Platform",
@@ -366,7 +366,7 @@ const PortfolioSection = () => {
         role: "Primary Care Physician"
       }
     }
-  ];
+  ]), []);
 
   // Filter configuration
   const filters = [
