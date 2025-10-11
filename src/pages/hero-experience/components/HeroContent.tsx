@@ -47,7 +47,7 @@ const HeroContent = () => {
           variants={glowVariants}
           animate="animate"
         >
-          nicky bruno
+          Hey there, I'm Nicky Bruno
         </motion.h1>
         <motion.div
           className="h-1 w-24 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full"
@@ -113,7 +113,7 @@ const HeroContent = () => {
         </Button>
       </motion.div>
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -145,7 +145,7 @@ const HeroContent = () => {
             }}
           />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
       {/* Stats */}
       <motion.div
         className="absolute bottom-20 left-0 right-0 hidden lg:flex justify-center space-x-12"

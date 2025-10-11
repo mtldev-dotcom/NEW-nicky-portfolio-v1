@@ -17,7 +17,7 @@ const PersonalIntro: FC = () => {
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-transparent p-1">
             <div className="relative overflow-hidden rounded-xl bg-card">
               <Image
-                src="/assets/images/profil_portrait.jpg"
+                src="/assets/images/nicky-profile-img.png"
                 alt="Nicky Bruno - Creative Technologist"
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />

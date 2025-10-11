@@ -47,7 +47,7 @@ const HeroPortrait = () => {
           {/* Portrait Container */}
           <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/30 glow-neon">
             <Image
-              src="/assets/images/profil_portrait.jpg"
+              src="/assets/images/nicky-profile-img.png"
               alt="Nicky Bruno - Creative Technologist"
               className="w-full h-full object-cover"
               ref={imageRef}
