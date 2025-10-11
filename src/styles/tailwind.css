@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #000000; /* black */
+    --color-foreground: #FFFFFF; /* white */
+    --color-border: #333333; /* gray-700 */
+    --color-input: #1A1A1A; /* gray-900 */
+    --color-ring: #00FFD1; /* neon-mint */
+    
+    /* Card Colors */
+    --color-card: #1A1A1A; /* gray-900 */
+    --color-card-foreground: #FFFFFF; /* white */
+    
+    /* Popover Colors */
+    --color-popover: #1E1E1E; /* gray-800 */
+    --color-popover-foreground: #FFFFFF; /* white */
+    
+    /* Muted Colors */
+    --color-muted: #1E1E1E; /* gray-800 */
+    --color-muted-foreground: #B0B0B0; /* gray-400 */
+    
+    /* Primary Colors */
+    --color-primary: #00FFD1; /* neon-mint */
+    --color-primary-foreground: #000000; /* black */
+    
+    /* Secondary Colors */
+    --color-secondary: #1E1E1E; /* gray-800 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Destructive Colors */
+    --color-destructive: #FF6B6B; /* red-400 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #00FFD1; /* neon-mint */
+    --color-accent-foreground: #000000; /* black */
+    
+    /* Success Colors */
+    --color-success: #00FFD1; /* neon-mint */
+    --color-success-foreground: #000000; /* black */
+    
+    /* Warning Colors */
+    --color-warning: #FFB800; /* amber-500 */
+    --color-warning-foreground: #000000; /* black */
+    
+    /* Error Colors */
+    --color-error: #FF6B6B; /* red-400 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Surface Colors */
+    --color-surface: #1A1A1A; /* gray-900 */
+    --color-surface-foreground: #FFFFFF; /* white */
+    
+    /* Text Colors */
+    --color-text-primary: #FFFFFF; /* white */
+    --color-text-secondary: #B0B0B0; /* gray-400 */
+    
+    /* Neon Mint Variations */
+    --color-neon-mint: #00FFD1; /* neon-mint */
+    --color-neon-mint-dark: #00D4AD; /* neon-mint-dark */
+    --color-neon-mint-light: #33FFD9; /* neon-mint-light */
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem; /* 8px */
+    --spacing-sm: 0.75rem; /* 12px */
+    --spacing-md: 1.25rem; /* 20px */
+    --spacing-lg: 2rem; /* 32px */
+    --spacing-xl: 3.25rem; /* 52px */
+    --spacing-2xl: 5.25rem; /* 84px */
+    
+    /* Border Radius */
+    --radius: 0.5rem; /* 8px */
+    --radius-sm: 0.25rem; /* 4px */
+    --radius-lg: 0.75rem; /* 12px */
+    --radius-xl: 1rem; /* 16px */
+    
+    /* Shadows */
+    --shadow-glow: 0 0 20px rgba(0, 255, 209, 0.3);
+    --shadow-glow-active: 0 0 40px rgba(0, 255, 209, 0.2);
+    --shadow-card: 0 4px 20px rgba(0, 255, 209, 0.1), 0 8px 40px rgba(0, 255, 209, 0.05);
+    --shadow-card-hover: 0 8px 40px rgba(0, 255, 209, 0.2), 0 16px 80px rgba(0, 255, 209, 0.1);
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Holographic glow effects */
+  .glow-neon {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-neon-active {
+    box-shadow: var(--shadow-glow-active);
+  }
+  
+  /* Smooth animations */
+  .transition-smooth {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-fast {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-slow {
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Magnetic hover effects */
+  .magnetic-hover {
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .magnetic-hover:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Cinematic parallax support */
+  .parallax-layer {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  
+  /* Neon text glow */
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .transition-smooth,
+    .transition-fast,
+    .transition-slow,
+    .magnetic-hover {
+      transition: none;
+    }
+    
+    .parallax-layer {
+      transform: none !important;
+    }
+  }
+}
