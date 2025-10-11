@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 const FALLBACK_IMAGE = "/assets/images/profil_portrait.jpg";
 
-function Image({
-  src,
-  alt = "Image Name",
-  className = "",
-  ...props
-}) {
+const Image = forwardRef(function AppImage(
+  {
+    src,
+    alt = "Image Name",
+    className = "",
+    ...props
+  },
+  ref
+) {
   return (
     <img
+      ref={ref}
       src={src}
       alt={alt}
       className={className}
@@ -21,6 +25,6 @@ function Image({
       {...props}
     />
   );
-}
+});
 
 export default Image;

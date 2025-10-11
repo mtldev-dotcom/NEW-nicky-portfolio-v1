@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from '../../../components/AppImage';
 
 const HeroPortrait = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -15,6 +16,12 @@ const HeroPortrait = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    if (imageRef?.current?.complete && imageRef?.current?.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
   }, []);
 
   return (
@@ -42,6 +49,7 @@ const HeroPortrait = () => {
               src="/assets/images/profil_portrait.jpg"
               alt="Nicky Bruno - Creative Technologist"
               className="w-full h-full object-cover"
+              ref={imageRef}
               onLoad={() => setIsLoaded(true)}
             />
             
