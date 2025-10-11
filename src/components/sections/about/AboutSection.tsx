@@ -1,7 +1,7 @@
 'use client';
 
 import { type FC, useEffect } from 'react';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import Header from 'components/ui/Header';
 import CareerTimeline from './CareerTimeline';
 import CredentialsShowcase from './CredentialsShowcase';

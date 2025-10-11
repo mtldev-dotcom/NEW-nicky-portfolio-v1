@@ -2,13 +2,17 @@
 
 import { type FC } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import Button from 'components/ui/Button';
+import { defaultLocale } from '@/i18n/config';
 
 const NotFound: FC = () => {
   const router = useRouter();
+  const locale = useLocale();
 
   const handleGoHome = () => {
-    router.push('/');
+    const homePath = locale === defaultLocale ? '/' : `/${locale}`;
+    router.push(homePath);
   };
 
   return (
@@ -45,4 +49,3 @@ const NotFound: FC = () => {
 };
 
 export default NotFound;
-import React, { type FC } from 'react';

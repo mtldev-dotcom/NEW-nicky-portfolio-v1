@@ -1,7 +1,8 @@
 'use client';
 
-import { type FC, useEffect, useState } from 'react';
-import Link from 'next/link';
+import { type FC, useEffect, useMemo, useState } from 'react';
+import Link from 'next-intl/link';
+import { useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import Button from './Button';
 import Icon, { type IconName } from '../AppIcon';
@@ -24,6 +25,20 @@ const Header: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const locale = useLocale();
+
+  const normalizedPathname = useMemo(() => {
+    if (!pathname) return '/';
+    const segments = pathname.split('/').filter(Boolean);
+    if (segments.length === 0) {
+      return '/';
+    }
+    if (segments[0] === locale) {
+      const rest = segments.slice(1);
+      return rest.length > 0 ? `/${rest.join('/')}` : '/';
+    }
+    return pathname;
+  }, [locale, pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,11 +50,11 @@ const Header: FC = () => {
   }, []);
 
   const isActivePath = (path: string): boolean => {
-    if (!pathname) return false;
+    if (!normalizedPathname) return false;
     if (path === '/') {
-      return pathname === '/' || pathname === '/hero-experience';
+      return normalizedPathname === '/' || normalizedPathname === '/hero-experience';
     }
-    return pathname === path;
+    return normalizedPathname === path;
   };
 
   const handleMobileMenuToggle = () => {

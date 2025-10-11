@@ -1,20 +1,13 @@
-import type { Metadata } from 'next';
-import ScrollToTop from 'components/ScrollToTop';
+import type { ReactNode } from 'react';
+import { headers } from 'next/headers';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: 'Nicky Bruno | Creative Technologist & Experience Designer',
-  description:
-    'Step into the immersive experience of Nicky Bruno, a creative technologist blending design, engineering, and AI-driven storytelling.',
-};
+export default function RootLayout({ children }: { children: ReactNode }) {
+  const locale = headers().get('x-next-intl-locale') ?? 'en';
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang={locale} suppressHydrationWarning>
       <body className="bg-background font-inter text-foreground antialiased">
-        <ScrollToTop />
         {children}
       </body>
     </html>
