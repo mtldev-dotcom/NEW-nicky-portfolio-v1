@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useId, useMemo, useState } from "react";
 import { ChevronDown, Check, Search, X } from "lucide-react";
 import { cn } from "@/utils/cn";
-import Button from "./Button";
 import Input from "./Input";
 
 type SelectValue = string | number;
@@ -140,8 +141,7 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(function Select(
     }
   };
 
-  const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
+  const handleClear = () => {
     if (multiple) {
       (onChange as MultiSelectProps["onChange"] | undefined)?.([]);
     } else {
@@ -211,15 +211,26 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(function Select(
             )}
 
             {clearable && hasValue && !loading && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-4 w-4"
-                onClick={handleClear}
-                type="button"
+              <span
+                role="button"
+                tabIndex={0}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  handleClear();
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    handleClear();
+                  }
+                }}
+                className="flex h-5 w-5 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label="Clear selection"
               >
                 <X className="h-3 w-3" />
-              </Button>
+              </span>
             )}
 
             <ChevronDown className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")} />

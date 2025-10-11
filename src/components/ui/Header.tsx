@@ -1,6 +1,8 @@
-import React, { type FC, useState, useEffect } from 'react';
+'use client';
+
+import { type FC, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import Button from './Button';
 import Icon, { type IconName } from '../AppIcon';
 
@@ -11,7 +13,7 @@ type NavigationItem = {
 };
 
 const navigationItems: NavigationItem[] = [
-  { name: 'Home', path: '/hero-experience', icon: 'Home' },
+  { name: 'Home', path: '/', icon: 'Home' },
   { name: 'About', path: '/about-section', icon: 'User' },
   { name: 'Services', path: '/services-section', icon: 'Briefcase' },
   { name: 'Portfolio', path: '/portfolio-section', icon: 'FolderOpen' },
@@ -21,7 +23,7 @@ const navigationItems: NavigationItem[] = [
 const Header: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,12 +35,11 @@ const Header: FC = () => {
   }, []);
 
   const isActivePath = (path: string): boolean => {
-    const currentPath = router?.pathname;
-    if (!currentPath) return false;
-    if (path === '/hero-experience') {
-      return currentPath === '/' || currentPath === '/hero-experience';
+    if (!pathname) return false;
+    if (path === '/') {
+      return pathname === '/' || pathname === '/hero-experience';
     }
-    return currentPath === path;
+    return pathname === path;
   };
 
   const handleMobileMenuToggle = () => {
@@ -48,6 +49,10 @@ const Header: FC = () => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
+
+  useEffect(() => {
+    closeMobileMenu();
+  }, [pathname]);
 
   return (
     <>
