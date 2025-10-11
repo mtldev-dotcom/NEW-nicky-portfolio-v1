@@ -12,12 +12,11 @@ export const metadata: Metadata = {
     title: 'Nicky Bruno | Creative Technologist',
     description:
       "Navigate a holographic-inspired interface showcasing the innovation and craft behind Nicky Bruno's work.",
-    url: 'https://nickybruno.ca/',
     siteName: 'Nicky Bruno',
     type: 'website',
   },
 };
 
-export default function HomePage() {
+export default function LocaleHomePage() {
   return <HeroExperience />;
 }

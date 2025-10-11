@@ -2,23 +2,24 @@
 
 import { type FC, useEffect, useMemo, useState } from 'react';
 import Link from 'next-intl/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import Button from './Button';
 import Icon, { type IconName } from '../AppIcon';
 
 type NavigationItem = {
-  name: string;
+  labelKey: string;
   path: string;
   icon: IconName;
 };
 
 const navigationItems: NavigationItem[] = [
-  { name: 'Home', path: '/', icon: 'Home' },
-  { name: 'About', path: '/about-section', icon: 'User' },
-  { name: 'Services', path: '/services-section', icon: 'Briefcase' },
-  { name: 'Portfolio', path: '/portfolio-section', icon: 'FolderOpen' },
-  { name: 'Contact', path: '/contact-section', icon: 'Mail' }
+  { labelKey: 'home', path: '/', icon: 'Home' },
+  { labelKey: 'about', path: '/about-section', icon: 'User' },
+  { labelKey: 'services', path: '/services-section', icon: 'Briefcase' },
+  { labelKey: 'portfolio', path: '/portfolio-section', icon: 'FolderOpen' },
+  { labelKey: 'testimonials', path: '/testimonials-section', icon: 'MessageSquare' },
+  { labelKey: 'contact', path: '/contact-section', icon: 'Mail' },
 ];
 
 const Header: FC = () => {
@@ -26,6 +27,7 @@ const Header: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
+  const tNav = useTranslations('navigation');
 
   const normalizedPathname = useMemo(() => {
     if (!pathname) return '/';
@@ -100,12 +102,12 @@ const Header: FC = () => {
             </Link>
 
             <nav className="hidden lg:flex items-center space-x-1">
-              {navigationItems?.map((item) => {
-                const active = isActivePath(item?.path);
+              {navigationItems.map((item) => {
+                const active = isActivePath(item.path);
                 return (
                   <Link
-                    key={item?.path}
-                    href={item?.path}
+                    key={item.path}
+                    href={item.path}
                     className={`relative px-4 py-2 rounded-lg font-inter font-medium text-sm transition-smooth group ${
                       active
                         ? 'text-primary bg-primary/10'
@@ -113,7 +115,7 @@ const Header: FC = () => {
                     }`}
                     onClick={closeMobileMenu}
                   >
-                    <span className="relative z-10">{item?.name}</span>
+                    <span className="relative z-10">{tNav(item.labelKey)}</span>
                     {active && (
                       <div className="absolute inset-0 bg-primary/5 rounded-lg glow-neon"></div>
                     )}
@@ -132,7 +134,7 @@ const Header: FC = () => {
                 iconPosition="left"
                 iconSize={16}
               >
-                Start Project
+                {tNav('cta')}
               </Button>
 
               <button
@@ -152,12 +154,12 @@ const Header: FC = () => {
           }`}
         >
           <nav className="px-6 py-4 space-y-2">
-            {navigationItems?.map((item) => {
-              const active = isActivePath(item?.path);
+            {navigationItems.map((item) => {
+              const active = isActivePath(item.path);
               return (
                 <Link
-                  key={item?.path}
-                  href={item?.path}
+                  key={item.path}
+                  href={item.path}
                   onClick={closeMobileMenu}
                   className={`flex items-center space-x-3 px-4 py-3 rounded-lg font-inter font-medium transition-smooth ${
                     active
@@ -165,8 +167,8 @@ const Header: FC = () => {
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`}
                 >
-                  <Icon name={item?.icon} size={20} />
-                  <span>{item?.name}</span>
+                  <Icon name={item.icon} size={20} />
+                  <span>{tNav(item.labelKey)}</span>
                 </Link>
               );
             })}
@@ -181,7 +183,7 @@ const Header: FC = () => {
                 iconSize={16}
                 onClick={closeMobileMenu}
               >
-                Start Project
+                {tNav('cta')}
               </Button>
             </div>
           </nav>

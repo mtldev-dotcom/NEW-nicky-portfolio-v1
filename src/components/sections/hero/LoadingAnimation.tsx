@@ -1,77 +1,88 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
-const LoadingAnimation = ({ onComplete }) => {
+type LoadingAnimationProps = {
+  onComplete: () => void;
+};
+
+const stepKeys = ['one', 'two', 'three', 'four', 'five'] as const;
+
+const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
+  const t = useTranslations('home.loading');
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
 
-  const steps = [
-    "Initializing AI systems...",
-    "Loading creative modules...",
-    "Connecting neural networks...",
-    "Calibrating holographic display...",
-    "Ready to create magic..."
-  ];
+  const steps = useMemo(
+    () => stepKeys.map((key) => t(`steps.${key}`)),
+    [t]
+  );
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress(prev => {
-        const newProgress = prev + Math.random() * 15;
-        if (newProgress >= 100) {
-          clearInterval(timer);
-          setTimeout(() => onComplete(), 500);
+    const timer = window.setInterval(() => {
+      setProgress((prev) => {
+        const nextProgress = prev + Math.random() * 15;
+        if (nextProgress >= 100) {
+          window.clearInterval(timer);
+          window.setTimeout(() => onComplete(), 500);
           return 100;
         }
-        return newProgress;
+        return nextProgress;
       });
     }, 200);
 
-    return () => clearInterval(timer);
+    return () => window.clearInterval(timer);
   }, [onComplete]);
 
   useEffect(() => {
-    const stepTimer = setInterval(() => {
-      setCurrentStep(prev => (prev + 1) % steps?.length);
+    const stepTimer = window.setInterval(() => {
+      setCurrentStep((prev) => (prev + 1) % steps.length);
     }, 800);
 
-    return () => clearInterval(stepTimer);
-  }, [steps?.length]);
+    return () => window.clearInterval(stepTimer);
+  }, [steps.length]);
 
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 bg-background z-50 flex items-center justify-center"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-background"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-center max-w-md mx-auto px-6">
-          {/* Logo */}
+        <div className="mx-auto max-w-md px-6 text-center">
           <motion.div
             className="mb-8"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center glow-neon mx-auto">
-              <span className="text-black font-space-grotesk font-bold text-2xl">NB</span>
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/70 font-space-grotesk text-2xl font-bold text-black glow-neon">
+              NB
             </div>
           </motion.div>
 
-          {/* Progress Bar */}
+          <motion.h3
+            className="mb-4 text-sm font-space-grotesk uppercase tracking-[0.3em] text-muted-foreground"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            {t('title')}
+          </motion.h3>
+
           <div className="mb-6">
-            <div className="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+            <div className="h-1 w-full overflow-hidden rounded-full bg-gray-800">
               <motion.div
-                className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full"
+                className="h-full rounded-full bg-gradient-to-r from-primary to-primary/70"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
               />
             </div>
             <motion.div
-              className="text-primary font-space-grotesk font-medium text-lg mt-2"
+              className="mt-2 font-space-grotesk text-lg font-medium text-primary"
               key={progress}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -80,65 +91,62 @@ const LoadingAnimation = ({ onComplete }) => {
             </motion.div>
           </div>
 
-          {/* Loading Steps */}
           <motion.div
-            className="h-6 mb-8"
+            className="mb-8 h-6"
             key={currentStep}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <p className="text-muted-foreground font-inter text-sm">
-              {steps?.[currentStep]}
+            <p className="text-sm font-inter text-muted-foreground">
+              {steps[currentStep]}
             </p>
           </motion.div>
 
-          {/* Animated Dots */}
           <div className="flex justify-center space-x-2">
-            {[0, 1, 2]?.map((index) => (
+            {[0, 1, 2].map((index) => (
               <motion.div
                 key={index}
-                className="w-2 h-2 bg-primary/60 rounded-full"
+                className="h-2 w-2 rounded-full bg-primary/60"
                 animate={{
                   scale: [1, 1.5, 1],
-                  opacity: [0.5, 1, 0.5]
+                  opacity: [0.5, 1, 0.5],
                 }}
                 transition={{
                   duration: 1,
                   repeat: Infinity,
                   delay: index * 0.2,
-                  ease: "easeInOut"
+                  ease: 'easeInOut',
                 }}
               />
             ))}
           </div>
 
-          {/* Holographic Elements */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="pointer-events-none absolute inset-0">
             <motion.div
-              className="absolute top-1/4 left-1/4 w-20 h-12 border border-primary/20 rounded backdrop-blur-sm"
+              className="absolute left-1/4 top-1/4 h-12 w-20 rounded border border-primary/20 backdrop-blur-sm"
               animate={{
                 opacity: [0, 0.5, 0],
-                rotate: [0, 10, 0]
+                rotate: [0, 10, 0],
               }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: 'easeInOut',
               }}
             />
-            
+
             <motion.div
-              className="absolute top-1/3 right-1/4 w-16 h-16 border border-primary/15 rounded-full backdrop-blur-sm"
+              className="absolute right-1/4 top-1/3 h-16 w-16 rounded-full border border-primary/15 backdrop-blur-sm"
               animate={{
                 opacity: [0, 0.3, 0],
-                scale: [0.8, 1.2, 0.8]
+                scale: [0.8, 1.2, 0.8],
               }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
+                ease: 'easeInOut',
+                delay: 1,
               }}
             />
           </div>

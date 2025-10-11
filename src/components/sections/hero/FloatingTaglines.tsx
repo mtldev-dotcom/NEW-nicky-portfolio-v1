@@ -1,16 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 const FloatingTaglines = () => {
-  const taglines = [
-    { text: "Creative", delay: 0 },
-    { text: "Technologist", delay: 0.5 },
-    { text: "AI", delay: 1 },
-    { text: "Innovation", delay: 1.5 },
-    { text: "Design", delay: 2 },
-    { text: "Code", delay: 2.5 }
-  ];
+  const t = useTranslations('home.floatingTaglines');
+  const taglineKeys = ['one', 'two', 'three', 'four', 'five', 'six'] as const;
+
+  const taglines = taglineKeys.map((key, index) => ({
+    text: t(key),
+    delay: index * 0.35,
+  }));
 
   const orbitVariants = {
     animate: (custom) => ({

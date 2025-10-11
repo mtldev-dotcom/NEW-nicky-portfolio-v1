@@ -1,1 +1,55 @@
-{}
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "cta": "Start project"
+  },
+  "home": {
+    "floatingTaglines": {
+      "one": "Websites",
+      "two": "Automation",
+      "three": "Design systems",
+      "four": "Strategy",
+      "five": "AI workflows",
+      "six": "Meaningful results"
+    },
+    "hero": {
+      "title": "I build modern digital systems that simplify your business and make you stand out.",
+      "subtitle": "Websites • Automation • Design • Strategy",
+      "description": "I help entrepreneurs, creators, and teams turn messy ideas into organized, beautiful digital experiences—blending design, code, and automation so everything just works.",
+      "ctaPrimary": "See my work",
+      "ctaSecondary": "Book a discovery call",
+      "stats": {
+        "experience": {
+          "value": "20+",
+          "label": "Years experience"
+        },
+        "projects": {
+          "value": "80+",
+          "label": "Projects delivered"
+        },
+        "hoursSaved": {
+          "value": "4,000+",
+          "label": "Hours saved for teams"
+        }
+      },
+      "status": "Available for projects",
+      "response": "Response within 24h",
+      "portraitAlt": "Nicky Bruno - Creative Technologist"
+    },
+    "loading": {
+      "title": "Preparing your experience",
+      "steps": {
+        "one": "Initializing creative systems…",
+        "two": "Loading automation modules…",
+        "three": "Connecting data flows…",
+        "four": "Calibrating experience layers…",
+        "five": "Ready to build something remarkable."
+      }
+    }
+  }
+}
