@@ -1,7 +1,7 @@
 'use client';
 
 import { type FC, useEffect, useMemo, useState } from 'react';
-import Link from 'next-intl/link';
+import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import Button from './Button';
@@ -83,7 +83,7 @@ const Header: FC = () => {
         <div className="w-full">
           <div className="flex items-center justify-between h-16 px-6 lg:px-8">
             <Link
-              href="/hero-experience"
+              href={`/${locale}/hero-experience`}
               className="flex items-center space-x-3 group transition-smooth hover:scale-105"
               onClick={closeMobileMenu}
             >
@@ -107,7 +107,7 @@ const Header: FC = () => {
                 return (
                   <Link
                     key={item.path}
-                    href={item.path}
+                    href={item.path === '/' ? `/${locale}` : `/${locale}${item.path}`}
                     className={`relative px-4 py-2 rounded-lg font-inter font-medium text-sm transition-smooth group ${
                       active
                         ? 'text-primary bg-primary/10'
@@ -159,7 +159,7 @@ const Header: FC = () => {
               return (
                 <Link
                   key={item.path}
-                  href={item.path}
+                  href={item.path === '/' ? `/${locale}` : `/${locale}${item.path}`}
                   onClick={closeMobileMenu}
                   className={`flex items-center space-x-3 px-4 py-3 rounded-lg font-inter font-medium transition-smooth ${
                     active

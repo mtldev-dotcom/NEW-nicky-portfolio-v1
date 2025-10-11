@@ -88,6 +88,166 @@ npm run lint
 
 **Key routing note:** every section route lives under a locale prefix (e.g., `/en/about-section`, `/fr/services-section`) and renders its client component from `components/sections/**`, matching the layout listed in the brief.
 
+## Localization (i18n)
+
+This project uses next-intl (v4) with Next.js 15 App Router and explicit locale-prefixed routing.
+
+- URLs:
+  - / → 307 redirect to /en
+  - /en/* and /fr/* serve localized pages under the top-level [locale] segment.
+- Locales: English (en), French (fr)
+
+Required files and configuration
+- next-intl.config.ts
+  ```ts
+  export default {
+    locales: ['en', 'fr'],
+    defaultLocale: 'en',
+    // Forces locale prefixes like /en, /fr
+    localePrefix: 'always'
+  };
+  ```
+- next.config.mjs
+  ```js
+  import createNextIntlPlugin from 'next-intl/plugin';
+
+  /** @type {import('next').NextConfig} */
+  const nextConfig = { reactStrictMode: true };
+
+  const withNextIntl = createNextIntlPlugin();
+  export default withNextIntl(nextConfig);
+  ```
+- middleware.ts
+  ```ts
+  import createMiddleware from 'next-intl/middleware';
+  import { defaultLocale, locales } from './src/i18n/config';
+
+  export default createMiddleware({
+    defaultLocale,
+    locales,
+    localeDetection: true
+  });
+
+  export const config = {
+    matcher: ['/', '/(?!_next|.*\\..*|api).+']
+  };
+  ```
+- src/i18n/config.ts
+  ```ts
+  export const locales = ['en', 'fr'] as const;
+  export type Locale = (typeof locales)[number];
+  export const defaultLocale: Locale = 'en';
+  ```
+- src/i18n/request.ts
+  Provides request-scoped locale/messages to next-intl (loaded from JSON files).
+  ```ts
+  import {getRequestConfig} from 'next-intl/server';
+  import {defaultLocale, locales, type Locale} from './config';
+
+  export default getRequestConfig(async ({locale}) => {
+    const candidate = locale as string | undefined;
+    const resolved: Locale =
+      candidate && (locales as readonly string[]).includes(candidate)
+        ? (candidate as Locale)
+        : defaultLocale;
+
+    try {
+      const messages = (await import(`./messages/${resolved}.json`)).default;
+      return {locale: resolved, messages};
+    } catch {
+      return {locale: resolved, messages: {}};
+    }
+  });
+  ```
+- src/app/[locale]/layout.tsx
+  Await params in Next 15 and set the request locale before rendering.
+  ```tsx
+  import {NextIntlClientProvider} from 'next-intl';
+  import {setRequestLocale} from 'next-intl/server';
+  import {type Locale, locales} from '@/i18n/config';
+  import {getMessages} from '@/i18n/getMessages';
+
+  type Props = {
+    children: React.ReactNode;
+    params: Promise<{locale: Locale}>;
+  };
+
+  export default async function LocaleLayout({children, params}: Props) {
+    const {locale} = await params;
+    if (!locales.includes(locale)) {
+      // notFound()
+    }
+    setRequestLocale(locale);
+    const messages = await getMessages(locale);
+
+    return (
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        {children}
+      </NextIntlClientProvider>
+    );
+  }
+  ```
+- src/app/page.tsx
+  Redirect the root path to the default locale.
+  ```tsx
+  import {redirect} from 'next/navigation';
+  import {defaultLocale} from '@/i18n/config';
+  export default function RootRedirect() {
+    redirect(`/${defaultLocale}`);
+  }
+  ```
+
+Messages
+- JSON translations live in src/i18n/messages/<locale>.json and namespaced as needed. Example:
+  ```json
+  {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "testimonials": "Testimonials",
+      "contact": "Contact",
+      "cta": "Start project"
+    }
+  }
+  ```
+
+Using translations and locale in components
+- Client components:
+  ```tsx
+  'use client';
+  import {useLocale, useTranslations} from 'next-intl';
+
+  export default function Example() {
+    const locale = useLocale();
+    const t = useTranslations('navigation');
+    return <button>{t('cta')} — {locale}</button>;
+  }
+  ```
+- Links with locale prefix:
+  ```tsx
+  import Link from 'next/link';
+  import {useLocale} from 'next-intl';
+
+  const locale = useLocale();
+  <Link href={`/${locale}/about-section`}>About</Link>
+  ```
+
+Add a new locale
+1) Add the code to src/i18n/config.ts locales.  
+2) Add the same code to next-intl.config.ts locales.  
+3) Create src/i18n/messages/<new-locale>.json.  
+4) Restart the dev server if you changed next.config.mjs.
+
+Troubleshooting
+- 404 on /: Ensure src/app/page.tsx exists and middleware.ts matcher includes '/'.  
+- 500 “Couldn't find next-intl config file”: Ensure next-intl.config.ts exists at the repo root and restart dev server.  
+- Attempted import error 'unstable_setRequestLocale': Use setRequestLocale from next-intl/server (Next 15 / next-intl v4).  
+- In route /[locale] params.locale accessed directly: In Next 15, define params as Promise<...> and await it in Server Components.  
+- Module not found: next-intl/link: Use next/link and manually prefix hrefs with /${locale}.  
+- After editing next.config.mjs or adding request.ts, restart the dev server to pick up changes.
+
 ---
 
 ## Styling & Theming

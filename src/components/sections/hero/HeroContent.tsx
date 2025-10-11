@@ -44,7 +44,7 @@ const HeroContent = () => {
   }));
 
   return (
-    <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+    <div className="relative z-10 mx-auto max-w-5xl lg:max-w-6xl px-6 text-left">
       <motion.div
         className="mb-8"
         initial="hidden"
@@ -78,7 +78,7 @@ const HeroContent = () => {
       </motion.h2>
 
       <motion.p
-        className="mx-auto mb-12 max-w-2xl text-base font-inter leading-relaxed text-muted-foreground md:text-lg"
+        className="mx-auto mb-12 max-w-3xl lg:max-w-4xl text-base font-inter leading-relaxed text-muted-foreground md:text-lg"
         initial="hidden"
         animate="visible"
         variants={textVariants}

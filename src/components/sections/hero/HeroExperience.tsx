@@ -39,8 +39,8 @@ const HeroExperience = () => {
 
         <Header />
 
-        <main className="relative z-10 flex min-h-screen flex-col items-center justify-center pt-24 pb-16">
-          <section className="relative mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <main className="relative z-10 flex h-screen flex-col items-stretch justify-center pt-16">
+          <section className="relative w-full max-w-none min-h-[calc(100vh-4rem)] px-0 sm:px-6 lg:px-8 flex items-center">
             <FloatingTaglines />
 
             <div className="relative grid items-center justify-items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">

@@ -1,7 +1,8 @@
 'use client';
 
 import { type FC, useEffect } from 'react';
-import Link from 'next-intl/link';
+import { useLocale } from 'next-intl';
+import Link from 'next/link';
 import Header from 'components/ui/Header';
 import CareerTimeline from './CareerTimeline';
 import CredentialsShowcase from './CredentialsShowcase';
@@ -9,6 +10,7 @@ import ExperienceCounter from './ExperienceCounter';
 import PersonalIntro from './PersonalIntro';
 
 const AboutSection: FC = () => {
+  const locale = useLocale();
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
@@ -65,14 +67,14 @@ const AboutSection: FC = () => {
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
-                  href="/contact-section"
+                  href={`/${locale}/contact-section`}
                   className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 font-space-grotesk font-semibold text-black transition-smooth hover:bg-primary/90 glow-neon hover:glow-neon-active"
                 >
                   Start Your Project
                 </Link>
 
                 <Link
-                  href="/portfolio-section"
+                  href={`/${locale}/portfolio-section`}
                   className="inline-flex items-center justify-center rounded-lg border border-border px-8 py-4 font-space-grotesk font-semibold text-foreground transition-smooth hover:border-primary/50"
                 >
                   View My Work

@@ -1,14 +1,14 @@
 import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import ScrollToTop from 'components/ScrollToTop';
 import { getMessages } from '@/i18n/getMessages';
 import { type Locale, locales } from '@/i18n/config';
 
 type LocaleLayoutProps = {
   children: ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 };
 
 export function generateStaticParams() {
@@ -16,13 +16,13 @@ export function generateStaticParams() {
 }
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (!locales.includes(locale)) {
     notFound();
   }
 
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const messages = await getMessages(locale);
 
