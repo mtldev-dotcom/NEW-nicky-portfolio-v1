@@ -1,13 +1,15 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Button from 'components/ui/Button';
 
 const statsOrder = ['experience', 'projects', 'hoursSaved'] as const;
 
 const HeroContent = () => {
   const t = useTranslations('home.hero');
+  const locale = useLocale();
 
   const textVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -43,24 +45,27 @@ const HeroContent = () => {
     label: t(`stats.${key}.label`),
   }));
 
+  const primaryHref = `/${locale}/portfolio-section`;
+  const secondaryHref = `/${locale}/contact-section`;
+
   return (
-    <div className="relative z-10 mx-auto max-w-5xl lg:max-w-6xl px-6 text-left">
+    <div className="relative z-10">
       <motion.div
-        className="mb-8"
+        className="mb-6 md:mb-8"
         initial="hidden"
         animate="visible"
         variants={textVariants}
         custom={0}
       >
         <motion.h1
-          className="mb-4 text-4xl font-space-grotesk font-bold text-foreground md:text-6xl lg:text-7xl"
+          className="mb-4 font-space-grotesk text-4xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl"
           variants={glowVariants}
           animate="animate"
         >
           {t('title')}
         </motion.h1>
         <motion.div
-          className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-primary to-primary/50"
+          className="h-1 w-24 rounded-full bg-gradient-to-r from-primary to-primary/50"
           initial={{ width: 0 }}
           animate={{ width: 96 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -68,7 +73,7 @@ const HeroContent = () => {
       </motion.div>
 
       <motion.h2
-        className="mb-6 text-xl font-space-grotesk font-medium text-primary md:text-2xl lg:text-3xl"
+        className="mb-4 font-space-grotesk text-lg font-medium text-primary md:mb-6 md:text-2xl lg:text-3xl"
         initial="hidden"
         animate="visible"
         variants={textVariants}
@@ -78,7 +83,7 @@ const HeroContent = () => {
       </motion.h2>
 
       <motion.p
-        className="mx-auto mb-12 max-w-3xl lg:max-w-4xl text-base font-inter leading-relaxed text-muted-foreground md:text-lg"
+        className="mb-8 max-w-2xl font-inter text-base leading-relaxed text-muted-foreground md:mb-10 md:max-w-3xl md:text-lg lg:max-w-4xl"
         initial="hidden"
         animate="visible"
         variants={textVariants}
@@ -88,37 +93,42 @@ const HeroContent = () => {
       </motion.p>
 
       <motion.div
-        className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6"
+        className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4"
         initial="hidden"
         animate="visible"
         variants={textVariants}
         custom={3}
       >
         <Button
+          asChild
           variant="default"
           size="lg"
-          className="glow-neon hover:glow-neon-active transition-smooth magnetic-hover"
+          className="glow-neon transition-smooth hover:glow-neon-active magnetic-hover"
           iconName="ArrowRight"
           iconPosition="right"
           iconSize={20}
+          aria-label={t('ctaPrimary')}
         >
-          {t('ctaPrimary')}
+          <Link href={primaryHref}>{t('ctaPrimary')}</Link>
         </Button>
 
         <Button
+          asChild
           variant="outline"
           size="lg"
-          className="border-primary/30 text-primary hover:bg-primary/10 transition-smooth magnetic-hover"
+          className="border-primary/30 text-primary transition-smooth hover:bg-primary/10 magnetic-hover"
           iconName="Calendar"
           iconPosition="left"
           iconSize={18}
+          aria-label={t('ctaSecondary')}
         >
-          {t('ctaSecondary')}
+          <Link href={secondaryHref}>{t('ctaSecondary')}</Link>
         </Button>
       </motion.div>
 
+      {/* Stats moved below CTAs to improve layout and responsiveness */}
       <motion.div
-        className="absolute bottom-20 left-0 right-0 hidden justify-center space-x-12 lg:flex"
+        className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3"
         initial="hidden"
         animate="visible"
         variants={textVariants}
@@ -127,14 +137,14 @@ const HeroContent = () => {
         {stats.map((stat) => (
           <motion.div
             key={stat.key}
-            className="text-center"
+            className="text-left"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <div className="mb-1 text-2xl font-space-grotesk font-bold text-primary">
+            <div className="mb-1 font-space-grotesk text-2xl font-bold text-primary">
               {stat.value}
             </div>
-            <div className="text-xs font-inter uppercase tracking-wider text-muted-foreground">
+            <div className="font-inter text-xs uppercase tracking-wider text-muted-foreground">
               {stat.label}
             </div>
           </motion.div>

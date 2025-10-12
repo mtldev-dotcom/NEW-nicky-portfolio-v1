@@ -35,7 +35,7 @@ const FloatingTaglines = () => {
   };
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute inset-0 pointer-events-none hidden md:block">
       {taglines?.map((tagline, index) => {
         const radius = 200 + index * 30;
         const angle = (index * 60) * (Math.PI / 180);

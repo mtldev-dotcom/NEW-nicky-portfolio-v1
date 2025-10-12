@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 import Icon, { type IconName } from '../AppIcon';
@@ -73,6 +72,13 @@ export interface ButtonProps
   fullWidth?: boolean;
 }
 
+/**
+ * Button with optional `asChild` support.
+ *
+ * When `asChild` is true and the child is a valid React element (e.g. `next/link`),
+ * we clone that element, merge classes, and inject the icon/spinner + children content.
+ * This avoids passing `className` to a React.Fragment, fixing the runtime warning.
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -92,15 +98,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const Comp = asChild ? Slot : 'button';
     const calculatedIconSize = iconSize ?? iconSizeMap[size] ?? 16;
     const isDisabled = disabled ?? false;
-    const shouldDisable = !asChild ? isDisabled || loading : undefined;
 
     const renderIcon = (position: IconPosition) => {
-      if (!iconName || iconPosition !== position) {
-        return null;
-      }
+      if (!iconName || iconPosition !== position) return null;
 
       const spacingClass =
         children != null && children !== false
@@ -121,27 +123,49 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       </>
     );
 
-    const baseClassName = cn(buttonVariants({ variant, size, className }), fullWidth && 'w-full');
+    const baseClassName = cn(
+      buttonVariants({ variant, size, className }),
+      fullWidth && 'w-full'
+    );
 
-    if (asChild) {
-      return (
-        <Comp className={baseClassName} ref={ref} data-loading={loading ? 'true' : undefined} {...props}>
-          {content}
-        </Comp>
+    // Enhanced asChild behavior: clone the single child element and inject classes + content
+    if (asChild && React.isValidElement(children)) {
+      const onlyChild = React.Children.only(children) as React.ReactElement<any>;
+      const mergedClassName = cn(onlyChild.props?.className, baseClassName);
+      const innerChildren = onlyChild.props?.children;
+
+      const contentAsChild = (
+        <>
+          {loading && <LoadingSpinner />}
+          {renderIcon('left')}
+          {innerChildren}
+          {renderIcon('right')}
+        </>
+      );
+
+      return React.cloneElement(
+        onlyChild,
+        {
+          className: mergedClassName,
+          'data-loading': loading ? 'true' : undefined,
+          ...props,
+        },
+        contentAsChild
       );
     }
 
+    // Default native button
     return (
-      <Comp
+      <button
         className={baseClassName}
         ref={ref}
-        disabled={shouldDisable}
+        disabled={isDisabled || loading}
         type={type}
         data-loading={loading ? 'true' : undefined}
         {...props}
       >
         {content}
-      </Comp>
+      </button>
     );
   }
 );

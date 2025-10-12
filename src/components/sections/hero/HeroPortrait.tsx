@@ -42,7 +42,7 @@ const HeroPortrait = () => {
         }}
         transition={{ duration: 1, ease: 'easeOut' }}
       >
-        <div className="relative mx-auto h-80 w-80 lg:h-96 lg:w-96">
+        <div className="relative mx-auto h-56 w-56 sm:h-72 sm:w-72 lg:h-96 lg:w-96">
           <div className="absolute inset-0 rounded-full bg-gradient-radial from-primary/20 via-primary/10 to-transparent blur-2xl" />
 
           <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-primary/30 glow-neon">
@@ -52,6 +52,10 @@ const HeroPortrait = () => {
               className="h-full w-full object-cover"
               ref={imageRef}
               onLoad={() => setIsLoaded(true)}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 24rem, (min-width: 640px) 18rem, 14rem"
             />
 
             <div className="absolute inset-0 mix-blend-overlay bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
@@ -70,7 +74,7 @@ const HeroPortrait = () => {
           </div>
 
           <motion.div
-            className="absolute -top-4 -right-4 h-8 w-8 rounded border border-primary/40 bg-primary/10 backdrop-blur-sm"
+            className="absolute -top-4 -right-4 h-8 w-8 rounded border border-primary/40 bg-primary/10 backdrop-blur-sm hidden sm:block"
             animate={{
               rotate: 360,
               scale: [1, 1.1, 1],
@@ -82,7 +86,7 @@ const HeroPortrait = () => {
           />
 
           <motion.div
-            className="absolute -bottom-6 -left-6 flex h-6 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm"
+            className="absolute -bottom-6 -left-6 hidden sm:flex h-6 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm"
             animate={{
               y: [0, -10, 0],
               opacity: [0.5, 1, 0.5],
@@ -98,7 +102,7 @@ const HeroPortrait = () => {
           </motion.div>
 
           <motion.div
-            className="absolute top-1/4 -left-8 h-6 w-6 rounded-full border border-primary/35 bg-primary/10 backdrop-blur-sm"
+            className="absolute top-1/4 -left-8 h-6 w-6 rounded-full border border-primary/35 bg-primary/10 backdrop-blur-sm hidden sm:block"
             animate={{
               x: [0, -5, 0],
               rotate: [0, 180, 360],
@@ -112,7 +116,7 @@ const HeroPortrait = () => {
           />
 
           <motion.div
-            className="absolute top-3/4 -right-8 h-4 w-10 rounded border border-primary/25 bg-primary/5 backdrop-blur-sm"
+            className="absolute top-3/4 -right-8 h-4 w-10 rounded border border-primary/25 bg-primary/5 backdrop-blur-sm hidden sm:block"
             animate={{
               x: [0, 8, 0],
               opacity: [0.3, 0.8, 0.3],

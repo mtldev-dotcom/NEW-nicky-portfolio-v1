@@ -83,7 +83,7 @@ const Header: FC = () => {
         <div className="w-full">
           <div className="flex items-center justify-between h-16 px-6 lg:px-8">
             <Link
-              href={`/${locale}/hero-experience`}
+              href={`/${locale}`}
               className="flex items-center space-x-3 group transition-smooth hover:scale-105"
               onClick={closeMobileMenu}
             >
@@ -127,6 +127,7 @@ const Header: FC = () => {
 
             <div className="flex items-center space-x-4">
               <Button
+                asChild
                 variant="default"
                 size="sm"
                 className="hidden md:flex glow-neon hover:glow-neon-active transition-smooth"
@@ -134,7 +135,7 @@ const Header: FC = () => {
                 iconPosition="left"
                 iconSize={16}
               >
-                {tNav('cta')}
+                <Link href={`/${locale}/contact-section`}>{tNav('cta')}</Link>
               </Button>
 
               <button
@@ -175,6 +176,7 @@ const Header: FC = () => {
 
             <div className="pt-4 border-t border-border/50">
               <Button
+                asChild
                 variant="default"
                 fullWidth
                 className="glow-neon hover:glow-neon-active transition-smooth"
@@ -183,7 +185,7 @@ const Header: FC = () => {
                 iconSize={16}
                 onClick={closeMobileMenu}
               >
-                {tNav('cta')}
+                <Link href={`/${locale}/contact-section`}>{tNav('cta')}</Link>
               </Button>
             </div>
           </nav>
