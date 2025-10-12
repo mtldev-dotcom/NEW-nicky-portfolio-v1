@@ -27,3 +27,5 @@ coverage
 .cache
 *.log
 docs
+tsconfig.tsbuildinfo
+.tsbuildcache/

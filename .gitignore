@@ -6,3 +6,5 @@ node_modules
 .vscode
 *.log
 .idea
+tsconfig.tsbuildinfo
+.tsbuildcache/
