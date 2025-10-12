@@ -4,7 +4,8 @@ import * as React from 'react';
 import Link, { type LinkProps } from 'next/link';
 import { cn } from '@/utils/cn';
 import Icon, { type IconName } from '../AppIcon';
-import { buttonVariants, type VariantProps } from './Button';
+import { buttonVariants } from '@/components/shadcn/ui/button';
+import { type VariantProps } from 'class-variance-authority';
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 type IconPosition = 'left' | 'right';

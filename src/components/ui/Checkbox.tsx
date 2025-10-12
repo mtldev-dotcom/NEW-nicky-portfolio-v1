@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useId } from "react";
-import { Check, Minus } from "lucide-react";
 import { cn } from "@/utils/cn";
+import { Checkbox as BaseCheckbox } from "@/components/shadcn/ui/checkbox";
 
 type CheckboxSize = "sm" | "default" | "lg";
 
@@ -20,7 +20,7 @@ interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>
   size?: CheckboxSize;
 }
 
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
+const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(function Checkbox(
   {
     className,
     id,
@@ -38,40 +38,31 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
 ) {
   const generatedId = useId();
   const checkboxId = id ?? generatedId;
+  const { onChange, onInput, onInvalid, onToggle, onSelect, ...restProps } = props as any;
 
   return (
     <div className={cn("flex items-start space-x-2", className)}>
-      <div className="relative flex items-center">
-        <input
-          type="checkbox"
-          ref={ref}
-          id={checkboxId}
-          checked={checked}
-          disabled={disabled}
-          required={required}
-          className="sr-only"
-          aria-checked={indeterminate ? "mixed" : checked}
-          {...props}
-        />
-
-        <label
-          htmlFor={checkboxId}
-          className={cn(
-            "peer flex items-center justify-center shrink-0 rounded-sm border border-primary ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground cursor-pointer",
-            sizeClasses[size],
-            (checked || indeterminate) && "bg-primary text-primary-foreground border-primary",
-            error && "border-destructive",
-            disabled && "cursor-not-allowed opacity-50"
-          )}
-        >
-          {checked && !indeterminate && (
-            <Check className="h-3 w-3 text-current" />
-          )}
-          {indeterminate && (
-            <Minus className="h-3 w-3 text-current" />
-          )}
-        </label>
-      </div>
+      <BaseCheckbox
+        ref={ref}
+        id={checkboxId}
+        className={cn(
+          sizeClasses[size],
+          error && "border-destructive",
+          disabled && "cursor-not-allowed opacity-50"
+        )}
+        checked={indeterminate ? 'indeterminate' : !!checked}
+        disabled={disabled}
+        onCheckedChange={(state) => {
+          if (typeof onChange === "function") {
+            const syntheticEvent = {
+              target: { checked: state === true },
+              currentTarget: { checked: state === true }
+            } as unknown as React.ChangeEvent<HTMLInputElement>;
+            onChange(syntheticEvent);
+          }
+        }}
+        {...restProps}
+      />
       {(label || description || error) && (
         <div className="flex-1 space-y-1">
           {label && (

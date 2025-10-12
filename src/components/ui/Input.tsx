@@ -2,6 +2,7 @@
 
 import React, { useId } from "react";
 import { cn } from "@/utils/cn";
+import { Input as BaseInput } from "@/components/shadcn/ui/input";
 
 type InputType = React.HTMLInputTypeAttribute;
 
@@ -66,10 +67,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(
         </label>
       )}
 
-      <input
+      <BaseInput
         type={type}
         className={cn(
-          baseInputClasses,
           error && "border-destructive focus-visible:ring-destructive",
           className
         )}
