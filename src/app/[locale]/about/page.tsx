@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Meet Nicky Bruno, the creative technologist bridging design, development, and AI innovation from Montreal to the world.',
   alternates: {
-    canonical: '/about-section',
+    canonical: '/about',
   },
   openGraph: {
     title: 'About - Nicky Bruno | The Creative Technologist',

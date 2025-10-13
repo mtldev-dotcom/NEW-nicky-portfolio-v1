@@ -15,10 +15,10 @@ type NavigationItem = {
 
 const navigationItems: NavigationItem[] = [
   { labelKey: 'home', path: '/', icon: 'Home' },
-  { labelKey: 'about', path: '/about-section', icon: 'User' },
-  { labelKey: 'services', path: '/services-section', icon: 'Briefcase' },
-  { labelKey: 'portfolio', path: '/portfolio-section', icon: 'FolderOpen' },
-  { labelKey: 'contact', path: '/contact-section', icon: 'Mail' },
+  { labelKey: 'about', path: '/about', icon: 'User' },
+  { labelKey: 'services', path: '/services', icon: 'Briefcase' },
+  { labelKey: 'portfolio', path: '/portfolio', icon: 'FolderOpen' },
+  { labelKey: 'contact', path: '/contact', icon: 'Mail' },
 ];
 
 const Header: FC = () => {
@@ -134,7 +134,7 @@ const Header: FC = () => {
                 iconPosition="left"
                 iconSize={16}
               >
-                <Link href={`/${locale}/contact-section`}>{tNav('cta')}</Link>
+                <Link href={`/${locale}/contact`}>{tNav('cta')}</Link>
               </Button>
 
               <button
@@ -184,7 +184,7 @@ const Header: FC = () => {
                 iconSize={16}
                 onClick={closeMobileMenu}
               >
-                <Link href={`/${locale}/contact-section`}>{tNav('cta')}</Link>
+                <Link href={`/${locale}/contact`}>{tNav('cta')}</Link>
               </Button>
             </div>
           </nav>

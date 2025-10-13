@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Explore creative design, full-stack development, AI automation, and strategic consulting services crafted by Nicky Bruno.',
   alternates: {
-    canonical: '/services-section',
+    canonical: '/services',
   },
   openGraph: {
     title: 'Services - Nicky Bruno',

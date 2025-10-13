@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Let's collaborate on your next project—connect with Nicky Bruno for AI-driven design, development, and strategy.",
   alternates: {
-    canonical: '/contact-section',
+    canonical: '/contact',
   },
   openGraph: {
     title: 'Contact - Nicky Bruno',

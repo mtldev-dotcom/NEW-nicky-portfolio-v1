@@ -65,14 +65,14 @@ const AboutSection: FC = () => {
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
-                  href={`/${locale}/contact-section`}
+                  href={`/${locale}/contact`}
                   className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 font-space-grotesk font-semibold text-black transition-smooth hover:bg-primary/90 glow-neon hover:glow-neon-active"
                 >
                   Start Your Project
                 </Link>
 
                 <Link
-                  href={`/${locale}/portfolio-section`}
+                  href={`/${locale}/portfolio`}
                   className="inline-flex items-center justify-center rounded-lg border border-border px-8 py-4 font-space-grotesk font-semibold text-foreground transition-smooth hover:border-primary/50"
                 >
                   View My Work

@@ -51,7 +51,7 @@ const PROJECTS: MiniProject[] = [
 
 const HomeFeaturedProjects = () => {
   const locale = useLocale();
-  const portfolioHref = `/${locale}/portfolio-section`;
+  const portfolioHref = `/${locale}/portfolio`;
 
   return (
     <section className="relative py-20 px-6 lg:px-8 bg-background">

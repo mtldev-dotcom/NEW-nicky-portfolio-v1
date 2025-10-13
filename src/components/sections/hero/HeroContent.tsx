@@ -45,8 +45,8 @@ const HeroContent = () => {
     label: t(`stats.${key}.label`),
   }));
 
-  const primaryHref = `/${locale}/portfolio-section`;
-  const secondaryHref = `/${locale}/contact-section`;
+  const primaryHref = `/${locale}/portfolio`;
+  const secondaryHref = `/${locale}/contact`;
 
   return (
     <div className="relative z-10">
