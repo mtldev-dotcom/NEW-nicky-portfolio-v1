@@ -17,7 +17,7 @@ const CAPABILITIES: Capability[] = [
   },
   {
     icon: 'Workflow',
-    title: 'Automation that saves time',
+    title: 'Automation & AI Tools',
     description: 'Tools talking to each other so you don’t have to.',
   },
   {

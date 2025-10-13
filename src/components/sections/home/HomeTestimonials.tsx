@@ -76,26 +76,6 @@ const HomeTestimonials = () => {
           <TestimonialCarousel testimonials={testimonials} autoPlay interval={7000} />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-          {stats.map((s, idx) => (
-            <motion.div
-              key={s.key}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="flex items-center gap-4 p-4 rounded-xl border border-border/60 bg-card/50"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center glow-neon">
-                <Icon name={s.icon as any} size={22} className="text-primary" />
-              </div>
-              <div>
-                <div className="text-xl font-space-grotesk font-bold text-foreground">{s.value}</div>
-                <div className="text-xs uppercase tracking-wide text-muted-foreground">{s.label}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
