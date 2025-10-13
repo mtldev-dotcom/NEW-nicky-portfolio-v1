@@ -1,3 +1,5 @@
+import Header from 'components/ui/Header';
+import Footer from 'components/ui/Footer';
 import PortfolioSection from 'components/sections/portfolio/PortfolioSection';
 import type { Metadata } from 'next';
 
@@ -17,5 +19,11 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
-  return <PortfolioSection />;
+  return (
+    <>
+      <Header />
+      <PortfolioSection />
+      <Footer />
+    </>
+  );
 }

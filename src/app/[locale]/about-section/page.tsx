@@ -1,3 +1,5 @@
+import Header from 'components/ui/Header';
+import Footer from 'components/ui/Footer';
 import AboutSection from 'components/sections/about/AboutSection';
 import type { Metadata } from 'next';
 
@@ -17,5 +19,11 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutSection />;
+  return (
+    <>
+      <Header />
+      <AboutSection />
+      <Footer />
+    </>
+  );
 }

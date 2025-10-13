@@ -1,3 +1,5 @@
+import Header from 'components/ui/Header';
+import Footer from 'components/ui/Footer';
 import ContactSection from 'components/sections/contact/ContactSection';
 import type { Metadata } from 'next';
 
@@ -17,5 +19,11 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactSection />;
+  return (
+    <>
+      <Header />
+      <ContactSection />
+      <Footer />
+    </>
+  );
 }

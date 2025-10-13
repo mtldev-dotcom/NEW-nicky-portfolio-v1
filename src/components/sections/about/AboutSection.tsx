@@ -3,7 +3,6 @@
 import { type FC, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
-import Header from 'components/ui/Header';
 import CareerTimeline from './CareerTimeline';
 import CredentialsShowcase from './CredentialsShowcase';
 import ExperienceCounter from './ExperienceCounter';
@@ -19,7 +18,6 @@ const AboutSection: FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
 
       <main className="pt-16">
         {/* Personal Introduction Section */}

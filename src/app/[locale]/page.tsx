@@ -1,4 +1,9 @@
+import Header from 'components/ui/Header';
+import Footer from 'components/ui/Footer';
 import HeroExperience from 'components/sections/hero/HeroExperience';
+import HomeCapabilities from 'components/sections/home/HomeCapabilities';
+import HomeFeaturedProjects from 'components/sections/home/HomeFeaturedProjects';
+import HomeTestimonials from 'components/sections/home/HomeTestimonials';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,5 +23,14 @@ export const metadata: Metadata = {
 };
 
 export default function LocaleHomePage() {
-  return <HeroExperience />;
+  return (
+    <>
+      <Header />
+      <HeroExperience />
+      <HomeCapabilities />
+      <HomeFeaturedProjects />
+      <HomeTestimonials />
+      <Footer />
+    </>
+  );
 }

@@ -1,3 +1,5 @@
+import Header from 'components/ui/Header';
+import Footer from 'components/ui/Footer';
 import ServicesSection from 'components/sections/services/ServicesSection';
 import type { Metadata } from 'next';
 
@@ -17,5 +19,11 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesSection />;
+  return (
+    <>
+      <Header />
+      <ServicesSection />
+      <Footer />
+    </>
+  ) ;
 }

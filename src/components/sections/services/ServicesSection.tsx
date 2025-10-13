@@ -112,7 +112,6 @@ const ServicesSection = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

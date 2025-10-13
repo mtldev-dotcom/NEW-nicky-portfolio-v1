@@ -401,7 +401,6 @@ const PortfolioSection = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="pt-16">
         {/* Hero Section */}
         <section className="relative py-20 lg:py-32 overflow-hidden">

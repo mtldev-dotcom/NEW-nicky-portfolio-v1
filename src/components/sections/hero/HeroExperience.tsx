@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import Header from 'components/ui/Header';
 import FloatingTaglines from './FloatingTaglines';
 import HeroContent from './HeroContent';
 import HeroPortrait from './HeroPortrait';
@@ -36,8 +35,6 @@ const HeroExperience = () => {
       <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
         <ParallaxBackground />
         <HolographicOverlay />
-
-        <Header />
 
         <main className="relative z-10 flex min-h-screen flex-col items-stretch justify-center pt-16">
           <section className="relative w-full min-h-[calc(100vh-4rem)] px-6 lg:px-8 flex items-center">

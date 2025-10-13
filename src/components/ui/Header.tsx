@@ -18,7 +18,6 @@ const navigationItems: NavigationItem[] = [
   { labelKey: 'about', path: '/about-section', icon: 'User' },
   { labelKey: 'services', path: '/services-section', icon: 'Briefcase' },
   { labelKey: 'portfolio', path: '/portfolio-section', icon: 'FolderOpen' },
-  { labelKey: 'testimonials', path: '/testimonials-section', icon: 'MessageSquare' },
   { labelKey: 'contact', path: '/contact-section', icon: 'Mail' },
 ];
 
