@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -18,29 +18,88 @@ const ICON_SIZE = 48;
 // TECH STACK DATA - Using only icons that definitely exist
 // ============================================================================
 
+type TabType = 'all' | 'core' | 'automation' | 'cloud' | 'backend' | 'design';
+
 interface TechItem {
     id: string;
     name: string;
     icon: string;
     color: string;
+    category: Exclude<TabType, 'all'>;
 }
 
 const TECH_STACK: TechItem[] = [
-    { id: 'react', name: 'React', icon: 'react.png', color: '#61DAFB' },
-    { id: 'nextjs', name: 'Next.js', icon: 'nextjs.png', color: '#000000' },
-    { id: 'typescript', name: 'TypeScript', icon: 'typescript.png', color: '#3178C6' },
-    { id: 'javascript', name: 'JavaScript', icon: 'js.png', color: '#F7DF1E' },
-    { id: 'tailwind', name: 'Tailwind CSS', icon: 'tailwindcss.png', color: '#06B6D4' },
-    { id: 'nodejs', name: 'Node.js', icon: 'nodejs.png', color: '#339933' },
-    { id: 'python', name: 'Python', icon: 'python.png', color: '#3776AB' },
-    { id: 'postgresql', name: 'PostgreSQL', icon: 'postgresql.png', color: '#4169E1' },
-    { id: 'mongodb', name: 'MongoDB', icon: 'mongodb.png', color: '#47A248' },
-    { id: 'graphql', name: 'GraphQL', icon: 'graphql.png', color: '#E10098' },
-    { id: 'aws', name: 'AWS', icon: 'aws.png', color: '#FF9900' },
-    { id: 'firebase', name: 'Firebase', icon: 'firebase.png', color: '#FFCA28' },
-    { id: 'docker', name: 'Docker', icon: 'docker.png', color: '#2496ED' },
-    { id: 'git', name: 'Git', icon: 'git.png', color: '#F05032' },
-    { id: 'redux', name: 'Redux', icon: 'redux.png', color: '#764ABC' },
+    // 🧩 Core
+    { id: 'react', name: 'React', icon: 'react.png', color: '#61DAFB', category: 'core' },
+    { id: 'nextjs', name: 'Next.js', icon: 'nextjs.png', color: '#000000', category: 'core' },
+    { id: 'typescript', name: 'TypeScript', icon: 'typescript.png', color: '#3178C6', category: 'core' },
+    { id: 'javascript', name: 'JavaScript', icon: 'js.png', color: '#F7DF1E', category: 'core' },
+    { id: 'tailwind', name: 'Tailwind CSS', icon: 'tailwindcss.png', color: '#06B6D4', category: 'core' },
+    { id: 'nodejs', name: 'Node.js', icon: 'nodejs.png', color: '#339933', category: 'core' },
+    { id: 'python', name: 'Python', icon: 'python.png', color: '#3776AB', category: 'core' },
+    { id: 'postgresql', name: 'PostgreSQL', icon: 'postgresql.png', color: '#4169E1', category: 'core' },
+    { id: 'mongodb', name: 'MongoDB', icon: 'mongodb.png', color: '#47A248', category: 'core' },
+    { id: 'graphql', name: 'GraphQL', icon: 'graphql.png', color: '#E10098', category: 'core' },
+    { id: 'git', name: 'Git', icon: 'git.png', color: '#F05032', category: 'core' },
+    { id: 'redux', name: 'Redux', icon: 'redux.png', color: '#764ABC', category: 'core' },
+    { id: 'vite', name: 'Vite', icon: 'vitejs.png', color: '#646CFF', category: 'core' },
+    { id: 'webpack', name: 'Webpack', icon: 'webpack.png', color: '#8DD6F9', category: 'core' },
+
+    // 🤖 Automation / AI
+    { id: 'n8n', name: 'n8n', icon: 'n8n.png', color: '#F05A4B', category: 'automation' },
+    { id: 'openai', name: 'OpenAI', icon: 'openai.png', color: '#10A37F', category: 'automation' },
+    { id: 'huggingface', name: 'Hugging Face', icon: 'huggingface.png', color: '#FFD21E', category: 'automation' },
+    { id: 'langchain', name: 'LangChain', icon: 'langchain.png', color: '#2EC866', category: 'automation' },
+    { id: 'ollama', name: 'Ollama', icon: 'ollama.png', color: '#000000', category: 'automation' },
+    { id: 'replicate', name: 'Replicate', icon: 'replicate.png', color: '#00AEEF', category: 'automation' },
+    { id: 'vapi', name: 'Vapi', icon: 'vapi.png', color: '#8E24AA', category: 'automation' },
+    { id: 'cursor', name: 'Cursor AI', icon: 'cursor.png', color: '#0A84FF', category: 'automation' },
+    { id: 'chatgpt', name: 'ChatGPT', icon: 'chatgpt.png', color: '#10A37F', category: 'automation' },
+    { id: 'anthropic', name: 'Claude', icon: 'claude.png', color: '#FFD580', category: 'automation' },
+    { id: 'airflow', name: 'Apache Airflow', icon: 'airflow.png', color: '#017CEE', category: 'automation' },
+    { id: 'zapier', name: 'Zapier', icon: 'zapier.png', color: '#FF4A00', category: 'automation' },
+
+    // ☁️ Cloud / DevOps
+    { id: 'aws', name: 'AWS', icon: 'aws.png', color: '#FF9900', category: 'cloud' },
+    { id: 'firebase', name: 'Firebase', icon: 'firebase.png', color: '#FFCA28', category: 'cloud' },
+    { id: 'docker', name: 'Docker', icon: 'docker.png', color: '#2496ED', category: 'cloud' },
+    { id: 'netlify', name: 'Netlify', icon: 'netlify.png', color: '#00AD9F', category: 'cloud' },
+    { id: 'cloudflare', name: 'Cloudflare', icon: 'cloudflare.png', color: '#F38020', category: 'cloud' },
+    { id: 'supabase', name: 'Supabase', icon: 'supabase.png', color: '#3ECF8E', category: 'cloud' },
+    { id: 'vercel', name: 'Vercel', icon: 'vercel.png', color: '#000000', category: 'cloud' },
+    { id: 'railway', name: 'Railway', icon: 'railway.png', color: '#0B0D0E', category: 'cloud' },
+    { id: 'digitalocean', name: 'DigitalOcean', icon: 'digitalocean.png', color: '#0080FF', category: 'cloud' },
+    { id: 'hetzner', name: 'Hetzner', icon: 'hetzner.png', color: '#D50C2D', category: 'cloud' },
+    { id: 'caddy', name: 'Caddy', icon: 'caddy.png', color: '#00BFA6', category: 'cloud' },
+    { id: 'traefik', name: 'Traefik', icon: 'traefik.png', color: '#24A1C1', category: 'cloud' },
+    { id: 'portainer', name: 'Portainer', icon: 'portainer.png', color: '#13BEF9', category: 'cloud' },
+    { id: 'kubernetes', name: 'Kubernetes', icon: 'kubernetes.png', color: '#326CE5', category: 'cloud' },
+
+    // 🧠 Backend / API
+    { id: 'fastapi', name: 'FastAPI', icon: 'fastapi.png', color: '#009688', category: 'backend' },
+    { id: 'nestjs', name: 'NestJS', icon: 'nestjs.png', color: '#E0234E', category: 'backend' },
+    { id: 'express', name: 'Express.js', icon: 'express.png', color: '#000000', category: 'backend' },
+    { id: 'prisma', name: 'Prisma', icon: 'prisma.png', color: '#2D3748', category: 'backend' },
+    { id: 'redis', name: 'Redis', icon: 'redis.png', color: '#DC382D', category: 'backend' },
+    { id: 'meilisearch', name: 'Meilisearch', icon: 'meilisearch.png', color: '#FF5CAA', category: 'backend' },
+    { id: 'strapi', name: 'Strapi', icon: 'strapi.png', color: '#2E7EEA', category: 'backend' },
+    { id: 'payload', name: 'Payload CMS', icon: 'payload.png', color: '#000000', category: 'backend' },
+    { id: 'medusajs', name: 'MedusaJS', icon: 'medusa.png', color: '#1C1C1C', category: 'backend' },
+    { id: 'shopify', name: 'Shopify', icon: 'shopify.png', color: '#95BF47', category: 'backend' },
+    { id: 'stripe', name: 'Stripe', icon: 'stripe.png', color: '#635BFF', category: 'backend' },
+
+    // 🎨 Design / Tools
+    { id: 'figma', name: 'Figma', icon: 'figma.png', color: '#F24E1E', category: 'design' },
+    { id: 'adobe', name: 'Adobe Creative Cloud', icon: 'adobe.png', color: '#FF0000', category: 'design' },
+    { id: 'canva', name: 'Canva', icon: 'canva.png', color: '#00C4CC', category: 'design' },
+    { id: 'framer', name: 'Framer', icon: 'framer.png', color: '#0055FF', category: 'design' },
+    { id: 'sketch', name: 'Sketch', icon: 'sketch.png', color: '#F7B500', category: 'design' },
+    { id: 'blender', name: 'Blender', icon: 'blender.png', color: '#F5792A', category: 'design' },
+    { id: 'threejs', name: 'Three.js', icon: 'threejs.png', color: '#000000', category: 'design' },
+    { id: 'motion', name: 'Framer Motion', icon: 'motion.png', color: '#E32BFF', category: 'design' },
+    { id: 'illustrator', name: 'Adobe Illustrator', icon: 'illustrator.png', color: '#FF9A00', category: 'design' },
+    { id: 'photoshop', name: 'Adobe Photoshop', icon: 'photoshop.png', color: '#31A8FF', category: 'design' },
+    { id: 'aftereffects', name: 'After Effects', icon: 'aftereffects.png', color: '#9999FF', category: 'design' },
 ];
 
 // ============================================================================
@@ -111,9 +170,28 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
     const [isHovering, setIsHovering] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+    const [activeTab, setActiveTab] = useState<TabType>('all');
+    const [hasMounted, setHasMounted] = useState(false);
 
-    // Generate positions
-    const positions = generateSpherePositions(TECH_STACK.length, SPHERE_RADIUS);
+    // Tabs config
+    const tabs: { id: TabType; label: string }[] = [
+        { id: 'all', label: t('tabs.all') },
+        { id: 'core', label: t('tabs.core') },
+        { id: 'automation', label: t('tabs.automation') },
+        { id: 'cloud', label: t('tabs.cloud') },
+        { id: 'backend', label: t('tabs.backend') },
+        { id: 'design', label: t('tabs.design') },
+    ];
+
+    // Filtered tech list based on active tab
+    const filteredTech = useMemo(() => (
+        activeTab === 'all' ? TECH_STACK : TECH_STACK.filter((tch) => tch.category === activeTab)
+    ), [activeTab]);
+
+    // Generate positions sized to the filtered list
+    const positions = useMemo(() => (
+        generateSpherePositions(filteredTech.length, SPHERE_RADIUS)
+    ), [filteredTech.length]);
 
     // Animation loop
     const animate = useCallback(() => {
@@ -136,6 +214,8 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
 
     // Start animation
     useEffect(() => {
+        // Ensure client-only rendering for dynamic positions to avoid hydration mismatches
+        setHasMounted(true);
         animationRef.current = requestAnimationFrame(animate);
         return () => {
             if (animationRef.current) {
@@ -166,7 +246,27 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
     }, [t]);
 
     return (
-        <div className={`relative flex items-center justify-center ${className}`}>
+        <div className={`relative flex flex-col items-center justify-center ${className}`}>
+            {/* Tabs */}
+            <div className="mb-6">
+                <div className="inline-flex items-center bg-card/50 backdrop-blur-sm border border-border/60 rounded-xl p-1">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeTab === tab.id
+                                ? 'text-primary bg-primary/10'
+                                : 'text-muted-foreground hover:text-foreground hover:bg-card/50'
+                                }`}
+                        >
+                            {activeTab === tab.id && (
+                                <div className="absolute inset-0 bg-primary/10 rounded-lg" />
+                            )}
+                            <span className="relative z-10">{tab.label}</span>
+                        </button>
+                    ))}
+                </div>
+            </div>
             {/* 3D Container */}
             <div
                 ref={containerRef}
@@ -190,8 +290,8 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                     <span className="text-lg font-bold text-primary-foreground">NB</span>
                 </div>
 
-                {/* Tech Icons */}
-                {TECH_STACK.map((tech, index) => {
+                {/* Tech Icons - render only after mount to avoid SSR/CSR mismatch */}
+                {hasMounted && filteredTech.map((tech, index) => {
                     const basePos = positions[index];
                     const rotatedPos = rotatePoint(basePos, rotation);
 
@@ -217,24 +317,20 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                                 opacity: opacity,
                                 filter: `blur(${blur}px)`,
                                 zIndex: Math.round(depth),
+                                willChange: 'transform, opacity',
                             }}
                         >
                             {/* Icon container with animation isolated to child so transforms don't clash */}
                             <motion.div
-                                className="flex items-center justify-center w-12 h-12 rounded-xl backdrop-blur-sm border border-border/40 glow-neon group cursor-pointer transition-all duration-300 hover:glow-neon-active"
+                                className="flex items-center justify-center w-16 h-16 rounded-xl backdrop-blur-sm border border-border/40 glow-neon group cursor-pointer transition-all duration-300 hover:glow-neon-active"
                                 style={{
                                     backgroundColor: `${tech.color}15`,
                                     borderColor: `${tech.color}40`,
                                     boxShadow: `0 0 20px ${tech.color}20`,
                                 }}
-                                initial={{ opacity: 0 }}
+                                initial={false}
                                 animate={{ opacity: opacity }}
-                                transition={{
-                                    duration: 0.8,
-                                    delay: index * 0.05,
-                                    type: 'spring',
-                                    stiffness: 200,
-                                }}
+                                transition={{ duration: 0.25, ease: 'easeOut', type: 'tween' }}
                                 whileHover={{ scale: 1.2 }}
                                 onMouseEnter={() => setHoveredIcon(tech.id)}
                                 onMouseLeave={() => setHoveredIcon(null)}
@@ -243,9 +339,9 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                                 <Image
                                     src={`/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/${tech.icon}`}
                                     alt={toolName}
-                                    width={24}
-                                    height={24}
-                                    className="w-6 h-6 object-contain transition-transform duration-200 group-hover:scale-110"
+                                    width={40}
+                                    height={40}
+                                    className="w-10 h-10 object-contain transition-transform duration-200 group-hover:scale-110"
                                 />
                             </motion.div>
 
