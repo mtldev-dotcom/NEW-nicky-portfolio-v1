@@ -98,8 +98,8 @@ const TECH_STACK: TechItem[] = [
     { id: 'threejs', name: 'Three.js', icon: 'threejs.png', color: '#000000', category: 'design' },
     { id: 'motion', name: 'Framer Motion', icon: 'motion.png', color: '#E32BFF', category: 'design' },
     { id: 'illustrator', name: 'Adobe Illustrator', icon: 'illustrator.png', color: '#FF9A00', category: 'design' },
-    { id: 'photoshop', name: 'Adobe Photoshop', icon: 'photoshop.png', color: '#31A8FF', category: 'design' },
-    { id: 'aftereffects', name: 'After Effects', icon: 'aftereffects.png', color: '#9999FF', category: 'design' },
+    { id: 'photoshop', name: 'Adobe Photoshop', icon: 'ps.png', color: '#31A8FF', category: 'design' },
+    { id: 'aftereffects', name: 'After Effects', icon: 'ae.png', color: '#9999FF', category: 'design' },
 ];
 
 // ============================================================================
