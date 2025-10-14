@@ -175,6 +175,46 @@
           "name": "Cloudflare",
           "description": "Web performance and security",
           "url": "https://cloudflare.com"
+        },
+        "javascript": {
+          "name": "JavaScript",
+          "description": "Dynamic programming language",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        },
+        "python": {
+          "name": "Python",
+          "description": "High-level programming language",
+          "url": "https://python.org"
+        },
+        "mongodb": {
+          "name": "MongoDB",
+          "description": "NoSQL document database",
+          "url": "https://mongodb.com"
+        },
+        "graphql": {
+          "name": "GraphQL",
+          "description": "Query language for APIs",
+          "url": "https://graphql.org"
+        },
+        "aws": {
+          "name": "AWS",
+          "description": "Amazon Web Services cloud platform",
+          "url": "https://aws.amazon.com"
+        },
+        "firebase": {
+          "name": "Firebase",
+          "description": "Google's mobile and web platform",
+          "url": "https://firebase.google.com"
+        },
+        "git": {
+          "name": "Git",
+          "description": "Version control system",
+          "url": "https://git-scm.com"
+        },
+        "redux": {
+          "name": "Redux",
+          "description": "Predictable state container",
+          "url": "https://redux.js.org"
         }
       }
     }

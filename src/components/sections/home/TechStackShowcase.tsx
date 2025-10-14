@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import IconSphere from './IconSphere';
+import TechStackCloud from 'components/sections/home/TechStackCloud';
 
 // Marquee icons (most used)
 const MARQUEE_ICONS = [
@@ -97,9 +97,16 @@ const TechStackShowcase = () => {
                     </div>
                 </motion.div>
 
-                {/* 3D Icon Sphere */}
-
-
+                {/* 3D Icon Cloud */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="mb-16"
+                >
+                    <TechStackCloud className="w-full h-[500px]" />
+                </motion.div>
                 {/* Marquee Strip */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
