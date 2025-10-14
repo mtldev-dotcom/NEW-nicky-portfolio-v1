@@ -103,7 +103,9 @@
         "all": "All",
         "core": "Core Stack",
         "automation": "Automation & AI",
-        "cloud": "Cloud & Infra"
+        "cloud": "Cloud & Infra",
+        "backend": "Backend & API",
+        "design": "Design & Tools"
       },
       "tools": {
         "nextjs": {
@@ -215,6 +217,196 @@
           "name": "Redux",
           "description": "Predictable state container",
           "url": "https://redux.js.org"
+        },
+        "vite": {
+          "name": "Vite",
+          "description": "Next generation frontend tooling",
+          "url": "https://vitejs.dev"
+        },
+        "webpack": {
+          "name": "Webpack",
+          "description": "Module bundler for JavaScript",
+          "url": "https://webpack.js.org"
+        },
+        "huggingface": {
+          "name": "Hugging Face",
+          "description": "AI community and model hub",
+          "url": "https://huggingface.co"
+        },
+        "langchain": {
+          "name": "LangChain",
+          "description": "Framework for LLM applications",
+          "url": "https://langchain.com"
+        },
+        "ollama": {
+          "name": "Ollama",
+          "description": "Local LLM deployment",
+          "url": "https://ollama.ai"
+        },
+        "replicate": {
+          "name": "Replicate",
+          "description": "AI model deployment platform",
+          "url": "https://replicate.com"
+        },
+        "vapi": {
+          "name": "Vapi",
+          "description": "Voice AI platform",
+          "url": "https://vapi.ai"
+        },
+        "cursor": {
+          "name": "Cursor AI",
+          "description": "AI-powered code editor",
+          "url": "https://cursor.sh"
+        },
+        "chatgpt": {
+          "name": "ChatGPT",
+          "description": "AI conversational assistant",
+          "url": "https://chat.openai.com"
+        },
+        "anthropic": {
+          "name": "Claude",
+          "description": "AI assistant by Anthropic",
+          "url": "https://anthropic.com"
+        },
+        "airflow": {
+          "name": "Apache Airflow",
+          "description": "Workflow orchestration platform",
+          "url": "https://airflow.apache.org"
+        },
+        "vercel": {
+          "name": "Vercel",
+          "description": "Frontend cloud platform",
+          "url": "https://vercel.com"
+        },
+        "railway": {
+          "name": "Railway",
+          "description": "Cloud deployment platform",
+          "url": "https://railway.app"
+        },
+        "digitalocean": {
+          "name": "DigitalOcean",
+          "description": "Cloud infrastructure provider",
+          "url": "https://digitalocean.com"
+        },
+        "hetzner": {
+          "name": "Hetzner",
+          "description": "European cloud provider",
+          "url": "https://hetzner.com"
+        },
+        "caddy": {
+          "name": "Caddy",
+          "description": "Modern web server",
+          "url": "https://caddyserver.com"
+        },
+        "traefik": {
+          "name": "Traefik",
+          "description": "Cloud-native reverse proxy",
+          "url": "https://traefik.io"
+        },
+        "portainer": {
+          "name": "Portainer",
+          "description": "Container management UI",
+          "url": "https://portainer.io"
+        },
+        "kubernetes": {
+          "name": "Kubernetes",
+          "description": "Container orchestration platform",
+          "url": "https://kubernetes.io"
+        },
+        "fastapi": {
+          "name": "FastAPI",
+          "description": "Modern Python web framework",
+          "url": "https://fastapi.tiangolo.com"
+        },
+        "nestjs": {
+          "name": "NestJS",
+          "description": "Progressive Node.js framework",
+          "url": "https://nestjs.com"
+        },
+        "express": {
+          "name": "Express.js",
+          "description": "Web framework for Node.js",
+          "url": "https://expressjs.com"
+        },
+        "redis": {
+          "name": "Redis",
+          "description": "In-memory data structure store",
+          "url": "https://redis.io"
+        },
+        "meilisearch": {
+          "name": "Meilisearch",
+          "description": "Fast search engine",
+          "url": "https://meilisearch.com"
+        },
+        "strapi": {
+          "name": "Strapi",
+          "description": "Headless CMS platform",
+          "url": "https://strapi.io"
+        },
+        "payload": {
+          "name": "Payload CMS",
+          "description": "Modern headless CMS",
+          "url": "https://payloadcms.com"
+        },
+        "medusajs": {
+          "name": "MedusaJS",
+          "description": "E-commerce platform",
+          "url": "https://medusajs.com"
+        },
+        "shopify": {
+          "name": "Shopify",
+          "description": "E-commerce platform",
+          "url": "https://shopify.com"
+        },
+        "figma": {
+          "name": "Figma",
+          "description": "Collaborative design tool",
+          "url": "https://figma.com"
+        },
+        "adobe": {
+          "name": "Adobe Creative Cloud",
+          "description": "Creative software suite",
+          "url": "https://adobe.com"
+        },
+        "canva": {
+          "name": "Canva",
+          "description": "Graphic design platform",
+          "url": "https://canva.com"
+        },
+        "framer": {
+          "name": "Framer",
+          "description": "Interactive design tool",
+          "url": "https://framer.com"
+        },
+        "sketch": {
+          "name": "Sketch",
+          "description": "Digital design toolkit",
+          "url": "https://sketch.com"
+        },
+        "threejs": {
+          "name": "Three.js",
+          "description": "3D JavaScript library",
+          "url": "https://threejs.org"
+        },
+        "motion": {
+          "name": "Framer Motion",
+          "description": "Animation library for React",
+          "url": "https://framer.com/motion"
+        },
+        "illustrator": {
+          "name": "Adobe Illustrator",
+          "description": "Vector graphics editor",
+          "url": "https://adobe.com/products/illustrator"
+        },
+        "photoshop": {
+          "name": "Adobe Photoshop",
+          "description": "Image editing software",
+          "url": "https://adobe.com/products/photoshop"
+        },
+        "aftereffects": {
+          "name": "After Effects",
+          "description": "Motion graphics software",
+          "url": "https://adobe.com/products/aftereffects"
         }
       }
     }

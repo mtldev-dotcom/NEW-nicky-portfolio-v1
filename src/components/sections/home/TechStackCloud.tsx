@@ -78,7 +78,7 @@ const TECH_STACK: TechItem[] = [
     // 🧠 Backend / API
     { id: 'fastapi', name: 'FastAPI', icon: 'fastapi.png', color: '#009688', category: 'backend' },
     { id: 'nestjs', name: 'NestJS', icon: 'nestjs.png', color: '#E0234E', category: 'backend' },
-    { id: 'express', name: 'Express.js', icon: 'express.png', color: '#000000', category: 'backend' },
+    { id: 'express', name: 'Express.js', icon: 'expressjs.png', color: '#000000', category: 'backend' },
     { id: 'prisma', name: 'Prisma', icon: 'prisma.png', color: '#2D3748', category: 'backend' },
     { id: 'redis', name: 'Redis', icon: 'redis.png', color: '#DC382D', category: 'backend' },
     { id: 'meilisearch', name: 'Meilisearch', icon: 'meilisearch.png', color: '#FF5CAA', category: 'backend' },
@@ -86,7 +86,6 @@ const TECH_STACK: TechItem[] = [
     { id: 'payload', name: 'Payload CMS', icon: 'payload.png', color: '#000000', category: 'backend' },
     { id: 'medusajs', name: 'MedusaJS', icon: 'medusa.png', color: '#1C1C1C', category: 'backend' },
     { id: 'shopify', name: 'Shopify', icon: 'shopify.png', color: '#95BF47', category: 'backend' },
-    { id: 'stripe', name: 'Stripe', icon: 'stripe.png', color: '#635BFF', category: 'backend' },
 
     // 🎨 Design / Tools
     { id: 'figma', name: 'Figma', icon: 'figma.png', color: '#F24E1E', category: 'design' },
@@ -94,7 +93,6 @@ const TECH_STACK: TechItem[] = [
     { id: 'canva', name: 'Canva', icon: 'canva.png', color: '#00C4CC', category: 'design' },
     { id: 'framer', name: 'Framer', icon: 'framer.png', color: '#0055FF', category: 'design' },
     { id: 'sketch', name: 'Sketch', icon: 'sketch.png', color: '#F7B500', category: 'design' },
-    { id: 'blender', name: 'Blender', icon: 'blender.png', color: '#F5792A', category: 'design' },
     { id: 'threejs', name: 'Three.js', icon: 'threejs.png', color: '#000000', category: 'design' },
     { id: 'motion', name: 'Framer Motion', icon: 'motion.png', color: '#E32BFF', category: 'design' },
     { id: 'illustrator', name: 'Adobe Illustrator', icon: 'illustrator.png', color: '#FF9A00', category: 'design' },
@@ -285,10 +283,6 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                 {/* Background glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 rounded-full blur-3xl" />
 
-                {/* Center logo */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/60 backdrop-blur-sm border border-white/10 flex items-center justify-center glow-neon">
-                    <span className="text-lg font-bold text-primary-foreground">NB</span>
-                </div>
 
                 {/* Tech Icons - render only after mount to avoid SSR/CSR mismatch */}
                 {hasMounted && filteredTech.map((tech, index) => {
@@ -351,17 +345,18 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    className="absolute -top-16 left-1/2 -translate-x-1/2 bg-card/90 backdrop-blur-sm border border-border/60 rounded-lg px-3 py-2 text-xs whitespace-nowrap glow-neon z-50"
+                                    className="absolute -top-20 left-1/2 -translate-x-1/2 bg-black/95 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-sm whitespace-nowrap shadow-2xl z-50"
                                     style={{
-                                        backgroundColor: `${tech.color}10`,
-                                        borderColor: `${tech.color}30`,
+                                        backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                                        borderColor: `${tech.color}60`,
+                                        boxShadow: `0 8px 32px rgba(0, 0, 0, 0.8), 0 0 20px ${tech.color}40`,
                                     }}
                                 >
-                                    <div className="font-medium text-foreground">{toolName}</div>
-                                    <div className="text-muted-foreground text-xs">{toolDescription}</div>
+                                    <div className="font-bold text-white text-base">{toolName}</div>
+                                    <div className="text-gray-300 text-sm mt-1">{toolDescription}</div>
                                     <div
-                                        className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent"
-                                        style={{ borderTopColor: `${tech.color}30` }}
+                                        className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent"
+                                        style={{ borderTopColor: 'rgba(0, 0, 0, 0.95)' }}
                                     />
                                 </motion.div>
                             )}
