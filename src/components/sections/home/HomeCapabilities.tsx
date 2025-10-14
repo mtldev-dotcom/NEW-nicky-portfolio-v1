@@ -1,45 +1,37 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Icon from 'components/AppIcon';
 
-type Capability = {
-  icon: string;
-  title: string;
-  description: string;
-};
-
-const CAPABILITIES: Capability[] = [
-  {
-    icon: 'Globe',
-    title: 'Websites that convert',
-    description: 'Responsive, bilingual, fast.',
-  },
-  {
-    icon: 'Workflow',
-    title: 'Automation & AI Tools',
-    description: 'Tools talking to each other so you don’t have to.',
-  },
-  {
-    icon: 'Palette',
-    title: 'Design that communicates',
-    description: 'Branding that feels professional everywhere.',
-  },
-  {
-    icon: 'Compass',
-    title: 'Guidance that empowers',
-    description: 'Learn to use your digital tools confidently.',
-  },
-];
-
-const loopTransition = {
-  duration: 6,
-  ease: 'easeInOut' as const,
-  repeat: Infinity,
-  repeatType: 'loop' as const,
-};
-
 const HomeCapabilities = () => {
+  const t = useTranslations('home.capabilities');
+
+  const capabilities = [
+    {
+      icon: 'Globe',
+      title: t('items.webDesign.title'),
+      description: t('items.webDesign.description'),
+    },
+    {
+      icon: 'Workflow',
+      title: t('items.automation.title'),
+      description: t('items.automation.description'),
+    },
+    {
+      icon: 'Palette',
+      title: t('items.brandStrategy.title'),
+      description: t('items.brandStrategy.description'),
+    },
+  ];
+
+  const loopTransition = {
+    duration: 6,
+    ease: 'easeInOut' as const,
+    repeat: Infinity,
+    repeatType: 'loop' as const,
+  };
+
   return (
     <section className="relative py-20 px-6 lg:px-8 bg-background">
       <div className="absolute inset-0 pointer-events-none">
@@ -50,18 +42,18 @@ const HomeCapabilities = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 glow-neon">
             <Icon name="Sparkles" size={16} />
-            <span>What I Can Build for You</span>
+            <span>{t('title')}</span>
           </div>
           <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-            Outcomes over deliverables
+            {t('subtitle')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Practical, modern, human-centered solutions across design, engineering, and automation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {CAPABILITIES.map((item, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {capabilities.map((item, idx) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}

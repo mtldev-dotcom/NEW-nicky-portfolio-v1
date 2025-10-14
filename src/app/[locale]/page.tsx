@@ -1,7 +1,10 @@
 import Header from 'components/ui/Header';
 import Footer from 'components/ui/Footer';
 import HeroExperience from 'components/sections/hero/HeroExperience';
+import HomeIntro from 'components/sections/home/HomeIntro';
 import HomeCapabilities from 'components/sections/home/HomeCapabilities';
+import HomeBenefits from 'components/sections/home/HomeBenefits';
+import TechStackShowcase from 'components/sections/home/TechStackShowcase';
 import HomeFeaturedProjects from 'components/sections/home/HomeFeaturedProjects';
 import HomeTestimonials from 'components/sections/home/HomeTestimonials';
 import type { Metadata } from 'next';
@@ -27,7 +30,10 @@ export default function LocaleHomePage() {
     <>
       <Header />
       <HeroExperience />
+      <HomeIntro />
       <HomeCapabilities />
+      <HomeBenefits />
+      <TechStackShowcase />
       <HomeFeaturedProjects />
       <HomeTestimonials />
       <Footer />

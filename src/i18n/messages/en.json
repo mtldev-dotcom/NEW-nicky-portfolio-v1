@@ -41,6 +41,50 @@
       "response": "Response within 24h",
       "portraitAlt": "Nicky Bruno - Creative Technologist"
     },
+    "intro": {
+      "greeting": "Hi, I'm Nicky Bruno, a creative technologist and digital consultant from Montreal, Canada.",
+      "tagline": "I help individuals, startups, and established businesses build modern websites, smart systems, and AI automations that save time, reduce stress, and look amazing.",
+      "paragraph": "In today's world, your digital presence is everything — whether you're a local restaurant, a contractor, a real estate agent, or a growing online brand. But the truth is, most people don't have the time or knowledge to handle websites, tech setups, or automation tools. That's where I come in. I combine design, coding, and artificial intelligence to simplify your operations, help you attract more clients, and free up your time to focus on what really matters — running your business."
+    },
+    "capabilities": {
+      "title": "What I Do",
+      "subtitle": "Short Overview",
+      "items": {
+        "webDesign": {
+          "title": "Web Design & Development",
+          "description": "Fast, mobile-friendly websites that look great and convert visitors into customers."
+        },
+        "automation": {
+          "title": "Automation & AI Tools",
+          "description": "Save hours of repetitive work every week with custom automations (e.g. sending quotes, collecting forms, scheduling clients)."
+        },
+        "brandStrategy": {
+          "title": "Brand & Digital Strategy",
+          "description": "Help you stand out online with a professional image and clear communication."
+        }
+      }
+    },
+    "benefits": {
+      "title": "Real-World Benefits",
+      "subtitle": "Why businesses choose to work with me:",
+      "items": {
+        "timeSavings": {
+          "icon": "💰",
+          "title": "Save up to 10+ hours a week through smart automation.",
+          "example": "Example: a local cleaning company now automatically sends invoices and reminders using an n8n workflow I built — no more manual emails!"
+        },
+        "visibility": {
+          "icon": "🚀",
+          "title": "Increase online visibility with websites optimized for SEO and Google Business.",
+          "example": "Example: a restaurant client saw a 45% increase in reservations within 2 months after their new site launch."
+        },
+        "understanding": {
+          "icon": "🧠",
+          "title": "Make technology understandable.",
+          "example": "I don't speak in jargon — I explain how things work in plain language so you always feel in control."
+        }
+      }
+    },
     "loading": {
       "title": "Preparing your experience",
       "steps": {
@@ -49,6 +93,89 @@
         "three": "Connecting data flows…",
         "four": "Calibrating experience layers…",
         "five": "Ready to build something remarkable."
+      }
+    },
+    "techStack": {
+      "title": "What I Use",
+      "subtitle": "Tools, apps, integrations, and more",
+      "description": "A curated collection of technologies I work with daily to build modern digital experiences.",
+      "tabs": {
+        "all": "All",
+        "core": "Core Stack",
+        "automation": "Automation & AI",
+        "cloud": "Cloud & Infra"
+      },
+      "tools": {
+        "nextjs": {
+          "name": "Next.js",
+          "description": "React framework for production",
+          "url": "https://nextjs.org"
+        },
+        "react": {
+          "name": "React",
+          "description": "JavaScript library for building UIs",
+          "url": "https://react.dev"
+        },
+        "typescript": {
+          "name": "TypeScript",
+          "description": "Typed JavaScript at scale",
+          "url": "https://typescriptlang.org"
+        },
+        "tailwind": {
+          "name": "Tailwind CSS",
+          "description": "Utility-first CSS framework",
+          "url": "https://tailwindcss.com"
+        },
+        "supabase": {
+          "name": "Supabase",
+          "description": "Open source Firebase alternative",
+          "url": "https://supabase.com"
+        },
+        "postgresql": {
+          "name": "PostgreSQL",
+          "description": "Advanced open source database",
+          "url": "https://postgresql.org"
+        },
+        "prisma": {
+          "name": "Prisma",
+          "description": "Next-generation ORM for Node.js",
+          "url": "https://prisma.io"
+        },
+        "nodejs": {
+          "name": "Node.js",
+          "description": "JavaScript runtime environment",
+          "url": "https://nodejs.org"
+        },
+        "n8n": {
+          "name": "n8n",
+          "description": "Workflow automation platform",
+          "url": "https://n8n.io"
+        },
+        "openai": {
+          "name": "OpenAI",
+          "description": "AI research and deployment",
+          "url": "https://openai.com"
+        },
+        "zapier": {
+          "name": "Zapier",
+          "description": "Automation platform for workflows",
+          "url": "https://zapier.com"
+        },
+        "docker": {
+          "name": "Docker",
+          "description": "Containerization platform",
+          "url": "https://docker.com"
+        },
+        "netlify": {
+          "name": "Netlify",
+          "description": "Web development platform",
+          "url": "https://netlify.com"
+        },
+        "cloudflare": {
+          "name": "Cloudflare",
+          "description": "Web performance and security",
+          "url": "https://cloudflare.com"
+        }
       }
     }
   }
