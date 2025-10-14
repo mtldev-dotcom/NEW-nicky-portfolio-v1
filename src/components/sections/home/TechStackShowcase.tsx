@@ -98,20 +98,7 @@ const TechStackShowcase = () => {
                 </motion.div>
 
                 {/* 3D Icon Sphere */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1, delay: 0.4 }}
-                    className="mb-16"
-                >
-                    <IconSphere
-                        radius={140}
-                        radiusMobile={90}
-                        speed="normal"
-                        className="max-w-4xl mx-auto"
-                    />
-                </motion.div>
+
 
                 {/* Marquee Strip */}
                 <motion.div
