@@ -195,6 +195,24 @@
     text-shadow: 0 0 10px currentColor;
   }
 
+  /* Icon Sphere Styles */
+  .icon-sphere .tagcloud--item {
+    transition: transform 0.2s ease, filter 0.2s ease, text-shadow 0.2s ease;
+    cursor: pointer;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .icon-sphere .tagcloud--item:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 208, 0.6));
+    text-shadow: 0 0 10px rgba(0, 255, 208, 0.6);
+  }
+
+  .icon-sphere .tagcloud--item img {
+    transition: filter 0.2s ease;
+  }
+
   /* Marquee animation support */
   .marquee-container {
     overflow: hidden;
