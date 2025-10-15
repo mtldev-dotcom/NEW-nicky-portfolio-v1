@@ -3,6 +3,12 @@
   "subtitle": "Solutions Numériques Complètes",
   "description": "Du développement web à l'automatisation IA, je fournis des solutions numériques de bout en bout qui aident votre entreprise à prospérer.",
   "more": "plus",
+  "metadata": {
+    "title": "Services - Nicky Bruno | Technologue Créatif",
+    "description": "Explorez les services de design créatif, développement full-stack, automatisation IA et consultation stratégique par Nicky Bruno.",
+    "ogTitle": "Services - Nicky Bruno",
+    "ogDescription": "Services complets de technologie créative couvrant les systèmes de design, les constructions full-stack et l'automatisation intelligente."
+  },
   "sections": {
     "overview": {
       "title": "Ce que j'offre",

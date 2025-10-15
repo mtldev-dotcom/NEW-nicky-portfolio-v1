@@ -8,22 +8,27 @@ import TechStackShowcase from 'components/sections/home/TechStackShowcase';
 import HomeFeaturedProjects from 'components/sections/home/HomeFeaturedProjects';
 import HomeTestimonials from 'components/sections/home/HomeTestimonials';
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'Nicky Bruno | Creative Technologist & Experience Designer',
-  description:
-    'Step into the immersive hero experience of Nicky Bruno, the creative technologist blending design, engineering, and AI-driven storytelling.',
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'Nicky Bruno | Creative Technologist',
-    description:
-      "Navigate a holographic-inspired interface showcasing the innovation and craft behind Nicky Bruno's work.",
-    siteName: 'Nicky Bruno',
-    type: 'website',
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'home' });
+
+  return {
+    title: t('metadata.title'),
+    description: t('metadata.description'),
+    alternates: {
+      canonical: `/${locale}`,
+    },
+    openGraph: {
+      title: t('metadata.ogTitle'),
+      description: t('metadata.ogDescription'),
+      siteName: t('metadata.ogSiteName'),
+      type: 'website',
+      locale: locale,
+    },
+  };
+}
 
 export default function LocaleHomePage() {
   return (

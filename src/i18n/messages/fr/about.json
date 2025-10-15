@@ -2,6 +2,12 @@
   "title": "À propos de Nicky Bruno",
   "subtitle": "Technologue Créatif & Consultant Numérique",
   "description": "En savoir plus sur mon parcours, mon expertise et mon approche pour construire des solutions numériques modernes.",
+  "metadata": {
+    "title": "À propos - Nicky Bruno | Le Technologue Créatif",
+    "description": "Rencontrez Nicky Bruno, le technologue créatif qui fait le pont entre le design, le développement et l'innovation IA de Montréal vers le monde.",
+    "ogTitle": "À propos - Nicky Bruno | Le Technologue Créatif",
+    "ogDescription": "Deux décennies d'évolution de la fondation créative au pionnier de l'IA, maîtrisant l'intersection entre créativité humaine et innovation technologique."
+  },
   "sections": {
     "intro": {
       "badge": "Révélation d'Identité",

@@ -2,6 +2,12 @@
   "title": "Portfolio",
   "subtitle": "Projets Vedettes & Études de Cas",
   "description": "Explorez mon travail récent et voyez comment j'ai aidé les entreprises à transformer leur présence numérique.",
+  "metadata": {
+    "title": "Portfolio - Nicky Bruno | Technologue Créatif",
+    "description": "Plongez dans l'automatisation IA, les expériences web immersives et les produits numériques stratégiques créés par Nicky Bruno.",
+    "ogTitle": "Portfolio - Nicky Bruno",
+    "ogDescription": "Études de cas et projets vedettes couvrant les plateformes IA, le design expérientiel et les constructions full-stack."
+  },
   "featured": "Vedette",
   "viewDetails": "Voir les Détails",
   "projectOverview": "Aperçu du Projet",

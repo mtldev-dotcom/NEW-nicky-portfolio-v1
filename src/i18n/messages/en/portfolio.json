@@ -2,6 +2,12 @@
   "title": "Portfolio",
   "subtitle": "Featured Projects & Case Studies",
   "description": "Explore my recent work and see how I've helped businesses transform their digital presence.",
+  "metadata": {
+    "title": "Portfolio - Nicky Bruno | Creative Technologist",
+    "description": "Dive into AI automation, immersive web experiences, and strategic digital products crafted by Nicky Bruno.",
+    "ogTitle": "Portfolio - Nicky Bruno",
+    "ogDescription": "Case studies and featured projects spanning AI platforms, experiential design, and full-stack builds."
+  },
   "featured": "Featured",
   "viewDetails": "View Details",
   "projectOverview": "Project Overview",

@@ -2,21 +2,26 @@ import Header from 'components/ui/Header';
 import Footer from 'components/ui/Footer';
 import ServicesSection from 'components/sections/services/ServicesSection';
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'Services - Nicky Bruno | Creative Technologist',
-  description:
-    'Explore creative design, full-stack development, AI automation, and strategic consulting services crafted by Nicky Bruno.',
-  alternates: {
-    canonical: '/services',
-  },
-  openGraph: {
-    title: 'Services - Nicky Bruno',
-    description:
-      'Comprehensive creative technology services spanning design systems, full-stack builds, and intelligent automation.',
-    type: 'website',
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'services' });
+
+  return {
+    title: t('metadata.title'),
+    description: t('metadata.description'),
+    alternates: {
+      canonical: `/${locale}/services`,
+    },
+    openGraph: {
+      title: t('metadata.ogTitle'),
+      description: t('metadata.ogDescription'),
+      type: 'website',
+      locale: locale,
+    },
+  };
+}
 
 export default function ServicesPage() {
   return (
@@ -25,5 +30,5 @@ export default function ServicesPage() {
       <ServicesSection />
       <Footer />
     </>
-  ) ;
+  );
 }

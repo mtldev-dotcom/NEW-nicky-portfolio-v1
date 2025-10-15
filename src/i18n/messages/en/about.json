@@ -2,6 +2,12 @@
   "title": "About Nicky Bruno",
   "subtitle": "Creative Technologist & Digital Consultant",
   "description": "Learn more about my journey, expertise, and approach to building modern digital solutions.",
+  "metadata": {
+    "title": "About - Nicky Bruno | The Creative Technologist",
+    "description": "Meet Nicky Bruno, the creative technologist bridging design, development, and AI innovation from Montreal to the world.",
+    "ogTitle": "About - Nicky Bruno | The Creative Technologist",
+    "ogDescription": "Two decades of evolution from creative foundation to AI pioneer, mastering the intersection of human creativity and technological innovation."
+  },
   "sections": {
     "intro": {
       "badge": "Identity Revelation",

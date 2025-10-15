@@ -2,6 +2,12 @@
   "title": "Contact",
   "subtitle": "Travaillons Ensemble",
   "description": "Prêt à transformer votre présence numérique ? Contactez-moi pour discuter de votre projet et de comment je peux vous aider.",
+  "metadata": {
+    "title": "Contact - Nicky Bruno | Technologue Créatif",
+    "description": "Collaborons sur votre prochain projet—contactez Nicky Bruno pour le design, développement et stratégie pilotés par l'IA.",
+    "ogTitle": "Contact - Nicky Bruno",
+    "ogDescription": "Démarrez une conversation sur la technologie créative, l'automatisation IA et la transformation numérique."
+  },
   "sections": {
     "hero": {
       "badge": "Prêt à Commencer Votre Projet ?",

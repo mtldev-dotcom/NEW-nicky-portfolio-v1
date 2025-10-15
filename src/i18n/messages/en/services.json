@@ -3,6 +3,12 @@
   "subtitle": "Comprehensive Digital Solutions",
   "description": "From web development to AI automation, I provide end-to-end digital solutions that help your business thrive.",
   "more": "more",
+  "metadata": {
+    "title": "Services - Nicky Bruno | Creative Technologist",
+    "description": "Explore creative design, full-stack development, AI automation, and strategic consulting services crafted by Nicky Bruno.",
+    "ogTitle": "Services - Nicky Bruno",
+    "ogDescription": "Comprehensive creative technology services spanning design systems, full-stack builds, and intelligent automation."
+  },
   "sections": {
     "overview": {
       "title": "What I Offer",
