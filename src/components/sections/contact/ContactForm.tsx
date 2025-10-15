@@ -63,7 +63,7 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://n8n.nickyhome.casa/webhook-test/contact-form', {
+      const response = await fetch('https://n8n.nickyhome.casa/webhook/contact-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
