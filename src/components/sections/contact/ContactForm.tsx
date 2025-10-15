@@ -69,6 +69,7 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          formType: 'contact', // Distinguish from project brief
           name: formData.name,
           email: formData.email,
           company: formData.company,

@@ -6,11 +6,14 @@ import Button from 'components/ui/Button';
 import { Checkbox } from 'components/ui/Checkbox';
 import Input from 'components/ui/Input';
 import Select from 'components/ui/Select';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 const ProjectBrief = () => {
   const t = useTranslations('contact.sections.projectBrief');
+  const locale = useLocale(); // Get current language (en/fr)
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [briefData, setBriefData] = useState({
     projectGoal: '',
     targetAudience: '',
@@ -82,10 +85,73 @@ const ProjectBrief = () => {
     }
   };
 
-  const generateBrief = () => {
-    // Mock brief generation
-    const brief = `Project Brief Generated!\n\nGoal: ${briefData?.projectGoal}\nAudience: ${briefData?.targetAudience}\nFeatures: ${briefData?.keyFeatures?.join(', ')}\nDesign: ${briefData?.designPreference}\nTech: ${briefData?.techRequirements?.join(', ')}\nTimeline: ${briefData?.timeline}\nBudget: ${briefData?.budget}`;
-    alert(brief);
+  const generateBrief = async () => {
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('https://n8n.nickyhome.casa/webhook/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'projectBrief', // Distinguish from contact form
+          projectGoal: briefData.projectGoal,
+          targetAudience: briefData.targetAudience,
+          keyFeatures: briefData.keyFeatures,
+          designPreference: briefData.designPreference,
+          techRequirements: briefData.techRequirements,
+          timeline: briefData.timeline,
+          budget: briefData.budget,
+          inspiration: briefData.inspiration,
+          challenges: briefData.challenges,
+          language: locale // User's selected language (en/fr)
+        }),
+      });
+
+      // Check if response is OK and has JSON content
+      if (!response.ok) {
+        console.error('Server error:', response.status, response.statusText);
+        setSubmitStatus('error');
+        return;
+      }
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('Invalid response type:', contentType);
+        setSubmitStatus('error');
+        return;
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        // Reset form to step 1 and clear data
+        setCurrentStep(1);
+        setBriefData({
+          projectGoal: '',
+          targetAudience: '',
+          keyFeatures: [],
+          designPreference: '',
+          techRequirements: [],
+          timeline: '',
+          budget: '',
+          inspiration: '',
+          challenges: ''
+        });
+      } else {
+        console.error('Submission failed:', result.message, result.errors);
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStep = () => {
@@ -281,7 +347,7 @@ const ProjectBrief = () => {
         <Button
           variant="outline"
           onClick={prevStep}
-          disabled={currentStep === 1}
+          disabled={currentStep === 1 || isSubmitting}
           iconName="ChevronLeft"
           iconPosition="left"
         >
@@ -302,14 +368,40 @@ const ProjectBrief = () => {
           <Button
             variant="default"
             onClick={generateBrief}
+            disabled={isSubmitting}
             iconName="FileText"
             iconPosition="left"
             className="glow-neon hover:glow-neon-active"
           >
-            Generate Brief
+            {isSubmitting ? 'Submitting...' : 'Generate Brief'}
           </Button>
         )}
       </div>
+
+      {/* Success/Error Status */}
+      {submitStatus === 'success' && (
+        <div className="mt-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg flex items-start space-x-3">
+          <Icon name="CheckCircle" size={20} className="text-green-500 mt-0.5 flex-shrink-0" />
+          <div>
+            <h4 className="font-medium text-green-500 mb-1">Project Brief Submitted!</h4>
+            <p className="text-sm text-green-500/80">
+              Thank you! I'll review your project brief and get back to you within 24-48 hours.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {submitStatus === 'error' && (
+        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start space-x-3">
+          <Icon name="AlertCircle" size={20} className="text-red-500 mt-0.5 flex-shrink-0" />
+          <div>
+            <h4 className="font-medium text-red-500 mb-1">Submission Failed</h4>
+            <p className="text-sm text-red-500/80">
+              Something went wrong. Please try again or contact me directly.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
