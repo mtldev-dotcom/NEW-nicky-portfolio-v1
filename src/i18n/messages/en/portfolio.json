@@ -1,0 +1,93 @@
+{
+  "title": "Portfolio",
+  "subtitle": "Featured Projects & Case Studies",
+  "description": "Explore my recent work and see how I've helped businesses transform their digital presence.",
+  "sections": {
+    "hero": {
+      "badge": "Portfolio Showcase",
+      "title": "Work That Speaks",
+      "titleHighlight": "For Itself",
+      "description": "Explore a curated collection of projects that demonstrate the fusion of design, development, and AI innovation. Each piece tells a story of creative problem-solving and technical excellence.",
+      "stats": {
+        "projects": "20+ Projects",
+        "clients": "50+ Clients",
+        "recognition": "Industry Recognition"
+      }
+    },
+    "featured": {
+      "title": "Featured Projects",
+      "subtitle": "Highlighting my best work"
+    },
+    "projects": {
+      "title": "All Projects",
+      "description": "Filter by technology, industry, or project type to explore specific areas of expertise.",
+      "emptyState": {
+        "title": "No projects found",
+        "description": "Try adjusting your filter to see more projects."
+      }
+    },
+    "filters": {
+      "all": "All Projects",
+      "ai": "AI & Automation",
+      "web": "Web Platforms",
+      "mobile": "Mobile Apps",
+      "design": "Design Tools",
+      "healthcare": "Healthcare"
+    },
+    "cta": {
+      "title": "Ready to Create Something Amazing?",
+      "description": "Let's collaborate on your next project. Whether it's AI automation, web development, or creative technology, I'm here to bring your vision to life.",
+      "buttons": {
+        "startProject": "Start a Project",
+        "downloadPortfolio": "Download Portfolio"
+      }
+    }
+  },
+  "projects": {
+    "aiaa": {
+      "title": "AIAA.dev - AI Automation Platform",
+      "type": "AI Platform",
+      "description": "Revolutionary AI automation platform that streamlines creative workflows and enhances productivity through intelligent task automation.",
+      "fullDescription": "AIAA.dev represents the future of creative automation, combining cutting-edge AI technology with intuitive design to create a platform that truly understands creative workflows. This project showcases the perfect fusion of artificial intelligence and human creativity, enabling professionals to automate repetitive tasks while maintaining creative control.\n\nThe platform features advanced machine learning algorithms that learn from user behavior, predictive analytics for workflow optimization, and seamless integration with popular creative tools. Built with scalability in mind, it serves thousands of creative professionals worldwide.",
+      "technologies": ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "AWS"],
+      "year": "2024",
+      "client": "AIAA Labs",
+      "category": "ai"
+    },
+    "lumicerra": {
+      "title": "Lumicerra Labs - Research Platform",
+      "type": "Research Platform",
+      "description": "Advanced research platform for scientific collaboration and data analysis.",
+      "fullDescription": "A comprehensive platform designed for scientific research teams to collaborate, analyze data, and share findings. Features include real-time collaboration tools, advanced data visualization, and secure data management.",
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "D3.js"],
+      "year": "2024",
+      "client": "Lumicerra Labs",
+      "category": "web"
+    },
+    "nextxlevel": {
+      "title": "Next X Level - Learning Platform",
+      "type": "Educational Platform",
+      "description": "Modern learning management system with AI-powered personalized learning paths.",
+      "fullDescription": "An innovative educational platform that uses AI to create personalized learning experiences. The system adapts to each learner's pace and style, providing targeted content and assessments.",
+      "technologies": ["React", "Node.js", "OpenAI", "PostgreSQL"],
+      "year": "2023",
+      "client": "Next X Level",
+      "category": "web"
+    },
+    "sofia": {
+      "title": "Sofia AI Desk - Virtual Assistant",
+      "type": "AI Assistant",
+      "description": "Intelligent virtual assistant for business productivity and task management.",
+      "fullDescription": "Sofia AI Desk is a comprehensive virtual assistant that helps businesses automate routine tasks, manage schedules, and improve productivity through intelligent automation and natural language processing.",
+      "technologies": ["Python", "OpenAI", "FastAPI", "React"],
+      "year": "2023",
+      "client": "Sofia Technologies",
+      "category": "ai"
+    }
+  },
+  "cta": {
+    "title": "Ready to start your project?",
+    "description": "Let's discuss how I can help bring your vision to life.",
+    "button": "Start a Project"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "title": "Portfolio",
+  "subtitle": "Projets Vedettes & Études de Cas",
+  "description": "Explorez mon travail récent et voyez comment j'ai aidé les entreprises à transformer leur présence numérique.",
+  "sections": {
+    "hero": {
+      "badge": "Présentation du Portfolio",
+      "title": "Un Travail Qui Parle",
+      "titleHighlight": "de Lui-Même",
+      "description": "Explorez une collection soigneusement sélectionnée de projets qui démontrent la fusion du design, du développement et de l'innovation IA. Chaque pièce raconte une histoire de résolution créative de problèmes et d'excellence technique.",
+      "stats": {
+        "projects": "20+ Projets",
+        "clients": "50+ Clients",
+        "recognition": "Reconnaissance de l'Industrie"
+      }
+    },
+    "featured": {
+      "title": "Projets Vedettes",
+      "subtitle": "Mettant en valeur mon meilleur travail"
+    },
+    "projects": {
+      "title": "Tous les Projets",
+      "description": "Filtrez par technologie, industrie ou type de projet pour explorer des domaines d'expertise spécifiques.",
+      "emptyState": {
+        "title": "Aucun projet trouvé",
+        "description": "Essayez d'ajuster votre filtre pour voir plus de projets."
+      }
+    },
+    "filters": {
+      "all": "Tous les Projets",
+      "ai": "IA & Automatisation",
+      "web": "Plateformes Web",
+      "mobile": "Applications Mobiles",
+      "design": "Outils de Design",
+      "healthcare": "Santé"
+    },
+    "cta": {
+      "title": "Prêt à Créer Quelque Chose d'Extraordinaire ?",
+      "description": "Collaborons sur votre prochain projet. Que ce soit l'automatisation IA, le développement web ou la technologie créative, je suis là pour donner vie à votre vision.",
+      "buttons": {
+        "startProject": "Démarrer un Projet",
+        "downloadPortfolio": "Télécharger le Portfolio"
+      }
+    }
+  },
+  "projects": {
+    "aiaa": {
+      "title": "AIAA.dev - Plateforme d'Automatisation IA",
+      "type": "Plateforme IA",
+      "description": "Plateforme d'automatisation IA révolutionnaire qui rationalise les workflows créatifs et améliore la productivité grâce à l'automatisation intelligente des tâches.",
+      "fullDescription": "AIAA.dev représente l'avenir de l'automatisation créative, combinant une technologie IA de pointe avec un design intuitif pour créer une plateforme qui comprend vraiment les workflows créatifs. Ce projet montre la fusion parfaite de l'intelligence artificielle et de la créativité humaine, permettant aux professionnels d'automatiser les tâches répétitives tout en maintenant le contrôle créatif.\n\nLa plateforme propose des algorithmes d'apprentissage automatique avancés qui apprennent du comportement des utilisateurs, des analyses prédictives pour l'optimisation des workflows, et une intégration transparente avec les outils créatifs populaires. Construite avec l'évolutivité à l'esprit, elle sert des milliers de professionnels créatifs dans le monde entier.",
+      "technologies": ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "AWS"],
+      "year": "2024",
+      "client": "AIAA Labs",
+      "category": "ai"
+    },
+    "lumicerra": {
+      "title": "Lumicerra Labs - Plateforme de Recherche",
+      "type": "Plateforme de Recherche",
+      "description": "Plateforme de recherche avancée pour la collaboration scientifique et l'analyse de données.",
+      "fullDescription": "Une plateforme complète conçue pour les équipes de recherche scientifique pour collaborer, analyser des données et partager des découvertes. Les fonctionnalités incluent des outils de collaboration en temps réel, une visualisation de données avancée et une gestion sécurisée des données.",
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "D3.js"],
+      "year": "2024",
+      "client": "Lumicerra Labs",
+      "category": "web"
+    },
+    "nextxlevel": {
+      "title": "Next X Level - Plateforme d'Apprentissage",
+      "type": "Plateforme Éducative",
+      "description": "Système de gestion de l'apprentissage moderne avec des parcours d'apprentissage personnalisés alimentés par l'IA.",
+      "fullDescription": "Une plateforme éducative innovante qui utilise l'IA pour créer des expériences d'apprentissage personnalisées. Le système s'adapte au rythme et au style de chaque apprenant, fournissant du contenu ciblé et des évaluations.",
+      "technologies": ["React", "Node.js", "OpenAI", "PostgreSQL"],
+      "year": "2023",
+      "client": "Next X Level",
+      "category": "web"
+    },
+    "sofia": {
+      "title": "Sofia AI Desk - Assistant Virtuel",
+      "type": "Assistant IA",
+      "description": "Assistant virtuel intelligent pour la productivité d'entreprise et la gestion des tâches.",
+      "fullDescription": "Sofia AI Desk est un assistant virtuel complet qui aide les entreprises à automatiser les tâches de routine, gérer les horaires et améliorer la productivité grâce à l'automatisation intelligente et au traitement du langage naturel.",
+      "technologies": ["Python", "OpenAI", "FastAPI", "React"],
+      "year": "2023",
+      "client": "Sofia Technologies",
+      "category": "ai"
+    }
+  },
+  "cta": {
+    "title": "Prêt à commencer votre projet ?",
+    "description": "Discutons de comment je peux aider à donner vie à votre vision.",
+    "button": "Démarrer un Projet"
+  }
+}

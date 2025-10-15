@@ -117,7 +117,8 @@ module.exports = {
         "glow-pulse": "glowPulse 2s ease-in-out infinite",
         float: "float 3s ease-in-out infinite",
         orbit: "orbit 10s linear infinite",
-        magnetic: "magnetic 0.2s ease-out"
+        magnetic: "magnetic 0.2s ease-out",
+        "slide-in-from-top-2": "slideInFromTop2 0.2s ease-out"
       },
       keyframes: {
         fadeIn: {
@@ -153,6 +154,10 @@ module.exports = {
         magnetic: {
           "0%": { transform: "scale(1)" },
           "100%": { transform: "scale(1.02)" }
+        },
+        slideInFromTop2: {
+          "0%": { transform: "translateY(-8px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" }
         }
       },
       backdropBlur: {

@@ -1,28 +1,52 @@
 # Nicky Bruno Portfolio
 
-A polished portfolio experience for creative technologist Nicky Bruno, now powered by **Next.js 15 (App Router)** and **TypeScript**.  
-Each major section (Hero, About, Services, Portfolio, Testimonials, Contact) lives on its own route while sharing a unified visual language with rich motion design and interactive UI.
+A sophisticated portfolio experience for creative technologist Nicky Bruno, built with **Next.js 15 (App Router)** and **TypeScript**.  
+This project showcases a modern dark-themed design with holographic-inspired UI elements, comprehensive internationalization, and a robust component architecture.
+
+## 🎯 Project Overview
+
+This portfolio demonstrates advanced web development practices including:
+- **Immersive hero experience** with parallax backgrounds and animated elements
+- **Comprehensive i18n implementation** with structured translation management
+- **Modern component architecture** with reusable UI primitives
+- **Sophisticated animation system** using Framer Motion
+- **Responsive design** with mobile-first approach
+- **Performance optimization** with proper code splitting and lazy loading
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
+### Core Framework
 - **Next.js 15 (App Router)** — streaming routes, metadata, built-in i18n routing  
 - **TypeScript** — typed components, utilities, and strict path aliases  
+- **React 18** — modern React patterns with concurrent features
+
+### Styling & Design
 - **Tailwind CSS** — utility-first styling with custom tokens & motion helpers  
 - **shadcn-inspired UI primitives** — accessible buttons, inputs, selects, and checkboxes (Radix + CVA)  
-- **next-intl** — locale-aware routing and translation scaffolding (EN/FR)
 - **Framer Motion** — layered parallax, animated loaders, and micro-interactions  
+- **Custom CSS Properties** — comprehensive design system with neon-mint theme
+
+### Internationalization
+- **next-intl v4** — locale-aware routing and translation scaffolding (EN/FR)
+- **Structured translations** — organized by pages and global components
+
+### Additional Libraries
 - **Lucide Icons** — iconography via the reusable `AppIcon` wrapper  
-- Additional libraries available: **Redux Toolkit**, **React Hook Form**, **D3**, **Recharts**, **axios**
+- **Redux Toolkit** — state management (available)
+- **React Hook Form** — form handling (available)
+- **D3** — data visualization (available)
+- **Recharts** — chart components (available)
+- **axios** — HTTP client (available)
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- **Node.js 18.x** or newer (Next.js 15 baseline)  
+- **Node.js 20.19.0** or newer (as specified in package.json engines)
 - npm (bundled with Node)
 
 ### Installation
@@ -37,7 +61,7 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000` to iterate on the site.
+Visit `http://localhost:3000` to iterate on the site. The app will automatically redirect to `/en` (default locale).
 
 ### Production Build & Preview
 
@@ -54,237 +78,382 @@ npm run lint
 
 ---
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 ```
 .
 ├── public/                       # Static assets (logos, favicons, imagery)
+│   └── assets/
+│       ├── icons/                # Tech stack icons (light/dark modes)
+│       └── images/               # Profile images and graphics
 └── src/
-    ├── app/                      # App Router entries & metadata
+    ├── app/                      # Next.js App Router entries & metadata
     │   ├── layout.tsx            # Root layout (sets <html> lang via middleware header)
+    │   ├── globals.css           # Global styles and CSS imports
     │   ├── [locale]/             # Locale-scoped routes (en/fr)
-    │       ├── layout.tsx        # Loads messages + wraps with NextIntl provider
-    │       ├── page.tsx          # Home (hero experience)
-    │       ├── home/
-    │       ├── about/
-    │       ├── services/
-    │       ├── portfolio/
-    │       └── contact/
+    │   │   ├── layout.tsx        # Loads messages + wraps with NextIntl provider
+    │   │   ├── page.tsx          # Home (hero experience)
+    │   │   ├── about/            # About page
+    │   │   ├── services/         # Services page
+    │   │   ├── portfolio/        # Portfolio page
+    │   │   └── contact/          # Contact page
+    │   └── opengraph-image.tsx   # Dynamic OG image generation
     ├── components/
     │   ├── sections/             # Section-specific composition & motion
-    │   │   ├── hero/
-    │   │   ├── about/
-    │   │   ├── services/
-    │   │   ├── portfolio/
-    │   │   ├── testimonials/
-    │   │   └── contact/
-    │   └── i18n/ (see below)
-    │   └── ui/                   # Reusable primitives (Button, Input, etc.)
-    ├── i18n/                     # Locale metadata & placeholders (en/fr)
-    ├── styles/                   # Tailwind + global CSS tokens
-    └── utils/                    # Shared helpers (e.g., `cn`)
+    │   │   ├── hero/             # Hero experience components
+    │   │   ├── about/            # About section components
+    │   │   ├── services/         # Services section components
+    │   │   ├── portfolio/        # Portfolio section components
+    │   │   ├── testimonials/    # Testimonials section components
+    │   │   ├── contact/          # Contact section components
+    │   │   └── home/             # Home page specific components
+    │   ├── ui/                   # Reusable UI primitives
+    │   │   ├── Button.tsx         # Enhanced button with icon support
+    │   │   ├── Input.tsx         # Form input component
+    │   │   ├── Header.tsx        # Navigation header
+    │   │   ├── Footer.tsx        # Site footer
+    │   │   └── ...               # Other UI components
+    │   ├── shadcn/               # shadcn/ui components
+    │   │   └── ui/               # Base shadcn components
+    │   ├── AppIcon.tsx           # Icon wrapper component
+    │   ├── AppImage.tsx          # Image wrapper component
+    │   ├── ErrorBoundary.tsx     # Error boundary component
+    │   └── ScrollToTop.tsx       # Scroll to top functionality
+    ├── i18n/                     # Internationalization configuration
+    │   ├── config.ts             # Locale configuration
+    │   ├── getMessages.ts         # Message loading utility
+    │   ├── request.ts            # next-intl request configuration
+    │   └── messages/             # Translation files
+    │       ├── en/               # English translations
+    │       │   ├── global.json   # Global/common translations
+    │       │   ├── home.json     # Home page translations
+    │       │   ├── about.json    # About page translations
+    │       │   ├── services.json # Services page translations
+    │       │   ├── portfolio.json# Portfolio page translations
+    │       │   └── contact.json  # Contact page translations
+    │       └── fr/               # French translations
+    │           ├── global.json   # Global/common translations
+    │           ├── home.json     # Home page translations
+    │           ├── about.json   # About page translations
+    │           ├── services.json# Services page translations
+    │           ├── portfolio.json# Portfolio page translations
+    │           └── contact.json  # Contact page translations
+    ├── styles/                   # Styling configuration
+    │   ├── tailwind.css          # Tailwind CSS with custom properties
+    │   └── index.css             # Additional custom styles
+    └── utils/                     # Shared utilities
+        └── cn.ts                  # Class name utility (clsx + tailwind-merge)
 ```
 
-**Key routing note:** every section route lives under a locale prefix (e.g., `/en/about-section`, `/fr/services-section`) and renders its client component from `components/sections/**`, matching the layout listed in the brief.
+**Key Architecture Notes:**
+- **Locale-scoped routing**: All pages live under `/[locale]/*` for proper i18n support
+- **Component organization**: Clear separation between UI primitives and section-specific components
+- **Translation structure**: Organized by pages and global components for better maintainability
+- **Design system**: Comprehensive CSS custom properties with neon-mint theme
 
-## Localization (i18n)
+---
 
-This project uses next-intl (v4) with Next.js 15 App Router and explicit locale-prefixed routing.
+## 🌐 Internationalization (i18n)
 
-- URLs:
-  - / → 307 redirect to /en
-  - /en/* and /fr/* serve localized pages under the top-level [locale] segment.
-- Locales: English (en), French (fr)
+This project uses **next-intl v4** with Next.js 15 App Router and explicit locale-prefixed routing.
 
-Required files and configuration
-- next-intl.config.ts
-  ```ts
-  export default {
-    locales: ['en', 'fr'],
-    defaultLocale: 'en',
-    // Forces locale prefixes like /en, /fr
-    localePrefix: 'always'
-  };
-  ```
-- next.config.mjs
-  ```js
-  import createNextIntlPlugin from 'next-intl/plugin';
+### URL Structure
+- `/` → 307 redirect to `/en`
+- `/en/*` and `/fr/*` serve localized pages under the top-level `[locale]` segment
+- **Supported locales**: English (en), French (fr)
 
-  /** @type {import('next').NextConfig} */
-  const nextConfig = { reactStrictMode: true };
+### Translation File Structure
 
-  const withNextIntl = createNextIntlPlugin();
-  export default withNextIntl(nextConfig);
-  ```
-- middleware.ts
-  ```ts
-  import createMiddleware from 'next-intl/middleware';
-  import { defaultLocale, locales } from './src/i18n/config';
+The project uses a **structured translation approach** for better organization and maintainability:
 
-  export default createMiddleware({
-    defaultLocale,
-    locales,
-    localeDetection: true
-  });
+```
+src/i18n/messages/
+├── en/                    # English translations
+│   ├── global.json       # Global/common translations (navigation, buttons, etc.)
+│   ├── home.json         # Home page specific translations
+│   ├── about.json        # About page specific translations
+│   ├── services.json     # Services page specific translations
+│   ├── portfolio.json    # Portfolio page specific translations
+│   └── contact.json      # Contact page specific translations
+└── fr/                    # French translations
+    ├── global.json       # Global/common translations
+    ├── home.json         # Home page specific translations
+    ├── about.json        # About page specific translations
+    ├── services.json     # Services page specific translations
+    ├── portfolio.json    # Portfolio page specific translations
+    └── contact.json      # Contact page specific translations
+```
 
-  export const config = {
-    matcher: ['/', '/(?!_next|.*\\..*|api).+']
-  };
-  ```
-- src/i18n/config.ts
-  ```ts
-  export const locales = ['en', 'fr'] as const;
-  export type Locale = (typeof locales)[number];
-  export const defaultLocale: Locale = 'en';
-  ```
-- src/i18n/request.ts
-  Provides request-scoped locale/messages to next-intl (loaded from JSON files).
-  ```ts
-  import {getRequestConfig} from 'next-intl/server';
-  import {defaultLocale, locales, type Locale} from './config';
+### Using Translations in Components
 
-  export default getRequestConfig(async ({locale}) => {
-    const candidate = locale as string | undefined;
-    const resolved: Locale =
-      candidate && (locales as readonly string[]).includes(candidate)
-        ? (candidate as Locale)
-        : defaultLocale;
+**Client Components:**
+```tsx
+'use client';
+import { useLocale, useTranslations } from 'next-intl';
 
-    try {
-      const messages = (await import(`./messages/${resolved}.json`)).default;
-      return {locale: resolved, messages};
-    } catch {
-      return {locale: resolved, messages: {}};
-    }
-  });
-  ```
-- src/app/[locale]/layout.tsx
-  Await params in Next 15 and set the request locale before rendering.
-  ```tsx
-  import {NextIntlClientProvider} from 'next-intl';
-  import {setRequestLocale} from 'next-intl/server';
-  import {type Locale, locales} from '@/i18n/config';
-  import {getMessages} from '@/i18n/getMessages';
-
-  type Props = {
-    children: React.ReactNode;
-    params: Promise<{locale: Locale}>;
-  };
-
-  export default async function LocaleLayout({children, params}: Props) {
-    const {locale} = await params;
-    if (!locales.includes(locale)) {
-      // notFound()
-    }
-    setRequestLocale(locale);
-    const messages = await getMessages(locale);
-
-    return (
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        {children}
-      </NextIntlClientProvider>
-    );
-  }
-  ```
-- src/app/page.tsx
-  Redirect the root path to the default locale.
-  ```tsx
-  import {redirect} from 'next/navigation';
-  import {defaultLocale} from '@/i18n/config';
-  export default function RootRedirect() {
-    redirect(`/${defaultLocale}`);
-  }
-  ```
-
-Messages
-- JSON translations live in src/i18n/messages/<locale>.json and namespaced as needed. Example:
-  ```json
-  {
-    "navigation": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "portfolio": "Portfolio",
-      "testimonials": "Testimonials",
-      "contact": "Contact",
-      "cta": "Start project"
-    }
-  }
-  ```
-
-Using translations and locale in components
-- Client components:
-  ```tsx
-  'use client';
-  import {useLocale, useTranslations} from 'next-intl';
-
-  export default function Example() {
-    const locale = useLocale();
-    const t = useTranslations('navigation');
-    return <button>{t('cta')} — {locale}</button>;
-  }
-  ```
-- Links with locale prefix:
-  ```tsx
-  import Link from 'next/link';
-  import {useLocale} from 'next-intl';
-
+export default function Example() {
   const locale = useLocale();
-  <Link href={`/${locale}/about-section`}>About</Link>
-  ```
+  const tGlobal = useTranslations('global');
+  const tHome = useTranslations('home');
+  
+  return (
+    <div>
+      <h1>{tHome('hero.title')}</h1>
+      <button>{tGlobal('navigation.cta')}</button>
+      <span>Current locale: {locale}</span>
+    </div>
+  );
+}
+```
 
-Add a new locale
-1) Add the code to src/i18n/config.ts locales.  
-2) Add the same code to next-intl.config.ts locales.  
-3) Create src/i18n/messages/<new-locale>.json.  
-4) Restart the dev server if you changed next.config.mjs.
+**Server Components:**
+```tsx
+import { getTranslations } from 'next-intl/server';
 
-Troubleshooting
-- 404 on /: Ensure src/app/page.tsx exists and middleware.ts matcher includes '/'.  
-- 500 “Couldn't find next-intl config file”: Ensure next-intl.config.ts exists at the repo root and restart dev server.  
-- Attempted import error 'unstable_setRequestLocale': Use setRequestLocale from next-intl/server (Next 15 / next-intl v4).  
-- In route /[locale] params.locale accessed directly: In Next 15, define params as Promise<...> and await it in Server Components.  
-- Module not found: next-intl/link: Use next/link and manually prefix hrefs with /${locale}.  
-- After editing next.config.mjs or adding request.ts, restart the dev server to pick up changes.
+export default async function ServerComponent() {
+  const t = await getTranslations('home.hero');
+  
+  return <h1>{t('title')}</h1>;
+}
+```
+
+**Language Switcher:**
+The project includes a built-in language switcher component that allows users to switch between English and French:
+
+```tsx
+import LanguageSwitcher from 'components/ui/LanguageSwitcher';
+
+// Desktop version
+<LanguageSwitcher variant="desktop" />
+
+// Mobile version (full width)
+<LanguageSwitcher variant="mobile" />
+```
+
+**Links with Locale Prefix:**
+```tsx
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
+
+export default function Navigation() {
+  const locale = useLocale();
+  
+  return (
+    <Link href={`/${locale}/about`}>
+      About
+    </Link>
+  );
+}
+```
+
+### Adding New Translations
+
+1. **Add new keys** to the appropriate JSON file in both `en/` and `fr/` directories
+2. **Use nested objects** for better organization (e.g., `home.hero.title`)
+3. **Keep translations consistent** across all locales
+4. **Test both locales** to ensure proper rendering
 
 ---
 
-## Styling & Theming
+## 🎨 Design System & Styling
 
-- `tailwind.config.js` and `src/styles/tailwind.css` define the dark neon aesthetic, spacing tokens, and custom utilities (`glow-neon`, `transition-smooth`, etc.).  
-- `src/app/globals.css` imports the Tailwind layers and resets while the root layout applies `bg-background` / `text-foreground`.  
-- shadcn-inspired primitives live under `src/components/ui/` and are ready for extension with additional variants.
+### Theme Configuration
+- **Dark theme** with neon-mint (#00FFD1) primary accent color
+- **Comprehensive CSS custom properties** defined in `src/styles/tailwind.css`
+- **Custom Tailwind utilities** for glow effects, smooth transitions, and magnetic hover
+- **Typography hierarchy** using Space Grotesk (headings) and Inter (body text)
+
+### Key Design Tokens
+```css
+/* Primary Colors */
+--color-primary: #00FFD1;        /* neon-mint */
+--color-background: #000000;     /* black */
+--color-foreground: #FFFFFF;     /* white */
+
+/* Custom Utilities */
+.glow-neon { box-shadow: var(--shadow-glow); }
+.transition-smooth { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+.magnetic-hover:hover { transform: scale(1.02); }
+```
+
+### Component Styling Guidelines
+1. **Use CSS custom properties** for consistent theming
+2. **Apply glow effects** sparingly for emphasis
+3. **Maintain smooth transitions** for all interactive elements
+4. **Follow responsive design** patterns with mobile-first approach
 
 ---
 
-## Path Aliases
+## 🛠 Developer Guidelines
 
-`tsconfig.json` declares the following shortcuts:
+### Code Style & Conventions
 
-- `@/*` → `src/*`  
-- `components/*` → `src/components/*`  
-- `styles/*` → `src/styles/*`
+**Component Structure:**
+  ```tsx
+'use client'; // Only for client components
 
-Use these to keep imports readable and consistent.
+import { useTranslations, useLocale } from 'next-intl';
+import { motion } from 'framer-motion';
+import Button from 'components/ui/Button';
+
+// Type definitions at the top
+interface ComponentProps {
+  title: string;
+  description?: string;
+}
+
+// Component implementation
+const ComponentName = ({ title, description }: ComponentProps) => {
+  const t = useTranslations('namespace');
+  const locale = useLocale();
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="space-y-4"
+    >
+      <h2 className="font-space-grotesk text-2xl font-bold text-foreground">
+        {title}
+      </h2>
+      {description && (
+        <p className="font-inter text-muted-foreground">
+          {description}
+        </p>
+      )}
+    </motion.div>
+  );
+};
+
+export default ComponentName;
+```
+
+**Translation Usage:**
+- **Always use structured translations** with proper namespacing
+- **Extract all user-facing text** to translation files
+- **Use semantic keys** (e.g., `hero.title` instead of `title1`)
+- **Test both locales** during development
+
+**Animation Guidelines:**
+- **Use Framer Motion** for complex animations
+- **Apply consistent easing** with `cubic-bezier(0.4, 0, 0.2, 1)`
+- **Respect reduced motion** preferences
+- **Keep animations purposeful** and not distracting
+
+### File Organization
+
+**Component Files:**
+- **One component per file** with matching filename
+- **Export default** the main component
+- **Use PascalCase** for component names
+- **Group related components** in the same directory
+
+**Import Order:**
+1. React/Next.js imports
+2. Third-party libraries
+3. Internal components (UI primitives first)
+4. Types and utilities
+5. Relative imports
+
+### Performance Best Practices
+
+1. **Use dynamic imports** for heavy components
+2. **Implement proper loading states** for async operations
+3. **Optimize images** with Next.js Image component
+4. **Minimize bundle size** with proper code splitting
+5. **Use React.memo** for expensive components when needed
 
 ---
 
-## Deployment Notes
+## 🚀 Deployment
 
-1. Build locally with `npm run build`.  
-2. Deploy `.next` to your hosting provider (Vercel, Netlify, custom Node server, etc.).  
-3. Ensure the `middleware.ts` file is deployed so locale negotiation works server-side.  
-4. Configure any future environment variables through your host’s dashboard.  
-5. The Open Graph image is generated dynamically via `src/app/opengraph-image.tsx`; replace it with your own design if desired.
+### Production Build
+```bash
+npm run build
+npm start
+```
+
+### Deployment Checklist
+- [ ] **Build succeeds** without errors or warnings
+- [ ] **All translations** are properly loaded
+- [ ] **Images and assets** are optimized
+- [ ] **Environment variables** are configured
+- [ ] **Middleware** is deployed for i18n routing
+- [ ] **Open Graph images** are generated correctly
+
+### Hosting Recommendations
+- **Vercel** (recommended for Next.js)
+- **Netlify** with proper redirects
+- **Custom Node.js server** with PM2
+- **Docker** containerization for scalability
 
 ---
 
-## Next Steps & Ideas
+## 🔧 Development Tools
 
-- Add automated checks (Playwright/Cypress, visual regression) for the immersive hero flows.  
-- Expand the shadcn-based component library with additional primitives (tabs, dialog, tooltip) as needed.  
-- Integrate analytics or a headless CMS once content needs to be editable.  
-- Fill in the `src/i18n/messages/{locale}.json` files with copy and wire components to `useTranslations`.  
-- Ship translations or theming variants (light mode) if the portfolio grows.
+### Recommended VS Code Extensions
+- **Tailwind CSS IntelliSense** - Autocomplete for Tailwind classes
+- **TypeScript Importer** - Auto-import TypeScript modules
+- **ES7+ React/Redux/React-Native snippets** - React code snippets
+- **Prettier** - Code formatting
+- **ESLint** - Code linting
 
-Enjoy building and iterating on the Nicky Bruno experience! 🚀
+### Useful Commands
+```bash
+# Development
+npm run dev              # Start development server
+npm run build           # Build for production
+npm run lint            # Run ESLint
+
+# Translation management
+# Add new translation keys to both en/ and fr/ directories
+# Test both locales: http://localhost:3000/en and http://localhost:3000/fr
+```
+
+---
+
+## 📈 Future Enhancements
+
+### Planned Features
+- **Automated testing** with Playwright/Cypress
+- **Visual regression testing** for design consistency
+- **Performance monitoring** with Web Vitals
+- **Analytics integration** for user behavior tracking
+- **CMS integration** for content management
+- **Light mode theme** variant
+- **Additional language support** (Spanish, German)
+
+### Technical Improvements
+- **Component library expansion** with more shadcn/ui primitives
+- **Advanced animation system** with GSAP integration
+- **Progressive Web App** features
+- **SEO optimization** with structured data
+- **Accessibility improvements** (WCAG 2.1 AA compliance)
+
+---
+
+## 🤝 Contributing
+
+### Development Workflow
+1. **Create feature branch** from `main`
+2. **Follow naming conventions** for components and files
+3. **Add translations** for both English and French
+4. **Test on both locales** before committing
+5. **Write descriptive commit messages**
+6. **Create pull request** with detailed description
+
+### Code Review Checklist
+- [ ] **Translations** are complete for both locales
+- [ ] **TypeScript** types are properly defined
+- [ ] **Responsive design** works on all screen sizes
+- [ ] **Animations** are smooth and purposeful
+- [ ] **Performance** impact is minimal
+- [ ] **Accessibility** standards are met
+
+---
+
+**Happy coding! 🚀** 
+
+This portfolio showcases modern web development practices and serves as a comprehensive example of Next.js 15, TypeScript, and internationalization best practices.

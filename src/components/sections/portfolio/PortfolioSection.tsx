@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
 import Header from 'components/ui/Header';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
@@ -15,6 +16,9 @@ const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const locale = useLocale();
+  const t = useTranslations('portfolio');
+  const tGlobal = useTranslations('global');
 
   // Mock project data
   const projects = useMemo(() => ([
@@ -372,12 +376,12 @@ const PortfolioSection = () => {
 
   // Filter configuration
   const filters = [
-    { id: 'all', label: 'All Projects', count: projects?.length },
-    { id: 'AI Platform', label: 'AI & Automation', count: projects?.filter(p => p?.type === 'AI Platform')?.length },
-    { id: 'Web Platform', label: 'Web Platforms', count: projects?.filter(p => p?.type === 'Web Platform')?.length },
-    { id: 'Mobile App', label: 'Mobile Apps', count: projects?.filter(p => p?.type === 'Mobile App')?.length },
-    { id: 'Design Tool', label: 'Design Tools', count: projects?.filter(p => p?.type === 'Design Tool')?.length },
-    { id: 'Healthcare', label: 'Healthcare', count: projects?.filter(p => p?.type === 'Healthcare')?.length }
+    { id: 'all', label: t('sections.filters.all'), count: projects?.length },
+    { id: 'AI Platform', label: t('sections.filters.ai'), count: projects?.filter(p => p?.type === 'AI Platform')?.length },
+    { id: 'Web Platform', label: t('sections.filters.web'), count: projects?.filter(p => p?.type === 'Web Platform')?.length },
+    { id: 'Mobile App', label: t('sections.filters.mobile'), count: projects?.filter(p => p?.type === 'Mobile App')?.length },
+    { id: 'Design Tool', label: t('sections.filters.design'), count: projects?.filter(p => p?.type === 'Design Tool')?.length },
+    { id: 'Healthcare', label: t('sections.filters.healthcare'), count: projects?.filter(p => p?.type === 'Healthcare')?.length }
   ];
 
   // Filtered projects
@@ -405,7 +409,7 @@ const PortfolioSection = () => {
         {/* Hero Section */}
         <section className="relative py-20 lg:py-32 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
-          
+
           <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center max-w-4xl mx-auto">
               <motion.div
@@ -418,7 +422,7 @@ const PortfolioSection = () => {
                   <Icon name="FolderOpen" size={24} className="text-primary" />
                 </div>
                 <span className="px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full border border-primary/30">
-                  Portfolio Showcase
+                  {t('sections.hero.badge')}
                 </span>
               </motion.div>
 
@@ -428,8 +432,8 @@ const PortfolioSection = () => {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-4xl lg:text-6xl font-space-grotesk font-bold text-foreground mb-6"
               >
-                Work That Speaks
-                <span className="block text-primary">For Itself</span>
+                {t('sections.hero.title')}
+                <span className="block text-primary">{t('sections.hero.titleHighlight')}</span>
               </motion.h1>
 
               <motion.p
@@ -438,9 +442,7 @@ const PortfolioSection = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-xl text-muted-foreground leading-relaxed mb-8"
               >
-                Explore a curated collection of projects that demonstrate the fusion of design, 
-                development, and AI innovation. Each piece tells a story of creative problem-solving 
-                and technical excellence.
+                {t('sections.hero.description')}
               </motion.p>
 
               <motion.div
@@ -451,15 +453,15 @@ const PortfolioSection = () => {
               >
                 <div className="flex items-center space-x-2">
                   <Icon name="Code" size={16} className="text-primary" />
-                  <span>20+ Projects</span>
+                  <span>{t('sections.hero.stats.projects')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Icon name="Users" size={16} className="text-primary" />
-                  <span>50+ Clients</span>
+                  <span>{t('sections.hero.stats.clients')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Icon name="Award" size={16} className="text-primary" />
-                  <span>Industry Recognition</span>
+                  <span>{t('sections.hero.stats.recognition')}</span>
                 </div>
               </motion.div>
             </div>
@@ -473,7 +475,7 @@ const PortfolioSection = () => {
           >
             <Icon name="Sparkles" size={24} className="text-primary" />
           </motion.div>
-          
+
           <motion.div
             animate={{ y: [20, -20, 20], rotate: [360, 180, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
@@ -487,8 +489,8 @@ const PortfolioSection = () => {
         {featuredProject && (
           <section className="py-16">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-              <FeaturedProject 
-                project={featuredProject} 
+              <FeaturedProject
+                project={featuredProject}
                 onViewDetails={handleViewDetails}
               />
             </div>
@@ -500,15 +502,15 @@ const PortfolioSection = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-                All Projects
+                {t('sections.projects.title')}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Filter by technology, industry, or project type to explore specific areas of expertise.
+                {t('sections.projects.description')}
               </p>
             </div>
 
             {/* Filter Buttons */}
-            <ProjectFilter 
+            <ProjectFilter
               filters={filters}
               activeFilter={activeFilter}
               onFilterChange={setActiveFilter}
@@ -520,13 +522,13 @@ const PortfolioSection = () => {
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filteredProjects?.filter(project => !project?.featured)?.map((project, index) => (
-                  <ProjectCard
-                    key={project?.id}
-                    project={project}
-                    index={index}
-                    onViewDetails={handleViewDetails}
-                  />
-                ))}
+                <ProjectCard
+                  key={project?.id}
+                  project={project}
+                  index={index}
+                  onViewDetails={handleViewDetails}
+                />
+              ))}
             </motion.div>
 
             {/* Empty State */}
@@ -540,10 +542,10 @@ const PortfolioSection = () => {
                   <Icon name="Search" size={24} className="text-muted-foreground" />
                 </div>
                 <h3 className="text-xl font-space-grotesk font-bold text-foreground mb-2">
-                  No projects found
+                  {t('sections.projects.emptyState.title')}
                 </h3>
                 <p className="text-muted-foreground">
-                  Try adjusting your filter to see more projects.
+                  {t('sections.projects.emptyState.description')}
                 </p>
               </motion.div>
             )}
@@ -560,11 +562,10 @@ const PortfolioSection = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-6">
-                Ready to Create Something Amazing?
+                {t('sections.cta.title')}
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Let's collaborate on your next project. Whether it's AI automation, 
-                web development, or creative technology, I'm here to bring your vision to life.
+                {t('sections.cta.description')}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -575,7 +576,7 @@ const PortfolioSection = () => {
                     iconPosition="left"
                     className="glow-neon hover:glow-neon-active"
                   >
-                    Start a Project
+                    {t('sections.cta.buttons.startProject')}
                   </Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -585,7 +586,7 @@ const PortfolioSection = () => {
                     iconName="Download"
                     iconPosition="left"
                   >
-                    Download Portfolio
+                    {t('sections.cta.buttons.downloadPortfolio')}
                   </Button>
                 </motion.div>
               </div>

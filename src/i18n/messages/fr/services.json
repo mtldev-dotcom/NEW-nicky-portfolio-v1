@@ -1,0 +1,195 @@
+{
+  "title": "Services",
+  "subtitle": "Solutions Numériques Complètes",
+  "description": "Du développement web à l'automatisation IA, je fournis des solutions numériques de bout en bout qui aident votre entreprise à prospérer.",
+  "sections": {
+    "overview": {
+      "title": "Ce que j'offre",
+      "subtitle": "Services de transformation numérique complets",
+      "description": "Je fournis des solutions numériques complètes qui combinent le développement web moderne, l'automatisation IA et le design stratégique pour aider votre entreprise à réussir dans le paysage numérique d'aujourd'hui."
+    },
+    "services": {
+      "webDevelopment": {
+        "title": "Développement Web",
+        "subtitle": "Sites web modernes et responsives",
+        "description": "Sites web personnalisés construits avec les dernières technologies, optimisés pour les performances et l'expérience utilisateur.",
+        "features": [
+          "Design responsive pour tous les appareils",
+          "Optimisation SEO",
+          "Temps de chargement rapides",
+          "Design UI/UX moderne",
+          "Systèmes de gestion de contenu"
+        ],
+        "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+      },
+      "automation": {
+        "title": "IA & Automatisation",
+        "subtitle": "Solutions de workflow intelligentes",
+        "description": "Automatisez les tâches répétitives et intégrez des capacités IA pour rationaliser les opérations de votre entreprise.",
+        "features": [
+          "Automatisation de workflow",
+          "Chatbots alimentés par l'IA",
+          "Automatisation du traitement des données",
+          "Intégration avec les outils existants",
+          "Solutions IA personnalisées"
+        ],
+        "technologies": ["OpenAI", "LangChain", "n8n", "Zapier"]
+      },
+      "design": {
+        "title": "Design & Branding",
+        "subtitle": "Identité visuelle professionnelle",
+        "description": "Créez une identité de marque cohérente qui résonne avec votre audience et stimule l'engagement.",
+        "features": [
+          "Design d'identité de marque",
+          "Logo et actifs visuels",
+          "Design UI/UX",
+          "Systèmes de design",
+          "Directives de marque"
+        ],
+        "technologies": ["Figma", "Adobe Creative Suite", "Framer"]
+      },
+      "consulting": {
+        "title": "Stratégie Numérique",
+        "subtitle": "Conseil stratégique et planification",
+        "description": "Conseil stratégique pour vous aider à prendre des décisions éclairées sur votre présence numérique et vos investissements technologiques.",
+        "features": [
+          "Planification de stratégie numérique",
+          "Évaluation technologique",
+          "Optimisation des processus",
+          "Formation d'équipe",
+          "Support continu"
+        ],
+        "technologies": ["Planification Stratégique", "Analyse de Processus", "Formation"]
+      }
+    }
+  },
+  "process": {
+    "title": "Mon Processus",
+    "subtitle": "Comment nous travaillons ensemble",
+    "steps": {
+      "discovery": {
+        "title": "Découverte",
+        "description": "Comprendre vos objectifs, défis et exigences grâce à une consultation détaillée.",
+        "duration": "1-2 semaines"
+      },
+      "design": {
+        "title": "Design",
+        "description": "Créer des wireframes, prototypes et designs visuels qui s'alignent avec votre vision.",
+        "duration": "2-3 semaines"
+      },
+      "development": {
+        "title": "Développement",
+        "description": "Construire votre solution avec un code propre, maintenable et des meilleures pratiques modernes.",
+        "duration": "3-6 semaines"
+      },
+      "testing": {
+        "title": "Tests & Lancement",
+        "description": "Tests approfondis, optimisation et déploiement fluide en production.",
+        "duration": "1-2 semaines"
+      },
+      "support": {
+        "title": "Support Continu",
+        "description": "Surveillance continue, mises à jour et support pour assurer des performances optimales.",
+        "duration": "Continu"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Investissement",
+    "subtitle": "Tarification transparente pour un travail de qualité",
+    "description": "Chaque projet est unique, donc je fournis des devis personnalisés basés sur vos besoins et exigences spécifiques.",
+    "contact": "Contactez-moi pour un devis détaillé adapté à votre projet."
+  },
+  "sections": {
+    "hero": {
+      "badge": "Présentation des Capacités",
+      "title": "Les Quatre Piliers de",
+      "titleHighlight": "la Technologie Créative",
+      "description": "Où le design, le code et l'IA rencontrent la créativité. Je ne construis pas seulement des sites web—je crée des expériences intelligentes qui pensent, s'adaptent et évoluent. L'avenir du travail créatif est là, et il est magnifiquement humain.",
+      "buttons": {
+        "startProject": "Démarrer Votre Projet",
+        "watchVideo": "Regarder la Vidéo du Processus"
+      }
+    },
+    "tabs": {
+      "services": "Services Principaux",
+      "process": "Mon Processus",
+      "tech": "Stack Technologique",
+      "stats": "Expérience"
+    },
+    "services": {
+      "title": "Services Complets de Technologie Créative",
+      "description": "Du concept au déploiement, je fournis des solutions de bout en bout qui comblent l'écart entre la vision créative et l'exécution technique.",
+      "items": {
+        "webDevelopment": {
+          "title": "Développement Web",
+          "description": "Sites web personnalisés construits avec les dernières technologies, optimisés pour les performances et l'expérience utilisateur.",
+          "features": [
+            "Design responsive pour tous les appareils",
+            "Optimisation SEO",
+            "Temps de chargement rapides",
+            "Design UI/UX moderne",
+            "Systèmes de gestion de contenu"
+          ]
+        },
+        "automation": {
+          "title": "IA & Automatisation",
+          "description": "Automatisez les tâches répétitives et intégrez des capacités IA pour rationaliser les opérations de votre entreprise.",
+          "features": [
+            "Automatisation de workflow",
+            "Chatbots alimentés par l'IA",
+            "Automatisation du traitement des données",
+            "Intégration avec les outils existants",
+            "Solutions IA personnalisées"
+          ]
+        },
+        "design": {
+          "title": "Design & Branding",
+          "description": "Créez une identité de marque cohérente qui résonne avec votre audience et stimule l'engagement.",
+          "features": [
+            "Design d'identité de marque",
+            "Logo et actifs visuels",
+            "Design UI/UX",
+            "Systèmes de design",
+            "Directives de marque"
+          ]
+        },
+        "consulting": {
+          "title": "Stratégie Numérique",
+          "description": "Conseil stratégique pour vous aider à prendre des décisions éclairées sur votre présence numérique et vos investissements technologiques.",
+          "features": [
+            "Planification de stratégie numérique",
+            "Évaluation technologique",
+            "Optimisation des processus",
+            "Formation d'équipe",
+            "Support continu"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Mon Processus de Développement Éprouvé",
+      "description": "Une approche systématique qui garantit que chaque projet livre des résultats exceptionnels grâce à la planification stratégique, l'exécution créative et l'optimisation intelligente."
+    },
+    "tech": {
+      "title": "Stack Technologique de Pointe",
+      "description": "Exploiter les derniers outils et technologies pour construire des solutions évolutives, performantes et prêtes pour l'avenir."
+    },
+    "stats": {
+      "title": "Deux Décennies d'Excellence Créative",
+      "description": "Expérience et expertise construites à travers des années de projets réussis et de clients satisfaits dans diverses industries."
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Vision ?",
+      "description": "Collaborons pour créer quelque chose d'extraordinaire. Que vous ayez besoin de design, de développement ou d'intégration IA, je suis là pour donner vie à vos idées.",
+      "buttons": {
+        "startProject": "Démarrer Votre Projet",
+        "scheduleConsultation": "Planifier une Consultation"
+      },
+      "features": {
+        "freeConsultation": "Consultation gratuite de 30 min",
+        "satisfactionGuarantee": "Garantie de satisfaction à 100%"
+      }
+    }
+  }
+}

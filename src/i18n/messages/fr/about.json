@@ -1,0 +1,100 @@
+{
+  "title": "À propos de Nicky Bruno",
+  "subtitle": "Technologue Créatif & Consultant Numérique",
+  "description": "En savoir plus sur mon parcours, mon expertise et mon approche pour construire des solutions numériques modernes.",
+  "sections": {
+    "intro": {
+      "title": "À propos de moi",
+      "content": "Je suis un technologue créatif basé à Montréal, Canada, avec plus de 20 ans d'expérience en développement web, design et automatisation IA. Je me spécialise dans l'aide aux entreprises pour transformer leur présence numérique grâce à des solutions innovantes qui combinent technologie de pointe et design centré sur l'utilisateur."
+    },
+    "experience": {
+      "title": "Expérience & Expertise",
+      "content": "Avec un parcours couvrant le développement web, le design UX et l'intégration IA, j'apporte une perspective unique à chaque projet. J'ai travaillé avec des startups, des entreprises établies et tout ce qui se trouve entre les deux, en me concentrant toujours sur des solutions qui apportent une vraie valeur."
+    },
+    "approach": {
+      "title": "Mon Approche",
+      "content": "Je crois que la technologie devrait servir les gens, et non l'inverse. C'est pourquoi je me concentre sur la création de solutions qui ne sont pas seulement techniquement solides, mais aussi intuitives et accessibles. Chaque projet commence par comprendre vos objectifs et se termine par une solution qui dépasse vos attentes."
+    },
+    "values": {
+      "title": "Valeurs Fondamentales",
+      "items": {
+        "innovation": {
+          "title": "Innovation",
+          "description": "Explorer toujours de nouvelles technologies et approches pour mieux résoudre les problèmes."
+        },
+        "collaboration": {
+          "title": "Collaboration",
+          "description": "Travailler étroitement avec les clients pour s'assurer que les solutions répondent à leurs besoins spécifiques."
+        },
+        "quality": {
+          "title": "Qualité",
+          "description": "Livrer des solutions de haute qualité qui résistent à l'épreuve du temps."
+        },
+        "transparency": {
+          "title": "Transparence",
+          "description": "Communication claire et feedback honnête tout au long du projet."
+        }
+      }
+    }
+  },
+  "timeline": {
+    "title": "Chronologie de Carrière",
+    "items": {
+      "2024": {
+        "title": "Spécialiste Intégration IA",
+        "description": "Se concentrer sur l'automatisation IA et les solutions de workflow intelligentes."
+      },
+      "2020": {
+        "title": "Développeur Full-Stack",
+        "description": "S'étendre au développement backend et à l'infrastructure cloud."
+      },
+      "2018": {
+        "title": "Spécialiste Frontend",
+        "description": "Approfondir l'expertise en React, TypeScript et technologies web modernes."
+      },
+      "2015": {
+        "title": "Designer & Développeur Web",
+        "description": "Combiner les compétences de design et de développement pour des solutions complètes."
+      },
+      "2010": {
+        "title": "Designer Graphique",
+        "description": "Commencer la carrière en design visuel et développement de marque."
+      }
+    }
+  },
+  "credentials": {
+    "title": "Crédentials & Certifications",
+    "items": {
+      "certification1": {
+        "title": "AWS Certified Solutions Architect",
+        "issuer": "Amazon Web Services",
+        "year": "2023"
+      },
+      "certification2": {
+        "title": "Google Cloud Professional Developer",
+        "issuer": "Google Cloud",
+        "year": "2022"
+      },
+      "certification3": {
+        "title": "React Developer Certification",
+        "issuer": "Meta",
+        "year": "2021"
+      }
+    }
+  },
+  "sections": {
+    "cta": {
+      "title": "Prêt à Créer Quelque Chose",
+      "titleHighlight": "d'Extraordinaire ?",
+      "description": "Avec deux décennies d'expérience à faire le pont entre créativité et technologie, je suis positionné pour relever vos projets les plus ambitieux. Créons des expériences intelligentes qui pensent, s'adaptent et évoluent.",
+      "buttons": {
+        "startProject": "Démarrer Votre Projet",
+        "viewWork": "Voir Mon Travail"
+      },
+      "status": {
+        "available": "Disponible pour des Projets",
+        "response": "Réponse dans les 24h"
+      }
+    }
+  }
+}

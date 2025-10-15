@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion, type Variants } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
 import Header from 'components/ui/Header';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
@@ -14,6 +15,9 @@ import ProjectBrief from './ProjectBrief';
 const MotionDiv = (props: any) => <motion.div {...props} />;
 
 const ContactSection = () => {
+  const locale = useLocale();
+  const t = useTranslations('contact');
+  const tGlobal = useTranslations('global');
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -51,7 +55,7 @@ const ContactSection = () => {
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
-        
+
         {/* Floating Elements */}
         <MotionDiv
           variants={floatingVariants}
@@ -81,20 +85,19 @@ const ContactSection = () => {
             <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
               <Icon name="Zap" size={16} className="text-primary" />
               <span className="text-primary font-medium text-sm">
-                Ready to Start Your Project?
+                {t('sections.hero.badge')}
               </span>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-space-grotesk font-bold text-foreground mb-6">
-              Let's Create Something
+              {t('sections.hero.title')}
               <span className="block text-primary glow-neon">
-                Extraordinary
+                {t('sections.hero.titleHighlight')}
               </span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Whether you're looking to build a cutting-edge web application, integrate AI into your workflow, 
-              or create a digital experience that stands out—I'm here to help bring your vision to life.
+              {t('sections.hero.description')}
             </p>
           </MotionDiv>
 
@@ -110,34 +113,34 @@ const ContactSection = () => {
                 <Icon name="Clock" size={24} className="text-primary" />
               </div>
               <h3 className="font-space-grotesk font-bold text-foreground mb-2">
-                24 Hour Response
+                {t('sections.hero.stats.response.title')}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Quick turnaround on all inquiries
+                {t('sections.hero.stats.response.description')}
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 glow-neon">
                 <Icon name="Globe" size={24} className="text-primary" />
               </div>
               <h3 className="font-space-grotesk font-bold text-foreground mb-2">
-                Global Reach
+                {t('sections.hero.stats.global.title')}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Working with clients worldwide
+                {t('sections.hero.stats.global.description')}
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 glow-neon">
                 <Icon name="Shield" size={24} className="text-primary" />
               </div>
               <h3 className="font-space-grotesk font-bold text-foreground mb-2">
-                Confidential
+                {t('sections.hero.stats.confidential.title')}
               </h3>
               <p className="text-muted-foreground text-sm">
-                All inquiries are secure & private
+                {t('sections.hero.stats.confidential.description')}
               </p>
             </div>
           </MotionDiv>
@@ -180,13 +183,12 @@ const ContactSection = () => {
             >
               <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-space-grotesk font-bold text-foreground mb-6">
-                  Ready to Transform Your Digital Presence?
+                  {t('sections.cta.title')}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Join the growing list of businesses and creators who've elevated their digital presence 
-                  with cutting-edge design, development, and AI integration.
+                  {t('sections.cta.description')}
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     variant="default"
@@ -195,7 +197,7 @@ const ContactSection = () => {
                     iconPosition="left"
                     className="glow-neon hover:glow-neon-active"
                   >
-                    Start a Conversation
+                    {t('sections.cta.buttons.startConversation')}
                   </Button>
                   <Button
                     variant="outline"
@@ -206,7 +208,7 @@ const ContactSection = () => {
                     Schedule Consultation
                   </Button>
                 </div>
-                
+
                 <div className="mt-8 pt-8 border-t border-primary/20">
                   <p className="text-sm text-muted-foreground">
                     Based in Montreal • Serving clients globally • Available for remote & on-site projects

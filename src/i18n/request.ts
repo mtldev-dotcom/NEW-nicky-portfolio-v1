@@ -1,7 +1,8 @@
-import {getRequestConfig} from 'next-intl/server';
-import {defaultLocale, locales, type Locale} from './config';
+import { getRequestConfig } from 'next-intl/server';
+import { defaultLocale, locales, type Locale } from './config';
+import { getMessages } from './getMessages';
 
-export default getRequestConfig(async ({locale}) => {
+export default getRequestConfig(async ({ locale }) => {
   const candidate = locale as string | undefined;
 
   const resolved: Locale =
@@ -10,7 +11,7 @@ export default getRequestConfig(async ({locale}) => {
       : defaultLocale;
 
   try {
-    const messages = (await import(`./messages/${resolved}.json`)).default;
+    const messages = await getMessages(resolved);
     return {
       locale: resolved,
       messages
@@ -24,7 +25,14 @@ export default getRequestConfig(async ({locale}) => {
     }
     return {
       locale: resolved,
-      messages: {}
+      messages: {
+        global: {},
+        home: {},
+        about: {},
+        services: {},
+        portfolio: {},
+        contact: {}
+      }
     };
   }
 });

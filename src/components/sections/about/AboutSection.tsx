@@ -1,7 +1,7 @@
 'use client';
 
 import { type FC, useEffect } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import CareerTimeline from './CareerTimeline';
 import CredentialsShowcase from './CredentialsShowcase';
@@ -10,6 +10,9 @@ import PersonalIntro from './PersonalIntro';
 
 const AboutSection: FC = () => {
   const locale = useLocale();
+  const t = useTranslations('about');
+  const tGlobal = useTranslations('global');
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
@@ -54,12 +57,12 @@ const AboutSection: FC = () => {
             <div className="space-y-8 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 to-transparent p-12 backdrop-blur-sm">
               <div className="space-y-4">
                 <h2 className="text-3xl font-space-grotesk font-bold text-foreground lg:text-4xl">
-                  Ready to Create Something
-                  <span className="text-glow block text-primary">Extraordinary?</span>
+                  {t('sections.cta.title')}
+                  <span className="text-glow block text-primary">{t('sections.cta.titleHighlight')}</span>
                 </h2>
 
                 <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-                  With two decades of experience bridging creativity and technology, I&apos;m positioned to tackle your most ambitious projects. Let&apos;s craft intelligent experiences that think, adapt, and evolve.
+                  {t('sections.cta.description')}
                 </p>
               </div>
 
@@ -68,25 +71,25 @@ const AboutSection: FC = () => {
                   href={`/${locale}/contact`}
                   className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 font-space-grotesk font-semibold text-black transition-smooth hover:bg-primary/90 glow-neon hover:glow-neon-active"
                 >
-                  Start Your Project
+                  {t('sections.cta.buttons.startProject')}
                 </Link>
 
                 <Link
                   href={`/${locale}/portfolio`}
                   className="inline-flex items-center justify-center rounded-lg border border-border px-8 py-4 font-space-grotesk font-semibold text-foreground transition-smooth hover:border-primary/50"
                 >
-                  View My Work
+                  {t('sections.cta.buttons.viewWork')}
                 </Link>
               </div>
 
               <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <div className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-                  <span>Available for Projects</span>
+                  <span>{t('sections.cta.status.available')}</span>
                 </div>
                 <div className="h-1 w-1 rounded-full bg-border" />
                 <div className="flex items-center space-x-2">
-                  <span>Response within 24h</span>
+                  <span>{t('sections.cta.status.response')}</span>
                 </div>
               </div>
             </div>

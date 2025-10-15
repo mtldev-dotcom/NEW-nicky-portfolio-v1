@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
 import Header from 'components/ui/Header';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
@@ -13,42 +14,24 @@ import TechStack from './TechStack';
 const ServicesSection = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const [activeTab, setActiveTab] = useState('services');
+  const locale = useLocale();
+  const t = useTranslations('services');
+  const tGlobal = useTranslations('global');
 
-  // Mock services data
+  // Services data using translations
   const services = [
     {
       icon: "Palette",
-      title: "Creative Design & Branding",
-      description: "Crafting compelling visual identities that resonate with your audience and drive engagement through strategic design thinking.",
+      title: t('sections.services.items.webDevelopment.title'),
+      description: t('sections.services.items.webDevelopment.description'),
       level: "Expert",
-      technologies: ["Figma", "Adobe Creative Suite", "Sketch", "Principle", "InVision", "Framer"],
+      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       capabilities: [
-        "Brand identity development and visual strategy",
-        "UI/UX design for web and mobile applications",
-        "Design system creation and maintenance",
-        "User research and persona development",
-        "Prototyping and interactive mockups",
-        "Accessibility-first design principles"
-      ],
-      certifications: ["Adobe Certified Expert", "Google UX Design"],
-      caseStudy: {
-        title: "Montreal Tech Startup Rebrand",
-        preview: "Complete visual identity overhaul resulting in 300% increase in user engagement and successful Series A funding."
-      }
-    },
-    {
-      icon: "Code",
-      title: "Full-Stack Development",
-      description: "Building robust, scalable web applications using modern technologies and best practices for optimal performance and user experience.",
-      level: "Expert",
-      technologies: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
-      capabilities: [
-        "Frontend development with React and Next.js",
-        "Backend API development and database design",
-        "Cloud infrastructure setup and deployment",
-        "Performance optimization and SEO",
-        "Third-party integrations and APIs",
-        "Testing and quality assurance"
+        t('sections.services.items.webDevelopment.features.0'),
+        t('sections.services.items.webDevelopment.features.1'),
+        t('sections.services.items.webDevelopment.features.2'),
+        t('sections.services.items.webDevelopment.features.3'),
+        t('sections.services.items.webDevelopment.features.4')
       ],
       certifications: ["AWS Solutions Architect", "React Professional"],
       caseStudy: {
@@ -58,17 +41,16 @@ const ServicesSection = () => {
     },
     {
       icon: "Brain",
-      title: "AI Integration & Automation",
-      description: "Implementing intelligent automation solutions that streamline workflows and enhance user experiences through cutting-edge AI technologies.",
+      title: t('sections.services.items.automation.title'),
+      description: t('sections.services.items.automation.description'),
       level: "Advanced",
-      technologies: ["OpenAI GPT", "Langchain", "Python", "TensorFlow", "Zapier", "Make.com"],
+      technologies: ["OpenAI", "LangChain", "n8n", "Zapier"],
       capabilities: [
-        "Custom AI model integration and fine-tuning",
-        "Workflow automation and process optimization",
-        "Chatbot development and conversational AI",
-        "Data analysis and predictive modeling",
-        "Natural language processing solutions",
-        "AI-powered content generation systems"
+        t('sections.services.items.automation.features.0'),
+        t('sections.services.items.automation.features.1'),
+        t('sections.services.items.automation.features.2'),
+        t('sections.services.items.automation.features.3'),
+        t('sections.services.items.automation.features.4')
       ],
       certifications: ["OpenAI API Specialist", "Google AI Certification"],
       caseStudy: {
@@ -77,18 +59,36 @@ const ServicesSection = () => {
       }
     },
     {
-      icon: "Zap",
-      title: "Digital Strategy & Consulting",
-      description: "Providing strategic guidance on digital transformation, technology adoption, and growth optimization for modern businesses.",
+      icon: "Palette",
+      title: t('sections.services.items.design.title'),
+      description: t('sections.services.items.design.description'),
       level: "Expert",
-      technologies: ["Analytics", "SEO Tools", "CRM Systems", "Marketing Automation", "A/B Testing", "Conversion Optimization"],
+      technologies: ["Figma", "Adobe Creative Suite", "Framer"],
       capabilities: [
-        "Digital transformation roadmap development",
-        "Technology stack evaluation and recommendations",
-        "Growth hacking and conversion optimization",
-        "SEO strategy and content marketing",
-        "Analytics setup and performance monitoring",
-        "Team training and knowledge transfer"
+        t('sections.services.items.design.features.0'),
+        t('sections.services.items.design.features.1'),
+        t('sections.services.items.design.features.2'),
+        t('sections.services.items.design.features.3'),
+        t('sections.services.items.design.features.4')
+      ],
+      certifications: ["Adobe Certified Expert", "Google UX Design"],
+      caseStudy: {
+        title: "Montreal Tech Startup Rebrand",
+        preview: "Complete visual identity overhaul resulting in 300% increase in user engagement and successful Series A funding."
+      }
+    },
+    {
+      icon: "Zap",
+      title: t('sections.services.items.consulting.title'),
+      description: t('sections.services.items.consulting.description'),
+      level: "Expert",
+      technologies: ["Strategic Planning", "Process Analysis", "Training"],
+      capabilities: [
+        t('sections.services.items.consulting.features.0'),
+        t('sections.services.items.consulting.features.1'),
+        t('sections.services.items.consulting.features.2'),
+        t('sections.services.items.consulting.features.3'),
+        t('sections.services.items.consulting.features.4')
       ],
       certifications: ["Google Analytics Certified", "HubSpot Strategy"],
       caseStudy: {
@@ -104,10 +104,10 @@ const ServicesSection = () => {
   };
 
   const tabs = [
-    { id: 'services', label: 'Core Services', icon: 'Briefcase' },
-    { id: 'process', label: 'My Process', icon: 'GitBranch' },
-    { id: 'tech', label: 'Tech Stack', icon: 'Code' },
-    { id: 'stats', label: 'Experience', icon: 'TrendingUp' }
+    { id: 'services', label: t('sections.tabs.services'), icon: 'Briefcase' },
+    { id: 'process', label: t('sections.tabs.process'), icon: 'GitBranch' },
+    { id: 'tech', label: t('sections.tabs.tech'), icon: 'Code' },
+    { id: 'stats', label: t('sections.tabs.stats'), icon: 'TrendingUp' }
   ];
 
   return (
@@ -123,16 +123,16 @@ const ServicesSection = () => {
           >
             <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 glow-neon">
               <Icon name="Sparkles" size={16} />
-              <span>Capability Showcase</span>
+              <span>{t('sections.hero.badge')}</span>
             </div>
-            
+
             <h1 className="text-4xl lg:text-6xl font-space-grotesk font-bold text-foreground mb-6 leading-tight">
-              The Four Pillars of
-              <span className="block text-primary text-glow">Creative Technology</span>
+              {t('sections.hero.title')}
+              <span className="block text-primary text-glow">{t('sections.hero.titleHighlight')}</span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              Where design, code, and AI meet creativity. I don't just build websites—I craft intelligent experiences that think, adapt, and evolve. The future of creative work is here, and it's beautifully human.
+              {t('sections.hero.description')}
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -143,7 +143,7 @@ const ServicesSection = () => {
                 iconPosition="left"
                 className="glow-neon hover:glow-neon-active"
               >
-                Start Your Project
+                {t('sections.hero.buttons.startProject')}
               </Button>
               <Button
                 variant="outline"
@@ -151,7 +151,7 @@ const ServicesSection = () => {
                 iconName="Play"
                 iconPosition="left"
               >
-                Watch Process Video
+                {t('sections.hero.buttons.watchVideo')}
               </Button>
             </div>
           </motion.div>
@@ -168,7 +168,7 @@ const ServicesSection = () => {
                 className={`
                   flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300
                   ${activeTab === tab?.id
-                    ? 'bg-primary text-black glow-neon' :'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
+                    ? 'bg-primary text-black glow-neon' : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
                   }
                 `}
               >
@@ -191,13 +191,13 @@ const ServicesSection = () => {
             >
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-space-grotesk font-bold text-foreground mb-4">
-                  Comprehensive Creative Technology Services
+                  {t('sections.services.title')}
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  From concept to deployment, I provide end-to-end solutions that bridge the gap between creative vision and technical execution.
+                  {t('sections.services.description')}
                 </p>
               </div>
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {services?.map((service, index) => (
                   <ServiceCard
@@ -222,13 +222,13 @@ const ServicesSection = () => {
             >
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-space-grotesk font-bold text-foreground mb-4">
-                  My Proven Development Process
+                  {t('sections.process.title')}
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  A systematic approach that ensures every project delivers exceptional results through strategic planning, creative execution, and intelligent optimization.
+                  {t('sections.process.description')}
                 </p>
               </div>
-              
+
               <ProcessTimeline />
             </motion.div>
           )}
@@ -242,13 +242,13 @@ const ServicesSection = () => {
             >
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-space-grotesk font-bold text-foreground mb-4">
-                  Cutting-Edge Technology Stack
+                  {t('sections.tech.title')}
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Leveraging the latest tools and technologies to build scalable, performant, and future-ready solutions.
+                  {t('sections.tech.description')}
                 </p>
               </div>
-              
+
               <TechStack />
             </motion.div>
           )}
@@ -262,15 +262,15 @@ const ServicesSection = () => {
             >
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-space-grotesk font-bold text-foreground mb-4">
-                  Two Decades of Creative Excellence
+                  {t('sections.stats.title')}
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Experience and expertise built through years of successful projects and satisfied clients across diverse industries.
+                  {t('sections.stats.description')}
                 </p>
               </div>
-              
+
               <CapabilityStats />
-              
+
               {/* Additional Experience Highlights */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -284,7 +284,7 @@ const ServicesSection = () => {
                     Industry Recognition & Expertise
                   </h3>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="text-center">
                     <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center glow-neon">
@@ -295,7 +295,7 @@ const ServicesSection = () => {
                       Recognized for excellence in web design and development by leading industry organizations.
                     </p>
                   </div>
-                  
+
                   <div className="text-center">
                     <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center glow-neon">
                       <Icon name="Users" size={32} className="text-primary" />
@@ -305,7 +305,7 @@ const ServicesSection = () => {
                       Active contributor to Montreal's tech community through mentoring and knowledge sharing.
                     </p>
                   </div>
-                  
+
                   <div className="text-center">
                     <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center glow-neon">
                       <Icon name="BookOpen" size={32} className="text-primary" />
@@ -332,12 +332,12 @@ const ServicesSection = () => {
             className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 lg:p-12 text-center border border-primary/20 glow-neon"
           >
             <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-              Ready to Transform Your Vision?
+              {t('sections.cta.title')}
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let's collaborate to create something extraordinary. Whether you need design, development, or AI integration, I'm here to bring your ideas to life.
+              {t('sections.cta.description')}
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="default"
@@ -346,7 +346,7 @@ const ServicesSection = () => {
                 iconPosition="left"
                 className="glow-neon hover:glow-neon-active"
               >
-                Start Your Project
+                {t('sections.cta.buttons.startProject')}
               </Button>
               <Button
                 variant="outline"
@@ -354,18 +354,18 @@ const ServicesSection = () => {
                 iconName="Calendar"
                 iconPosition="left"
               >
-                Schedule Consultation
+                {t('sections.cta.buttons.scheduleConsultation')}
               </Button>
             </div>
-            
+
             <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Icon name="Clock" size={16} className="text-primary" />
-                <span>Free 30-min consultation</span>
+                <span>{t('sections.cta.features.freeConsultation')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Icon name="Shield" size={16} className="text-primary" />
-                <span>100% satisfaction guarantee</span>
+                <span>{t('sections.cta.features.satisfactionGuarantee')}</span>
               </div>
             </div>
           </motion.div>

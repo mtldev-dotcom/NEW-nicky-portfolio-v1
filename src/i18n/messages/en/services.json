@@ -1,0 +1,195 @@
+{
+  "title": "Services",
+  "subtitle": "Comprehensive Digital Solutions",
+  "description": "From web development to AI automation, I provide end-to-end digital solutions that help your business thrive.",
+  "sections": {
+    "overview": {
+      "title": "What I Offer",
+      "subtitle": "Complete digital transformation services",
+      "description": "I provide comprehensive digital solutions that combine modern web development, AI automation, and strategic design to help your business succeed in today's digital landscape."
+    },
+    "services": {
+      "webDevelopment": {
+        "title": "Web Development",
+        "subtitle": "Modern, responsive websites",
+        "description": "Custom websites built with the latest technologies, optimized for performance and user experience.",
+        "features": [
+          "Responsive design for all devices",
+          "SEO optimization",
+          "Fast loading times",
+          "Modern UI/UX design",
+          "Content management systems"
+        ],
+        "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+      },
+      "automation": {
+        "title": "AI & Automation",
+        "subtitle": "Intelligent workflow solutions",
+        "description": "Automate repetitive tasks and integrate AI capabilities to streamline your business operations.",
+        "features": [
+          "Workflow automation",
+          "AI-powered chatbots",
+          "Data processing automation",
+          "Integration with existing tools",
+          "Custom AI solutions"
+        ],
+        "technologies": ["OpenAI", "LangChain", "n8n", "Zapier"]
+      },
+      "design": {
+        "title": "Design & Branding",
+        "subtitle": "Professional visual identity",
+        "description": "Create a cohesive brand identity that resonates with your audience and drives engagement.",
+        "features": [
+          "Brand identity design",
+          "Logo and visual assets",
+          "UI/UX design",
+          "Design systems",
+          "Brand guidelines"
+        ],
+        "technologies": ["Figma", "Adobe Creative Suite", "Framer"]
+      },
+      "consulting": {
+        "title": "Digital Strategy",
+        "subtitle": "Strategic guidance and planning",
+        "description": "Strategic consulting to help you make informed decisions about your digital presence and technology investments.",
+        "features": [
+          "Digital strategy planning",
+          "Technology assessment",
+          "Process optimization",
+          "Team training",
+          "Ongoing support"
+        ],
+        "technologies": ["Strategic Planning", "Process Analysis", "Training"]
+      }
+    }
+  },
+  "process": {
+    "title": "My Process",
+    "subtitle": "How we work together",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "Understanding your goals, challenges, and requirements through detailed consultation.",
+        "duration": "1-2 weeks"
+      },
+      "design": {
+        "title": "Design",
+        "description": "Creating wireframes, prototypes, and visual designs that align with your vision.",
+        "duration": "2-3 weeks"
+      },
+      "development": {
+        "title": "Development",
+        "description": "Building your solution with clean, maintainable code and modern best practices.",
+        "duration": "3-6 weeks"
+      },
+      "testing": {
+        "title": "Testing & Launch",
+        "description": "Thorough testing, optimization, and smooth deployment to production.",
+        "duration": "1-2 weeks"
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "Continuous monitoring, updates, and support to ensure optimal performance.",
+        "duration": "Ongoing"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Investment",
+    "subtitle": "Transparent pricing for quality work",
+    "description": "Every project is unique, so I provide custom quotes based on your specific needs and requirements.",
+    "contact": "Contact me for a detailed quote tailored to your project."
+  },
+  "sections": {
+    "hero": {
+      "badge": "Capability Showcase",
+      "title": "The Four Pillars of",
+      "titleHighlight": "Creative Technology",
+      "description": "Where design, code, and AI meet creativity. I don't just build websites—I craft intelligent experiences that think, adapt, and evolve. The future of creative work is here, and it's beautifully human.",
+      "buttons": {
+        "startProject": "Start Your Project",
+        "watchVideo": "Watch Process Video"
+      }
+    },
+    "tabs": {
+      "services": "Core Services",
+      "process": "My Process",
+      "tech": "Tech Stack",
+      "stats": "Experience"
+    },
+    "services": {
+      "title": "Comprehensive Creative Technology Services",
+      "description": "From concept to deployment, I provide end-to-end solutions that bridge the gap between creative vision and technical execution.",
+      "items": {
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "Custom websites built with the latest technologies, optimized for performance and user experience.",
+          "features": [
+            "Responsive design for all devices",
+            "SEO optimization",
+            "Fast loading times",
+            "Modern UI/UX design",
+            "Content management systems"
+          ]
+        },
+        "automation": {
+          "title": "AI & Automation",
+          "description": "Automate repetitive tasks and integrate AI capabilities to streamline your business operations.",
+          "features": [
+            "Workflow automation",
+            "AI-powered chatbots",
+            "Data processing automation",
+            "Integration with existing tools",
+            "Custom AI solutions"
+          ]
+        },
+        "design": {
+          "title": "Design & Branding",
+          "description": "Create a cohesive brand identity that resonates with your audience and drives engagement.",
+          "features": [
+            "Brand identity design",
+            "Logo and visual assets",
+            "UI/UX design",
+            "Design systems",
+            "Brand guidelines"
+          ]
+        },
+        "consulting": {
+          "title": "Digital Strategy",
+          "description": "Strategic consulting to help you make informed decisions about your digital presence and technology investments.",
+          "features": [
+            "Digital strategy planning",
+            "Technology assessment",
+            "Process optimization",
+            "Team training",
+            "Ongoing support"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "My Proven Development Process",
+      "description": "A systematic approach that ensures every project delivers exceptional results through strategic planning, creative execution, and intelligent optimization."
+    },
+    "tech": {
+      "title": "Cutting-Edge Technology Stack",
+      "description": "Leveraging the latest tools and technologies to build scalable, performant, and future-ready solutions."
+    },
+    "stats": {
+      "title": "Two Decades of Creative Excellence",
+      "description": "Experience and expertise built through years of successful projects and satisfied clients across diverse industries."
+    },
+    "cta": {
+      "title": "Ready to Transform Your Vision?",
+      "description": "Let's collaborate to create something extraordinary. Whether you need design, development, or AI integration, I'm here to bring your ideas to life.",
+      "buttons": {
+        "startProject": "Start Your Project",
+        "scheduleConsultation": "Schedule Consultation"
+      },
+      "features": {
+        "freeConsultation": "Free 30-min consultation",
+        "satisfactionGuarantee": "100% satisfaction guarantee"
+      }
+    }
+  }
+}

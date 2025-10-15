@@ -1,0 +1,142 @@
+{
+  "title": "Contact",
+  "subtitle": "Let's Work Together",
+  "description": "Ready to transform your digital presence? Get in touch to discuss your project and how I can help.",
+  "sections": {
+    "hero": {
+      "badge": "Ready to Start Your Project?",
+      "title": "Let's Create Something",
+      "titleHighlight": "Extraordinary",
+      "description": "Whether you're looking to build a cutting-edge web application, integrate AI into your workflow, or create a digital experience that stands out—I'm here to help bring your vision to life.",
+      "stats": {
+        "response": {
+          "title": "24 Hour Response",
+          "description": "Quick turnaround on all inquiries"
+        },
+        "global": {
+          "title": "Global Reach",
+          "description": "Working with clients worldwide"
+        },
+        "confidential": {
+          "title": "Confidential",
+          "description": "All inquiries are secure & private"
+        }
+      }
+    },
+    "intro": {
+      "title": "Get In Touch",
+      "subtitle": "Ready to start your project?",
+      "description": "I'm always excited to work on new projects and help businesses achieve their digital goals. Whether you need a new website, AI automation, or strategic consulting, I'm here to help."
+    },
+    "form": {
+      "title": "Project Brief",
+      "subtitle": "Tell me about your project",
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "Enter your email address"
+        },
+        "company": {
+          "label": "Company (Optional)",
+          "placeholder": "Enter your company name"
+        },
+        "projectType": {
+          "label": "Project Type",
+          "placeholder": "Select project type",
+          "options": {
+            "web": "Web Development",
+            "ai": "AI & Automation",
+            "design": "Design & Branding",
+            "consulting": "Digital Strategy",
+            "other": "Other"
+          }
+        },
+        "budget": {
+          "label": "Budget Range",
+          "placeholder": "Select budget range",
+          "options": {
+            "under5k": "Under $5,000",
+            "5k-10k": "$5,000 - $10,000",
+            "10k-25k": "$10,000 - $25,000",
+            "25k-50k": "$25,000 - $50,000",
+            "over50k": "Over $50,000"
+          }
+        },
+        "timeline": {
+          "label": "Timeline",
+          "placeholder": "Select timeline",
+          "options": {
+            "asap": "ASAP",
+            "1month": "Within 1 month",
+            "2-3months": "2-3 months",
+            "3-6months": "3-6 months",
+            "flexible": "Flexible"
+          }
+        },
+        "message": {
+          "label": "Project Details",
+          "placeholder": "Tell me about your project, goals, and any specific requirements..."
+        }
+      },
+      "submit": "Send Message",
+      "success": "Thank you! I'll get back to you within 24 hours.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "items": {
+        "email": {
+          "label": "Email",
+          "value": "hello@nickybruno.com",
+          "description": "For project inquiries and general questions"
+        },
+        "location": {
+          "label": "Location",
+          "value": "Montreal, Canada",
+          "description": "Available for remote work worldwide"
+        },
+        "response": {
+          "label": "Response Time",
+          "value": "Within 24 hours",
+          "description": "I typically respond to all inquiries within one business day"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "timeline": {
+          "question": "How long does a typical project take?",
+          "answer": "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a comprehensive platform could take 2-6 months. I'll provide a detailed timeline during our initial consultation."
+        },
+        "pricing": {
+          "question": "What are your rates?",
+          "answer": "I provide custom quotes based on project requirements. Factors include complexity, timeline, and specific features needed. Contact me for a detailed estimate tailored to your project."
+        },
+        "process": {
+          "question": "What's your development process?",
+          "answer": "I follow a structured approach: Discovery & Planning, Design & Prototyping, Development & Testing, and Launch & Support. Each phase includes regular check-ins and feedback sessions."
+        },
+        "support": {
+          "question": "Do you provide ongoing support?",
+          "answer": "Yes! I offer ongoing maintenance, updates, and support packages to ensure your project continues to perform optimally after launch."
+        },
+        "technologies": {
+          "question": "What technologies do you work with?",
+          "answer": "I work with modern web technologies including React, Next.js, TypeScript, Node.js, Python, and various AI/ML frameworks. I choose the best tools for each specific project."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Digital Presence?",
+      "description": "Join the growing list of businesses and creators who've elevated their digital presence with cutting-edge design, development, and AI integration.",
+      "buttons": {
+        "startConversation": "Start a Conversation"
+      }
+    }
+  }
+}

@@ -1,0 +1,403 @@
+{
+  "floatingTaglines": {
+    "one": "Sites Web",
+    "two": "Automatisation",
+    "three": "Systèmes de design",
+    "four": "Stratégie",
+    "five": "Flux de travail IA",
+    "six": "Résultats significatifs"
+  },
+  "hero": {
+    "title": "Je construis des systèmes numériques modernes qui simplifient votre entreprise et vous font ressortir.",
+    "subtitle": "Sites Web • Automatisation • Design • Stratégie",
+    "description": "Des sites web et de l'automatisation au design et au marketing — je vous aide à travailler plus intelligemment, pas plus dur.",
+    "ctaPrimary": "Voir mon travail",
+    "ctaSecondary": "Réserver un appel de découverte",
+    "stats": {
+      "experience": {
+        "value": "20+",
+        "label": "Années d'expérience"
+      },
+      "projects": {
+        "value": "80+",
+        "label": "Projets livrés"
+      },
+      "hoursSaved": {
+        "value": "4,000+",
+        "label": "Heures économisées pour les équipes"
+      }
+    },
+    "status": "Disponible pour des projets",
+    "response": "Réponse dans les 24h",
+    "portraitAlt": "Nicky Bruno - Technologue Créatif"
+  },
+  "intro": {
+    "greeting": "Salut, je suis Nicky Bruno, un technologue créatif et consultant numérique de Montréal, Canada.",
+    "tagline": "J'aide les particuliers, les startups et les entreprises établies à construire des sites web modernes, des systèmes intelligents et des automatisations IA qui font gagner du temps, réduisent le stress et sont magnifiques.",
+    "paragraph": "Dans le monde d'aujourd'hui, votre présence numérique est tout — que vous soyez un restaurant local, un entrepreneur, un agent immobilier ou une marque en ligne en croissance. Mais la vérité est que la plupart des gens n'ont pas le temps ou les connaissances pour gérer les sites web, les configurations techniques ou les outils d'automatisation. C'est là que j'interviens. Je combine le design, la programmation et l'intelligence artificielle pour simplifier vos opérations, vous aider à attirer plus de clients et libérer votre temps pour vous concentrer sur ce qui compte vraiment — faire fonctionner votre entreprise."
+  },
+  "capabilities": {
+    "title": "Ce que je fais",
+    "subtitle": "Aperçu rapide",
+    "items": {
+      "webDesign": {
+        "title": "Design & Développement Web",
+        "description": "Sites web rapides et adaptés aux mobiles qui ont l'air géniaux et convertissent les visiteurs en clients."
+      },
+      "automation": {
+        "title": "Automatisation & Outils IA",
+        "description": "Économisez des heures de travail répétitif chaque semaine avec des automatisations personnalisées (ex: envoi de devis, collecte de formulaires, planification de clients)."
+      },
+      "brandStrategy": {
+        "title": "Stratégie de Marque & Numérique",
+        "description": "Aidez-vous à vous démarquer en ligne avec une image professionnelle et une communication claire."
+      }
+    }
+  },
+  "benefits": {
+    "title": "Avantages Concrets",
+    "subtitle": "Pourquoi les entreprises choisissent de travailler avec moi :",
+    "items": {
+      "timeSavings": {
+        "icon": "💰",
+        "title": "Économisez jusqu'à 10+ heures par semaine grâce à l'automatisation intelligente.",
+        "example": "Exemple : une entreprise de nettoyage locale envoie maintenant automatiquement des factures et des rappels en utilisant un workflow n8n que j'ai construit — plus d'emails manuels !"
+      },
+      "visibility": {
+        "icon": "🚀",
+        "title": "Augmentez la visibilité en ligne avec des sites web optimisés pour le SEO et Google Business.",
+        "example": "Exemple : un client restaurant a vu une augmentation de 45% des réservations dans les 2 mois suivant le lancement de son nouveau site."
+      },
+      "understanding": {
+        "icon": "🧠",
+        "title": "Rendez la technologie compréhensible.",
+        "example": "Je ne parle pas en jargon — j'explique comment les choses fonctionnent en langage simple pour que vous vous sentiez toujours en contrôle."
+      }
+    }
+  },
+  "loading": {
+    "title": "Préparation de votre expérience",
+    "steps": {
+      "one": "Initialisation des systèmes créatifs…",
+      "two": "Chargement des modules d'automatisation…",
+      "three": "Connexion des flux de données…",
+      "four": "Calibrage des couches d'expérience…",
+      "five": "Prêt à construire quelque chose de remarquable."
+    }
+  },
+  "techStack": {
+    "title": "Ce que j'utilise",
+    "subtitle": "Outils, applications, intégrations et plus",
+    "description": "Une collection curée de technologies avec lesquelles je travaille quotidiennement pour construire des expériences numériques modernes.",
+    "tabs": {
+      "all": "Tout",
+      "core": "Stack Principal",
+      "automation": "Automatisation & IA",
+      "cloud": "Cloud & Infra",
+      "backend": "Backend & API",
+      "design": "Design & Outils"
+    },
+    "tools": {
+      "nextjs": {
+        "name": "Next.js",
+        "description": "Framework React pour la production",
+        "url": "https://nextjs.org"
+      },
+      "react": {
+        "name": "React",
+        "description": "Bibliothèque JavaScript pour construire des interfaces",
+        "url": "https://react.dev"
+      },
+      "typescript": {
+        "name": "TypeScript",
+        "description": "JavaScript typé à grande échelle",
+        "url": "https://typescriptlang.org"
+      },
+      "tailwind": {
+        "name": "Tailwind CSS",
+        "description": "Framework CSS utility-first",
+        "url": "https://tailwindcss.com"
+      },
+      "supabase": {
+        "name": "Supabase",
+        "description": "Alternative open source à Firebase",
+        "url": "https://supabase.com"
+      },
+      "postgresql": {
+        "name": "PostgreSQL",
+        "description": "Base de données open source avancée",
+        "url": "https://postgresql.org"
+      },
+      "prisma": {
+        "name": "Prisma",
+        "description": "ORM nouvelle génération pour Node.js",
+        "url": "https://prisma.io"
+      },
+      "nodejs": {
+        "name": "Node.js",
+        "description": "Environnement d'exécution JavaScript",
+        "url": "https://nodejs.org"
+      },
+      "n8n": {
+        "name": "n8n",
+        "description": "Plateforme d'automatisation de workflow",
+        "url": "https://n8n.io"
+      },
+      "openai": {
+        "name": "OpenAI",
+        "description": "Recherche et déploiement IA",
+        "url": "https://openai.com"
+      },
+      "zapier": {
+        "name": "Zapier",
+        "description": "Plateforme d'automatisation pour workflows",
+        "url": "https://zapier.com"
+      },
+      "docker": {
+        "name": "Docker",
+        "description": "Plateforme de conteneurisation",
+        "url": "https://docker.com"
+      },
+      "netlify": {
+        "name": "Netlify",
+        "description": "Plateforme de développement web",
+        "url": "https://netlify.com"
+      },
+      "cloudflare": {
+        "name": "Cloudflare",
+        "description": "Performance et sécurité web",
+        "url": "https://cloudflare.com"
+      },
+      "javascript": {
+        "name": "JavaScript",
+        "description": "Langage de programmation dynamique",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+      },
+      "python": {
+        "name": "Python",
+        "description": "Langage de programmation de haut niveau",
+        "url": "https://python.org"
+      },
+      "mongodb": {
+        "name": "MongoDB",
+        "description": "Base de données document NoSQL",
+        "url": "https://mongodb.com"
+      },
+      "graphql": {
+        "name": "GraphQL",
+        "description": "Langage de requête pour APIs",
+        "url": "https://graphql.org"
+      },
+      "aws": {
+        "name": "AWS",
+        "description": "Plateforme cloud Amazon Web Services",
+        "url": "https://aws.amazon.com"
+      },
+      "firebase": {
+        "name": "Firebase",
+        "description": "Plateforme mobile et web de Google",
+        "url": "https://firebase.google.com"
+      },
+      "git": {
+        "name": "Git",
+        "description": "Système de contrôle de version",
+        "url": "https://git-scm.com"
+      },
+      "redux": {
+        "name": "Redux",
+        "description": "Conteneur d'état prévisible",
+        "url": "https://redux.js.org"
+      },
+      "vite": {
+        "name": "Vite",
+        "description": "Outillage frontend nouvelle génération",
+        "url": "https://vitejs.dev"
+      },
+      "webpack": {
+        "name": "Webpack",
+        "description": "Bundler de modules JavaScript",
+        "url": "https://webpack.js.org"
+      },
+      "huggingface": {
+        "name": "Hugging Face",
+        "description": "Communauté IA et hub de modèles",
+        "url": "https://huggingface.co"
+      },
+      "langchain": {
+        "name": "LangChain",
+        "description": "Framework pour applications LLM",
+        "url": "https://langchain.com"
+      },
+      "ollama": {
+        "name": "Ollama",
+        "description": "Déploiement LLM local",
+        "url": "https://ollama.ai"
+      },
+      "replicate": {
+        "name": "Replicate",
+        "description": "Plateforme de déploiement de modèles IA",
+        "url": "https://replicate.com"
+      },
+      "vapi": {
+        "name": "Vapi",
+        "description": "Plateforme IA vocale",
+        "url": "https://vapi.ai"
+      },
+      "cursor": {
+        "name": "Cursor AI",
+        "description": "Éditeur de code alimenté par l'IA",
+        "url": "https://cursor.sh"
+      },
+      "chatgpt": {
+        "name": "ChatGPT",
+        "description": "Assistant conversationnel IA",
+        "url": "https://chat.openai.com"
+      },
+      "anthropic": {
+        "name": "Claude",
+        "description": "Assistant IA par Anthropic",
+        "url": "https://anthropic.com"
+      },
+      "airflow": {
+        "name": "Apache Airflow",
+        "description": "Plateforme d'orchestration de workflow",
+        "url": "https://airflow.apache.org"
+      },
+      "vercel": {
+        "name": "Vercel",
+        "description": "Plateforme cloud frontend",
+        "url": "https://vercel.com"
+      },
+      "railway": {
+        "name": "Railway",
+        "description": "Plateforme de déploiement cloud",
+        "url": "https://railway.app"
+      },
+      "digitalocean": {
+        "name": "DigitalOcean",
+        "description": "Fournisseur d'infrastructure cloud",
+        "url": "https://digitalocean.com"
+      },
+      "hetzner": {
+        "name": "Hetzner",
+        "description": "Fournisseur cloud européen",
+        "url": "https://hetzner.com"
+      },
+      "caddy": {
+        "name": "Caddy",
+        "description": "Serveur web moderne",
+        "url": "https://caddyserver.com"
+      },
+      "traefik": {
+        "name": "Traefik",
+        "description": "Proxy inverse cloud-native",
+        "url": "https://traefik.io"
+      },
+      "portainer": {
+        "name": "Portainer",
+        "description": "Interface de gestion de conteneurs",
+        "url": "https://portainer.io"
+      },
+      "kubernetes": {
+        "name": "Kubernetes",
+        "description": "Plateforme d'orchestration de conteneurs",
+        "url": "https://kubernetes.io"
+      },
+      "fastapi": {
+        "name": "FastAPI",
+        "description": "Framework web Python moderne",
+        "url": "https://fastapi.tiangolo.com"
+      },
+      "nestjs": {
+        "name": "NestJS",
+        "description": "Framework Node.js progressif",
+        "url": "https://nestjs.com"
+      },
+      "express": {
+        "name": "Express.js",
+        "description": "Framework web pour Node.js",
+        "url": "https://expressjs.com"
+      },
+      "redis": {
+        "name": "Redis",
+        "description": "Magasin de structures de données en mémoire",
+        "url": "https://redis.io"
+      },
+      "meilisearch": {
+        "name": "Meilisearch",
+        "description": "Moteur de recherche rapide",
+        "url": "https://meilisearch.com"
+      },
+      "strapi": {
+        "name": "Strapi",
+        "description": "Plateforme CMS headless",
+        "url": "https://strapi.io"
+      },
+      "payload": {
+        "name": "Payload CMS",
+        "description": "CMS headless moderne",
+        "url": "https://payloadcms.com"
+      },
+      "medusajs": {
+        "name": "MedusaJS",
+        "description": "Plateforme e-commerce",
+        "url": "https://medusajs.com"
+      },
+      "shopify": {
+        "name": "Shopify",
+        "description": "Plateforme e-commerce",
+        "url": "https://shopify.com"
+      },
+      "figma": {
+        "name": "Figma",
+        "description": "Outil de design collaboratif",
+        "url": "https://figma.com"
+      },
+      "adobe": {
+        "name": "Adobe Creative Cloud",
+        "description": "Suite logicielle créative",
+        "url": "https://adobe.com"
+      },
+      "canva": {
+        "name": "Canva",
+        "description": "Plateforme de design graphique",
+        "url": "https://canva.com"
+      },
+      "framer": {
+        "name": "Framer",
+        "description": "Outil de design interactif",
+        "url": "https://framer.com"
+      },
+      "sketch": {
+        "name": "Sketch",
+        "description": "Boîte à outils de design numérique",
+        "url": "https://sketch.com"
+      },
+      "threejs": {
+        "name": "Three.js",
+        "description": "Bibliothèque JavaScript 3D",
+        "url": "https://threejs.org"
+      },
+      "motion": {
+        "name": "Framer Motion",
+        "description": "Bibliothèque d'animation pour React",
+        "url": "https://framer.com/motion"
+      },
+      "illustrator": {
+        "name": "Adobe Illustrator",
+        "description": "Éditeur de graphiques vectoriels",
+        "url": "https://adobe.com/products/illustrator"
+      },
+      "photoshop": {
+        "name": "Adobe Photoshop",
+        "description": "Logiciel d'édition d'images",
+        "url": "https://adobe.com/products/photoshop"
+      },
+      "aftereffects": {
+        "name": "After Effects",
+        "description": "Logiciel de motion graphics",
+        "url": "https://adobe.com/products/aftereffects"
+      }
+    }
+  }
+}

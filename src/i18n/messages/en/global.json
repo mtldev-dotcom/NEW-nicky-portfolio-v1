@@ -1,0 +1,51 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "cta": "Start project"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "close": "Close",
+    "open": "Open",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "readMore": "Read more",
+    "seeMore": "See more",
+    "showLess": "Show less",
+    "showMore": "Show more"
+  },
+  "seo": {
+    "title": "Nicky Bruno | Creative Technologist & Experience Designer",
+    "description": "Step into the immersive hero experience of Nicky Bruno, the creative technologist blending design, engineering, and AI-driven storytelling.",
+    "keywords": "creative technologist, web development, AI automation, design systems, Montreal, Canada"
+  },
+  "meta": {
+    "siteName": "Nicky Bruno",
+    "author": "Nicky Bruno",
+    "language": "en",
+    "charset": "utf-8"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "current": "English",
+    "switchTo": "Switch to",
+    "english": "English",
+    "french": "Français",
+    "ariaLabel": "Select language"
+  }
+}

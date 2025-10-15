@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import Button from './Button';
+import LanguageSwitcher from './LanguageSwitcher';
 import Icon, { type IconName } from '../AppIcon';
 
 type NavigationItem = {
@@ -26,7 +27,7 @@ const Header: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
-  const tNav = useTranslations('navigation');
+  const tNav = useTranslations('global.navigation');
 
   const normalizedPathname = useMemo(() => {
     if (!pathname) return '/';
@@ -73,11 +74,10 @@ const Header: FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-          isScrolled
-            ? 'bg-background/95 backdrop-blur-md border-b border-border/50'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${isScrolled
+          ? 'bg-background/95 backdrop-blur-md border-b border-border/50'
+          : 'bg-transparent'
+          }`}
       >
         <div className="w-full">
           <div className="flex items-center justify-between h-16 px-6 lg:px-8">
@@ -107,11 +107,10 @@ const Header: FC = () => {
                   <Link
                     key={item.path}
                     href={item.path === '/' ? `/${locale}` : `/${locale}${item.path}`}
-                    className={`relative px-4 py-2 rounded-lg font-inter font-medium text-sm transition-smooth group ${
-                      active
-                        ? 'text-primary bg-primary/10'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
+                    className={`relative px-4 py-2 rounded-lg font-inter font-medium text-sm transition-smooth group ${active
+                      ? 'text-primary bg-primary/10'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                      }`}
                     onClick={closeMobileMenu}
                   >
                     <span className="relative z-10">{tNav(item.labelKey)}</span>
@@ -125,6 +124,12 @@ const Header: FC = () => {
             </nav>
 
             <div className="flex items-center space-x-4">
+              {/* Language Switcher - Desktop */}
+              <LanguageSwitcher
+                variant="desktop"
+                className="hidden lg:block"
+              />
+
               <Button
                 asChild
                 variant="default"
@@ -149,9 +154,8 @@ const Header: FC = () => {
         </div>
 
         <div
-          className={`lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border/50 transition-smooth ${
-            isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
-          }`}
+          className={`lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border/50 transition-smooth ${isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
+            }`}
         >
           <nav className="px-6 py-4 space-y-2">
             {navigationItems.map((item) => {
@@ -161,11 +165,10 @@ const Header: FC = () => {
                   key={item.path}
                   href={item.path === '/' ? `/${locale}` : `/${locale}${item.path}`}
                   onClick={closeMobileMenu}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg font-inter font-medium transition-smooth ${
-                    active
-                      ? 'text-primary bg-primary/10 glow-neon'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                  }`}
+                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg font-inter font-medium transition-smooth ${active
+                    ? 'text-primary bg-primary/10 glow-neon'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    }`}
                 >
                   <Icon name={item.icon} size={20} />
                   <span>{tNav(item.labelKey)}</span>
@@ -173,7 +176,13 @@ const Header: FC = () => {
               );
             })}
 
-            <div className="pt-4 border-t border-border/50">
+            <div className="pt-4 border-t border-border/50 space-y-3">
+              {/* Language Switcher - Mobile */}
+              <LanguageSwitcher
+                variant="mobile"
+                className="lg:hidden"
+              />
+
               <Button
                 asChild
                 variant="default"

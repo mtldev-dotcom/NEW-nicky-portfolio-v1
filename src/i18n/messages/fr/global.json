@@ -1,0 +1,51 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Témoignages",
+    "contact": "Contact",
+    "cta": "Démarrer un projet"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "view": "Voir",
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer",
+    "readMore": "Lire la suite",
+    "seeMore": "Voir plus",
+    "showLess": "Voir moins",
+    "showMore": "Voir plus"
+  },
+  "seo": {
+    "title": "Nicky Bruno | Technologue Créatif & Concepteur d'Expérience",
+    "description": "Découvrez l'expérience héroïque immersive de Nicky Bruno, le technologue créatif qui allie design, ingénierie et storytelling alimenté par l'IA.",
+    "keywords": "technologue créatif, développement web, automatisation IA, systèmes de design, Montréal, Canada"
+  },
+  "meta": {
+    "siteName": "Nicky Bruno",
+    "author": "Nicky Bruno",
+    "language": "fr",
+    "charset": "utf-8"
+  },
+  "languageSwitcher": {
+    "label": "Langue",
+    "current": "Français",
+    "switchTo": "Changer vers",
+    "english": "English",
+    "french": "Français",
+    "ariaLabel": "Sélectionner la langue"
+  }
+}

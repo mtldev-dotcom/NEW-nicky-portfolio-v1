@@ -1,0 +1,142 @@
+{
+  "title": "Contact",
+  "subtitle": "Travaillons Ensemble",
+  "description": "Prêt à transformer votre présence numérique ? Contactez-moi pour discuter de votre projet et de comment je peux vous aider.",
+  "sections": {
+    "hero": {
+      "badge": "Prêt à Commencer Votre Projet ?",
+      "title": "Créons Quelque Chose",
+      "titleHighlight": "d'Extraordinaire",
+      "description": "Que vous cherchiez à construire une application web de pointe, intégrer l'IA dans votre workflow, ou créer une expérience numérique qui se démarque—je suis là pour vous aider à donner vie à votre vision.",
+      "stats": {
+        "response": {
+          "title": "Réponse en 24h",
+          "description": "Délai de traitement rapide pour toutes les demandes"
+        },
+        "global": {
+          "title": "Portée Mondiale",
+          "description": "Travail avec des clients du monde entier"
+        },
+        "confidential": {
+          "title": "Confidentiel",
+          "description": "Toutes les demandes sont sécurisées et privées"
+        }
+      }
+    },
+    "intro": {
+      "title": "Entrer en Contact",
+      "subtitle": "Prêt à commencer votre projet ?",
+      "description": "Je suis toujours excité de travailler sur de nouveaux projets et d'aider les entreprises à atteindre leurs objectifs numériques. Que vous ayez besoin d'un nouveau site web, d'automatisation IA ou de conseil stratégique, je suis là pour vous aider."
+    },
+    "form": {
+      "title": "Brief du Projet",
+      "subtitle": "Parlez-moi de votre projet",
+      "fields": {
+        "name": {
+          "label": "Nom Complet",
+          "placeholder": "Entrez votre nom complet"
+        },
+        "email": {
+          "label": "Adresse Email",
+          "placeholder": "Entrez votre adresse email"
+        },
+        "company": {
+          "label": "Entreprise (Optionnel)",
+          "placeholder": "Entrez le nom de votre entreprise"
+        },
+        "projectType": {
+          "label": "Type de Projet",
+          "placeholder": "Sélectionnez le type de projet",
+          "options": {
+            "web": "Développement Web",
+            "ai": "IA & Automatisation",
+            "design": "Design & Branding",
+            "consulting": "Stratégie Numérique",
+            "other": "Autre"
+          }
+        },
+        "budget": {
+          "label": "Gamme de Budget",
+          "placeholder": "Sélectionnez la gamme de budget",
+          "options": {
+            "under5k": "Moins de 5 000 $",
+            "5k-10k": "5 000 $ - 10 000 $",
+            "10k-25k": "10 000 $ - 25 000 $",
+            "25k-50k": "25 000 $ - 50 000 $",
+            "over50k": "Plus de 50 000 $"
+          }
+        },
+        "timeline": {
+          "label": "Délai",
+          "placeholder": "Sélectionnez le délai",
+          "options": {
+            "asap": "Dès que possible",
+            "1month": "Dans 1 mois",
+            "2-3months": "2-3 mois",
+            "3-6months": "3-6 mois",
+            "flexible": "Flexible"
+          }
+        },
+        "message": {
+          "label": "Détails du Projet",
+          "placeholder": "Parlez-moi de votre projet, objectifs et exigences spécifiques..."
+        }
+      },
+      "submit": "Envoyer le Message",
+      "success": "Merci ! Je vous répondrai dans les 24 heures.",
+      "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "items": {
+        "email": {
+          "label": "Email",
+          "value": "hello@nickybruno.com",
+          "description": "Pour les demandes de projet et questions générales"
+        },
+        "location": {
+          "label": "Localisation",
+          "value": "Montréal, Canada",
+          "description": "Disponible pour le travail à distance dans le monde entier"
+        },
+        "response": {
+          "label": "Temps de Réponse",
+          "value": "Dans les 24 heures",
+          "description": "Je réponds généralement à toutes les demandes dans un jour ouvrable"
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "items": {
+        "timeline": {
+          "question": "Combien de temps prend un projet typique ?",
+          "answer": "Les délais de projet varient selon la complexité et la portée. Un site web simple pourrait prendre 2-4 semaines, tandis qu'une plateforme complète pourrait prendre 2-6 mois. Je fournirai un délai détaillé lors de notre consultation initiale."
+        },
+        "pricing": {
+          "question": "Quels sont vos tarifs ?",
+          "answer": "Je fournis des devis personnalisés basés sur les exigences du projet. Les facteurs incluent la complexité, le délai et les fonctionnalités spécifiques nécessaires. Contactez-moi pour une estimation détaillée adaptée à votre projet."
+        },
+        "process": {
+          "question": "Quel est votre processus de développement ?",
+          "answer": "Je suis une approche structurée : Découverte & Planification, Design & Prototypage, Développement & Tests, et Lancement & Support. Chaque phase inclut des vérifications régulières et des sessions de feedback."
+        },
+        "support": {
+          "question": "Fournissez-vous un support continu ?",
+          "answer": "Oui ! J'offre des packages de maintenance continue, de mises à jour et de support pour m'assurer que votre projet continue de performer de manière optimale après le lancement."
+        },
+        "technologies": {
+          "question": "Avec quelles technologies travaillez-vous ?",
+          "answer": "Je travaille avec des technologies web modernes incluant React, Next.js, TypeScript, Node.js, Python et divers frameworks IA/ML. Je choisis les meilleurs outils pour chaque projet spécifique."
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Présence Numérique ?",
+      "description": "Rejoignez la liste croissante d'entreprises et de créateurs qui ont élevé leur présence numérique avec un design de pointe, du développement et une intégration IA.",
+      "buttons": {
+        "startConversation": "Commencer une Conversation"
+      }
+    }
+  }
+}
