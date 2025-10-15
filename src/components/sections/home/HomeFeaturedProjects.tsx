@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Icon from 'components/AppIcon';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 type MiniProject = {
   title: string;
@@ -51,6 +51,7 @@ const PROJECTS: MiniProject[] = [
 
 const HomeFeaturedProjects = () => {
   const locale = useLocale();
+  const t = useTranslations('home.featuredProjects');
   const portfolioHref = `/${locale}/portfolio`;
 
   return (
@@ -59,13 +60,13 @@ const HomeFeaturedProjects = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 glow-neon">
             <Icon name="FolderOpen" size={16} />
-            <span>Featured Projects</span>
+            <span>{t('title')}</span>
           </div>
           <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-            Selected work that delivers results
+            {t('subtitle')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Strategy, design, and engineering working together. Explore 3 outcomes below.
+            {t('description')}
           </p>
         </div>
 
@@ -101,7 +102,7 @@ const HomeFeaturedProjects = () => {
                     <span className="px-2 py-0.5 text-xs rounded-full bg-black/40 border border-white/10 text-[--card-foreground]">
                       {p.year}
                     </span>
-                    <span className="text-xs text-white/70">Case Study</span>
+                    <span className="text-xs text-white/70">{t('projects.sofia.type')}</span>
                   </div>
                   <h3
                     className="text-xl font-semibold"
@@ -117,7 +118,7 @@ const HomeFeaturedProjects = () => {
                     href={portfolioHref}
                     className="inline-flex items-center gap-1 text-sm font-medium text-white/90 hover:text-white transition-smooth"
                   >
-                    View project
+                    {t('projects.sofia.cta')}
                     <Icon
                       name="ArrowRight"
                       size={16}
@@ -147,7 +148,7 @@ const HomeFeaturedProjects = () => {
             href={portfolioHref}
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
           >
-            Explore the full portfolio
+            {t('cta')}
             <Icon name="ArrowRight" size={16} />
           </Link>
         </div>

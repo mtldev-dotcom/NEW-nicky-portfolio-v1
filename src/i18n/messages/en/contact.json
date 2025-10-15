@@ -31,112 +31,219 @@
     "form": {
       "title": "Project Brief",
       "subtitle": "Tell me about your project",
+      "description": "Tell me about your vision, and I'll help bring it to life with the perfect blend of creativity and technology.",
       "fields": {
         "name": {
-          "label": "Full Name",
-          "placeholder": "Enter your full name"
+          "label": "Full Name*",
+          "placeholder": "Your name"
         },
         "email": {
-          "label": "Email Address",
-          "placeholder": "Enter your email address"
+          "label": "Email Address*",
+          "placeholder": "your@email.com"
         },
         "company": {
-          "label": "Company (Optional)",
-          "placeholder": "Enter your company name"
+          "label": "Company/Organization",
+          "placeholder": "Your company (optional)"
         },
         "projectType": {
-          "label": "Project Type",
-          "placeholder": "Select project type",
+          "label": "Project Type*",
+          "placeholder": "Select type",
           "options": {
             "web": "Web Development",
-            "ai": "AI & Automation",
-            "design": "Design & Branding",
-            "consulting": "Digital Strategy",
+            "ai": "AI Integration",
+            "design": "Design Consultation",
+            "automation": "Process Automation",
+            "fullstack": "Full-Stack Solution",
             "other": "Other"
           }
         },
         "budget": {
           "label": "Budget Range",
-          "placeholder": "Select budget range",
+          "placeholder": "Select budget",
           "options": {
-            "under5k": "Under $5,000",
-            "5k-10k": "$5,000 - $10,000",
-            "10k-25k": "$10,000 - $25,000",
-            "25k-50k": "$25,000 - $50,000",
-            "over50k": "Over $50,000"
+            "5k-15k": "$5K - $15K CAD",
+            "15k-30k": "$15K - $30K CAD",
+            "30k-50k": "$30K - $50K CAD",
+            "50k+": "$50K+ CAD",
+            "discuss": "Let's Discuss"
           }
         },
         "timeline": {
           "label": "Timeline",
           "placeholder": "Select timeline",
           "options": {
-            "asap": "ASAP",
-            "1month": "Within 1 month",
-            "2-3months": "2-3 months",
-            "3-6months": "3-6 months",
-            "flexible": "Flexible"
+            "asap": "ASAP (Rush Project)",
+            "1-2months": "1-2 Months",
+            "3-6months": "3-6 Months",
+            "6months+": "6+ Months",
+            "flexible": "Flexible Timeline"
           }
         },
         "message": {
           "label": "Project Details",
-          "placeholder": "Tell me about your project, goals, and any specific requirements..."
+          "placeholder": "Describe your project, goals, and any specific requirements..."
         }
       },
-      "submit": "Send Message",
+      "newsletter": {
+        "title": "Subscribe to AI automation insights newsletter",
+        "description": "Get monthly tips on creative automation and industry trends"
+      },
+      "terms": {
+        "label": "I agree to the terms and conditions*",
+        "description": "Required to process your project inquiry"
+      },
+      "submit": "Send Project Inquiry",
+      "responseTime": "Expected response time: Within 24 hours • All inquiries are confidential",
       "success": "Thank you! I'll get back to you within 24 hours.",
       "error": "Something went wrong. Please try again."
     },
     "info": {
-      "title": "Contact Information",
+      "title": "Get In Touch",
       "items": {
         "email": {
           "label": "Email",
-          "value": "hello@nickybruno.com",
-          "description": "For project inquiries and general questions"
+          "value": "hello@nickybruno.ca",
+          "description": "Primary contact for project inquiries"
+        },
+        "phone": {
+          "label": "Phone",
+          "value": "+1 (514) 555-0123",
+          "description": "Available Mon-Fri, 9AM-6PM EST"
         },
         "location": {
           "label": "Location",
-          "value": "Montreal, Canada",
-          "description": "Available for remote work worldwide"
+          "value": "Montreal, QC, Canada",
+          "description": "Available for local & remote projects"
         },
         "response": {
           "label": "Response Time",
           "value": "Within 24 hours",
-          "description": "I typically respond to all inquiries within one business day"
+          "description": "Typically same-day for urgent projects"
         }
+      }
+    },
+    "social": {
+      "title": "Connect & Follow",
+      "items": {
+        "linkedin": {
+          "name": "LinkedIn",
+          "description": "Professional network & updates"
+        },
+        "github": {
+          "name": "GitHub",
+          "description": "Code repositories & contributions"
+        },
+        "twitter": {
+          "name": "Twitter",
+          "description": "Industry insights & thoughts"
+        },
+        "instagram": {
+          "name": "Instagram",
+          "description": "Behind-the-scenes & process"
+        }
+      }
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "items": [
+        "Schedule a Consultation Call",
+        "Download Process Methodology",
+        "View Case Study Examples"
+      ]
+    },
+    "projectBrief": {
+      "title": "Project Brief Questionnaire",
+      "step": "Step 1 of 4",
+      "overview": "Project Overview",
+      "description": "Let's start with the basics of your project",
+      "fields": {
+        "goal": {
+          "label": "What's your main project goal?",
+          "placeholder": "e.g., Launch an e-commerce store, build a portfolio, create a SaaS platform..."
+        },
+        "audience": {
+          "label": "Who is your target audience?",
+          "placeholder": "e.g., Young professionals, B2B clients, creative agencies..."
+        },
+        "inspiration": {
+          "label": "Any inspiration or reference sites?",
+          "placeholder": "Share URLs or describe styles you like..."
+        }
+      },
+      "navigation": {
+        "previous": "Previous",
+        "next": "Next Step"
+      }
+    },
+    "location": {
+      "title": "Based in Montreal",
+      "description": "Working with clients locally and internationally. Available for remote collaboration and on-site projects.",
+      "details": {
+        "address": {
+          "label": "Address",
+          "value": "Montreal, Quebec, Canada"
+        },
+        "timezone": {
+          "label": "Timezone",
+          "value": "Eastern Time (UTC-5)"
+        },
+        "serviceArea": {
+          "label": "Service Area",
+          "value": "Global (Remote & Local)"
+        },
+        "travel": {
+          "label": "Travel",
+          "value": "Available for on-site projects"
+        }
+      },
+      "studio": {
+        "name": "Nicky Bruno Studio",
+        "tagline": "Creative Technology Hub",
+        "location": "Montreal, QC"
       }
     },
     "faq": {
       "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers to common questions about working together",
       "items": {
         "timeline": {
-          "question": "How long does a typical project take?",
-          "answer": "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a comprehensive platform could take 2-6 months. I'll provide a detailed timeline during our initial consultation."
+          "question": "What's your typical project timeline?",
+          "answer": "Project timelines vary based on scope and complexity:\n\n• Simple websites: 2-4 weeks\n• Complex web applications: 6-12 weeks\n• AI integration projects: 4-8 weeks\n• Full rebrand + website: 8-16 weeks\n\nI always provide detailed timelines during our initial consultation, and I'm transparent about any potential delays or changes throughout the process."
         },
-        "pricing": {
-          "question": "What are your rates?",
-          "answer": "I provide custom quotes based on project requirements. Factors include complexity, timeline, and specific features needed. Contact me for a detailed estimate tailored to your project."
+        "international": {
+          "question": "Do you work with international clients?",
+          "answer": "Yes, I work with clients worldwide. Most of my projects are completed remotely, but I'm also available for on-site projects when needed."
         },
-        "process": {
-          "question": "What's your development process?",
-          "answer": "I follow a structured approach: Discovery & Planning, Design & Prototyping, Development & Testing, and Launch & Support. Each phase includes regular check-ins and feedback sessions."
+        "aiServices": {
+          "question": "What's included in your AI integration services?",
+          "answer": "My AI integration services include workflow automation, intelligent chatbots, automated data processing, integration with existing tools, and custom AI solutions tailored to your specific needs."
+        },
+        "revisions": {
+          "question": "How do you handle project revisions?",
+          "answer": "I include a specific number of revisions in each project, typically 2-3 rounds of major revisions. I'm transparent about what's included and clearly communicate any scope changes that might require additional revisions."
+        },
+        "payment": {
+          "question": "What's your payment structure?",
+          "answer": "I typically work with a 50% initial payment to start the project, and the balance upon delivery. For larger projects, we can establish payment milestones. I'm flexible and adapt the structure based on project needs."
         },
         "support": {
-          "question": "Do you provide ongoing support?",
-          "answer": "Yes! I offer ongoing maintenance, updates, and support packages to ensure your project continues to perform optimally after launch."
-        },
-        "technologies": {
-          "question": "What technologies do you work with?",
-          "answer": "I work with modern web technologies including React, Next.js, TypeScript, Node.js, Python, and various AI/ML frameworks. I choose the best tools for each specific project."
+          "question": "Do you provide ongoing support after launch?",
+          "answer": "Yes! I offer ongoing maintenance, updates, and support packages to ensure your project continues to perform optimally after launch. This includes monitoring, security updates, and technical support."
         }
+      },
+      "cta": {
+        "title": "Don't see your question answered?",
+        "button": "Ask me directly"
       }
     },
     "cta": {
       "title": "Ready to Transform Your Digital Presence?",
       "description": "Join the growing list of businesses and creators who've elevated their digital presence with cutting-edge design, development, and AI integration.",
       "buttons": {
-        "startConversation": "Start a Conversation"
-      }
+        "startConversation": "Start a Conversation",
+        "scheduleConsultation": "Schedule Consultation"
+      },
+      "location": "Based in Montreal • Serving clients globally • Available for remote & on-site projects"
     }
   }
 }

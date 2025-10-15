@@ -2,34 +2,36 @@
 
 import React, { useState } from 'react';
 import Icon from 'components/AppIcon';
+import { useTranslations } from 'next-intl';
 
 const FAQSection = () => {
+  const t = useTranslations('contact.sections.faq');
   const [openFAQ, setOpenFAQ] = useState(0);
 
   const faqs = [
     {
-      question: "What\'s your typical project timeline?",
-      answer: `Project timelines vary based on scope and complexity:\n\n• Simple websites: 2-4 weeks\n• Complex web applications: 6-12 weeks\n• AI integration projects: 4-8 weeks\n• Full rebrand + website: 8-16 weeks\n\nI always provide detailed timelines during our initial consultation, and I'm transparent about any potential delays or changes throughout the process.`
+      question: t('items.timeline.question'),
+      answer: t('items.timeline.answer')
     },
     {
-      question: "Do you work with international clients?",
-      answer: `Absolutely! While I'm based in Montreal, I work with clients globally. I've successfully collaborated with teams across North America, Europe, and Asia.\n\nI'm comfortable working across different time zones and use modern collaboration tools to ensure smooth communication. For international projects, I typically price in USD and can accommodate various payment methods.`
+      question: t('items.international.question'),
+      answer: t('items.international.answer')
     },
     {
-      question: "What\'s included in your AI integration services?",
-      answer: `My AI integration services cover the full spectrum:\n\n• AI strategy and consultation\n• Custom AI model integration\n• Automation workflow design\n• API integrations (OpenAI, Claude, etc.)\n• Performance optimization\n• Training and documentation\n\nI focus on practical AI implementations that solve real business problems, not just adding AI for the sake of it.`
+      question: t('items.aiServices.question'),
+      answer: t('items.aiServices.answer')
     },
     {
-      question: "How do you handle project revisions?",
-      answer: `I believe in collaborative design and include revision rounds in all my projects:\n\n• Initial concepts: 2-3 revision rounds\n• Design refinements: Unlimited minor tweaks\n• Development changes: Scope-dependent\n• Content updates: 30 days post-launch\n\nMajor scope changes are discussed separately to ensure timeline and budget alignment.`
+      question: t('items.revisions.question'),
+      answer: t('items.revisions.answer')
     },
     {
-      question: "What\'s your payment structure?",
-      answer: `I use a milestone-based payment structure for transparency:\n\n• 30% deposit to start the project\n• 40% at design approval/development midpoint\n• 30% upon project completion\n\nFor larger projects (50K+), we can discuss custom payment schedules. I accept wire transfers, checks, and major credit cards.`
+      question: t('items.payment.question'),
+      answer: t('items.payment.answer')
     },
     {
-      question: "Do you provide ongoing support after launch?",
-      answer: `Yes! I offer several post-launch support options:\n\n• 30 days free bug fixes and minor adjustments\n• Monthly maintenance packages available\n• On-demand support for updates and changes\n• Performance monitoring and optimization\n• Content management training\n\nI believe in long-term partnerships, not just one-off projects.`
+      question: t('items.support.question'),
+      answer: t('items.support.answer')
     }
   ];
 
@@ -41,10 +43,10 @@ const FAQSection = () => {
     <div className="bg-card border border-border rounded-xl p-8">
       <div className="mb-8">
         <h3 className="text-2xl font-space-grotesk font-bold text-foreground mb-3">
-          Frequently Asked Questions
+          {t('title')}
         </h3>
         <p className="text-muted-foreground">
-          Quick answers to common questions about working together
+          {t('subtitle')}
         </p>
       </div>
       <div className="space-y-4">
@@ -63,12 +65,11 @@ const FAQSection = () => {
               <Icon
                 name={openFAQ === index ? "ChevronUp" : "ChevronDown"}
                 size={20}
-                className={`text-muted-foreground transition-smooth ${
-                  openFAQ === index ? 'text-primary' : ''
-                }`}
+                className={`text-muted-foreground transition-smooth ${openFAQ === index ? 'text-primary' : ''
+                  }`}
               />
             </button>
-            
+
             {openFAQ === index && (
               <div className="px-6 pb-4">
                 <div className="pt-2 border-t border-border">
@@ -84,14 +85,14 @@ const FAQSection = () => {
       <div className="mt-8 pt-6 border-t border-border">
         <div className="text-center">
           <p className="text-muted-foreground mb-4">
-            Don't see your question answered?
+            {t('cta.title')}
           </p>
           <a
             href="mailto:hello@nickybruno.ca?subject=Question about your services"
             className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth"
           >
             <Icon name="Mail" size={16} />
-            <span className="font-medium">Ask me directly</span>
+            <span className="font-medium">{t('cta.button')}</span>
           </a>
         </div>
       </div>

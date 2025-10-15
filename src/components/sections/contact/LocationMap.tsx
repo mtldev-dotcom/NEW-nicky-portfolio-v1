@@ -1,7 +1,9 @@
 import React from 'react';
 import Icon from 'components/AppIcon';
+import { useTranslations } from 'next-intl';
 
 const LocationMap = () => {
+  const t = useTranslations('contact.sections.location');
   // Montreal coordinates
   const lat = 45.5017;
   const lng = -73.5673;
@@ -9,23 +11,23 @@ const LocationMap = () => {
   const locationDetails = [
     {
       icon: 'MapPin',
-      label: 'Address',
-      value: 'Montreal, Quebec, Canada'
+      label: t('details.address.label'),
+      value: t('details.address.value')
     },
     {
       icon: 'Clock',
-      label: 'Timezone',
-      value: 'Eastern Time (UTC-5)'
+      label: t('details.timezone.label'),
+      value: t('details.timezone.value')
     },
     {
       icon: 'Globe',
-      label: 'Service Area',
-      value: 'Global (Remote & Local)'
+      label: t('details.serviceArea.label'),
+      value: t('details.serviceArea.value')
     },
     {
       icon: 'Plane',
-      label: 'Travel',
-      value: 'Available for on-site projects'
+      label: t('details.travel.label'),
+      value: t('details.travel.value')
     }
   ];
 
@@ -33,12 +35,12 @@ const LocationMap = () => {
     <div className="bg-card border border-border rounded-xl overflow-hidden">
       <div className="p-8 pb-6">
         <h3 className="text-2xl font-space-grotesk font-bold text-foreground mb-3">
-          Based in Montreal
+          {t('title')}
         </h3>
         <p className="text-muted-foreground mb-6">
-          Working with clients locally and internationally. Available for remote collaboration and on-site projects.
+          {t('description')}
         </p>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {locationDetails?.map((detail, index) => (
             <div key={index} className="flex items-center space-x-3">
@@ -67,23 +69,23 @@ const LocationMap = () => {
           src={`https://www.google.com/maps?q=${lat},${lng}&z=12&output=embed`}
           className="border-0"
         />
-        
+
         {/* Overlay with contact info */}
         <div className="absolute bottom-4 left-4 right-4">
           <div className="bg-background/95 backdrop-blur-sm border border-border rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-medium text-foreground text-sm">
-                  Nicky Bruno Studio
+                  {t('studio.name')}
                 </h4>
                 <p className="text-xs text-muted-foreground">
-                  Creative Technology Hub
+                  {t('studio.tagline')}
                 </p>
               </div>
               <div className="flex items-center space-x-2">
                 <Icon name="MapPin" size={16} className="text-primary" />
                 <span className="text-xs text-primary font-medium">
-                  Montreal, QC
+                  {t('studio.location')}
                 </span>
               </div>
             </div>

@@ -39,6 +39,8 @@
   "capabilities": {
     "title": "What I Do",
     "subtitle": "Short Overview",
+    "description": "Practical, modern, human-centered solutions across design, engineering, and automation.",
+    "cta": "Learn more",
     "items": {
       "webDesign": {
         "title": "Web Design & Development",
@@ -85,9 +87,95 @@
       "five": "Ready to build something remarkable."
     }
   },
+  "personalIntro": {
+    "title": "Personal Introduction",
+    "greeting": "Hi, I'm Nicky Bruno",
+    "subtitle": "Creative Technologist & Digital Consultant",
+    "description": "I help businesses transform their digital presence through innovative solutions that combine cutting-edge technology with user-centered design.",
+    "cta": "Learn more"
+  },
+  "learnMore": {
+    "title": "Learn more",
+    "subtitle": "What I do section",
+    "description": "Discover how I can help your business succeed in the digital landscape.",
+    "cta": "Learn more"
+  },
+  "realResults": {
+    "title": "Real Results",
+    "subtitle": "Learn more",
+    "description": "See the measurable impact of my work on businesses like yours.",
+    "cta": "Learn more"
+  },
+  "techArsenal": {
+    "title": "Tech Arsenal",
+    "subtitle": "Hover to interact • Tap icons to learn more",
+    "description": "Explore the technologies and tools I use to build exceptional digital experiences.",
+    "mostUsed": "Most Used",
+    "cta": "Learn more"
+  },
+  "featuredProjects": {
+    "title": "Featured Projects",
+    "subtitle": "Selected work that delivers results",
+    "description": "Strategy, design, and engineering working together. Explore 3 outcomes below.",
+    "projects": {
+      "sofia": {
+        "year": "2025",
+        "type": "Case Study",
+        "title": "Sofia AI Desk",
+        "description": "Automated customer support with a clear dashboard — ~60% faster responses.",
+        "cta": "View project"
+      },
+      "nextxlevel": {
+        "year": "2024",
+        "type": "Case Study",
+        "title": "Next X Level",
+        "description": "Bilingual e‑commerce with clean mobile UX and automated product updates.",
+        "cta": "View project"
+      },
+      "lumicerra": {
+        "year": "2023",
+        "type": "Case Study",
+        "title": "Lumicerra Labs",
+        "description": "Real‑time dashboard for smart LED lighting with clear energy insights.",
+        "cta": "View project"
+      }
+    },
+    "cta": "Explore the full portfolio"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What clients say about working with me",
+    "description": "Hear from businesses that have transformed their digital presence through our collaboration.",
+    "badge": "Testimonials",
+    "heading": "Proof in real outcomes",
+    "subheading": "Clear communication, reliable delivery, and measurable results for teams that move fast.",
+    "items": [
+      {
+        "name": "Sofia Ops Team",
+        "role": "Operations",
+        "company": "Sofia AI Desk",
+        "content": "Nicky simplified our whole workflow — we saved hours every week.",
+        "projectType": "AI Automation"
+      },
+      {
+        "name": "Alexandra Thompson",
+        "role": "CEO",
+        "company": "InnovateTech Solutions",
+        "content": "Nicky's blend of creative vision and technical expertise revolutionized our process. Results speak for themselves.",
+        "projectType": "Platform Design"
+      },
+      {
+        "name": "Marcus Chen",
+        "role": "Creative Director",
+        "company": "Pixel Perfect Agency",
+        "content": "A creative partner who speaks fluent code. Elegant, performant solutions that matched our ambition.",
+        "projectType": "Interactive Web"
+      }
+    ]
+  },
   "techStack": {
     "title": "What I Use",
-    "subtitle": "Tools, apps, integrations, and more",
+    "subtitle": "Hover to interact • Tap icons to learn more",
     "description": "A curated collection of technologies I work with daily to build modern digital experiences.",
     "tabs": {
       "all": "All",

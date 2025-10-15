@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
 import { Checkbox } from 'components/ui/Checkbox';
@@ -8,6 +9,7 @@ import Input from 'components/ui/Input';
 import Select from 'components/ui/Select';
 
 const ContactForm = () => {
+  const t = useTranslations('contact.sections.form');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,28 +25,28 @@ const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const projectTypeOptions = [
-    { value: 'web-development', label: 'Web Development' },
-    { value: 'ai-integration', label: 'AI Integration' },
-    { value: 'design-consultation', label: 'Design Consultation' },
-    { value: 'automation', label: 'Process Automation' },
-    { value: 'full-stack', label: 'Full-Stack Solution' },
-    { value: 'other', label: 'Other' }
+    { value: 'web-development', label: t('fields.projectType.options.web') },
+    { value: 'ai-integration', label: t('fields.projectType.options.ai') },
+    { value: 'design-consultation', label: t('fields.projectType.options.design') },
+    { value: 'automation', label: t('fields.projectType.options.automation') },
+    { value: 'full-stack', label: t('fields.projectType.options.fullstack') },
+    { value: 'other', label: t('fields.projectType.options.other') }
   ];
 
   const budgetOptions = [
-    { value: '5k-15k', label: '$5K - $15K CAD' },
-    { value: '15k-30k', label: '$15K - $30K CAD' },
-    { value: '30k-50k', label: '$30K - $50K CAD' },
-    { value: '50k+', label: '$50K+ CAD' },
-    { value: 'discuss', label: 'Let\'s Discuss' }
+    { value: '5k-15k', label: t('fields.budget.options.5k-15k') },
+    { value: '15k-30k', label: t('fields.budget.options.15k-30k') },
+    { value: '30k-50k', label: t('fields.budget.options.30k-50k') },
+    { value: '50k+', label: t('fields.budget.options.50k+') },
+    { value: 'discuss', label: t('fields.budget.options.discuss') }
   ];
 
   const timelineOptions = [
-    { value: 'asap', label: 'ASAP (Rush Project)' },
-    { value: '1-2-months', label: '1-2 Months' },
-    { value: '3-6-months', label: '3-6 Months' },
-    { value: '6-months+', label: '6+ Months' },
-    { value: 'flexible', label: 'Flexible Timeline' }
+    { value: 'asap', label: t('fields.timeline.options.asap') },
+    { value: '1-2-months', label: t('fields.timeline.options.1-2months') },
+    { value: '3-6-months', label: t('fields.timeline.options.3-6months') },
+    { value: '6-months+', label: t('fields.timeline.options.6months+') },
+    { value: 'flexible', label: t('fields.timeline.options.flexible') }
   ];
 
   const handleInputChange = (field, value) => {
@@ -85,26 +87,26 @@ const ContactForm = () => {
     <div className="bg-card border border-border rounded-xl p-8 glow-neon hover:glow-neon-active transition-smooth">
       <div className="mb-8">
         <h3 className="text-2xl font-space-grotesk font-bold text-foreground mb-3">
-          Start Your Project
+          {t('title')}
         </h3>
         <p className="text-muted-foreground">
-          Tell me about your vision, and I'll help bring it to life with the perfect blend of creativity and technology.
+          {t('description')}
         </p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
-            label="Full Name"
+            label={t('fields.name.label')}
             type="text"
-            placeholder="Your name"
+            placeholder={t('fields.name.placeholder')}
             required
             value={formData?.name}
             onChange={(e) => handleInputChange('name', e?.target?.value)}
           />
           <Input
-            label="Email Address"
+            label={t('fields.email.label')}
             type="email"
-            placeholder="your@email.com"
+            placeholder={t('fields.email.placeholder')}
             required
             value={formData?.email}
             onChange={(e) => handleInputChange('email', e?.target?.value)}
@@ -112,32 +114,32 @@ const ContactForm = () => {
         </div>
 
         <Input
-          label="Company/Organization"
+          label={t('fields.company.label')}
           type="text"
-          placeholder="Your company (optional)"
+          placeholder={t('fields.company.placeholder')}
           value={formData?.company}
           onChange={(e) => handleInputChange('company', e?.target?.value)}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Select
-            label="Project Type"
-            placeholder="Select type"
+            label={t('fields.projectType.label')}
+            placeholder={t('fields.projectType.placeholder')}
             required
             options={projectTypeOptions}
             value={formData?.projectType}
             onChange={(value) => handleInputChange('projectType', value)}
           />
           <Select
-            label="Budget Range"
-            placeholder="Select budget"
+            label={t('fields.budget.label')}
+            placeholder={t('fields.budget.placeholder')}
             options={budgetOptions}
             value={formData?.budget}
             onChange={(value) => handleInputChange('budget', value)}
           />
           <Select
-            label="Timeline"
-            placeholder="Select timeline"
+            label={t('fields.timeline.label')}
+            placeholder={t('fields.timeline.placeholder')}
             options={timelineOptions}
             value={formData?.timeline}
             onChange={(value) => handleInputChange('timeline', value)}
@@ -146,11 +148,11 @@ const ContactForm = () => {
 
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Project Details
+            {t('fields.message.label')}
           </label>
           <textarea
             className="w-full h-32 px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-smooth"
-            placeholder="Describe your project, goals, and any specific requirements..."
+            placeholder={t('fields.message.placeholder')}
             required
             value={formData?.message}
             onChange={(e) => handleInputChange('message', e?.target?.value)}
@@ -159,14 +161,14 @@ const ContactForm = () => {
 
         <div className="space-y-4">
           <Checkbox
-            label="Subscribe to AI automation insights newsletter"
-            description="Get monthly tips on creative automation and industry trends"
+            label={t('newsletter.title')}
+            description={t('newsletter.description')}
             checked={formData?.newsletter}
             onChange={(e) => handleInputChange('newsletter', e?.target?.checked)}
           />
           <Checkbox
-            label="I agree to the terms and conditions"
-            description="Required to process your project inquiry"
+            label={t('terms.label')}
+            description={t('terms.description')}
             required
             checked={formData?.terms}
             onChange={(e) => handleInputChange('terms', e?.target?.checked)}
@@ -178,7 +180,7 @@ const ContactForm = () => {
             <div className="flex items-center space-x-3">
               <Icon name="CheckCircle" size={20} className="text-success" />
               <div>
-                <p className="text-success font-medium">Message sent successfully!</p>
+                <p className="text-success font-medium">{t('success')}</p>
                 <p className="text-success/80 text-sm">I'll get back to you within 24 hours.</p>
               </div>
             </div>
@@ -190,7 +192,7 @@ const ContactForm = () => {
             <div className="flex items-center space-x-3">
               <Icon name="AlertCircle" size={20} className="text-error" />
               <div>
-                <p className="text-error font-medium">Failed to send message</p>
+                <p className="text-error font-medium">{t('error')}</p>
                 <p className="text-error/80 text-sm">Please try again or contact me directly.</p>
               </div>
             </div>
@@ -207,12 +209,12 @@ const ContactForm = () => {
           iconPosition="right"
           className="glow-neon hover:glow-neon-active"
         >
-          {isSubmitting ? 'Sending Message...' : 'Send Project Inquiry'}
+          {isSubmitting ? 'Sending Message...' : t('submit')}
         </Button>
       </form>
       <div className="mt-6 pt-6 border-t border-border">
         <p className="text-xs text-muted-foreground text-center">
-          Expected response time: Within 24 hours • All inquiries are confidential
+          {t('responseTime')}
         </p>
       </div>
     </div>

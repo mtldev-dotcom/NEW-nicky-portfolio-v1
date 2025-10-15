@@ -2,49 +2,52 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
 
 const ProcessTimeline = () => {
+  const t = useTranslations('services.sections.process');
+
   const processSteps = [
     {
-      phase: "Discovery",
+      phase: t('steps.discovery.phase'),
       icon: "Search",
-      title: "Strategic Analysis",
-      description: "Deep dive into your business goals, target audience, and competitive landscape to craft the perfect solution strategy.",
-      duration: "1-2 weeks",
-      deliverables: ["Market Research", "User Personas", "Technical Audit", "Strategy Document"]
+      title: t('steps.discovery.title'),
+      description: t('steps.discovery.description'),
+      duration: t('steps.discovery.duration'),
+      deliverables: [t('steps.discovery.deliverables.0'), t('steps.discovery.deliverables.1'), t('steps.discovery.deliverables.2'), t('steps.discovery.deliverables.3')]
     },
     {
-      phase: "Design",
+      phase: t('steps.design.phase'),
       icon: "Palette",
-      title: "Creative Development",
-      description: "Transform insights into compelling visual experiences that resonate with your audience and drive engagement.",
-      duration: "2-3 weeks",
-      deliverables: ["Wireframes", "Visual Design", "Prototypes", "Design System"]
+      title: t('steps.design.title'),
+      description: t('steps.design.description'),
+      duration: t('steps.design.duration'),
+      deliverables: [t('steps.design.deliverables.0'), t('steps.design.deliverables.1'), t('steps.design.deliverables.2'), t('steps.design.deliverables.3')]
     },
     {
-      phase: "Development",
+      phase: t('steps.development.phase'),
       icon: "Code",
-      title: "Technical Implementation",
-      description: "Build robust, scalable solutions using cutting-edge technologies and best practices for optimal performance.",
-      duration: "3-6 weeks",
-      deliverables: ["Frontend Development", "Backend Integration", "Testing", "Optimization"]
+      title: t('steps.development.title'),
+      description: t('steps.development.description'),
+      duration: t('steps.development.duration'),
+      deliverables: [t('steps.development.deliverables.0'), t('steps.development.deliverables.1'), t('steps.development.deliverables.2'), t('steps.development.deliverables.3')]
     },
     {
-      phase: "AI Integration",
+      phase: t('steps.aiIntegration.phase'),
       icon: "Brain",
-      title: "Intelligence Layer",
-      description: "Integrate AI capabilities to automate processes, enhance user experience, and provide intelligent insights.",
-      duration: "1-2 weeks",
-      deliverables: ["AI Models", "Automation Scripts", "Analytics Setup", "Performance Monitoring"]
+      title: t('steps.aiIntegration.title'),
+      description: t('steps.aiIntegration.description'),
+      duration: t('steps.aiIntegration.duration'),
+      deliverables: [t('steps.aiIntegration.deliverables.0'), t('steps.aiIntegration.deliverables.1'), t('steps.aiIntegration.deliverables.2'), t('steps.aiIntegration.deliverables.3')]
     },
     {
-      phase: "Launch",
+      phase: t('steps.launch.phase'),
       icon: "Rocket",
-      title: "Deployment & Growth",
-      description: "Launch your solution with comprehensive monitoring, optimization, and ongoing support for continuous improvement.",
-      duration: "1 week",
-      deliverables: ["Production Deploy", "Performance Monitoring", "User Training", "Growth Strategy"]
+      title: t('steps.launch.title'),
+      description: t('steps.launch.description'),
+      duration: t('steps.launch.duration'),
+      deliverables: [t('steps.launch.deliverables.0'), t('steps.launch.deliverables.1'), t('steps.launch.deliverables.2'), t('steps.launch.deliverables.3')]
     }
   ];
 
@@ -58,8 +61,8 @@ const ProcessTimeline = () => {
             key={index}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               delay: index * 0.15,
               ease: [0.4, 0, 0.2, 1]
             }}
@@ -69,10 +72,10 @@ const ProcessTimeline = () => {
             {/* Timeline Node */}
             <div className="relative flex-shrink-0">
               <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 glow-neon">
-                <Icon 
-                  name={step?.icon} 
-                  size={24} 
-                  className="text-primary" 
+                <Icon
+                  name={step?.icon}
+                  size={24}
+                  className="text-primary"
                 />
               </div>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
@@ -103,7 +106,7 @@ const ProcessTimeline = () => {
 
                 {/* Deliverables */}
                 <div className="space-y-3">
-                  <h4 className="text-sm font-medium text-foreground">Key Deliverables:</h4>
+                  <h4 className="text-sm font-medium text-foreground">{t('keyDeliverables')}</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {step?.deliverables?.map((deliverable, delIndex) => (
                       <div

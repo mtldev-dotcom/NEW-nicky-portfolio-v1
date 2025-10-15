@@ -1,35 +1,40 @@
 import React from 'react';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
+import { useTranslations } from 'next-intl';
 
 const ContactInfo = () => {
+  const t = useTranslations('contact.sections.info');
+  const tSocial = useTranslations('contact.sections.social');
+  const tQuickActions = useTranslations('contact.sections.quickActions');
+
   const contactMethods = [
     {
       icon: 'Mail',
-      label: 'Email',
-      value: 'hello@nickybruno.ca',
-      description: 'Primary contact for project inquiries',
+      label: t('items.email.label'),
+      value: t('items.email.value'),
+      description: t('items.email.description'),
       action: 'mailto:hello@nickybruno.ca'
     },
     {
       icon: 'Phone',
-      label: 'Phone',
-      value: '+1 (514) 555-0123',
-      description: 'Available Mon-Fri, 9AM-6PM EST',
+      label: t('items.phone.label'),
+      value: t('items.phone.value'),
+      description: t('items.phone.description'),
       action: 'tel:+15145550123'
     },
     {
       icon: 'MapPin',
-      label: 'Location',
-      value: 'Montreal, QC, Canada',
-      description: 'Available for local & remote projects',
+      label: t('items.location.label'),
+      value: t('items.location.value'),
+      description: t('items.location.description'),
       action: null
     },
     {
       icon: 'Clock',
-      label: 'Response Time',
-      value: 'Within 24 hours',
-      description: 'Typically same-day for urgent projects',
+      label: t('items.response.label'),
+      value: t('items.response.value'),
+      description: t('items.response.description'),
       action: null
     }
   ];
@@ -37,27 +42,27 @@ const ContactInfo = () => {
   const socialLinks = [
     {
       icon: 'Linkedin',
-      label: 'LinkedIn',
+      label: tSocial('items.linkedin.name'),
       url: 'https://linkedin.com/in/nickybruno',
-      description: 'Professional network & updates'
+      description: tSocial('items.linkedin.description')
     },
     {
       icon: 'Github',
-      label: 'GitHub',
+      label: tSocial('items.github.name'),
       url: 'https://github.com/nickybruno',
-      description: 'Code repositories & contributions'
+      description: tSocial('items.github.description')
     },
     {
       icon: 'Twitter',
-      label: 'Twitter',
+      label: tSocial('items.twitter.name'),
       url: 'https://twitter.com/nickybruno',
-      description: 'Industry insights & thoughts'
+      description: tSocial('items.twitter.description')
     },
     {
       icon: 'Instagram',
-      label: 'Instagram',
+      label: tSocial('items.instagram.name'),
       url: 'https://instagram.com/nickybruno.tech',
-      description: 'Behind-the-scenes & process'
+      description: tSocial('items.instagram.description')
     }
   ];
 
@@ -66,7 +71,7 @@ const ContactInfo = () => {
       {/* Contact Methods */}
       <div className="bg-card border border-border rounded-xl p-8">
         <h3 className="text-2xl font-space-grotesk font-bold text-foreground mb-6">
-          Get In Touch
+          {t('title')}
         </h3>
         <div className="space-y-6">
           {contactMethods?.map((method, index) => (
@@ -117,7 +122,7 @@ const ContactInfo = () => {
       {/* Social Links */}
       <div className="bg-card border border-border rounded-xl p-8">
         <h3 className="text-xl font-space-grotesk font-bold text-foreground mb-6">
-          Connect & Follow
+          {tSocial('title')}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {socialLinks?.map((social, index) => (
@@ -147,7 +152,7 @@ const ContactInfo = () => {
       {/* Quick Actions */}
       <div className="bg-card border border-border rounded-xl p-8">
         <h3 className="text-xl font-space-grotesk font-bold text-foreground mb-6">
-          Quick Actions
+          {tQuickActions('title')}
         </h3>
         <div className="space-y-4">
           <Button
@@ -157,7 +162,7 @@ const ContactInfo = () => {
             iconPosition="left"
             className="justify-start"
           >
-            Schedule a Consultation Call
+            {tQuickActions('items.0')}
           </Button>
           <Button
             variant="outline"
@@ -166,7 +171,7 @@ const ContactInfo = () => {
             iconPosition="left"
             className="justify-start"
           >
-            Download Process Methodology
+            {tQuickActions('items.1')}
           </Button>
           <Button
             variant="outline"
@@ -175,7 +180,7 @@ const ContactInfo = () => {
             iconPosition="left"
             className="justify-start"
           >
-            View Case Study Examples
+            {tQuickActions('items.2')}
           </Button>
         </div>
       </div>

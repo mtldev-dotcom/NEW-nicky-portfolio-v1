@@ -39,6 +39,8 @@
   "capabilities": {
     "title": "Ce que je fais",
     "subtitle": "Aperçu rapide",
+    "description": "Solutions pratiques, modernes et centrées sur l'humain à travers le design, l'ingénierie et l'automatisation.",
+    "cta": "En savoir plus",
     "items": {
       "webDesign": {
         "title": "Design & Développement Web",
@@ -85,9 +87,95 @@
       "five": "Prêt à construire quelque chose de remarquable."
     }
   },
+  "personalIntro": {
+    "title": "Introduction Personnelle",
+    "greeting": "Salut, je suis Nicky Bruno",
+    "subtitle": "Technologue Créatif & Consultant Numérique",
+    "description": "J'aide les entreprises à transformer leur présence numérique grâce à des solutions innovantes qui combinent technologie de pointe et design centré sur l'utilisateur.",
+    "cta": "En savoir plus"
+  },
+  "learnMore": {
+    "title": "En savoir plus",
+    "subtitle": "Section ce que je fais",
+    "description": "Découvrez comment je peux aider votre entreprise à réussir dans le paysage numérique.",
+    "cta": "En savoir plus"
+  },
+  "realResults": {
+    "title": "Résultats Concrets",
+    "subtitle": "En savoir plus",
+    "description": "Voyez l'impact mesurable de mon travail sur des entreprises comme la vôtre.",
+    "cta": "En savoir plus"
+  },
+  "techArsenal": {
+    "title": "Arsenal Technologique",
+    "subtitle": "Survolez pour interagir • Appuyez sur les icônes pour en savoir plus",
+    "description": "Explorez les technologies et outils que j'utilise pour construire des expériences numériques exceptionnelles.",
+    "mostUsed": "Les Plus Utilisés",
+    "cta": "En savoir plus"
+  },
+  "featuredProjects": {
+    "title": "Projets Vedettes",
+    "subtitle": "Travail sélectionné qui livre des résultats",
+    "description": "Stratégie, design et ingénierie travaillant ensemble. Explorez 3 résultats ci-dessous.",
+    "projects": {
+      "sofia": {
+        "year": "2025",
+        "type": "Étude de Cas",
+        "title": "Sofia AI Desk",
+        "description": "Support client automatisé avec un tableau de bord clair — ~60% de réponses plus rapides.",
+        "cta": "Voir le projet"
+      },
+      "nextxlevel": {
+        "year": "2024",
+        "type": "Étude de Cas",
+        "title": "Next X Level",
+        "description": "E‑commerce bilingue avec UX mobile propre et mises à jour de produits automatisées.",
+        "cta": "Voir le projet"
+      },
+      "lumicerra": {
+        "year": "2023",
+        "type": "Étude de Cas",
+        "title": "Lumicerra Labs",
+        "description": "Tableau de bord en temps réel pour éclairage LED intelligent avec insights énergétiques clairs.",
+        "cta": "Voir le projet"
+      }
+    },
+    "cta": "Explorer le portfolio complet"
+  },
+  "testimonials": {
+    "title": "Témoignages",
+    "subtitle": "Ce que disent les clients sur le travail avec moi",
+    "description": "Écoutez les entreprises qui ont transformé leur présence numérique grâce à notre collaboration.",
+    "badge": "Témoignages",
+    "heading": "Preuve en résultats concrets",
+    "subheading": "Communication claire, livraison fiable et résultats mesurables pour les équipes qui bougent vite.",
+    "items": [
+      {
+        "name": "Équipe Opérations Sofia",
+        "role": "Opérations",
+        "company": "Sofia AI Desk",
+        "content": "Nicky a simplifié tout notre workflow — nous avons économisé des heures chaque semaine.",
+        "projectType": "Automatisation IA"
+      },
+      {
+        "name": "Alexandra Thompson",
+        "role": "PDG",
+        "company": "InnovateTech Solutions",
+        "content": "Le mélange de vision créative et d'expertise technique de Nicky a révolutionné notre processus. Les résultats parlent d'eux-mêmes.",
+        "projectType": "Design de Plateforme"
+      },
+      {
+        "name": "Marcus Chen",
+        "role": "Directeur Créatif",
+        "company": "Pixel Perfect Agency",
+        "content": "Un partenaire créatif qui parle couramment le code. Des solutions élégantes et performantes qui correspondaient à notre ambition.",
+        "projectType": "Web Interactif"
+      }
+    ]
+  },
   "techStack": {
     "title": "Ce que j'utilise",
-    "subtitle": "Outils, applications, intégrations et plus",
+    "subtitle": "Survoler pour interagir • Toucher les icônes pour en savoir plus",
     "description": "Une collection curée de technologies avec lesquelles je travaille quotidiennement pour construire des expériences numériques modernes.",
     "tabs": {
       "all": "Tout",

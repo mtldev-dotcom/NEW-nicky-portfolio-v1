@@ -4,16 +4,97 @@
   "description": "En savoir plus sur mon parcours, mon expertise et mon approche pour construire des solutions numériques modernes.",
   "sections": {
     "intro": {
-      "title": "À propos de moi",
-      "content": "Je suis un technologue créatif basé à Montréal, Canada, avec plus de 20 ans d'expérience en développement web, design et automatisation IA. Je me spécialise dans l'aide aux entreprises pour transformer leur présence numérique grâce à des solutions innovantes qui combinent technologie de pointe et design centré sur l'utilisateur."
+      "badge": "Révélation d'Identité",
+      "title": "Le Technologue",
+      "titleHighlight": "Créatif",
+      "paragraph1": "Je suis Nicky Bruno, et je représente l'évolution des professionnels créatifs—où le design traditionnel rencontre l'automatisation IA de pointe. Je ne choisis pas entre créativité ou technologie ; je maîtrise les deux.",
+      "paragraph2": "Depuis plus de deux décennies, je crée des expériences intelligentes qui pensent, s'adaptent et évoluent. Je ne construis pas seulement des sites web—j'architecte des expériences numériques qui font le pont entre l'intuition humaine et la précision machine.",
+      "paragraph3": "Basé dans la scène tech vibrante de Montréal, j'apporte un mélange unique de culture bilingue et d'innovation nord-américaine à chaque projet. Mon approche est visionnaire mais ancrée, techniquement maîtrisée mais créativement inspirée.",
+      "imageAlt": "Nicky Bruno - Technologue Créatif",
+      "status": "EN LIGNE",
+      "location": "Montréal, QC",
+      "globalImpact": "Impact Mondial",
+      "attributes": {
+        "visionary": {
+          "label": "Visionnaire",
+          "desc": "Pensée orientée vers l'avenir"
+        },
+        "technical": {
+          "label": "Technique",
+          "desc": "Exécution maîtrisée"
+        },
+        "human": {
+          "label": "Humain",
+          "desc": "Chaleureusement accessible"
+        },
+        "collaborative": {
+          "label": "Collaboratif",
+          "desc": "Orienté partenariat"
+        }
+      }
+    },
+    "timeline": {
+      "badge": "Parcours Professionnel",
+      "title": "Deux Décennies d'Évolution",
+      "description": "De la fondation créative au pionnier de l'IA, chaque étape représente un pas délibéré vers la maîtrise de l'intersection entre créativité humaine et innovation technologique.",
+      "keyAchievements": "Réalisations Clés :",
+      "currentStatus": {
+        "badge": "Statut Actuel",
+        "title": "Prêt pour Votre Prochain Défi",
+        "description": "Avec 20+ années d'évolution de la fondation créative au pionnier de l'IA, je suis positionné pour relever les projets les plus ambitieux à l'intersection du design, de la technologie et de l'intelligence artificielle."
+      },
+      "milestones": {
+        "2004": {
+          "title": "Fondation Créative",
+          "company": "Designer Freelance",
+          "location": "Montréal, QC",
+          "description": "Commencé le parcours en design graphique et développement web, établissant la fondation créative qui définirait mon approche de la technologie.",
+          "achievements": ["Premier portfolio client", "Maîtrise Adobe Creative Suite", "Adoption des standards web"]
+        },
+        "2008": {
+          "title": "Évolution Numérique",
+          "company": "Chef d'Agence Créative",
+          "location": "Montréal, QC",
+          "description": "Dirigé les initiatives de transformation numérique, faisant le pont entre design traditionnel et technologies web émergentes et principes d'expérience utilisateur.",
+          "achievements": ["Leadership d'équipe", "Méthodologie UX", "Gestion des relations clients"]
+        },
+        "2012": {
+          "title": "Maîtrise Technique",
+          "company": "Développeur Senior",
+          "location": "Montréal, QC",
+          "description": "Approfondi l'expertise technique dans les frameworks web modernes, l'architecture de base de données et les stratégies d'optimisation des performances.",
+          "achievements": ["Développement full-stack", "Optimisation de base de données", "Ingénierie des performances"]
+        },
+        "2016": {
+          "title": "Leadership en Innovation",
+          "company": "Consultant Tech",
+          "location": "Amérique du Nord",
+          "description": "Étendu la pratique de conseil à travers l'Amérique du Nord, se spécialisant dans la transformation numérique et l'intégration de technologies émergentes.",
+          "achievements": ["Projets transfrontaliers", "Stratégie numérique", "Conseil technologique"]
+        },
+        "2018": {
+          "title": "Pionnier de l'Intégration IA",
+          "company": "Fondateur AIAA.dev",
+          "location": "Montréal, QC",
+          "description": "Fondé l'agence d'automatisation IA, devenant un adepte précoce de l'apprentissage automatique et de l'intelligence artificielle dans les workflows créatifs.",
+          "achievements": ["Automatisation IA", "Apprentissage automatique", "Optimisation des workflows"]
+        },
+        "2024": {
+          "title": "Technologue Créatif",
+          "company": "Pratique Indépendante",
+          "location": "Mondial",
+          "description": "Établi comme Le Technologue Créatif, maîtrisant l'intersection du design, du développement et de l'IA pour créer des expériences intelligentes.",
+          "achievements": ["Reconnaissance mondiale", "Collaboration IA-humaine", "Expériences intelligentes"]
+        }
+      }
     },
     "experience": {
       "title": "Expérience & Expertise",
-      "content": "Avec un parcours couvrant le développement web, le design UX et l'intégration IA, j'apporte une perspective unique à chaque projet. J'ai travaillé avec des startups, des entreprises établies et tout ce qui se trouve entre les deux, en me concentrant toujours sur des solutions qui apportent une vraie valeur."
+      "content": "Avec un background couvrant le développement web, le design UX et l'intégration IA, j'apporte une perspective unique à chaque projet. J'ai travaillé avec des startups, des entreprises établies et tout ce qui se trouve entre les deux, en me concentrant toujours sur des solutions qui apportent une vraie valeur."
     },
     "approach": {
       "title": "Mon Approche",
-      "content": "Je crois que la technologie devrait servir les gens, et non l'inverse. C'est pourquoi je me concentre sur la création de solutions qui ne sont pas seulement techniquement solides, mais aussi intuitives et accessibles. Chaque projet commence par comprendre vos objectifs et se termine par une solution qui dépasse vos attentes."
+      "content": "Je crois que la technologie devrait servir les gens, et non l'inverse. C'est pourquoi je me concentre sur la création de solutions qui ne sont pas seulement techniquement solides mais aussi intuitives et accessibles. Chaque projet commence par comprendre vos objectifs et se termine par une solution qui dépasse vos attentes."
     },
     "values": {
       "title": "Valeurs Fondamentales",
@@ -35,6 +116,19 @@
           "description": "Communication claire et feedback honnête tout au long du projet."
         }
       }
+    },
+    "cta": {
+      "title": "Prêt à Créer Quelque Chose",
+      "titleHighlight": "d'Extraordinaire ?",
+      "description": "Avec deux décennies d'expérience faisant le pont entre créativité et technologie, je suis positionné pour relever vos projets les plus ambitieux. Créons des expériences intelligentes qui pensent, s'adaptent et évoluent.",
+      "buttons": {
+        "startProject": "Démarrer Votre Projet",
+        "viewWork": "Voir Mon Travail"
+      },
+      "status": {
+        "available": "Disponible pour Projets",
+        "response": "Réponse sous 24h"
+      }
     }
   },
   "timeline": {
@@ -46,7 +140,7 @@
       },
       "2020": {
         "title": "Développeur Full-Stack",
-        "description": "S'étendre au développement backend et à l'infrastructure cloud."
+        "description": "S'étendre dans le développement backend et l'infrastructure cloud."
       },
       "2018": {
         "title": "Spécialiste Frontend",
@@ -54,7 +148,7 @@
       },
       "2015": {
         "title": "Designer & Développeur Web",
-        "description": "Combiner les compétences de design et de développement pour des solutions complètes."
+        "description": "Combiner les compétences de design et développement pour des solutions complètes."
       },
       "2010": {
         "title": "Designer Graphique",
@@ -79,21 +173,6 @@
         "title": "React Developer Certification",
         "issuer": "Meta",
         "year": "2021"
-      }
-    }
-  },
-  "sections": {
-    "cta": {
-      "title": "Prêt à Créer Quelque Chose",
-      "titleHighlight": "d'Extraordinaire ?",
-      "description": "Avec deux décennies d'expérience à faire le pont entre créativité et technologie, je suis positionné pour relever vos projets les plus ambitieux. Créons des expériences intelligentes qui pensent, s'adaptent et évoluent.",
-      "buttons": {
-        "startProject": "Démarrer Votre Projet",
-        "viewWork": "Voir Mon Travail"
-      },
-      "status": {
-        "available": "Disponible pour des Projets",
-        "response": "Réponse dans les 24h"
       }
     }
   }

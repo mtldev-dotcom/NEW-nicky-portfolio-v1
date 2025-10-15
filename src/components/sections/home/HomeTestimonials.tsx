@@ -5,51 +5,50 @@ import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
 import TestimonialCarousel from 'components/sections/testimonials/TestimonialCarousel';
 
-const testimonials = [
-  {
-    id: 101,
-    name: 'Sofia Ops Team',
-    role: 'Operations',
-    company: 'Sofia AI Desk',
-    avatar: '/assets/images/profil_portrait.jpg',
-    companyLogo: '',
-    content: 'Nicky simplified our whole workflow — we saved hours every week.',
-    rating: 5,
-    projectType: 'AI Automation',
-  },
-  {
-    id: 102,
-    name: 'Alexandra Thompson',
-    role: 'CEO',
-    company: 'InnovateTech Solutions',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-    companyLogo: '',
-    content:
-      "Nicky's blend of creative vision and technical expertise revolutionized our process. Results speak for themselves.",
-    rating: 5,
-    projectType: 'Platform Design',
-  },
-  {
-    id: 103,
-    name: 'Marcus Chen',
-    role: 'Creative Director',
-    company: 'Pixel Perfect Agency',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    companyLogo: '',
-    content:
-      'A creative partner who speaks fluent code. Elegant, performant solutions that matched our ambition.',
-    rating: 5,
-    projectType: 'Interactive Web',
-  },
-];
-
 const HomeTestimonials = () => {
-  const t = useTranslations('home.hero.stats');
+  const t = useTranslations('home.testimonials');
+  const tStats = useTranslations('home.hero.stats');
 
   const stats = [
-    { key: 'experience', value: t('experience.value'), label: t('experience.label'), icon: 'Award' },
-    { key: 'projects', value: t('projects.value'), label: t('projects.label'), icon: 'FolderOpen' },
-    { key: 'hoursSaved', value: t('hoursSaved.value'), label: t('hoursSaved.label'), icon: 'Clock' },
+    { key: 'experience', value: tStats('experience.value'), label: tStats('experience.label'), icon: 'Award' },
+    { key: 'projects', value: tStats('projects.value'), label: tStats('projects.label'), icon: 'FolderOpen' },
+    { key: 'hoursSaved', value: tStats('hoursSaved.value'), label: tStats('hoursSaved.label'), icon: 'Clock' },
+  ];
+
+  const testimonials = [
+    {
+      id: 101,
+      name: t('items.0.name'),
+      role: t('items.0.role'),
+      company: t('items.0.company'),
+      avatar: '/assets/images/profil_portrait.jpg',
+      companyLogo: '',
+      content: t('items.0.content'),
+      rating: 5,
+      projectType: t('items.0.projectType'),
+    },
+    {
+      id: 102,
+      name: t('items.1.name'),
+      role: t('items.1.role'),
+      company: t('items.1.company'),
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+      companyLogo: '',
+      content: t('items.1.content'),
+      rating: 5,
+      projectType: t('items.1.projectType'),
+    },
+    {
+      id: 103,
+      name: t('items.2.name'),
+      role: t('items.2.role'),
+      company: t('items.2.company'),
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+      companyLogo: '',
+      content: t('items.2.content'),
+      rating: 5,
+      projectType: t('items.2.projectType'),
+    },
   ];
 
   return (
@@ -62,13 +61,13 @@ const HomeTestimonials = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 glow-neon">
             <Icon name="MessageSquare" size={16} />
-            <span>Testimonials</span>
+            <span>{t('badge')}</span>
           </div>
           <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-            Proof in real outcomes
+            {t('heading')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Clear communication, reliable delivery, and measurable results for teams that move fast.
+            {t('subheading')}
           </p>
         </div>
 

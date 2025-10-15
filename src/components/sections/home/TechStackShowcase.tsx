@@ -50,7 +50,7 @@ const TechStackShowcase = () => {
                     className="text-center mb-16"
                 >
                     <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 glow-neon">
-                        <span>Tech Arsenal</span>
+                        <span>{t('title')}</span>
                     </div>
 
                     <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
@@ -117,7 +117,7 @@ const TechStackShowcase = () => {
                 >
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 glow-neon">
-                            <span>Most Used</span>
+                            <span>{t('mostUsed')}</span>
                         </div>
                     </div>
 

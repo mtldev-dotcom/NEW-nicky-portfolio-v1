@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
 import Image from 'components/AppImage';
 import Button from 'components/ui/Button';
 
 const ProjectCard = ({ project, index, onViewDetails }) => {
+  const t = useTranslations('portfolio');
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -28,7 +30,7 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
             className="w-full h-full object-cover transition-smooth group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          
+
           {/* Project Type Badge */}
           <div className="absolute top-4 left-4">
             <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full backdrop-blur-sm border border-primary/30">
@@ -41,7 +43,7 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
             <div className="absolute top-4 right-4">
               <div className="flex items-center space-x-1 px-2 py-1 bg-warning/20 text-warning text-xs font-medium rounded-full backdrop-blur-sm border border-warning/30">
                 <Icon name="Star" size={12} />
-                <span>Featured</span>
+                <span>{t('featured')}</span>
               </div>
             </div>
           )}
@@ -60,7 +62,7 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
               className="glow-neon"
               onClick={() => onViewDetails(project)}
             >
-              View Details
+              {t('viewDetails')}
             </Button>
           </motion.div>
         </div>

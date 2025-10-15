@@ -1,15 +1,18 @@
 import React, { type FC } from "react";
 import Image from "components/AppImage";
 import Icon, { type IconName } from "components/AppIcon";
-
-const attributes: Array<{ icon: IconName; label: string; desc: string }> = [
-  { icon: "Brain", label: "Visionary", desc: "Future-focused thinking" },
-  { icon: "Code2", label: "Technical", desc: "Masterful execution" },
-  { icon: "Heart", label: "Human", desc: "Warmly approachable" },
-  { icon: "Users", label: "Collaborative", desc: "Partnership-driven" },
-];
+import { useTranslations } from 'next-intl';
 
 const PersonalIntro: FC = () => {
+  const t = useTranslations('about.sections.intro');
+  const tGlobal = useTranslations('global');
+
+  const attributes: Array<{ icon: IconName; label: string; desc: string }> = [
+    { icon: "Brain", label: t('attributes.visionary.label'), desc: t('attributes.visionary.desc') },
+    { icon: "Code2", label: t('attributes.technical.label'), desc: t('attributes.technical.desc') },
+    { icon: "Heart", label: t('attributes.human.label'), desc: t('attributes.human.desc') },
+    { icon: "Users", label: t('attributes.collaborative.label'), desc: t('attributes.collaborative.desc') },
+  ];
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <div className="relative order-2 lg:order-1">
@@ -18,21 +21,21 @@ const PersonalIntro: FC = () => {
             <div className="relative overflow-hidden rounded-xl bg-card">
               <Image
                 src="/assets/images/nicky-profile-img.png"
-                alt="Nicky Bruno - Creative Technologist"
+                alt={t('imageAlt')}
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />
 
               <div className="absolute top-6 right-6 bg-background/90 backdrop-blur-sm rounded-lg p-3 glow-neon">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                  <span className="text-xs font-mono text-primary">ONLINE</span>
+                  <span className="text-xs font-mono text-primary">{t('status')}</span>
                 </div>
               </div>
 
               <div className="absolute bottom-6 left-6 bg-background/90 backdrop-blur-sm rounded-lg p-3 glow-neon">
                 <div className="flex items-center space-x-2">
                   <Icon name="MapPin" size={16} className="text-primary" />
-                  <span className="text-xs font-mono text-foreground">Montreal, QC</span>
+                  <span className="text-xs font-mono text-foreground">{t('location')}</span>
                 </div>
               </div>
             </div>
@@ -63,29 +66,26 @@ const PersonalIntro: FC = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-1 bg-primary rounded-full" />
-              <span className="text-sm font-mono text-primary uppercase tracking-wider">Identity Revelation</span>
+              <span className="text-sm font-mono text-primary uppercase tracking-wider">{t('badge')}</span>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-space-grotesk font-bold text-foreground leading-tight">
-              The Creative
-              <span className="block text-primary text-glow">Technologist</span>
+              {t('title')}
+              <span className="block text-primary text-glow">{t('titleHighlight')}</span>
             </h2>
           </div>
 
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p className="text-lg">
-              I&apos;m Nicky Bruno, and I represent the evolution of creative professionals—where traditional design meets
-              cutting-edge AI automation. I don&apos;t just choose between creativity or technology; I master both.
+              {t('paragraph1')}
             </p>
 
             <p>
-              For over two decades, I&apos;ve been crafting intelligent experiences that think, adapt, and evolve. I&apos;m not just
-              building websites—I&apos;m architecting digital experiences that bridge human intuition with machine precision.
+              {t('paragraph2')}
             </p>
 
             <p>
-              Based in Montreal&apos;s vibrant tech scene, I bring a unique blend of bilingual culture and North American innovation to
-              every project. My approach is visionary yet grounded, technically masterful yet creatively inspired.
+              {t('paragraph3')}
             </p>
           </div>
         </div>
@@ -112,12 +112,12 @@ const PersonalIntro: FC = () => {
         <div className="flex items-center space-x-4 pt-4">
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
             <Icon name="MapPin" size={16} className="text-primary" />
-            <span>Montreal, Quebec</span>
+            <span>{t('location')}</span>
           </div>
           <div className="w-1 h-1 bg-border rounded-full" />
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
             <Icon name="Globe" size={16} className="text-primary" />
-            <span>Global Impact</span>
+            <span>{t('globalImpact')}</span>
           </div>
         </div>
       </div>

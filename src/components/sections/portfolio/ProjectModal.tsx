@@ -2,11 +2,13 @@
 
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
 import Image from 'components/AppImage';
 import Button from 'components/ui/Button';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
+  const t = useTranslations('portfolio');
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -83,7 +85,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                     <div className="lg:col-span-2 space-y-6">
                       <div>
                         <h3 className="text-lg font-space-grotesk font-bold text-foreground mb-3">
-                          Project Overview
+                          {t('projectOverview')}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
                           {project?.fullDescription}
@@ -92,7 +94,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
 
                       <div>
                         <h3 className="text-lg font-space-grotesk font-bold text-foreground mb-3">
-                          How It Was Made
+                          {t('howItWasMade')}
                         </h3>
                         <div className="space-y-4">
                           {project?.process?.map((step, index) => (
@@ -144,19 +146,19 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       {/* Project Details */}
                       <div className="bg-muted/30 rounded-xl p-6 border border-border/30">
                         <h3 className="text-lg font-space-grotesk font-bold text-foreground mb-4">
-                          Project Details
+                          {t('projectDetails')}
                         </h3>
                         <div className="space-y-4">
                           <div>
-                            <div className="text-sm text-muted-foreground mb-1">Client</div>
+                            <div className="text-sm text-muted-foreground mb-1">{t('client')}</div>
                             <div className="text-foreground font-medium">{project?.client}</div>
                           </div>
                           <div>
-                            <div className="text-sm text-muted-foreground mb-1">Duration</div>
+                            <div className="text-sm text-muted-foreground mb-1">{t('duration')}</div>
                             <div className="text-foreground font-medium">{project?.duration}</div>
                           </div>
                           <div>
-                            <div className="text-sm text-muted-foreground mb-1">Industry</div>
+                            <div className="text-sm text-muted-foreground mb-1">{t('industry')}</div>
                             <div className="text-foreground font-medium">{project?.industry}</div>
                           </div>
                         </div>
@@ -165,7 +167,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       {/* Technologies */}
                       <div className="bg-muted/30 rounded-xl p-6 border border-border/30">
                         <h3 className="text-lg font-space-grotesk font-bold text-foreground mb-4">
-                          Technologies Used
+                          {t('technologiesUsed')}
                         </h3>
                         <div className="flex flex-wrap gap-2">
                           {project?.technologies?.map((tech, index) => (
@@ -182,7 +184,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       {/* Results */}
                       <div className="bg-muted/30 rounded-xl p-6 border border-border/30">
                         <h3 className="text-lg font-space-grotesk font-bold text-foreground mb-4">
-                          Results & Impact
+                          {t('resultsImpact')}
                         </h3>
                         <div className="space-y-3">
                           {project?.metrics?.map((metric, index) => (
@@ -204,7 +206,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                             iconPosition="right"
                             className="glow-neon"
                           >
-                            View Live Site
+                            {t('viewLiveSite')}
                           </Button>
                         )}
                         {project?.githubUrl && (
@@ -214,7 +216,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                             iconName="Github"
                             iconPosition="left"
                           >
-                            View Code
+                            {t('viewCode')}
                           </Button>
                         )}
                       </div>

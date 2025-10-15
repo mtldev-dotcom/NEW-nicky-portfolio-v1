@@ -1,11 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
 import Image from 'components/AppImage';
 import Button from 'components/ui/Button';
 
 const FeaturedProject = ({ project, onViewDetails }) => {
+  const t = useTranslations('portfolio');
+  const tGlobal = useTranslations('global');
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -21,7 +24,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
           <div className="flex items-center space-x-3">
             <div className="flex items-center space-x-2 px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full border border-primary/30">
               <Icon name="Star" size={16} />
-              <span>Featured Project</span>
+              <span>{tGlobal('common.featuredProject')}</span>
             </div>
             <span className="px-3 py-1 bg-muted/50 text-muted-foreground text-sm rounded-full">
               {project?.type}
@@ -40,10 +43,10 @@ const FeaturedProject = ({ project, onViewDetails }) => {
           {/* Key Features */}
           <div className="space-y-3">
             <h3 className="text-lg font-space-grotesk font-bold text-foreground">
-              Key Features
+              {t('keyFeatures')}
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
-              {project?.features?.map((feature, index) => (
+              {Array.isArray(project?.features) && project?.features?.map((feature, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
                     <Icon name="Check" size={14} className="text-primary" />
@@ -57,7 +60,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
           {/* Technologies */}
           <div className="space-y-3">
             <h3 className="text-lg font-space-grotesk font-bold text-foreground">
-              Technologies
+              {t('technologiesUsed')}
             </h3>
             <div className="flex flex-wrap gap-2">
               {project?.technologies?.map((tech, index) => (
@@ -90,7 +93,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
               className="glow-neon"
               onClick={() => onViewDetails(project)}
             >
-              View Case Study
+              {tGlobal('common.viewCaseStudy')}
             </Button>
             {project?.liveUrl && (
               <Button
@@ -98,7 +101,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
                 iconName="Globe"
                 iconPosition="left"
               >
-                Live Demo
+                {tGlobal('common.liveDemo')}
               </Button>
             )}
             {project?.githubUrl && (
@@ -107,7 +110,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
                 iconName="Github"
                 iconPosition="left"
               >
-                Source Code
+                {t('sourceCode')}
               </Button>
             )}
           </div>
@@ -123,7 +126,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </div>
-          
+
           {/* Floating Elements */}
           <motion.div
             animate={{ y: [-10, 10, -10] }}
@@ -132,7 +135,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
           >
             <Icon name="Zap" size={24} className="text-primary" />
           </motion.div>
-          
+
           <motion.div
             animate={{ y: [10, -10, 10] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}

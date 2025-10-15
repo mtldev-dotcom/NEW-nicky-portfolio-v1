@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 const HomeIntro = () => {
     const t = useTranslations('home.intro');
+    const tPersonalIntro = useTranslations('home.personalIntro');
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -47,7 +48,7 @@ const HomeIntro = () => {
                         className="text-center mb-12"
                     >
                         <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 glow-neon">
-                            <span>Personal Introduction</span>
+                            <span>{tPersonalIntro('title')}</span>
                         </div>
 
                         <motion.h2

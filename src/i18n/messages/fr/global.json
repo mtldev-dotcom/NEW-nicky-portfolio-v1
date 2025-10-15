@@ -27,7 +27,17 @@
     "readMore": "Lire la suite",
     "seeMore": "Voir plus",
     "showLess": "Voir moins",
-    "showMore": "Voir plus"
+    "showMore": "Voir plus",
+    "viewProject": "Voir le projet",
+    "viewCase": "Voir le cas",
+    "viewCaseStudy": "Voir l'étude de cas",
+    "liveDemo": "Démo en direct",
+    "caseStudy": "Étude de Cas",
+    "featuredProject": "Projet Vedette",
+    "industryAwards": "Prix de l'Industrie",
+    "communityLeader": "Leader Communautaire",
+    "continuousLearning": "Apprentissage Continu",
+    "creativeTechnologist": "Technologue Créatif"
   },
   "seo": {
     "title": "Nicky Bruno | Technologue Créatif & Concepteur d'Expérience",
@@ -47,5 +57,72 @@
     "english": "English",
     "french": "Français",
     "ariaLabel": "Sélectionner la langue"
+  },
+  "footer": {
+    "title": "Nicky Bruno",
+    "subtitle": "Technologue Créatif & Consultant Numérique",
+    "description": "Construire des expériences numériques modernes qui combinent technologie de pointe et design centré sur l'utilisateur.",
+    "sections": {
+      "services": {
+        "title": "Services",
+        "items": [
+          "Développement Web",
+          "IA & Automatisation",
+          "Design & Branding",
+          "Stratégie Numérique"
+        ]
+      },
+      "company": {
+        "title": "Entreprise",
+        "items": [
+          "À propos",
+          "Portfolio",
+          "Témoignages",
+          "Contact"
+        ]
+      },
+      "resources": {
+        "title": "Ressources",
+        "items": [
+          "Blog",
+          "Études de Cas",
+          "Documentation",
+          "Support"
+        ]
+      },
+      "legal": {
+        "title": "Légal",
+        "items": [
+          "Politique de Confidentialité",
+          "Conditions d'Utilisation",
+          "Politique des Cookies",
+          "Conformité RGPD"
+        ]
+      }
+    },
+    "contact": {
+      "title": "Entrer en Contact",
+      "email": "hello@nickybruno.com",
+      "location": "Montréal, Canada",
+      "description": "Disponible pour le travail à distance dans le monde entier"
+    },
+    "social": {
+      "title": "Suivez-moi",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "dribbble": "Dribbble"
+    },
+    "newsletter": {
+      "title": "Restez Informé",
+      "description": "Recevez les dernières informations sur la technologie créative et l'innovation numérique.",
+      "placeholder": "Entrez votre email",
+      "button": "S'abonner",
+      "success": "Merci de vous être abonné !",
+      "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+    },
+    "copyright": "© 2024 Nicky Bruno. Tous droits réservés.",
+    "madeWith": "Fait avec ❤️ à Montréal",
+    "backToTop": "Retour en haut"
   }
 }

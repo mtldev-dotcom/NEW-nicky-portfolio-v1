@@ -3,32 +3,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Icon from 'components/AppIcon';
+import { useTranslations } from 'next-intl';
 
 const CapabilityStats = () => {
+  const t = useTranslations('services.stats');
+
   const stats = [
     {
       icon: "Calendar",
-      value: "20+",
-      label: "Years Experience",
-      description: "Two decades mastering the evolution from traditional design to AI-powered creativity"
+      value: t('experience.value'),
+      label: t('experience.label'),
+      description: t('experience.description')
     },
     {
       icon: "Briefcase",
-      value: "150+",
-      label: "Projects Delivered",
-      description: "Successful launches across startups, agencies, and enterprise clients"
+      value: t('projects.value'),
+      label: t('projects.label'),
+      description: t('projects.description')
     },
     {
       icon: "Users",
-      value: "50+",
-      label: "Happy Clients",
-      description: "Long-term partnerships built on trust, quality, and innovative solutions"
+      value: t('clients.value'),
+      label: t('clients.label'),
+      description: t('clients.description')
     },
     {
       icon: "Zap",
-      value: "95%",
-      label: "Client Retention",
-      description: "Clients return because we deliver results that exceed expectations"
+      value: t('retention.value'),
+      label: t('retention.label'),
+      description: t('retention.description')
     }
   ];
 
@@ -39,8 +42,8 @@ const CapabilityStats = () => {
           key={index}
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ 
-            duration: 0.5, 
+          transition={{
+            duration: 0.5,
             delay: index * 0.1,
             ease: [0.4, 0, 0.2, 1]
           }}
@@ -49,14 +52,14 @@ const CapabilityStats = () => {
         >
           <div className="relative mb-4">
             <div className="w-12 h-12 mx-auto bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:glow-neon">
-              <Icon 
-                name={stat?.icon} 
-                size={24} 
-                className="text-primary group-hover:scale-110 transition-transform duration-300" 
+              <Icon
+                name={stat?.icon}
+                size={24}
+                className="text-primary group-hover:scale-110 transition-transform duration-300"
               />
             </div>
           </div>
-          
+
           <div className="space-y-2">
             <div className="text-3xl font-space-grotesk font-bold text-foreground group-hover:text-primary transition-colors duration-300">
               {stat?.value}

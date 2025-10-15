@@ -402,7 +402,7 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
             {/* Instructions */}
             <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center px-4">
                 <p className="text-xs text-muted-foreground/60">
-                    <span className="hidden sm:inline">Hover to interact • </span>Tap icons to learn more
+                    {t('subtitle')}
                 </p>
             </div>
         </div>

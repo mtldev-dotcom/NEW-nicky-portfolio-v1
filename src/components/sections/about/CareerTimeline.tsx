@@ -2,6 +2,7 @@
 
 import React, { type FC, useState } from "react";
 import Icon, { type IconName } from "components/AppIcon";
+import { useTranslations } from 'next-intl';
 
 interface Milestone {
   year: string;
@@ -14,94 +15,88 @@ interface Milestone {
   achievements: string[];
 }
 
-const milestones: Milestone[] = [
-  {
-    year: "2004",
-    title: "Creative Foundation",
-    company: "Freelance Designer",
-    location: "Montreal, QC",
-    description:
-      "Started journey in graphic design and web development, establishing the creative foundation that would define my approach to technology.",
-    icon: "Palette",
-    color: "text-blue-400",
-    achievements: ["First client portfolio", "Adobe Creative Suite mastery", "Web standards adoption"],
-  },
-  {
-    year: "2008",
-    title: "Digital Evolution",
-    company: "Creative Agency Lead",
-    location: "Montreal, QC",
-    description:
-      "Led digital transformation initiatives, bridging traditional design with emerging web technologies and user experience principles.",
-    icon: "Monitor",
-    color: "text-green-400",
-    achievements: ["Team leadership", "UX methodology", "Client relationship management"],
-  },
-  {
-    year: "2012",
-    title: "Technical Mastery",
-    company: "Senior Developer",
-    location: "Montreal, QC",
-    description:
-      "Deepened technical expertise in modern web frameworks, database architecture, and performance optimization strategies.",
-    icon: "Code",
-    color: "text-purple-400",
-    achievements: ["Full-stack development", "Database optimization", "Performance engineering"],
-  },
-  {
-    year: "2016",
-    title: "Innovation Leadership",
-    company: "Tech Consultant",
-    location: "North America",
-    description:
-      "Expanded consulting practice across North America, specializing in digital transformation and emerging technology integration.",
-    icon: "Lightbulb",
-    color: "text-yellow-400",
-    achievements: ["Cross-border projects", "Digital strategy", "Technology consulting"],
-  },
-  {
-    year: "2018",
-    title: "AI Integration Pioneer",
-    company: "AIAA.dev Founder",
-    location: "Montreal, QC",
-    description:
-      "Founded AI automation agency, becoming an early adopter of machine learning and artificial intelligence in creative workflows.",
-    icon: "Brain",
-    color: "text-primary",
-    achievements: ["AI automation", "Machine learning", "Workflow optimization"],
-  },
-  {
-    year: "2024",
-    title: "Creative Technologist",
-    company: "Independent Practice",
-    location: "Global",
-    description:
-      "Established as The Creative Technologist, mastering the intersection of design, development, and AI to create intelligent experiences.",
-    icon: "Zap",
-    color: "text-primary",
-    achievements: ["Global recognition", "AI-human collaboration", "Intelligent experiences"],
-  },
-];
-
 const CareerTimeline: FC = () => {
+  const t = useTranslations('about.sections.timeline');
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const milestones: Milestone[] = [
+    {
+      year: "2004",
+      title: t('milestones.2004.title'),
+      company: t('milestones.2004.company'),
+      location: t('milestones.2004.location'),
+      description: t('milestones.2004.description'),
+      icon: "Palette",
+      color: "text-blue-400",
+      achievements: [t('milestones.2004.achievements.0'), t('milestones.2004.achievements.1'), t('milestones.2004.achievements.2')],
+    },
+    {
+      year: "2008",
+      title: t('milestones.2008.title'),
+      company: t('milestones.2008.company'),
+      location: t('milestones.2008.location'),
+      description: t('milestones.2008.description'),
+      icon: "Monitor",
+      color: "text-green-400",
+      achievements: [t('milestones.2008.achievements.0'), t('milestones.2008.achievements.1'), t('milestones.2008.achievements.2')],
+    },
+    {
+      year: "2012",
+      title: t('milestones.2012.title'),
+      company: t('milestones.2012.company'),
+      location: t('milestones.2012.location'),
+      description: t('milestones.2012.description'),
+      icon: "Code",
+      color: "text-purple-400",
+      achievements: [t('milestones.2012.achievements.0'), t('milestones.2012.achievements.1'), t('milestones.2012.achievements.2')],
+    },
+    {
+      year: "2016",
+      title: t('milestones.2016.title'),
+      company: t('milestones.2016.company'),
+      location: t('milestones.2016.location'),
+      description: t('milestones.2016.description'),
+      icon: "Lightbulb",
+      color: "text-yellow-400",
+      achievements: [t('milestones.2016.achievements.0'), t('milestones.2016.achievements.1'), t('milestones.2016.achievements.2')],
+    },
+    {
+      year: "2018",
+      title: t('milestones.2018.title'),
+      company: t('milestones.2018.company'),
+      location: t('milestones.2018.location'),
+      description: t('milestones.2018.description'),
+      icon: "Brain",
+      color: "text-primary",
+      achievements: [t('milestones.2018.achievements.0'), t('milestones.2018.achievements.1'), t('milestones.2018.achievements.2')],
+    },
+    {
+      year: "2024",
+      title: t('milestones.2024.title'),
+      company: t('milestones.2024.company'),
+      location: t('milestones.2024.location'),
+      description: t('milestones.2024.description'),
+      icon: "Zap",
+      color: "text-primary",
+      achievements: [t('milestones.2024.achievements.0'), t('milestones.2024.achievements.1'), t('milestones.2024.achievements.2')],
+    },
+  ];
 
   return (
     <div className="space-y-12">
       <div className="text-center">
         <div className="flex items-center justify-center space-x-3 mb-4">
           <div className="w-12 h-1 bg-primary rounded-full" />
-          <span className="text-sm font-mono text-primary uppercase tracking-wider">Career Journey</span>
+          <span className="text-sm font-mono text-primary uppercase tracking-wider">{t('badge')}</span>
           <div className="w-12 h-1 bg-primary rounded-full" />
         </div>
 
         <h3 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-          Two Decades of Evolution
+          {t('title')}
         </h3>
 
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          From creative foundation to AI pioneer, each milestone represents a deliberate step toward mastering the
-          intersection of human creativity and technological innovation.
+          {t('description')}
         </p>
       </div>
       <div className="relative">
@@ -111,28 +106,24 @@ const CareerTimeline: FC = () => {
           {milestones.map((milestone, index) => (
             <div
               key={milestone.year}
-              className={`relative flex flex-col lg:flex-row items-start lg:items-center ${
-                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              }`}
+              className={`relative flex flex-col lg:flex-row items-start lg:items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                }`}
               onMouseEnter={() => setActiveIndex(index)}
             >
               <div className="absolute left-8 lg:left-1/2 lg:-translate-x-1/2 w-4 h-4 bg-background border-2 border-primary rounded-full z-10">
                 <div
-                  className={`absolute inset-1 rounded-full transition-smooth ${
-                    activeIndex === index ? "bg-primary glow-neon" : "bg-primary/50"
-                  }`}
+                  className={`absolute inset-1 rounded-full transition-smooth ${activeIndex === index ? "bg-primary glow-neon" : "bg-primary/50"
+                    }`}
                 />
               </div>
 
               <div
-                className={`ml-20 lg:ml-0 lg:w-5/12 ${
-                  index % 2 === 0 ? "lg:mr-auto lg:pr-8" : "lg:ml-auto lg:pl-8"
-                }`}
+                className={`ml-20 lg:ml-0 lg:w-5/12 ${index % 2 === 0 ? "lg:mr-auto lg:pr-8" : "lg:ml-auto lg:pl-8"
+                  }`}
               >
                 <div
-                  className={`bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 p-6 transition-smooth hover:border-primary/30 group ${
-                    activeIndex === index ? "glow-neon border-primary/50" : ""
-                  }`}
+                  className={`bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 p-6 transition-smooth hover:border-primary/30 group ${activeIndex === index ? "glow-neon border-primary/50" : ""
+                    }`}
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center space-x-3">
@@ -166,7 +157,7 @@ const CareerTimeline: FC = () => {
                   </p>
 
                   <div className="space-y-2">
-                    <h5 className="text-sm font-space-grotesk font-semibold text-foreground">Key Achievements:</h5>
+                    <h5 className="text-sm font-space-grotesk font-semibold text-foreground">{t('keyAchievements')}</h5>
                     <div className="flex flex-wrap gap-2">
                       {milestone.achievements.map((achievement) => (
                         <span
@@ -188,17 +179,16 @@ const CareerTimeline: FC = () => {
       <div className="bg-gradient-to-br from-primary/10 to-transparent backdrop-blur-sm rounded-2xl border border-primary/20 p-8 text-center">
         <div className="flex items-center justify-center space-x-2 mb-4">
           <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-          <span className="text-sm font-mono text-primary uppercase tracking-wider">Current Status</span>
+          <span className="text-sm font-mono text-primary uppercase tracking-wider">{t('currentStatus.badge')}</span>
           <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
         </div>
 
         <h4 className="text-2xl font-space-grotesk font-bold text-foreground mb-2">
-          Ready for Your Next Challenge
+          {t('currentStatus.title')}
         </h4>
 
         <p className="text-muted-foreground max-w-lg mx-auto">
-          With 20+ years of evolution from creative foundation to AI pioneer, I&apos;m positioned to tackle the most
-          ambitious projects at the intersection of design, technology, and artificial intelligence.
+          {t('currentStatus.description')}
         </p>
       </div>
     </div>

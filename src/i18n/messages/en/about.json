@@ -4,8 +4,89 @@
   "description": "Learn more about my journey, expertise, and approach to building modern digital solutions.",
   "sections": {
     "intro": {
-      "title": "About Me",
-      "content": "I'm a creative technologist based in Montreal, Canada, with over 20 years of experience in web development, design, and AI automation. I specialize in helping businesses transform their digital presence through innovative solutions that combine cutting-edge technology with user-centered design."
+      "badge": "Identity Revelation",
+      "title": "The Creative",
+      "titleHighlight": "Technologist",
+      "paragraph1": "I'm Nicky Bruno, and I represent the evolution of creative professionals—where traditional design meets cutting-edge AI automation. I don't just choose between creativity or technology; I master both.",
+      "paragraph2": "For over two decades, I've been crafting intelligent experiences that think, adapt, and evolve. I'm not just building websites—I'm architecting digital experiences that bridge human intuition with machine precision.",
+      "paragraph3": "Based in Montreal's vibrant tech scene, I bring a unique blend of bilingual culture and North American innovation to every project. My approach is visionary yet grounded, technically masterful yet creatively inspired.",
+      "imageAlt": "Nicky Bruno - Creative Technologist",
+      "status": "ONLINE",
+      "location": "Montreal, QC",
+      "globalImpact": "Global Impact",
+      "attributes": {
+        "visionary": {
+          "label": "Visionary",
+          "desc": "Future-focused thinking"
+        },
+        "technical": {
+          "label": "Technical",
+          "desc": "Masterful execution"
+        },
+        "human": {
+          "label": "Human",
+          "desc": "Warmly approachable"
+        },
+        "collaborative": {
+          "label": "Collaborative",
+          "desc": "Partnership-driven"
+        }
+      }
+    },
+    "timeline": {
+      "badge": "Career Journey",
+      "title": "Two Decades of Evolution",
+      "description": "From creative foundation to AI pioneer, each milestone represents a deliberate step toward mastering the intersection of human creativity and technological innovation.",
+      "keyAchievements": "Key Achievements:",
+      "currentStatus": {
+        "badge": "Current Status",
+        "title": "Ready for Your Next Challenge",
+        "description": "With 20+ years of evolution from creative foundation to AI pioneer, I'm positioned to tackle the most ambitious projects at the intersection of design, technology, and artificial intelligence."
+      },
+      "milestones": {
+        "2004": {
+          "title": "Creative Foundation",
+          "company": "Freelance Designer",
+          "location": "Montreal, QC",
+          "description": "Started journey in graphic design and web development, establishing the creative foundation that would define my approach to technology.",
+          "achievements": ["First client portfolio", "Adobe Creative Suite mastery", "Web standards adoption"]
+        },
+        "2008": {
+          "title": "Digital Evolution",
+          "company": "Creative Agency Lead",
+          "location": "Montreal, QC",
+          "description": "Led digital transformation initiatives, bridging traditional design with emerging web technologies and user experience principles.",
+          "achievements": ["Team leadership", "UX methodology", "Client relationship management"]
+        },
+        "2012": {
+          "title": "Technical Mastery",
+          "company": "Senior Developer",
+          "location": "Montreal, QC",
+          "description": "Deepened technical expertise in modern web frameworks, database architecture, and performance optimization strategies.",
+          "achievements": ["Full-stack development", "Database optimization", "Performance engineering"]
+        },
+        "2016": {
+          "title": "Innovation Leadership",
+          "company": "Tech Consultant",
+          "location": "North America",
+          "description": "Expanded consulting practice across North America, specializing in digital transformation and emerging technology integration.",
+          "achievements": ["Cross-border projects", "Digital strategy", "Technology consulting"]
+        },
+        "2018": {
+          "title": "AI Integration Pioneer",
+          "company": "AIAA.dev Founder",
+          "location": "Montreal, QC",
+          "description": "Founded AI automation agency, becoming an early adopter of machine learning and artificial intelligence in creative workflows.",
+          "achievements": ["AI automation", "Machine learning", "Workflow optimization"]
+        },
+        "2024": {
+          "title": "Creative Technologist",
+          "company": "Independent Practice",
+          "location": "Global",
+          "description": "Established as The Creative Technologist, mastering the intersection of design, development, and AI to create intelligent experiences.",
+          "achievements": ["Global recognition", "AI-human collaboration", "Intelligent experiences"]
+        }
+      }
     },
     "experience": {
       "title": "Experience & Expertise",
@@ -34,6 +115,19 @@
           "title": "Transparency",
           "description": "Clear communication and honest feedback throughout the project."
         }
+      }
+    },
+    "cta": {
+      "title": "Ready to Create Something",
+      "titleHighlight": "Extraordinary?",
+      "description": "With two decades of experience bridging creativity and technology, I'm positioned to tackle your most ambitious projects. Let's craft intelligent experiences that think, adapt, and evolve.",
+      "buttons": {
+        "startProject": "Start Your Project",
+        "viewWork": "View My Work"
+      },
+      "status": {
+        "available": "Available for Projects",
+        "response": "Response within 24h"
       }
     }
   },
@@ -79,21 +173,6 @@
         "title": "React Developer Certification",
         "issuer": "Meta",
         "year": "2021"
-      }
-    }
-  },
-  "sections": {
-    "cta": {
-      "title": "Ready to Create Something",
-      "titleHighlight": "Extraordinary?",
-      "description": "With two decades of experience bridging creativity and technology, I'm positioned to tackle your most ambitious projects. Let's craft intelligent experiences that think, adapt, and evolve.",
-      "buttons": {
-        "startProject": "Start Your Project",
-        "viewWork": "View My Work"
-      },
-      "status": {
-        "available": "Available for Projects",
-        "response": "Response within 24h"
       }
     }
   }

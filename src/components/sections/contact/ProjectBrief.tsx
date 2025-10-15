@@ -6,8 +6,10 @@ import Button from 'components/ui/Button';
 import { Checkbox } from 'components/ui/Checkbox';
 import Input from 'components/ui/Input';
 import Select from 'components/ui/Select';
+import { useTranslations } from 'next-intl';
 
 const ProjectBrief = () => {
+  const t = useTranslations('contact.sections.projectBrief');
   const [currentStep, setCurrentStep] = useState(1);
   const [briefData, setBriefData] = useState({
     projectGoal: '',
@@ -62,7 +64,7 @@ const ProjectBrief = () => {
   const handleArrayChange = (field, value, checked) => {
     setBriefData(prev => ({
       ...prev,
-      [field]: checked 
+      [field]: checked
         ? [...prev?.[field], value]
         : prev?.[field]?.filter(item => item !== value)
     }));
@@ -93,33 +95,33 @@ const ProjectBrief = () => {
           <div className="space-y-6">
             <div className="text-center mb-8">
               <h3 className="text-xl font-space-grotesk font-bold text-foreground mb-2">
-                Project Overview
+                {t('overview')}
               </h3>
               <p className="text-muted-foreground">
-                Let's start with the basics of your project
+                {t('description')}
               </p>
             </div>
             <Input
-              label="What's your main project goal?"
+              label={t('fields.goal.label')}
               type="text"
-              placeholder="e.g., Launch an e-commerce store, build a portfolio, create a SaaS platform..."
+              placeholder={t('fields.goal.placeholder')}
               value={briefData?.projectGoal}
               onChange={(e) => handleInputChange('projectGoal', e?.target?.value)}
             />
             <Input
-              label="Who is your target audience?"
+              label={t('fields.audience.label')}
               type="text"
-              placeholder="e.g., Young professionals, B2B clients, creative agencies..."
+              placeholder={t('fields.audience.placeholder')}
               value={briefData?.targetAudience}
               onChange={(e) => handleInputChange('targetAudience', e?.target?.value)}
             />
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Any inspiration or reference sites?
+                {t('fields.inspiration.label')}
               </label>
               <textarea
                 className="w-full h-24 px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-smooth"
-                placeholder="Share URLs or describe styles you like..."
+                placeholder={t('fields.inspiration.placeholder')}
                 value={briefData?.inspiration}
                 onChange={(e) => handleInputChange('inspiration', e?.target?.value)}
               />
@@ -257,16 +259,16 @@ const ProjectBrief = () => {
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-space-grotesk font-bold text-foreground">
-            Project Brief Questionnaire
+            {t('title')}
           </h2>
           <div className="text-sm text-muted-foreground">
-            Step {currentStep} of {totalSteps}
+            {t('step')} {currentStep} {t('navigation.next')} {totalSteps}
           </div>
         </div>
-        
+
         {/* Progress Bar */}
         <div className="w-full bg-muted rounded-full h-2">
-          <div 
+          <div
             className="bg-primary h-2 rounded-full transition-smooth"
             style={{ width: `${(currentStep / totalSteps) * 100}%` }}
           />
@@ -283,9 +285,9 @@ const ProjectBrief = () => {
           iconName="ChevronLeft"
           iconPosition="left"
         >
-          Previous
+          {t('navigation.previous')}
         </Button>
-        
+
         {currentStep < totalSteps ? (
           <Button
             variant="default"
@@ -294,7 +296,7 @@ const ProjectBrief = () => {
             iconPosition="right"
             className="glow-neon hover:glow-neon-active"
           >
-            Next Step
+            {t('navigation.next')}
           </Button>
         ) : (
           <Button

@@ -20,14 +20,24 @@ const PortfolioSection = () => {
   const t = useTranslations('portfolio');
   const tGlobal = useTranslations('global');
 
-  // Mock project data
+  // Helper function to safely get array translations
+  const getArrayTranslation = (key: string) => {
+    try {
+      const result = t(key);
+      return Array.isArray(result) ? result : [];
+    } catch {
+      return [];
+    }
+  };
+
+  // Project data from translations
   const projects = useMemo(() => ([
     {
       id: 1,
-      title: "AIAA.dev - AI Automation Platform",
-      type: "AI Platform",
-      description: "Revolutionary AI automation platform that streamlines creative workflows and enhances productivity through intelligent task automation.",
-      fullDescription: `AIAA.dev represents the future of creative automation, combining cutting-edge AI technology with intuitive design to create a platform that truly understands creative workflows. This project showcases the perfect fusion of artificial intelligence and human creativity, enabling professionals to automate repetitive tasks while maintaining creative control.\n\nThe platform features advanced machine learning algorithms that learn from user behavior, predictive analytics for workflow optimization, and seamless integration with popular creative tools. Built with scalability in mind, it serves thousands of creative professionals worldwide.`,
+      title: t('projects.aiaa.title'),
+      type: t('projects.aiaa.type'),
+      description: t('projects.aiaa.description'),
+      fullDescription: t('projects.aiaa.fullDescription'),
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
       technologies: ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "AWS"],
       techIcons: {
@@ -39,59 +49,27 @@ const PortfolioSection = () => {
         "AWS": "Cloud"
       },
       year: "2024",
-      client: "AIAA Labs",
-      industry: "Technology",
-      duration: "8 months",
+      client: t('projects.aiaa.client'),
+      industry: t('projects.aiaa.industry'),
+      duration: t('projects.aiaa.duration'),
       featured: true,
       metrics: [
-        { label: "Users", value: "10K+" },
-        { label: "Automation", value: "85%" },
-        { label: "Time Saved", value: "40hrs/week" }
+        { label: t('projects.aiaa.metrics.users.label'), value: t('projects.aiaa.metrics.users.value') },
+        { label: t('projects.aiaa.metrics.automation.label'), value: t('projects.aiaa.metrics.automation.value') },
+        { label: t('projects.aiaa.metrics.timeSaved.label'), value: t('projects.aiaa.metrics.timeSaved.value') }
       ],
-      features: [
-        "Intelligent workflow automation",
-        "Real-time collaboration tools",
-        "Advanced analytics dashboard",
-        "Custom AI model training",
-        "API integrations",
-        "Multi-platform support"
-      ],
-      process: [
-        {
-          title: "Research & Discovery",
-          description: "Conducted extensive user research and competitive analysis to understand pain points in creative workflows."
-        },
-        {
-          title: "AI Architecture Design",
-          description: "Designed scalable AI architecture using TensorFlow and custom neural networks for task automation."
-        },
-        {
-          title: "Frontend Development",
-          description: "Built responsive React interface with real-time updates and intuitive user experience."
-        },
-        {
-          title: "Backend Integration",
-          description: "Developed robust Node.js backend with MongoDB for data management and AWS for scalability."
-        },
-        {
-          title: "Testing & Optimization",
-          description: "Implemented comprehensive testing suite and performance optimization for production deployment."
-        }
-      ],
-      testimonial: {
-        quote: "AIAA.dev has transformed our creative process. What used to take hours now happens automatically, allowing our team to focus on what matters most - creativity.",
-        author: "Sarah Chen",
-        role: "Creative Director, Design Studio"
-      },
+      features: getArrayTranslation('projects.aiaa.features'),
+      process: getArrayTranslation('projects.aiaa.process'),
+      testimonial: t('projects.aiaa.testimonial'),
       liveUrl: "https://aiaa.dev",
       githubUrl: "https://github.com/nickybruno/aiaa"
     },
     {
       id: 2,
-      title: "Montreal Tech Hub",
-      type: "Web Platform",
-      description: "Community platform connecting Montreal's tech ecosystem with events, networking, and collaboration tools.",
-      fullDescription: `Montreal Tech Hub serves as the digital heart of Montreal's thriving technology community. This platform brings together developers, designers, entrepreneurs, and tech enthusiasts in a unified space for collaboration and growth.\n\nThe project features event management, professional networking, job board integration, and community forums. Built with modern web technologies, it provides a seamless experience across all devices while maintaining the bilingual nature essential to Montreal's culture.`,
+      title: t('projects.montrealTechHub.title'),
+      type: t('projects.montrealTechHub.type'),
+      description: t('projects.montrealTechHub.description'),
+      fullDescription: t('projects.montrealTechHub.fullDescription'),
       image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop",
       technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
       techIcons: {
@@ -102,54 +80,26 @@ const PortfolioSection = () => {
         "Tailwind": "Palette"
       },
       year: "2024",
-      client: "Montreal Tech Community",
-      industry: "Community",
-      duration: "6 months",
+      client: t('projects.montrealTechHub.client'),
+      industry: t('projects.montrealTechHub.industry'),
+      duration: t('projects.montrealTechHub.duration'),
       featured: false,
       metrics: [
-        { label: "Members", value: "2.5K+" },
-        { label: "Events", value: "150+" },
-        { label: "Engagement", value: "78%" }
+        { label: t('projects.montrealTechHub.metrics.members.label'), value: t('projects.montrealTechHub.metrics.members.value') },
+        { label: t('projects.montrealTechHub.metrics.events.label'), value: t('projects.montrealTechHub.metrics.events.value') },
+        { label: t('projects.montrealTechHub.metrics.engagement.label'), value: t('projects.montrealTechHub.metrics.engagement.value') }
       ],
-      features: [
-        "Event management system",
-        "Professional networking",
-        "Job board integration",
-        "Bilingual support",
-        "Community forums",
-        "Mobile-first design"
-      ],
-      process: [
-        {
-          title: "Community Research",
-          description: "Analyzed Montreal\'s tech community needs through surveys and interviews with key stakeholders."
-        },
-        {
-          title: "Platform Architecture",
-          description: "Designed scalable architecture using Next.js and PostgreSQL for optimal performance."
-        },
-        {
-          title: "UI/UX Design",
-          description: "Created intuitive interface design that reflects Montreal\'s bilingual and multicultural identity."
-        },
-        {
-          title: "Development & Testing",
-          description: "Built responsive platform with comprehensive testing across different devices and browsers."
-        }
-      ],
-      testimonial: {
-        quote: "This platform has become essential for Montreal's tech community. It's where we connect, collaborate, and grow together.",
-        author: "Marc Dubois",
-        role: "Tech Entrepreneur"
-      },
+      features: getArrayTranslation('projects.montrealTechHub.features'),
+      process: getArrayTranslation('projects.montrealTechHub.process'),
+      testimonial: t('projects.montrealTechHub.testimonial'),
       liveUrl: "https://montrealtechhub.com"
     },
     {
       id: 3,
-      title: "EcoTrack Analytics",
-      type: "Data Platform",
-      description: "Sustainability analytics platform helping businesses track and optimize their environmental impact.",
-      fullDescription: `EcoTrack Analytics empowers businesses to make data-driven decisions about their environmental impact. The platform combines IoT sensors, machine learning, and beautiful visualizations to provide actionable insights for sustainability initiatives.\n\nFeaturing real-time monitoring, predictive analytics, and comprehensive reporting, EcoTrack helps organizations reduce their carbon footprint while maintaining operational efficiency. The platform integrates with existing business systems and provides customizable dashboards for different stakeholder needs.`,
+      title: t('projects.ecoTrack.title'),
+      type: t('projects.ecoTrack.type'),
+      description: t('projects.ecoTrack.description'),
+      fullDescription: t('projects.ecoTrack.fullDescription'),
       image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?w=800&h=600&fit=crop",
       technologies: ["Vue.js", "D3.js", "Python", "FastAPI", "InfluxDB"],
       techIcons: {
@@ -160,53 +110,25 @@ const PortfolioSection = () => {
         "InfluxDB": "Database"
       },
       year: "2023",
-      client: "GreenTech Solutions",
-      industry: "Sustainability",
-      duration: "10 months",
+      client: t('projects.ecoTrack.client'),
+      industry: t('projects.ecoTrack.industry'),
+      duration: t('projects.ecoTrack.duration'),
       featured: false,
       metrics: [
-        { label: "CO2 Reduced", value: "25%" },
-        { label: "Companies", value: "50+" },
-        { label: "Data Points", value: "1M+" }
+        { label: t('projects.ecoTrack.metrics.co2Reduced.label'), value: t('projects.ecoTrack.metrics.co2Reduced.value') },
+        { label: t('projects.ecoTrack.metrics.companies.label'), value: t('projects.ecoTrack.metrics.companies.value') },
+        { label: t('projects.ecoTrack.metrics.dataPoints.label'), value: t('projects.ecoTrack.metrics.dataPoints.value') }
       ],
-      features: [
-        "Real-time monitoring",
-        "Predictive analytics",
-        "Custom dashboards",
-        "IoT integration",
-        "Automated reporting",
-        "Carbon footprint tracking"
-      ],
-      process: [
-        {
-          title: "Sustainability Research",
-          description: "Researched environmental impact metrics and sustainability best practices across industries."
-        },
-        {
-          title: "Data Architecture",
-          description: "Designed time-series database architecture using InfluxDB for handling large volumes of sensor data."
-        },
-        {
-          title: "Visualization Development",
-          description: "Created interactive data visualizations using D3.js for complex environmental data representation."
-        },
-        {
-          title: "API Development",
-          description: "Built high-performance FastAPI backend for real-time data processing and analytics."
-        }
-      ],
-      testimonial: {
-        quote: "EcoTrack has given us unprecedented visibility into our environmental impact. We\'ve reduced our carbon footprint by 25% in the first year.",
-        author: "Jennifer Walsh",
-        role: "Sustainability Director"
-      }
+      features: getArrayTranslation('projects.ecoTrack.features'),
+      process: getArrayTranslation('projects.ecoTrack.process'),
+      testimonial: t('projects.ecoTrack.testimonial')
     },
     {
       id: 4,
-      title: "FinanceFlow Mobile",
-      type: "Mobile App",
-      description: "Personal finance management app with AI-powered insights and automated budgeting features.",
-      fullDescription: `FinanceFlow Mobile revolutionizes personal finance management by combining intuitive design with powerful AI capabilities. The app learns from user spending patterns to provide personalized insights and automated budgeting recommendations.\n\nBuilt with React Native for cross-platform compatibility, the app features bank integration, expense categorization, goal tracking, and investment portfolio management. Advanced security measures ensure user financial data remains protected while providing seamless user experience.`,
+      title: t('projects.financeFlow.title'),
+      type: t('projects.financeFlow.type'),
+      description: t('projects.financeFlow.description'),
+      fullDescription: t('projects.financeFlow.fullDescription'),
       image: "https://images.pixabay.com/photo/2016/11/27/21/42/stock-1863880_1280.jpg?w=800&h=600&fit=crop",
       technologies: ["React Native", "Redux", "Node.js", "PostgreSQL", "Stripe"],
       techIcons: {
@@ -217,53 +139,25 @@ const PortfolioSection = () => {
         "Stripe": "CreditCard"
       },
       year: "2023",
-      client: "FinTech Startup",
-      industry: "Financial Services",
-      duration: "12 months",
+      client: t('projects.financeFlow.client'),
+      industry: t('projects.financeFlow.industry'),
+      duration: t('projects.financeFlow.duration'),
       featured: false,
       metrics: [
-        { label: "Downloads", value: "50K+" },
-        { label: "Savings", value: "$2M+" },
-        { label: "Rating", value: "4.8★" }
+        { label: t('projects.financeFlow.metrics.downloads.label'), value: t('projects.financeFlow.metrics.downloads.value') },
+        { label: t('projects.financeFlow.metrics.savings.label'), value: t('projects.financeFlow.metrics.savings.value') },
+        { label: t('projects.financeFlow.metrics.rating.label'), value: t('projects.financeFlow.metrics.rating.value') }
       ],
-      features: [
-        "AI-powered insights",
-        "Automated budgeting",
-        "Bank integration",
-        "Investment tracking",
-        "Goal management",
-        "Expense categorization"
-      ],
-      process: [
-        {
-          title: "User Experience Research",
-          description: "Conducted extensive UX research to understand personal finance management pain points."
-        },
-        {
-          title: "Security Architecture",
-          description: "Implemented bank-level security measures including encryption and secure authentication."
-        },
-        {
-          title: "AI Model Development",
-          description: "Developed machine learning models for spending pattern analysis and budget recommendations."
-        },
-        {
-          title: "Cross-Platform Development",
-          description: "Built native-quality app using React Native for iOS and Android platforms."
-        }
-      ],
-      testimonial: {
-        quote: "FinanceFlow has completely changed how I manage my money. The AI insights are incredibly accurate and helpful.",
-        author: "David Kim",
-        role: "App User"
-      }
+      features: getArrayTranslation('projects.financeFlow.features'),
+      process: getArrayTranslation('projects.financeFlow.process'),
+      testimonial: t('projects.financeFlow.testimonial')
     },
     {
       id: 5,
-      title: "CreativeStudio Pro",
-      type: "Design Tool",
-      description: "Collaborative design platform with real-time editing, version control, and AI-assisted design features.",
-      fullDescription: `CreativeStudio Pro is a next-generation design platform that combines the power of traditional design tools with modern collaboration features and AI assistance. Built for creative teams, it enables seamless collaboration while maintaining design quality and consistency.\n\nThe platform features real-time collaborative editing, intelligent design suggestions, automated asset management, and comprehensive version control. Advanced AI algorithms help designers with layout suggestions, color palette generation, and design system maintenance.`,
+      title: t('projects.creativeStudio.title'),
+      type: t('projects.creativeStudio.type'),
+      description: t('projects.creativeStudio.description'),
+      fullDescription: t('projects.creativeStudio.fullDescription'),
       image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop",
       technologies: ["React", "WebGL", "Socket.io", "Redis", "AWS S3"],
       techIcons: {
@@ -274,53 +168,25 @@ const PortfolioSection = () => {
         "AWS S3": "Cloud"
       },
       year: "2024",
-      client: "Design Agency",
-      industry: "Creative Tools",
-      duration: "14 months",
+      client: t('projects.creativeStudio.client'),
+      industry: t('projects.creativeStudio.industry'),
+      duration: t('projects.creativeStudio.duration'),
       featured: false,
       metrics: [
-        { label: "Teams", value: "500+" },
-        { label: "Projects", value: "10K+" },
-        { label: "Efficiency", value: "+60%" }
+        { label: t('projects.creativeStudio.metrics.teams.label'), value: t('projects.creativeStudio.metrics.teams.value') },
+        { label: t('projects.creativeStudio.metrics.projects.label'), value: t('projects.creativeStudio.metrics.projects.value') },
+        { label: t('projects.creativeStudio.metrics.efficiency.label'), value: t('projects.creativeStudio.metrics.efficiency.value') }
       ],
-      features: [
-        "Real-time collaboration",
-        "AI design assistance",
-        "Version control",
-        "Asset management",
-        "Design systems",
-        "Export automation"
-      ],
-      process: [
-        {
-          title: "Design Tool Analysis",
-          description: "Analyzed existing design tools to identify gaps and opportunities for innovation."
-        },
-        {
-          title: "Real-time Architecture",
-          description: "Built real-time collaboration system using WebSocket technology and operational transforms."
-        },
-        {
-          title: "AI Integration",
-          description: "Integrated machine learning models for design assistance and automated suggestions."
-        },
-        {
-          title: "Performance Optimization",
-          description: "Optimized WebGL rendering pipeline for smooth performance with complex designs."
-        }
-      ],
-      testimonial: {
-        quote: "CreativeStudio Pro has transformed our design workflow. The real-time collaboration and AI features are game-changers.",
-        author: "Lisa Rodriguez",
-        role: "Design Team Lead"
-      }
+      features: getArrayTranslation('projects.creativeStudio.features'),
+      process: getArrayTranslation('projects.creativeStudio.process'),
+      testimonial: t('projects.creativeStudio.testimonial')
     },
     {
       id: 6,
-      title: "HealthConnect Platform",
-      type: "Healthcare",
-      description: "Telemedicine platform connecting patients with healthcare providers through secure video consultations.",
-      fullDescription: `HealthConnect Platform addresses the growing need for accessible healthcare by providing a secure, user-friendly telemedicine solution. The platform enables seamless connections between patients and healthcare providers while maintaining the highest standards of medical data security.\n\nFeaturing appointment scheduling, secure video consultations, electronic health records, prescription management, and payment processing, HealthConnect provides a comprehensive healthcare experience. The platform is HIPAA compliant and includes advanced features like AI-powered symptom assessment and health monitoring integration.`,
+      title: t('projects.healthConnect.title'),
+      type: t('projects.healthConnect.type'),
+      description: t('projects.healthConnect.description'),
+      fullDescription: t('projects.healthConnect.fullDescription'),
       image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?w=800&h=600&fit=crop",
       technologies: ["Angular", "WebRTC", "Express.js", "MongoDB", "Stripe"],
       techIcons: {
@@ -331,48 +197,20 @@ const PortfolioSection = () => {
         "Stripe": "CreditCard"
       },
       year: "2023",
-      client: "Healthcare Network",
-      industry: "Healthcare",
-      duration: "16 months",
+      client: t('projects.healthConnect.client'),
+      industry: t('projects.healthConnect.industry'),
+      duration: t('projects.healthConnect.duration'),
       featured: false,
       metrics: [
-        { label: "Consultations", value: "25K+" },
-        { label: "Providers", value: "200+" },
-        { label: "Satisfaction", value: "96%" }
+        { label: t('projects.healthConnect.metrics.consultations.label'), value: t('projects.healthConnect.metrics.consultations.value') },
+        { label: t('projects.healthConnect.metrics.providers.label'), value: t('projects.healthConnect.metrics.providers.value') },
+        { label: t('projects.healthConnect.metrics.satisfaction.label'), value: t('projects.healthConnect.metrics.satisfaction.value') }
       ],
-      features: [
-        "Secure video calls",
-        "Appointment scheduling",
-        "Electronic health records",
-        "Prescription management",
-        "Payment processing",
-        "HIPAA compliance"
-      ],
-      process: [
-        {
-          title: "Healthcare Compliance Research",
-          description: "Researched HIPAA requirements and healthcare industry standards for secure platform development."
-        },
-        {
-          title: "Security Implementation",
-          description: "Implemented end-to-end encryption and secure authentication for patient data protection."
-        },
-        {
-          title: "Video Infrastructure",
-          description: "Built scalable video consultation system using WebRTC for high-quality, low-latency communication."
-        },
-        {
-          title: "Integration Testing",
-          description: "Conducted extensive testing with healthcare providers to ensure platform meets clinical needs."
-        }
-      ],
-      testimonial: {
-        quote: "HealthConnect has made healthcare more accessible for our patients. The platform is intuitive and secure.",
-        author: "Dr. Michael Thompson",
-        role: "Primary Care Physician"
-      }
+      features: getArrayTranslation('projects.healthConnect.features'),
+      process: getArrayTranslation('projects.healthConnect.process'),
+      testimonial: t('projects.healthConnect.testimonial')
     }
-  ]), []);
+  ]), [t]);
 
   // Filter configuration
   const filters = [

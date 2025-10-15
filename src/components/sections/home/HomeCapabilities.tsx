@@ -48,7 +48,7 @@ const HomeCapabilities = () => {
             {t('subtitle')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Practical, modern, human-centered solutions across design, engineering, and automation.
+            {t('description')}
           </p>
         </div>
 
@@ -91,7 +91,7 @@ const HomeCapabilities = () => {
                 <p className="text-sm text-muted-foreground">{item.description}</p>
 
                 <div className="mt-2 flex items-center text-sm text-primary/80">
-                  <span className="font-medium">Learn more</span>
+                  <span className="font-medium">{t('cta')}</span>
                   <Icon name="ArrowRight" size={16} className="ml-1 transition-transform group-hover:translate-x-0.5" />
                 </div>
               </div>

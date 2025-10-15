@@ -205,13 +205,13 @@ const ContactSection = () => {
                     iconName="Calendar"
                     iconPosition="left"
                   >
-                    Schedule Consultation
+                    {t('sections.cta.buttons.scheduleConsultation')}
                   </Button>
                 </div>
 
                 <div className="mt-8 pt-8 border-t border-primary/20">
                   <p className="text-sm text-muted-foreground">
-                    Based in Montreal • Serving clients globally • Available for remote & on-site projects
+                    {t('sections.cta.location')}
                   </p>
                 </div>
               </div>
