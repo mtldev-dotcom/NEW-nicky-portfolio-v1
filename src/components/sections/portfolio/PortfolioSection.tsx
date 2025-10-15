@@ -20,13 +20,60 @@ const PortfolioSection = () => {
   const t = useTranslations('portfolio');
   const tGlobal = useTranslations('global');
 
-  // Helper function to safely get array translations
-  const getArrayTranslation = (key: string) => {
+  // Helper function to safely get array translations using indexed notation
+  const getArrayTranslation = (key: string): string[] => {
+    const array: string[] = [];
+    let index = 0;
+    // Iterate up to 6 items (typical feature list length)
+    // Note: next-intl will log missing key errors to console even when caught
+    while (index < 6) {
+      try {
+        // @ts-ignore - Suppress type error for dynamic key
+        const value = t(`${key}.${index}` as any);
+        array.push(value);
+        index++;
+      } catch (error) {
+        // Stop iteration when key doesn't exist
+        break;
+      }
+    }
+    return array;
+  };
+
+  // Helper function to get process steps using indexed notation
+  const getProcessSteps = (key: string): Array<{ title: string, description: string }> => {
+    const array: Array<{ title: string, description: string }> = [];
+    let index = 0;
+    // Iterate up to 4 items (most projects have exactly 4 process steps)
+    // Note: next-intl will log missing key errors to console even when caught
+    while (index < 4) {
+      try {
+        // @ts-ignore - Suppress type error for dynamic key
+        const title = t(`${key}.${index}.title` as any);
+        // @ts-ignore - Suppress type error for dynamic key
+        const description = t(`${key}.${index}.description` as any);
+        array.push({ title, description });
+        index++;
+      } catch (error) {
+        // Stop iteration when key doesn't exist
+        break;
+      }
+    }
+    return array;
+  };
+
+  // Helper function to get testimonial object using dot notation
+  const getTestimonial = (key: string): { quote: string, author: string, role: string } => {
     try {
-      const result = t(key);
-      return Array.isArray(result) ? result : [];
-    } catch {
-      return [];
+      // @ts-ignore - Suppress type error for dynamic key
+      const quote = t(`${key}.quote` as any);
+      // @ts-ignore - Suppress type error for dynamic key
+      const author = t(`${key}.author` as any);
+      // @ts-ignore - Suppress type error for dynamic key
+      const role = t(`${key}.role` as any);
+      return { quote, author, role };
+    } catch (error) {
+      return { quote: '', author: '', role: '' };
     }
   };
 
@@ -59,8 +106,8 @@ const PortfolioSection = () => {
         { label: t('projects.aiaa.metrics.timeSaved.label'), value: t('projects.aiaa.metrics.timeSaved.value') }
       ],
       features: getArrayTranslation('projects.aiaa.features'),
-      process: getArrayTranslation('projects.aiaa.process'),
-      testimonial: t('projects.aiaa.testimonial'),
+      process: getProcessSteps('projects.aiaa.process'),
+      testimonial: getTestimonial('projects.aiaa.testimonial'),
       liveUrl: "https://aiaa.dev",
       githubUrl: "https://github.com/nickybruno/aiaa"
     },
@@ -90,8 +137,8 @@ const PortfolioSection = () => {
         { label: t('projects.montrealTechHub.metrics.engagement.label'), value: t('projects.montrealTechHub.metrics.engagement.value') }
       ],
       features: getArrayTranslation('projects.montrealTechHub.features'),
-      process: getArrayTranslation('projects.montrealTechHub.process'),
-      testimonial: t('projects.montrealTechHub.testimonial'),
+      process: getProcessSteps('projects.montrealTechHub.process'),
+      testimonial: getTestimonial('projects.montrealTechHub.testimonial'),
       liveUrl: "https://montrealtechhub.com"
     },
     {
@@ -120,8 +167,8 @@ const PortfolioSection = () => {
         { label: t('projects.ecoTrack.metrics.dataPoints.label'), value: t('projects.ecoTrack.metrics.dataPoints.value') }
       ],
       features: getArrayTranslation('projects.ecoTrack.features'),
-      process: getArrayTranslation('projects.ecoTrack.process'),
-      testimonial: t('projects.ecoTrack.testimonial')
+      process: getProcessSteps('projects.ecoTrack.process'),
+      testimonial: getTestimonial('projects.ecoTrack.testimonial')
     },
     {
       id: 4,
@@ -149,8 +196,8 @@ const PortfolioSection = () => {
         { label: t('projects.financeFlow.metrics.rating.label'), value: t('projects.financeFlow.metrics.rating.value') }
       ],
       features: getArrayTranslation('projects.financeFlow.features'),
-      process: getArrayTranslation('projects.financeFlow.process'),
-      testimonial: t('projects.financeFlow.testimonial')
+      process: getProcessSteps('projects.financeFlow.process'),
+      testimonial: getTestimonial('projects.financeFlow.testimonial')
     },
     {
       id: 5,
@@ -178,8 +225,8 @@ const PortfolioSection = () => {
         { label: t('projects.creativeStudio.metrics.efficiency.label'), value: t('projects.creativeStudio.metrics.efficiency.value') }
       ],
       features: getArrayTranslation('projects.creativeStudio.features'),
-      process: getArrayTranslation('projects.creativeStudio.process'),
-      testimonial: t('projects.creativeStudio.testimonial')
+      process: getProcessSteps('projects.creativeStudio.process'),
+      testimonial: getTestimonial('projects.creativeStudio.testimonial')
     },
     {
       id: 6,
@@ -207,8 +254,8 @@ const PortfolioSection = () => {
         { label: t('projects.healthConnect.metrics.satisfaction.label'), value: t('projects.healthConnect.metrics.satisfaction.value') }
       ],
       features: getArrayTranslation('projects.healthConnect.features'),
-      process: getArrayTranslation('projects.healthConnect.process'),
-      testimonial: t('projects.healthConnect.testimonial')
+      process: getProcessSteps('projects.healthConnect.process'),
+      testimonial: getTestimonial('projects.healthConnect.testimonial')
     }
   ]), [t]);
 

@@ -177,6 +177,7 @@
     "title": "What I Use",
     "subtitle": "Hover to interact • Tap icons to learn more",
     "description": "A curated collection of technologies I work with daily to build modern digital experiences.",
+    "mostUsed": "Most Used",
     "tabs": {
       "all": "All",
       "core": "Core Stack",

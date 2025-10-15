@@ -177,6 +177,7 @@
     "title": "Ce que j'utilise",
     "subtitle": "Survoler pour interagir • Toucher les icônes pour en savoir plus",
     "description": "Une collection curée de technologies avec lesquelles je travaille quotidiennement pour construire des expériences numériques modernes.",
+    "mostUsed": "Les Plus Utilisés",
     "tabs": {
       "all": "Tout",
       "core": "Stack Principal",
