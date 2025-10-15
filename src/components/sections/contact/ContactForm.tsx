@@ -61,22 +61,62 @@ const ContactForm = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Mock form submission (replace with EmailJS integration)
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
-        message: '',
-        newsletter: false,
-        terms: false
+      const response = await fetch('https://n8n.nickyhome.casa/webhook/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          projectType: formData.projectType,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          message: formData.message,
+          newsletter: formData.newsletter,
+          terms: formData.terms
+        }),
       });
+
+      // Check if response is OK and has JSON content
+      if (!response.ok) {
+        console.error('Server error:', response.status, response.statusText);
+        setSubmitStatus('error');
+        return;
+      }
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('Invalid response type:', contentType);
+        setSubmitStatus('error');
+        return;
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        // Clear form on success
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          projectType: '',
+          budget: '',
+          timeline: '',
+          message: '',
+          newsletter: false,
+          terms: false
+        });
+      } else {
+        console.error('Submission failed:', result.message, result.errors);
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Network error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
