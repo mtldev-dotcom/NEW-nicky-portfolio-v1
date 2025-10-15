@@ -56,6 +56,9 @@ n8n validates required fields
   - Options: `asap`, `1-2-months`, `3-6-months`, `6-months+`, `flexible`
 - **newsletter** (boolean) - Subscribe to newsletter
 - **terms** (boolean) - Accept terms (required for submission)
+- **language** (string) - User's selected website language (i18n locale)
+  - Options: `en` (English), `fr` (Français)
+  - Auto-detected from website localization
 
 ---
 
@@ -81,7 +84,8 @@ Content-Type: application/json
   "timeline": "1-2-months",
   "message": "I need a modern web application...",
   "newsletter": true,
-  "terms": true
+  "terms": true,
+  "language": "en"
 }
 ```
 
@@ -96,6 +100,7 @@ Content-Type: application/json
   "data": {
     "name": "John Doe",
     "email": "john@example.com",
+    "language": "en",
     "timestamp": "2025-10-15T20:35:00.000Z"
   }
 }
@@ -207,7 +212,13 @@ The email uses n8n expression syntax to dynamically populate data:
 {{ $json.body.timeline }}      // Timeline (optional)
 {{ $json.body.message }}       // Message content
 {{ $json.body.newsletter }}    // Newsletter subscription boolean
+{{ $json.body.language }}      // User's language preference (en/fr)
 ```
+
+**Language Display:**
+The email automatically displays the language preference with flags:
+- `en` → "English 🇬🇧"
+- `fr` → "Français 🇫🇷"
 
 ---
 
@@ -363,7 +374,8 @@ curl -X POST https://n8n.nickyhome.casa/webhook-test/contact-form `
     "timeline": "1-2-months",
     "message": "Test message",
     "newsletter": true,
-    "terms": true
+    "terms": true,
+    "language": "en"
   }'
 ```
 
@@ -554,6 +566,14 @@ Access at: `https://n8n.nickyhome.casa/executions`
 
 ## Changelog
 
+### v1.1.0 - October 15, 2025
+- ✨ Added language preference tracking (i18n locale)
+- ✨ Email template displays user's language with flags
+- ✨ Success response includes language field
+- 🔧 Fixed webhook URL (added `-test`)
+- 🔧 Added CORS support for localhost and production domains
+- 📝 Updated documentation with language field
+
 ### v1.0.0 - October 15, 2025
 - ✨ Initial integration created
 - ✨ 5-node workflow implemented
@@ -569,36 +589,42 @@ Access at: `https://n8n.nickyhome.casa/executions`
 
 ### Planned Features
 
-1. **Database Storage**
+1. **Localized Email Responses**
+   - Use `language` field to send confirmation emails in user's preferred language
+   - French email template for `language: "fr"`
+   - Multilingual support for future languages
+
+2. **Database Storage**
    - Store submissions in PostgreSQL/MongoDB
    - Enable submission history
    - Analytics dashboard
 
-2. **CRM Integration**
+3. **CRM Integration**
    - Auto-create leads in HubSpot/Pipedrive
    - Tag and categorize contacts
    - Track follow-ups
 
-3. **Notifications**
+4. **Notifications**
    - Send Slack/Discord notification on new submission
    - SMS alerts for high-priority inquiries
    - Desktop notifications
 
-4. **Auto-Response**
+5. **Auto-Response**
    - Include calendar booking link
    - Send pricing guide PDF
    - Provide estimated response time
 
-5. **A/B Testing**
+6. **A/B Testing**
    - Test different email templates
    - Measure engagement rates
    - Optimize conversion
 
-6. **Analytics**
+7. **Analytics**
    - Track submission sources
    - Conversion funnel metrics
    - Project type distribution
    - Budget range analysis
+   - Language preference statistics
 
 ---
 

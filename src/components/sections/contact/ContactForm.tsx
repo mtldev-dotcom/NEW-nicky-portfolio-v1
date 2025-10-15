@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
 import { Checkbox } from 'components/ui/Checkbox';
@@ -10,6 +10,7 @@ import Select from 'components/ui/Select';
 
 const ContactForm = () => {
   const t = useTranslations('contact.sections.form');
+  const locale = useLocale(); // Get current language (en/fr)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -62,7 +63,7 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://n8n.nickyhome.casa/webhook/contact-form', {
+      const response = await fetch('https://n8n.nickyhome.casa/webhook-test/contact-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +77,8 @@ const ContactForm = () => {
           timeline: formData.timeline,
           message: formData.message,
           newsletter: formData.newsletter,
-          terms: formData.terms
+          terms: formData.terms,
+          language: locale // User's selected language (en/fr)
         }),
       });
 
@@ -122,7 +124,6 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
-
   return (
     <div className="bg-card border border-border rounded-xl p-8 glow-neon hover:glow-neon-active transition-smooth">
       <div className="mb-8">
