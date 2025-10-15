@@ -63,14 +63,13 @@ npm run lint
     ├── app/                      # App Router entries & metadata
     │   ├── layout.tsx            # Root layout (sets <html> lang via middleware header)
     │   ├── [locale]/             # Locale-scoped routes (en/fr)
-    │   │   ├── layout.tsx        # Loads messages + wraps with NextIntl provider
-    │   │   ├── page.tsx          # Home (hero experience)
-    │   │   ├── hero-experience/
-    │   │   ├── about-section/
-    │   ├── services-section/
-    │   ├── portfolio-section/
-    │   ├── testimonials-section/
-    │   └── contact-section/
+    │       ├── layout.tsx        # Loads messages + wraps with NextIntl provider
+    │       ├── page.tsx          # Home (hero experience)
+    │       ├── home/
+    │       ├── about/
+    │       ├── services/
+    │       ├── portfolio/
+    │       └── contact/
     ├── components/
     │   ├── sections/             # Section-specific composition & motion
     │   │   ├── hero/
