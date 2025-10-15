@@ -11,7 +11,6 @@ import Image from 'next/image';
 
 const AUTO_ROTATION_SPEED = 0.005; // Radians per frame
 const MOUSE_SENSITIVITY = 0.002;
-const SPHERE_RADIUS = 180;
 const ICON_SIZE = 48;
 
 // ============================================================================
@@ -186,10 +185,18 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
         activeTab === 'all' ? TECH_STACK : TECH_STACK.filter((tch) => tch.category === activeTab)
     ), [activeTab]);
 
+    // Responsive sphere radius
+    const sphereRadius = useMemo(() => {
+        if (typeof window !== 'undefined') {
+            return window.innerWidth < 640 ? 120 : 200; // 120 for mobile, 200 for desktop
+        }
+        return 200; // Default for SSR
+    }, []);
+
     // Generate positions sized to the filtered list
     const positions = useMemo(() => (
-        generateSpherePositions(filteredTech.length, SPHERE_RADIUS)
-    ), [filteredTech.length]);
+        generateSpherePositions(filteredTech.length, sphereRadius)
+    ), [filteredTech.length, sphereRadius]);
 
     // Animation loop
     const animate = useCallback(() => {
@@ -246,13 +253,13 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
     return (
         <div className={`relative flex flex-col items-center justify-center ${className}`}>
             {/* Tabs */}
-            <div className="mb-6">
-                <div className="inline-flex items-center bg-card/50 backdrop-blur-sm border border-border/60 rounded-xl p-1">
+            <div className="mb-6 w-full max-w-full px-4">
+                <div className="flex items-center justify-center bg-card/50 backdrop-blur-sm border border-border/60 rounded-xl p-1 overflow-x-auto scrollbar-hide">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeTab === tab.id
+                            className={`relative px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeTab === tab.id
                                 ? 'text-primary bg-primary/10'
                                 : 'text-muted-foreground hover:text-foreground hover:bg-card/50'
                                 }`}
@@ -268,10 +275,34 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
             {/* 3D Container */}
             <div
                 ref={containerRef}
-                className="relative w-[500px] h-[500px] mx-auto cursor-grab active:cursor-grabbing"
+                className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] mx-auto cursor-grab active:cursor-grabbing"
                 onMouseMove={handleMouseMove}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => {
+                    setIsHovering(false);
+                    setHoveredIcon(null);
+                }}
+                onTouchStart={(e) => {
+                    e.preventDefault();
+                    setIsHovering(true);
+                }}
+                onTouchMove={(e) => {
+                    e.preventDefault();
+                    if (e.touches.length === 1) {
+                        const touch = e.touches[0];
+                        if (containerRef.current) {
+                            const rect = containerRef.current.getBoundingClientRect();
+                            const centerX = rect.left + rect.width / 2;
+                            const centerY = rect.top + rect.height / 2;
+
+                            setMousePos({
+                                x: touch.clientX - centerX,
+                                y: touch.clientY - centerY,
+                            });
+                        }
+                    }
+                }}
+                onTouchEnd={() => {
                     setIsHovering(false);
                     setHoveredIcon(null);
                 }}
@@ -290,8 +321,8 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                     const rotatedPos = rotatePoint(basePos, rotation);
 
                     // Calculate depth effects
-                    const depth = rotatedPos.z + SPHERE_RADIUS;
-                    const maxDepth = SPHERE_RADIUS * 2;
+                    const depth = rotatedPos.z + sphereRadius;
+                    const maxDepth = sphereRadius * 2;
                     const depthRatio = Math.max(0.1, depth / maxDepth);
 
                     const scale = 0.4 + 0.6 * depthRatio;
@@ -316,7 +347,7 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                         >
                             {/* Icon container with animation isolated to child so transforms don't clash */}
                             <motion.div
-                                className="flex items-center justify-center w-16 h-16 rounded-xl backdrop-blur-sm border border-border/40 glow-neon group cursor-pointer transition-all duration-300 hover:glow-neon-active"
+                                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl backdrop-blur-sm border border-border/40 glow-neon group cursor-pointer transition-all duration-300 hover:glow-neon-active active:scale-95"
                                 style={{
                                     backgroundColor: `${tech.color}15`,
                                     borderColor: `${tech.color}40`,
@@ -326,16 +357,19 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                                 animate={{ opacity: opacity }}
                                 transition={{ duration: 0.25, ease: 'easeOut', type: 'tween' }}
                                 whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.95 }}
                                 onMouseEnter={() => setHoveredIcon(tech.id)}
                                 onMouseLeave={() => setHoveredIcon(null)}
+                                onTouchStart={() => setHoveredIcon(tech.id)}
+                                onTouchEnd={() => setHoveredIcon(null)}
                                 onClick={() => handleIconClick(tech)}
                             >
                                 <Image
                                     src={`/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/${tech.icon}`}
                                     alt={toolName}
-                                    width={40}
-                                    height={40}
-                                    className="w-10 h-10 object-contain transition-transform duration-200 group-hover:scale-110"
+                                    width={32}
+                                    height={32}
+                                    className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain transition-transform duration-200 group-hover:scale-110"
                                 />
                             </motion.div>
 
@@ -345,17 +379,17 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    className="absolute -top-20 left-1/2 -translate-x-1/2 bg-black/95 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-sm whitespace-nowrap shadow-2xl z-50"
+                                    className="absolute -top-16 sm:-top-20 left-1/2 -translate-x-1/2 bg-black/95 backdrop-blur-md border border-white/20 rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm whitespace-nowrap shadow-2xl z-50 max-w-[200px] sm:max-w-none"
                                     style={{
                                         backgroundColor: 'rgba(0, 0, 0, 0.95)',
                                         borderColor: `${tech.color}60`,
                                         boxShadow: `0 8px 32px rgba(0, 0, 0, 0.8), 0 0 20px ${tech.color}40`,
                                     }}
                                 >
-                                    <div className="font-bold text-white text-base">{toolName}</div>
-                                    <div className="text-gray-300 text-sm mt-1">{toolDescription}</div>
+                                    <div className="font-bold text-white text-sm sm:text-base">{toolName}</div>
+                                    <div className="text-gray-300 text-xs sm:text-sm mt-1">{toolDescription}</div>
                                     <div
-                                        className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent"
+                                        className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 sm:border-l-6 sm:border-r-6 sm:border-t-6 border-transparent"
                                         style={{ borderTopColor: 'rgba(0, 0, 0, 0.95)' }}
                                     />
                                 </motion.div>
@@ -366,9 +400,9 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
             </div>
 
             {/* Instructions */}
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center">
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center px-4">
                 <p className="text-xs text-muted-foreground/60">
-                    Hover to interact • Click icons to learn more
+                    <span className="hidden sm:inline">Hover to interact • </span>Tap icons to learn more
                 </p>
             </div>
         </div>
