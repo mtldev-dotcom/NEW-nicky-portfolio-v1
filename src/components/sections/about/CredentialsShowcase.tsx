@@ -1,105 +1,98 @@
+'use client';
+
 import React, { type FC } from "react";
+import { useTranslations } from "next-intl";
 import Icon, { type IconName } from "components/AppIcon";
 
-interface Certification {
-  title: string;
-  issuer: string;
-  year: string;
+interface CertConfig {
+  key: string;
   icon: IconName;
   color: string;
 }
 
-interface SpeakingEngagement {
-  event: string;
-  topic: string;
-  location: string;
-  attendees: string;
+interface SpeakingConfig {
+  key: string;
   icon: IconName;
 }
 
-interface Publication {
-  title: string;
-  publication: string;
-  date: string;
-  reads: string;
+interface PublicationConfig {
+  key: string;
   icon: IconName;
 }
 
-interface OpenSourceProject {
-  project: string;
-  description: string;
-  stars: string;
-  language: string;
+interface OpenSourceConfig {
+  key: string;
   icon: IconName;
 }
 
-const certifications: Certification[] = [
-  { title: "AWS Solutions Architect", issuer: "Amazon Web Services", year: "2023", icon: "Cloud", color: "text-orange-400" },
-  { title: "Google AI/ML Certification", issuer: "Google Cloud", year: "2022", icon: "Brain", color: "text-blue-400" },
-  { title: "React Advanced Patterns", issuer: "Meta", year: "2023", icon: "Code", color: "text-cyan-400" },
-  { title: "UX Design Professional", issuer: "Adobe", year: "2021", icon: "Palette", color: "text-purple-400" },
+const certConfigs: CertConfig[] = [
+  { key: "aws", icon: "Cloud", color: "text-orange-400" },
+  { key: "google", icon: "Brain", color: "text-blue-400" },
+  { key: "react", icon: "Code", color: "text-cyan-400" },
+  { key: "ux", icon: "Palette", color: "text-purple-400" },
 ];
 
-const speaking: SpeakingEngagement[] = [
-  { event: "AI & Design Summit 2024", topic: "The Future of Creative AI", location: "Toronto, ON", attendees: "500+", icon: "Mic" },
-  { event: "Montreal Tech Conference", topic: "Bridging Design & Development", location: "Montreal, QC", attendees: "300+", icon: "Users" },
-  { event: "React Montreal Meetup", topic: "Performance Optimization", location: "Montreal, QC", attendees: "150+", icon: "Zap" },
+const speakingConfigs: SpeakingConfig[] = [
+  { key: "aiSummit", icon: "Mic" },
+  { key: "montrealTech", icon: "Users" },
+  { key: "reactMeetup", icon: "Zap" },
 ];
 
-const publications: Publication[] = [
-  { title: "AI-Driven Design Systems", publication: "Smashing Magazine", date: "March 2024", reads: "15K+", icon: "BookOpen" },
-  { title: "The Creative Technologist Manifesto", publication: "Medium", date: "January 2024", reads: "8K+", icon: "FileText" },
-  { title: "Montreal's Tech Renaissance", publication: "TechCrunch", date: "November 2023", reads: "12K+", icon: "Newspaper" },
+const publicationConfigs: PublicationConfig[] = [
+  { key: "designSystems", icon: "BookOpen" },
+  { key: "manifesto", icon: "FileText" },
+  { key: "renaissance", icon: "Newspaper" },
 ];
 
-const openSource: OpenSourceProject[] = [
-  { project: "react-ai-components", description: "AI-powered React component library", stars: "2.3K", language: "TypeScript", icon: "Github" },
-  { project: "design-system-ai", description: "Automated design system generator", stars: "1.8K", language: "JavaScript", icon: "Palette" },
-  { project: "montreal-tech-map", description: "Interactive Montreal tech ecosystem", stars: "950", language: "React", icon: "Map" },
+const openSourceConfigs: OpenSourceConfig[] = [
+  { key: "reactAi", icon: "Github" },
+  { key: "designSystemAi", icon: "Palette" },
+  { key: "montrealMap", icon: "Map" },
 ];
 
 const CredentialsShowcase: FC = () => {
+  const t = useTranslations("about.sections.credentials");
   return (
     <div className="space-y-16">
       <div className="text-center">
         <div className="flex items-center justify-center space-x-3 mb-4">
           <div className="w-12 h-1 bg-primary rounded-full" />
-          <span className="text-sm font-mono text-primary uppercase tracking-wider">Credentials & Recognition</span>
+          <span className="text-sm font-mono text-primary uppercase tracking-wider">{t('badge')}</span>
           <div className="w-12 h-1 bg-primary rounded-full" />
         </div>
 
         <h3 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-          Industry Recognition
+          {t('title')}
         </h3>
 
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Continuous learning and community contribution through certifications, speaking engagements, publications, and open source projects.
+          {t('description')}
         </p>
       </div>
 
       <div className="space-y-8">
         <h4 className="text-2xl font-space-grotesk font-bold text-foreground text-center">
-          Professional Certifications
+          {t('sections.certifications.title')}
         </h4>
 
         <div className="grid lg:grid-cols-4 gap-6">
-          {certifications.map((cert) => (
+          {certConfigs.map((config) => (
             <div
-              key={cert.title}
+              key={config.key}
               className="bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 p-6 hover:border-primary/30 transition-smooth group"
             >
               <div className="flex items-start space-x-4">
                 <div className="bg-primary/10 rounded-lg p-3 group-hover:bg-primary/20 transition-smooth">
-                  <Icon name={cert.icon} size={20} className={cert.color} />
+                  <Icon name={config.icon} size={20} className={config.color} />
                 </div>
 
                 <div className="flex-1 space-y-2">
                   <h5 className="font-space-grotesk font-semibold text-foreground text-sm">
-                    {cert.title}
+                    {t(`sections.certifications.items.${config.key}.title`)}
                   </h5>
-                  <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+                  <p className="text-xs text-muted-foreground">{t(`sections.certifications.items.${config.key}.issuer`)}</p>
                   <span className="text-xs text-primary font-mono bg-primary/10 px-2 py-1 rounded">
-                    {cert.year}
+                    {t(`sections.certifications.items.${config.key}.year`)}
                   </span>
                 </div>
               </div>
@@ -110,33 +103,33 @@ const CredentialsShowcase: FC = () => {
 
       <div className="space-y-8">
         <h4 className="text-2xl font-space-grotesk font-bold text-foreground text-center">
-          Speaking Engagements
+          {t('sections.speaking.title')}
         </h4>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {speaking.map((event) => (
+          {speakingConfigs.map((config) => (
             <div
-              key={event.event}
+              key={config.key}
               className="bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 p-6 hover:border-primary/30 transition-smooth group"
             >
               <div className="flex items-start space-x-4">
                 <div className="bg-primary/10 rounded-lg p-3 group-hover:bg-primary/20 transition-smooth">
-                  <Icon name={event.icon} size={20} className="text-primary" />
+                  <Icon name={config.icon} size={20} className="text-primary" />
                 </div>
 
                 <div className="flex-1 space-y-2">
                   <h5 className="font-space-grotesk font-semibold text-foreground">
-                    {event.event}
+                    {t(`sections.speaking.items.${config.key}.event`)}
                   </h5>
-                  <p className="text-sm text-muted-foreground">{event.topic}</p>
+                  <p className="text-sm text-muted-foreground">{t(`sections.speaking.items.${config.key}.topic`)}</p>
                   <div className="flex items-center justify-between text-xs text-muted-foreground">
                     <div className="flex items-center space-x-1">
                       <Icon name="MapPin" size={12} />
-                      <span>{event.location}</span>
+                      <span>{t(`sections.speaking.items.${config.key}.location`)}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Icon name="Users" size={12} />
-                      <span>{event.attendees}</span>
+                      <span>{t(`sections.speaking.items.${config.key}.attendees`)}</span>
                     </div>
                   </div>
                 </div>
@@ -148,30 +141,30 @@ const CredentialsShowcase: FC = () => {
 
       <div className="space-y-8">
         <h4 className="text-2xl font-space-grotesk font-bold text-foreground text-center">
-          Industry Publications
+          {t('sections.publications.title')}
         </h4>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {publications.map((pub) => (
+          {publicationConfigs.map((config) => (
             <div
-              key={pub.title}
+              key={config.key}
               className="bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 p-6 hover:border-primary/30 transition-smooth group"
             >
               <div className="flex items-start space-x-4">
                 <div className="bg-primary/10 rounded-lg p-3 group-hover:bg-primary/20 transition-smooth">
-                  <Icon name={pub.icon} size={20} className="text-primary" />
+                  <Icon name={config.icon} size={20} className="text-primary" />
                 </div>
 
                 <div className="flex-1 space-y-2">
                   <h5 className="font-space-grotesk font-semibold text-foreground text-sm">
-                    {pub.title}
+                    {t(`sections.publications.items.${config.key}.title`)}
                   </h5>
-                  <p className="text-sm text-muted-foreground">{pub.publication}</p>
+                  <p className="text-sm text-muted-foreground">{t(`sections.publications.items.${config.key}.publication`)}</p>
                   <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <span>{pub.date}</span>
+                    <span>{t(`sections.publications.items.${config.key}.date`)}</span>
                     <div className="flex items-center space-x-1">
                       <Icon name="Eye" size={12} />
-                      <span>{pub.reads} reads</span>
+                      <span>{t(`sections.publications.items.${config.key}.reads`)} {t('sections.publications.reads')}</span>
                     </div>
                   </div>
                 </div>
@@ -183,33 +176,33 @@ const CredentialsShowcase: FC = () => {
 
       <div className="space-y-8">
         <h4 className="text-2xl font-space-grotesk font-bold text-foreground text-center">
-          Open Source Contributions
+          {t('sections.openSource.title')}
         </h4>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {openSource.map((project) => (
+          {openSourceConfigs.map((config) => (
             <div
-              key={project.project}
+              key={config.key}
               className="bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 p-6 hover:border-primary/30 transition-smooth group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="bg-primary/10 rounded-lg p-3 group-hover:bg-primary/20 transition-smooth">
-                    <Icon name={project.icon} size={20} className="text-primary" />
+                    <Icon name={config.icon} size={20} className="text-primary" />
                   </div>
                   <div className="flex items-center space-x-1 text-xs text-muted-foreground">
                     <Icon name="Star" size={12} />
-                    <span>{project.stars}</span>
+                    <span>{t(`sections.openSource.items.${config.key}.stars`)}</span>
                   </div>
                 </div>
 
                 <div>
                   <h5 className="font-space-grotesk font-semibold text-foreground mb-2">
-                    {project.project}
+                    {t(`sections.openSource.items.${config.key}.project`)}
                   </h5>
-                  <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t(`sections.openSource.items.${config.key}.description`)}</p>
                   <span className="text-xs text-primary font-mono bg-primary/10 px-2 py-1 rounded">
-                    {project.language}
+                    {t(`sections.openSource.items.${config.key}.language`)}
                   </span>
                 </div>
               </div>
@@ -223,27 +216,27 @@ const CredentialsShowcase: FC = () => {
           <div className="flex items-center justify-center space-x-2">
             <Icon name="Award" size={24} className="text-primary" />
             <h4 className="text-2xl font-space-grotesk font-bold text-foreground">
-              Community Impact
+              {t('sections.communityImpact.title')}
             </h4>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="space-y-2">
-              <div className="text-3xl font-space-grotesk font-bold text-primary">50K+</div>
-              <p className="text-sm text-muted-foreground">Article Readers</p>
+              <div className="text-3xl font-space-grotesk font-bold text-primary">{t('sections.communityImpact.stats.readers.value')}</div>
+              <p className="text-sm text-muted-foreground">{t('sections.communityImpact.stats.readers.label')}</p>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-space-grotesk font-bold text-primary">5K+</div>
-              <p className="text-sm text-muted-foreground">GitHub Stars</p>
+              <div className="text-3xl font-space-grotesk font-bold text-primary">{t('sections.communityImpact.stats.stars.value')}</div>
+              <p className="text-sm text-muted-foreground">{t('sections.communityImpact.stats.stars.label')}</p>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-space-grotesk font-bold text-primary">1K+</div>
-              <p className="text-sm text-muted-foreground">Conference Attendees</p>
+              <div className="text-3xl font-space-grotesk font-bold text-primary">{t('sections.communityImpact.stats.attendees.value')}</div>
+              <p className="text-sm text-muted-foreground">{t('sections.communityImpact.stats.attendees.label')}</p>
             </div>
           </div>
 
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Committed to sharing knowledge and advancing the creative technology community through education, open source, and thought leadership.
+            {t('sections.communityImpact.description')}
           </p>
         </div>
       </div>

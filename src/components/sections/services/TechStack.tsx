@@ -2,16 +2,16 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
 
 const TechStack = () => {
+  const t = useTranslations('services.sections.tech');
   const [activeCategory, setActiveCategory] = useState('frontend');
 
   const techCategories = {
     frontend: {
-      title: "Frontend & Design",
       icon: "Palette",
-      description: "Creating beautiful, responsive user experiences",
       technologies: [
         { name: "React", level: 95, icon: "Code" },
         { name: "Next.js", level: 90, icon: "Zap" },
@@ -22,9 +22,7 @@ const TechStack = () => {
       ]
     },
     backend: {
-      title: "Backend & Infrastructure",
       icon: "Server",
-      description: "Building scalable, secure server-side solutions",
       technologies: [
         { name: "Node.js", level: 90, icon: "Server" },
         { name: "Python", level: 85, icon: "Code2" },
@@ -35,9 +33,7 @@ const TechStack = () => {
       ]
     },
     ai: {
-      title: "AI & Automation",
       icon: "Brain",
-      description: "Integrating intelligent automation and machine learning",
       technologies: [
         { name: "OpenAI GPT", level: 90, icon: "MessageSquare" },
         { name: "TensorFlow", level: 75, icon: "Cpu" },
@@ -48,9 +44,7 @@ const TechStack = () => {
       ]
     },
     tools: {
-      title: "Tools & Workflow",
       icon: "Wrench",
-      description: "Professional tools for efficient development",
       technologies: [
         { name: "Figma", level: 95, icon: "Figma" },
         { name: "Git", level: 90, icon: "GitBranch" },
@@ -75,15 +69,15 @@ const TechStack = () => {
             className={`
               flex items-center space-x-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300
               ${activeCategory === category
-                ? 'bg-primary text-black glow-neon' :'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
+                ? 'bg-primary text-black glow-neon' : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
               }
             `}
           >
-            <Icon 
-              name={techCategories?.[category]?.icon} 
-              size={16} 
+            <Icon
+              name={techCategories?.[category]?.icon}
+              size={16}
             />
-            <span>{techCategories?.[category]?.title}</span>
+            <span>{t(`categories.${category}.title`)}</span>
           </button>
         ))}
       </div>
@@ -97,17 +91,17 @@ const TechStack = () => {
       >
         <div className="text-center mb-8">
           <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center glow-neon">
-            <Icon 
-              name={techCategories?.[activeCategory]?.icon} 
-              size={32} 
-              className="text-primary" 
+            <Icon
+              name={techCategories?.[activeCategory]?.icon}
+              size={32}
+              className="text-primary"
             />
           </div>
           <h3 className="text-2xl font-space-grotesk font-bold text-foreground mb-2">
-            {techCategories?.[activeCategory]?.title}
+            {t(`categories.${activeCategory}.title`)}
           </h3>
           <p className="text-muted-foreground">
-            {techCategories?.[activeCategory]?.description}
+            {t(`categories.${activeCategory}.description`)}
           </p>
         </div>
 
@@ -118,8 +112,8 @@ const TechStack = () => {
               key={tech?.name}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                duration: 0.3, 
+              transition={{
+                duration: 0.3,
                 delay: index * 0.1,
                 ease: [0.4, 0, 0.2, 1]
               }}
@@ -128,24 +122,24 @@ const TechStack = () => {
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Icon 
-                      name={tech?.icon} 
-                      size={16} 
-                      className="text-primary" 
+                    <Icon
+                      name={tech?.icon}
+                      size={16}
+                      className="text-primary"
                     />
                   </div>
                   <span className="font-medium text-foreground">{tech?.name}</span>
                 </div>
                 <span className="text-sm text-primary font-mono">{tech?.level}%</span>
               </div>
-              
+
               {/* Skill Level Bar */}
               <div className="w-full bg-border rounded-full h-2 overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${tech?.level}%` }}
-                  transition={{ 
-                    duration: 1, 
+                  transition={{
+                    duration: 1,
                     delay: index * 0.1 + 0.5,
                     ease: [0.4, 0, 0.2, 1]
                   }}

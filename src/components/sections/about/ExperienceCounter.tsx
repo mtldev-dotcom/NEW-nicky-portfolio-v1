@@ -1,6 +1,7 @@
 'use client';
 
 import React, { type FC, useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import Icon, { type IconName } from "components/AppIcon";
 
 const TARGET_YEARS = 20;
@@ -11,8 +12,8 @@ const TARGET_AWARDS = 12;
 type StatSetting = {
   icon: IconName;
   suffix: string;
-  label: string;
-  description: string;
+  labelKey: string;
+  descriptionKey: string;
   color: string;
   target: number;
 };
@@ -22,37 +23,38 @@ const statSettings: StatSetting[] = [
     icon: "Calendar",
     target: TARGET_YEARS,
     suffix: "+",
-    label: "Years Experience",
-    description: "Two decades of creative technology mastery",
+    labelKey: "years.label",
+    descriptionKey: "years.description",
     color: "text-primary",
   },
   {
     icon: "Briefcase",
     target: TARGET_PROJECTS,
     suffix: "+",
-    label: "Projects Delivered",
-    description: "Intelligent experiences crafted",
+    labelKey: "projects.label",
+    descriptionKey: "projects.description",
     color: "text-blue-400",
   },
   {
     icon: "Users",
     target: TARGET_CLIENTS,
     suffix: "+",
-    label: "Happy Clients",
-    description: "From startups to enterprises",
+    labelKey: "clients.label",
+    descriptionKey: "clients.description",
     color: "text-green-400",
   },
   {
     icon: "Award",
     target: TARGET_AWARDS,
     suffix: "",
-    label: "Industry Awards",
-    description: "Recognition for excellence",
+    labelKey: "awards.label",
+    descriptionKey: "awards.description",
     color: "text-yellow-400",
   },
 ];
 
 const ExperienceCounter: FC = () => {
+  const t = useTranslations("about.sections.experienceCounter");
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -78,9 +80,11 @@ const ExperienceCounter: FC = () => {
     () =>
       statSettings.map((setting) => ({
         ...setting,
+        label: t(`stats.${setting.labelKey}`),
+        description: t(`stats.${setting.descriptionKey}`),
         value: Math.floor(setting.target * progress),
       })),
-    [progress]
+    [progress, t]
   );
 
   return (
@@ -88,17 +92,16 @@ const ExperienceCounter: FC = () => {
       <div className="text-center mb-12">
         <div className="flex items-center justify-center space-x-3 mb-4">
           <div className="w-12 h-1 bg-primary rounded-full" />
-          <span className="text-sm font-mono text-primary uppercase tracking-wider">By The Numbers</span>
+          <span className="text-sm font-mono text-primary uppercase tracking-wider">{t('badge')}</span>
           <div className="w-12 h-1 bg-primary rounded-full" />
         </div>
 
         <h3 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
-          Proven Track Record
+          {t('title')}
         </h3>
 
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Two decades of bridging creativity and technology, delivering intelligent experiences that drive real business
-          impact across industries and continents.
+          {t('description')}
         </p>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -135,25 +138,25 @@ const ExperienceCounter: FC = () => {
           <div className="space-y-2">
             <div className="flex items-center justify-center space-x-2">
               <Icon name="TrendingUp" size={20} className="text-primary" />
-              <span className="font-space-grotesk font-semibold text-foreground">Growth Focused</span>
+              <span className="font-space-grotesk font-semibold text-foreground">{t('highlights.growth.label')}</span>
             </div>
-            <p className="text-sm text-muted-foreground">Consistently delivering 40%+ performance improvements</p>
+            <p className="text-sm text-muted-foreground">{t('highlights.growth.description')}</p>
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-center space-x-2">
               <Icon name="Globe" size={20} className="text-primary" />
-              <span className="font-space-grotesk font-semibold text-foreground">Global Reach</span>
+              <span className="font-space-grotesk font-semibold text-foreground">{t('highlights.global.label')}</span>
             </div>
-            <p className="text-sm text-muted-foreground">Projects spanning 15+ countries and 5 continents</p>
+            <p className="text-sm text-muted-foreground">{t('highlights.global.description')}</p>
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-center space-x-2">
               <Icon name="Zap" size={20} className="text-primary" />
-              <span className="font-space-grotesk font-semibold text-foreground">AI Pioneer</span>
+              <span className="font-space-grotesk font-semibold text-foreground">{t('highlights.pioneer.label')}</span>
             </div>
-            <p className="text-sm text-muted-foreground">Early adopter of AI automation since 2018</p>
+            <p className="text-sm text-muted-foreground">{t('highlights.pioneer.description')}</p>
           </div>
         </div>
       </div>

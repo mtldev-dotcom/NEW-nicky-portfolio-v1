@@ -94,6 +94,163 @@
         }
       }
     },
+    "experienceCounter": {
+      "badge": "By The Numbers",
+      "title": "Proven Track Record",
+      "description": "Two decades of bridging creativity and technology, delivering intelligent experiences that drive real business impact across industries and continents.",
+      "stats": {
+        "years": {
+          "label": "Years Experience",
+          "description": "Two decades of creative technology mastery"
+        },
+        "projects": {
+          "label": "Projects Delivered",
+          "description": "Intelligent experiences crafted"
+        },
+        "clients": {
+          "label": "Happy Clients",
+          "description": "From startups to enterprises"
+        },
+        "awards": {
+          "label": "Industry Awards",
+          "description": "Recognition for excellence"
+        }
+      },
+      "highlights": {
+        "growth": {
+          "label": "Growth Focused",
+          "description": "Consistently delivering 40%+ performance improvements"
+        },
+        "global": {
+          "label": "Global Reach",
+          "description": "Projects spanning 15+ countries and 5 continents"
+        },
+        "pioneer": {
+          "label": "AI Pioneer",
+          "description": "Early adopter of AI automation since 2018"
+        }
+      }
+    },
+    "credentials": {
+      "badge": "Credentials & Recognition",
+      "title": "Industry Recognition",
+      "description": "Continuous learning and community contribution through certifications, speaking engagements, publications, and open source projects.",
+      "sections": {
+        "certifications": {
+          "title": "Professional Certifications",
+          "items": {
+            "aws": {
+              "title": "AWS Solutions Architect",
+              "issuer": "Amazon Web Services",
+              "year": "2023"
+            },
+            "google": {
+              "title": "Google AI/ML Certification",
+              "issuer": "Google Cloud",
+              "year": "2022"
+            },
+            "react": {
+              "title": "React Advanced Patterns",
+              "issuer": "Meta",
+              "year": "2023"
+            },
+            "ux": {
+              "title": "UX Design Professional",
+              "issuer": "Adobe",
+              "year": "2021"
+            }
+          }
+        },
+        "speaking": {
+          "title": "Speaking Engagements",
+          "items": {
+            "aiSummit": {
+              "event": "AI & Design Summit 2024",
+              "topic": "The Future of Creative AI",
+              "location": "Toronto, ON",
+              "attendees": "500+"
+            },
+            "montrealTech": {
+              "event": "Montreal Tech Conference",
+              "topic": "Bridging Design & Development",
+              "location": "Montreal, QC",
+              "attendees": "300+"
+            },
+            "reactMeetup": {
+              "event": "React Montreal Meetup",
+              "topic": "Performance Optimization",
+              "location": "Montreal, QC",
+              "attendees": "150+"
+            }
+          }
+        },
+        "publications": {
+          "title": "Industry Publications",
+          "reads": "reads",
+          "items": {
+            "designSystems": {
+              "title": "AI-Driven Design Systems",
+              "publication": "Smashing Magazine",
+              "date": "March 2024",
+              "reads": "15K+"
+            },
+            "manifesto": {
+              "title": "The Creative Technologist Manifesto",
+              "publication": "Medium",
+              "date": "January 2024",
+              "reads": "8K+"
+            },
+            "renaissance": {
+              "title": "Montreal's Tech Renaissance",
+              "publication": "TechCrunch",
+              "date": "November 2023",
+              "reads": "12K+"
+            }
+          }
+        },
+        "openSource": {
+          "title": "Open Source Contributions",
+          "items": {
+            "reactAi": {
+              "project": "react-ai-components",
+              "description": "AI-powered React component library",
+              "stars": "2.3K",
+              "language": "TypeScript"
+            },
+            "designSystemAi": {
+              "project": "design-system-ai",
+              "description": "Automated design system generator",
+              "stars": "1.8K",
+              "language": "JavaScript"
+            },
+            "montrealMap": {
+              "project": "montreal-tech-map",
+              "description": "Interactive Montreal tech ecosystem",
+              "stars": "950",
+              "language": "React"
+            }
+          }
+        },
+        "communityImpact": {
+          "title": "Community Impact",
+          "description": "Committed to sharing knowledge and advancing the creative technology community through education, open source, and thought leadership.",
+          "stats": {
+            "readers": {
+              "value": "50K+",
+              "label": "Article Readers"
+            },
+            "stars": {
+              "value": "5K+",
+              "label": "GitHub Stars"
+            },
+            "attendees": {
+              "value": "1K+",
+              "label": "Conference Attendees"
+            }
+          }
+        }
+      }
+    },
     "experience": {
       "title": "Experience & Expertise",
       "content": "With a background spanning web development, UX design, and AI integration, I bring a unique perspective to every project. I've worked with startups, established businesses, and everything in between, always focusing on solutions that deliver real value."

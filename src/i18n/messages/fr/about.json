@@ -94,6 +94,163 @@
         }
       }
     },
+    "experienceCounter": {
+      "badge": "En Chiffres",
+      "title": "Bilan Prouvé",
+      "description": "Deux décennies à faire le pont entre créativité et technologie, livrant des expériences intelligentes qui génèrent un réel impact commercial à travers les industries et les continents.",
+      "stats": {
+        "years": {
+          "label": "Années d'Expérience",
+          "description": "Deux décennies de maîtrise technologique créative"
+        },
+        "projects": {
+          "label": "Projets Livrés",
+          "description": "Expériences intelligentes créées"
+        },
+        "clients": {
+          "label": "Clients Satisfaits",
+          "description": "Des startups aux entreprises"
+        },
+        "awards": {
+          "label": "Prix de l'Industrie",
+          "description": "Reconnaissance pour l'excellence"
+        }
+      },
+      "highlights": {
+        "growth": {
+          "label": "Axé sur la Croissance",
+          "description": "Livrant constamment des améliorations de performance de 40%+"
+        },
+        "global": {
+          "label": "Portée Mondiale",
+          "description": "Projets couvrant 15+ pays et 5 continents"
+        },
+        "pioneer": {
+          "label": "Pionnier IA",
+          "description": "Adopteur précoce de l'automatisation IA depuis 2018"
+        }
+      }
+    },
+    "credentials": {
+      "badge": "Crédentials & Reconnaissance",
+      "title": "Reconnaissance de l'Industrie",
+      "description": "Apprentissage continu et contribution communautaire à travers certifications, conférences, publications et projets open source.",
+      "sections": {
+        "certifications": {
+          "title": "Certifications Professionnelles",
+          "items": {
+            "aws": {
+              "title": "Architecte Solutions AWS",
+              "issuer": "Amazon Web Services",
+              "year": "2023"
+            },
+            "google": {
+              "title": "Certification Google AI/ML",
+              "issuer": "Google Cloud",
+              "year": "2022"
+            },
+            "react": {
+              "title": "Patterns Avancés React",
+              "issuer": "Meta",
+              "year": "2023"
+            },
+            "ux": {
+              "title": "Professionnel Design UX",
+              "issuer": "Adobe",
+              "year": "2021"
+            }
+          }
+        },
+        "speaking": {
+          "title": "Conférences",
+          "items": {
+            "aiSummit": {
+              "event": "Sommet IA & Design 2024",
+              "topic": "L'Avenir de l'IA Créative",
+              "location": "Toronto, ON",
+              "attendees": "500+"
+            },
+            "montrealTech": {
+              "event": "Conférence Tech Montreal",
+              "topic": "Fusionner Design & Développement",
+              "location": "Montréal, QC",
+              "attendees": "300+"
+            },
+            "reactMeetup": {
+              "event": "Meetup React Montreal",
+              "topic": "Optimisation des Performances",
+              "location": "Montréal, QC",
+              "attendees": "150+"
+            }
+          }
+        },
+        "publications": {
+          "title": "Publications de l'Industrie",
+          "reads": "lectures",
+          "items": {
+            "designSystems": {
+              "title": "Systèmes de Design Pilotés par l'IA",
+              "publication": "Smashing Magazine",
+              "date": "Mars 2024",
+              "reads": "15K+"
+            },
+            "manifesto": {
+              "title": "Le Manifeste du Technologue Créatif",
+              "publication": "Medium",
+              "date": "Janvier 2024",
+              "reads": "8K+"
+            },
+            "renaissance": {
+              "title": "La Renaissance Tech de Montréal",
+              "publication": "TechCrunch",
+              "date": "Novembre 2023",
+              "reads": "12K+"
+            }
+          }
+        },
+        "openSource": {
+          "title": "Contributions Open Source",
+          "items": {
+            "reactAi": {
+              "project": "react-ai-components",
+              "description": "Bibliothèque de composants React alimentée par l'IA",
+              "stars": "2.3K",
+              "language": "TypeScript"
+            },
+            "designSystemAi": {
+              "project": "design-system-ai",
+              "description": "Générateur automatisé de système de design",
+              "stars": "1.8K",
+              "language": "JavaScript"
+            },
+            "montrealMap": {
+              "project": "montreal-tech-map",
+              "description": "Écosystème tech interactif de Montréal",
+              "stars": "950",
+              "language": "React"
+            }
+          }
+        },
+        "communityImpact": {
+          "title": "Impact Communautaire",
+          "description": "Engagé à partager les connaissances et à faire progresser la communauté de technologie créative à travers l'éducation, l'open source et le leadership éclairé.",
+          "stats": {
+            "readers": {
+              "value": "50K+",
+              "label": "Lecteurs d'Articles"
+            },
+            "stars": {
+              "value": "5K+",
+              "label": "Étoiles GitHub"
+            },
+            "attendees": {
+              "value": "1K+",
+              "label": "Participants aux Conférences"
+            }
+          }
+        }
+      }
+    },
     "experience": {
       "title": "Expérience & Expertise",
       "content": "Avec un background couvrant le développement web, le design UX et l'intégration IA, j'apporte une perspective unique à chaque projet. J'ai travaillé avec des startups, des entreprises établies et tout ce qui se trouve entre les deux, en me concentrant toujours sur des solutions qui apportent une vraie valeur."

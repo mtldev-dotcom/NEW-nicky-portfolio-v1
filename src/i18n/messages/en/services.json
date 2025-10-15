@@ -70,48 +70,6 @@
       }
     }
   },
-  "process": {
-    "title": "My Process",
-    "subtitle": "How we work together",
-    "keyDeliverables": "Key Deliverables:",
-    "steps": {
-      "discovery": {
-        "phase": "Discovery",
-        "title": "Strategic Analysis",
-        "description": "Deep dive into your business goals, target audience, and competitive landscape to craft the perfect solution strategy.",
-        "duration": "1-2 weeks",
-        "deliverables": ["Market Research", "User Personas", "Technical Audit", "Strategy Document"]
-      },
-      "design": {
-        "phase": "Design",
-        "title": "Creative Development",
-        "description": "Transform insights into compelling visual experiences that resonate with your audience and drive engagement.",
-        "duration": "2-3 weeks",
-        "deliverables": ["Wireframes", "Visual Design", "Prototypes", "Design System"]
-      },
-      "development": {
-        "phase": "Development",
-        "title": "Technical Implementation",
-        "description": "Build robust, scalable solutions using cutting-edge technologies and best practices for optimal performance.",
-        "duration": "3-6 weeks",
-        "deliverables": ["Frontend Development", "Backend Integration", "Testing", "Optimization"]
-      },
-      "aiIntegration": {
-        "phase": "AI Integration",
-        "title": "Intelligence Layer",
-        "description": "Integrate AI capabilities to automate processes, enhance user experience, and provide intelligent insights.",
-        "duration": "1-2 weeks",
-        "deliverables": ["AI Models", "Automation Scripts", "Analytics Setup", "Performance Monitoring"]
-      },
-      "launch": {
-        "phase": "Launch",
-        "title": "Deployment & Growth",
-        "description": "Launch your solution with comprehensive monitoring, optimization, and ongoing support for continuous improvement.",
-        "duration": "1 week",
-        "deliverables": ["Production Deploy", "Performance Monitoring", "User Training", "Growth Strategy"]
-      }
-    }
-  },
   "pricing": {
     "title": "Investment",
     "subtitle": "Transparent pricing for quality work",
@@ -272,11 +230,93 @@
     },
     "process": {
       "title": "My Proven Development Process",
-      "description": "A systematic approach that ensures every project delivers exceptional results through strategic planning, creative execution, and intelligent optimization."
+      "description": "A systematic approach that ensures every project delivers exceptional results through strategic planning, creative execution, and intelligent optimization.",
+      "subtitle": "How we work together",
+      "keyDeliverables": "Key Deliverables:",
+      "steps": {
+        "discovery": {
+          "phase": "Discovery",
+          "title": "Strategic Analysis",
+          "description": "Deep dive into your business goals, target audience, and competitive landscape to craft the perfect solution strategy.",
+          "duration": "1-2 weeks",
+          "deliverables": {
+            "0": "Market Research",
+            "1": "User Personas",
+            "2": "Technical Audit",
+            "3": "Strategy Document"
+          }
+        },
+        "design": {
+          "phase": "Design",
+          "title": "Creative Development",
+          "description": "Transform insights into compelling visual experiences that resonate with your audience and drive engagement.",
+          "duration": "2-3 weeks",
+          "deliverables": {
+            "0": "Wireframes",
+            "1": "Visual Design",
+            "2": "Prototypes",
+            "3": "Design System"
+          }
+        },
+        "development": {
+          "phase": "Development",
+          "title": "Technical Implementation",
+          "description": "Build robust, scalable solutions using cutting-edge technologies and best practices for optimal performance.",
+          "duration": "3-6 weeks",
+          "deliverables": {
+            "0": "Frontend Development",
+            "1": "Backend Integration",
+            "2": "Testing",
+            "3": "Optimization"
+          }
+        },
+        "aiIntegration": {
+          "phase": "AI Integration",
+          "title": "Intelligence Layer",
+          "description": "Integrate AI capabilities to automate processes, enhance user experience, and provide intelligent insights.",
+          "duration": "1-2 weeks",
+          "deliverables": {
+            "0": "AI Models",
+            "1": "Automation Scripts",
+            "2": "Analytics Setup",
+            "3": "Performance Monitoring"
+          }
+        },
+        "launch": {
+          "phase": "Launch",
+          "title": "Deployment & Growth",
+          "description": "Launch your solution with comprehensive monitoring, optimization, and ongoing support for continuous improvement.",
+          "duration": "1 week",
+          "deliverables": {
+            "0": "Production Deploy",
+            "1": "Performance Monitoring",
+            "2": "User Training",
+            "3": "Growth Strategy"
+          }
+        }
+      }
     },
     "tech": {
       "title": "Cutting-Edge Technology Stack",
-      "description": "Leveraging the latest tools and technologies to build scalable, performant, and future-ready solutions."
+      "description": "Leveraging the latest tools and technologies to build scalable, performant, and future-ready solutions.",
+      "categories": {
+        "frontend": {
+          "title": "Frontend & Design",
+          "description": "Creating beautiful, responsive user experiences"
+        },
+        "backend": {
+          "title": "Backend & Infrastructure",
+          "description": "Building scalable, secure server-side solutions"
+        },
+        "ai": {
+          "title": "AI & Automation",
+          "description": "Integrating intelligent automation and machine learning"
+        },
+        "tools": {
+          "title": "Tools & Workflow",
+          "description": "Professional tools for efficient development"
+        }
+      }
     },
     "stats": {
       "title": "Two Decades of Creative Excellence",
