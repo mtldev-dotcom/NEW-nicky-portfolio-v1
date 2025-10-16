@@ -128,12 +128,21 @@ const ContactForm = () => {
   return (
     <div className="bg-card border border-border rounded-xl p-8 glow-neon hover:glow-neon-active transition-smooth">
       <div className="mb-8">
-        <h3 className="text-2xl font-space-grotesk font-bold text-foreground mb-3">
-          {t('title')}
-        </h3>
-        <p className="text-muted-foreground">
-          {t('description')}
-        </p>
+        <div className="flex items-center space-x-3 mb-4">
+          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+            <Icon name="MessageCircle" size={24} className="text-primary" />
+          </div>
+          <div>
+            <h3 className="text-2xl font-space-grotesk font-bold text-foreground">
+              {
+                locale === 'fr' ? 'Formulaire de Contact Rapide' : 'Quick Contact Form'
+              }
+            </h3>
+            <p className="text-sm text-muted-foreground mt-1">
+              {locale === 'fr' ? 'Vous avez une question ou souhaitez me contacter ? Envoyez-moi un message rapide' : 'Have a question or want to get in touch? Send me a quick message'}
+            </p>
+          </div>
+        </div>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

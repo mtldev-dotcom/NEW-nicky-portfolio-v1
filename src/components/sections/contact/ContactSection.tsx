@@ -165,6 +165,18 @@ const ContactSection = () => {
               </div>
             </MotionDiv>
 
+            {/* Visual Divider */}
+            <MotionDiv variants={itemVariants} className="relative py-8">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-border"></div>
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-background px-6 text-sm text-muted-foreground uppercase tracking-wider font-medium">
+                  or
+                </span>
+              </div>
+            </MotionDiv>
+
             {/* Project Brief Questionnaire */}
             <MotionDiv variants={itemVariants}>
               <ProjectBrief />

@@ -15,6 +15,12 @@ const ProjectBrief = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [briefData, setBriefData] = useState({
+    // Contact Info
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    // Project Details
     projectGoal: '',
     targetAudience: '',
     keyFeatures: [],
@@ -97,6 +103,12 @@ const ProjectBrief = () => {
         },
         body: JSON.stringify({
           formType: 'projectBrief', // Distinguish from contact form
+          // Contact Info
+          name: briefData.name,
+          email: briefData.email,
+          phone: briefData.phone,
+          company: briefData.company,
+          // Project Details
           projectGoal: briefData.projectGoal,
           targetAudience: briefData.targetAudience,
           keyFeatures: briefData.keyFeatures,
@@ -132,6 +144,10 @@ const ProjectBrief = () => {
         // Reset form to step 1 and clear data
         setCurrentStep(1);
         setBriefData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
           projectGoal: '',
           targetAudience: '',
           keyFeatures: [],
@@ -161,36 +177,87 @@ const ProjectBrief = () => {
           <div className="space-y-6">
             <div className="text-center mb-8">
               <h3 className="text-xl font-space-grotesk font-bold text-foreground mb-2">
-                {t('overview')}
+                Contact Information & Project Overview
               </h3>
               <p className="text-muted-foreground">
-                {t('description')}
+                Let's start with your contact details and project basics
               </p>
             </div>
-            <Input
-              label={t('fields.goal.label')}
-              type="text"
-              placeholder={t('fields.goal.placeholder')}
-              value={briefData?.projectGoal}
-              onChange={(e) => handleInputChange('projectGoal', e?.target?.value)}
-            />
-            <Input
-              label={t('fields.audience.label')}
-              type="text"
-              placeholder={t('fields.audience.placeholder')}
-              value={briefData?.targetAudience}
-              onChange={(e) => handleInputChange('targetAudience', e?.target?.value)}
-            />
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
-                {t('fields.inspiration.label')}
-              </label>
-              <textarea
-                className="w-full h-24 px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-smooth"
-                placeholder={t('fields.inspiration.placeholder')}
-                value={briefData?.inspiration}
-                onChange={(e) => handleInputChange('inspiration', e?.target?.value)}
+
+            {/* Contact Information */}
+            <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 space-y-4">
+              <h4 className="font-medium text-foreground flex items-center space-x-2 mb-4">
+                <Icon name="User" size={18} className="text-primary" />
+                <span>Your Contact Information</span>
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Input
+                  label="Full Name*"
+                  type="text"
+                  placeholder="Your name"
+                  value={briefData?.name}
+                  onChange={(e) => handleInputChange('name', e?.target?.value)}
+                />
+                <Input
+                  label="Email Address*"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={briefData?.email}
+                  onChange={(e) => handleInputChange('email', e?.target?.value)}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Input
+                  label="Phone Number"
+                  type="tel"
+                  placeholder="+1 (514) 555-0123"
+                  value={briefData?.phone}
+                  onChange={(e) => handleInputChange('phone', e?.target?.value)}
+                />
+                <Input
+                  label="Company/Organization"
+                  type="text"
+                  placeholder="Your company (optional)"
+                  value={briefData?.company}
+                  onChange={(e) => handleInputChange('company', e?.target?.value)}
+                />
+              </div>
+            </div>
+
+            {/* Project Overview */}
+            <div className="space-y-4 pt-4">
+              <h4 className="font-medium text-foreground flex items-center space-x-2">
+                <Icon name="Target" size={18} className="text-primary" />
+                <span>Project Overview</span>
+              </h4>
+
+              <Input
+                label={t('fields.goal.label')}
+                type="text"
+                placeholder={t('fields.goal.placeholder')}
+                value={briefData?.projectGoal}
+                onChange={(e) => handleInputChange('projectGoal', e?.target?.value)}
               />
+              <Input
+                label={t('fields.audience.label')}
+                type="text"
+                placeholder={t('fields.audience.placeholder')}
+                value={briefData?.targetAudience}
+                onChange={(e) => handleInputChange('targetAudience', e?.target?.value)}
+              />
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  {t('fields.inspiration.label')}
+                </label>
+                <textarea
+                  className="w-full h-24 px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-smooth"
+                  placeholder={t('fields.inspiration.placeholder')}
+                  value={briefData?.inspiration}
+                  onChange={(e) => handleInputChange('inspiration', e?.target?.value)}
+                />
+              </div>
             </div>
           </div>
         );
@@ -322,13 +389,22 @@ const ProjectBrief = () => {
 
   return (
     <div className="bg-card border border-border rounded-xl p-8">
+      {/* Header with Description */}
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-space-grotesk font-bold text-foreground">
-            {t('title')}
-          </h2>
-          <div className="text-sm text-muted-foreground">
-            {t('step')} {currentStep} {t('navigation.next')} {totalSteps}
+        <div className="flex items-center space-x-3 mb-4">
+          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+            <Icon name="FileText" size={24} className="text-primary" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-2xl font-space-grotesk font-bold text-foreground">
+              {locale === 'fr' ? 'Brief de Projet Détaillé' : 'Detailed Project Brief'}
+            </h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              {locale === 'fr' ? 'Besoin d\'un devis complet ? Remplissez ce brief détaillé pour les projets complexes' : 'Need a comprehensive quote? Fill out this detailed brief for complex projects'}
+            </p>
+          </div>
+          <div className="text-sm text-muted-foreground text-right">
+            Step {currentStep} of {totalSteps}
           </div>
         </div>
 
@@ -395,9 +471,9 @@ const ProjectBrief = () => {
         <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start space-x-3">
           <Icon name="AlertCircle" size={20} className="text-red-500 mt-0.5 flex-shrink-0" />
           <div>
-            <h4 className="font-medium text-red-500 mb-1">Submission Failed</h4>
+            <h4 className="font-medium text-red-500 mb-1">{locale === 'fr' ? 'Soumission Échouée' : 'Submission Failed'}</h4>
             <p className="text-sm text-red-500/80">
-              Something went wrong. Please try again or contact me directly.
+              {locale === 'fr' ? 'Quelque chose s\'est mal passé. Veuillez réessayer ou me contacter directement.' : 'Something went wrong. Please try again or contact me directly.'}
             </p>
           </div>
         </div>
