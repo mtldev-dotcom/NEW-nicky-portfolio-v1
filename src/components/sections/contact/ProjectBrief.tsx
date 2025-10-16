@@ -14,6 +14,7 @@ const ProjectBrief = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [briefData, setBriefData] = useState({
     // Contact Info
     name: '',
@@ -68,6 +69,13 @@ const ProjectBrief = () => {
       ...prev,
       [field]: value
     }));
+    // Clear validation error when user starts typing
+    if (validationErrors[field]) {
+      setValidationErrors(prev => ({
+        ...prev,
+        [field]: ''
+      }));
+    }
   };
 
   const handleArrayChange = (field, value, checked) => {
@@ -79,19 +87,103 @@ const ProjectBrief = () => {
     }));
   };
 
+  const validateCurrentStep = () => {
+    const errors: Record<string, string> = {};
+
+    switch (currentStep) {
+      case 1:
+        // Step 1: Contact info & project overview validation
+        if (!briefData.name.trim()) {
+          errors.name = t('validation.nameRequired');
+        }
+        if (!briefData.email.trim()) {
+          errors.email = t('validation.emailRequired');
+        } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(briefData.email)) {
+          errors.email = t('validation.emailInvalid');
+        }
+        if (!briefData.projectGoal.trim()) {
+          errors.projectGoal = t('validation.projectGoalRequired');
+        }
+        if (!briefData.targetAudience.trim()) {
+          errors.targetAudience = t('validation.targetAudienceRequired');
+        }
+        break;
+
+      case 2:
+        // Step 2: Key features - optional, no validation needed
+        break;
+
+      case 3:
+        // Step 3: Design & Tech - optional, no validation needed
+        break;
+
+      case 4:
+        // Step 4: Timeline, budget & challenges - optional, no validation needed
+        break;
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const nextStep = () => {
+    // Validate current step before proceeding
+    if (!validateCurrentStep()) {
+      return;
+    }
+
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
+      // Clear errors when moving to next step
+      setValidationErrors({});
     }
   };
 
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+      // Clear errors when going back
+      setValidationErrors({});
     }
   };
 
+  const validateForm = () => {
+    const errors: Record<string, string> = {};
+
+    // Name validation
+    if (!briefData.name.trim()) {
+      errors.name = t('validation.nameRequired');
+    }
+
+    // Email validation
+    if (!briefData.email.trim()) {
+      errors.email = t('validation.emailRequired');
+    } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(briefData.email)) {
+      errors.email = t('validation.emailInvalid');
+    }
+
+    // Project goal validation
+    if (!briefData.projectGoal.trim()) {
+      errors.projectGoal = t('validation.projectGoalRequired');
+    }
+
+    // Target audience validation
+    if (!briefData.targetAudience.trim()) {
+      errors.targetAudience = t('validation.targetAudienceRequired');
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const generateBrief = async () => {
+    // Validate form before submitting
+    if (!validateForm()) {
+      // Scroll to first error (step 1 has contact info)
+      setCurrentStep(1);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -143,6 +235,7 @@ const ProjectBrief = () => {
         setSubmitStatus('success');
         // Reset form to step 1 and clear data
         setCurrentStep(1);
+        setValidationErrors({});
         setBriefData({
           name: '',
           email: '',
@@ -177,49 +270,69 @@ const ProjectBrief = () => {
           <div className="space-y-6">
             <div className="text-center mb-8">
               <h3 className="text-xl font-space-grotesk font-bold text-foreground mb-2">
-                Contact Information & Project Overview
+                {t('stepTitle.1')}
               </h3>
               <p className="text-muted-foreground">
-                Let's start with your contact details and project basics
+                {t('stepDescription.1')}
               </p>
+              <div className="mt-3 inline-flex items-center space-x-2 text-sm text-primary/80">
+                <Icon name="Info" size={16} />
+                <span>{locale === 'fr' ? 'Les champs marqués * sont requis pour continuer' : 'Fields marked with * are required to continue'}</span>
+              </div>
             </div>
 
             {/* Contact Information */}
             <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 space-y-4">
               <h4 className="font-medium text-foreground flex items-center space-x-2 mb-4">
                 <Icon name="User" size={18} className="text-primary" />
-                <span>Your Contact Information</span>
+                <span>{t('contactInfo.title')}</span>
               </h4>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input
-                  label="Full Name*"
-                  type="text"
-                  placeholder="Your name"
-                  value={briefData?.name}
-                  onChange={(e) => handleInputChange('name', e?.target?.value)}
-                />
-                <Input
-                  label="Email Address*"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={briefData?.email}
-                  onChange={(e) => handleInputChange('email', e?.target?.value)}
-                />
+                <div>
+                  <Input
+                    label={t('contactInfo.fields.name.label')}
+                    type="text"
+                    placeholder={t('contactInfo.fields.name.placeholder')}
+                    value={briefData?.name}
+                    onChange={(e) => handleInputChange('name', e?.target?.value)}
+                  />
+                  {validationErrors.name && (
+                    <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                      <Icon name="AlertCircle" size={14} />
+                      <span>{validationErrors.name}</span>
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <Input
+                    label={t('contactInfo.fields.email.label')}
+                    type="email"
+                    placeholder={t('contactInfo.fields.email.placeholder')}
+                    value={briefData?.email}
+                    onChange={(e) => handleInputChange('email', e?.target?.value)}
+                  />
+                  {validationErrors.email && (
+                    <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                      <Icon name="AlertCircle" size={14} />
+                      <span>{validationErrors.email}</span>
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
-                  label="Phone Number"
+                  label={t('contactInfo.fields.phone.label')}
                   type="tel"
-                  placeholder="+1 (514) 555-0123"
+                  placeholder={t('contactInfo.fields.phone.placeholder')}
                   value={briefData?.phone}
                   onChange={(e) => handleInputChange('phone', e?.target?.value)}
                 />
                 <Input
-                  label="Company/Organization"
+                  label={t('contactInfo.fields.company.label')}
                   type="text"
-                  placeholder="Your company (optional)"
+                  placeholder={t('contactInfo.fields.company.placeholder')}
                   value={briefData?.company}
                   onChange={(e) => handleInputChange('company', e?.target?.value)}
                 />
@@ -233,20 +346,36 @@ const ProjectBrief = () => {
                 <span>Project Overview</span>
               </h4>
 
-              <Input
-                label={t('fields.goal.label')}
-                type="text"
-                placeholder={t('fields.goal.placeholder')}
-                value={briefData?.projectGoal}
-                onChange={(e) => handleInputChange('projectGoal', e?.target?.value)}
-              />
-              <Input
-                label={t('fields.audience.label')}
-                type="text"
-                placeholder={t('fields.audience.placeholder')}
-                value={briefData?.targetAudience}
-                onChange={(e) => handleInputChange('targetAudience', e?.target?.value)}
-              />
+              <div>
+                <Input
+                  label={t('fields.goal.label')}
+                  type="text"
+                  placeholder={t('fields.goal.placeholder')}
+                  value={briefData?.projectGoal}
+                  onChange={(e) => handleInputChange('projectGoal', e?.target?.value)}
+                />
+                {validationErrors.projectGoal && (
+                  <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                    <Icon name="AlertCircle" size={14} />
+                    <span>{validationErrors.projectGoal}</span>
+                  </p>
+                )}
+              </div>
+              <div>
+                <Input
+                  label={t('fields.audience.label')}
+                  type="text"
+                  placeholder={t('fields.audience.placeholder')}
+                  value={briefData?.targetAudience}
+                  onChange={(e) => handleInputChange('targetAudience', e?.target?.value)}
+                />
+                {validationErrors.targetAudience && (
+                  <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                    <Icon name="AlertCircle" size={14} />
+                    <span>{validationErrors.targetAudience}</span>
+                  </p>
+                )}
+              </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   {t('fields.inspiration.label')}
@@ -397,14 +526,14 @@ const ProjectBrief = () => {
           </div>
           <div className="flex-1">
             <h2 className="text-2xl font-space-grotesk font-bold text-foreground">
-              {locale === 'fr' ? 'Brief de Projet Détaillé' : 'Detailed Project Brief'}
+              {t('title')}
             </h2>
             <p className="text-sm text-muted-foreground mt-1">
-              {locale === 'fr' ? 'Besoin d\'un devis complet ? Remplissez ce brief détaillé pour les projets complexes' : 'Need a comprehensive quote? Fill out this detailed brief for complex projects'}
+              {t('subtitle')}
             </p>
           </div>
           <div className="text-sm text-muted-foreground text-right">
-            Step {currentStep} of {totalSteps}
+            {t('step')} {currentStep} {t('of')} {totalSteps}
           </div>
         </div>
 
@@ -449,7 +578,7 @@ const ProjectBrief = () => {
             iconPosition="left"
             className="glow-neon hover:glow-neon-active"
           >
-            {isSubmitting ? 'Submitting...' : 'Generate Brief'}
+            {isSubmitting ? t('status.submitting') : t('navigation.submit')}
           </Button>
         )}
       </div>
@@ -459,9 +588,9 @@ const ProjectBrief = () => {
         <div className="mt-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg flex items-start space-x-3">
           <Icon name="CheckCircle" size={20} className="text-green-500 mt-0.5 flex-shrink-0" />
           <div>
-            <h4 className="font-medium text-green-500 mb-1">Project Brief Submitted!</h4>
+            <h4 className="font-medium text-green-500 mb-1">{t('status.success.title')}</h4>
             <p className="text-sm text-green-500/80">
-              Thank you! I'll review your project brief and get back to you within 24-48 hours.
+              {t('status.success.message')}
             </p>
           </div>
         </div>
@@ -471,9 +600,9 @@ const ProjectBrief = () => {
         <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start space-x-3">
           <Icon name="AlertCircle" size={20} className="text-red-500 mt-0.5 flex-shrink-0" />
           <div>
-            <h4 className="font-medium text-red-500 mb-1">{locale === 'fr' ? 'Soumission Échouée' : 'Submission Failed'}</h4>
+            <h4 className="font-medium text-red-500 mb-1">{t('status.error.title')}</h4>
             <p className="text-sm text-red-500/80">
-              {locale === 'fr' ? 'Quelque chose s\'est mal passé. Veuillez réessayer ou me contacter directement.' : 'Something went wrong. Please try again or contact me directly.'}
+              {t('status.error.message')}
             </p>
           </div>
         </div>

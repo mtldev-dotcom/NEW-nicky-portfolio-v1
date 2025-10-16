@@ -35,9 +35,9 @@
       "description": "I'm always excited to work on new projects and help businesses achieve their digital goals. Whether you need a new website, AI automation, or strategic consulting, I'm here to help."
     },
     "form": {
-      "title": "Project Brief",
+      "title": "Quick Contact Form",
       "subtitle": "Tell me about your project",
-      "description": "Tell me about your vision, and I'll help bring it to life with the perfect blend of creativity and technology.",
+      "description": "Have a question or want to get in touch? Send me a quick message",
       "fields": {
         "name": {
           "label": "Full Name*",
@@ -101,7 +101,15 @@
       "submit": "Send Project Inquiry",
       "responseTime": "Expected response time: Within 24 hours • All inquiries are confidential",
       "success": "Thank you! I'll get back to you within 24 hours.",
-      "error": "Something went wrong. Please try again."
+      "error": "Something went wrong. Please try again.",
+      "validation": {
+        "nameRequired": "Please enter your name",
+        "emailRequired": "Please enter your email",
+        "emailInvalid": "Please enter a valid email address",
+        "projectTypeRequired": "Please select a project type",
+        "messageRequired": "Please enter a message",
+        "termsRequired": "You must accept the terms and conditions"
+      }
     },
     "info": {
       "title": "Get In Touch",
@@ -158,17 +166,52 @@
       ]
     },
     "projectBrief": {
-      "title": "Project Brief Questionnaire",
-      "step": "Step 1 of 4",
+      "title": "Detailed Project Brief",
+      "subtitle": "Need a comprehensive quote? Fill out this detailed brief for complex projects",
+      "step": "Step",
+      "of": "of",
+      "stepTitle": {
+        "1": "Contact Information & Project Overview",
+        "2": "Key Features",
+        "3": "Design & Technical Requirements",
+        "4": "Timeline, Budget & Challenges"
+      },
+      "stepDescription": {
+        "1": "Let's start with your contact details and project basics",
+        "2": "What features are essential for your project?",
+        "3": "Define the look, feel, and technical needs",
+        "4": "Help me understand your timeline and constraints"
+      },
+      "contactInfo": {
+        "title": "Your Contact Information",
+        "fields": {
+          "name": {
+            "label": "Full Name*",
+            "placeholder": "Your name"
+          },
+          "email": {
+            "label": "Email Address*",
+            "placeholder": "your@email.com"
+          },
+          "phone": {
+            "label": "Phone Number",
+            "placeholder": "+1 (514) 555-0123"
+          },
+          "company": {
+            "label": "Company/Organization",
+            "placeholder": "Your company (optional)"
+          }
+        }
+      },
       "overview": "Project Overview",
       "description": "Let's start with the basics of your project",
       "fields": {
         "goal": {
-          "label": "What's your main project goal?",
+          "label": "What's your main project goal?*",
           "placeholder": "e.g., Launch an e-commerce store, build a portfolio, create a SaaS platform..."
         },
         "audience": {
-          "label": "Who is your target audience?",
+          "label": "Who is your target audience?*",
           "placeholder": "e.g., Young professionals, B2B clients, creative agencies..."
         },
         "inspiration": {
@@ -178,7 +221,26 @@
       },
       "navigation": {
         "previous": "Previous",
-        "next": "Next Step"
+        "next": "Next Step",
+        "submit": "Generate Project Brief"
+      },
+      "status": {
+        "submitting": "Submitting...",
+        "success": {
+          "title": "Success!",
+          "message": "Your project brief has been submitted successfully. I'll review it and get back to you within 24-48 hours."
+        },
+        "error": {
+          "title": "Submission Failed",
+          "message": "Something went wrong. Please try again or contact me directly."
+        }
+      },
+      "validation": {
+        "nameRequired": "Please enter your name",
+        "emailRequired": "Please enter your email",
+        "emailInvalid": "Please enter a valid email address",
+        "projectGoalRequired": "Please describe your project goal",
+        "targetAudienceRequired": "Please describe your target audience"
       }
     },
     "location": {

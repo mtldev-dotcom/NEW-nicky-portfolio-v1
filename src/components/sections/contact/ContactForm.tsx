@@ -24,6 +24,7 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const projectTypeOptions = [
     { value: 'web-development', label: t('fields.projectType.options.web') },
@@ -55,10 +56,57 @@ const ContactForm = () => {
       ...prev,
       [field]: value
     }));
+    // Clear validation error when user starts typing
+    if (validationErrors[field]) {
+      setValidationErrors(prev => ({
+        ...prev,
+        [field]: ''
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const errors: Record<string, string> = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      errors.name = t('validation.nameRequired');
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      errors.email = t('validation.emailRequired');
+    } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)) {
+      errors.email = t('validation.emailInvalid');
+    }
+
+    // Project type validation
+    if (!formData.projectType) {
+      errors.projectType = t('validation.projectTypeRequired');
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      errors.message = t('validation.messageRequired');
+    }
+
+    // Terms validation
+    if (!formData.terms) {
+      errors.terms = t('validation.termsRequired');
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e?.preventDefault();
+
+    // Validate form before submitting
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -134,34 +182,46 @@ const ContactForm = () => {
           </div>
           <div>
             <h3 className="text-2xl font-space-grotesk font-bold text-foreground">
-              {
-                locale === 'fr' ? 'Formulaire de Contact Rapide' : 'Quick Contact Form'
-              }
+              {t('title')}
             </h3>
             <p className="text-sm text-muted-foreground mt-1">
-              {locale === 'fr' ? 'Vous avez une question ou souhaitez me contacter ? Envoyez-moi un message rapide' : 'Have a question or want to get in touch? Send me a quick message'}
+              {t('description')}
             </p>
           </div>
         </div>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Input
-            label={t('fields.name.label')}
-            type="text"
-            placeholder={t('fields.name.placeholder')}
-            required
-            value={formData?.name}
-            onChange={(e) => handleInputChange('name', e?.target?.value)}
-          />
-          <Input
-            label={t('fields.email.label')}
-            type="email"
-            placeholder={t('fields.email.placeholder')}
-            required
-            value={formData?.email}
-            onChange={(e) => handleInputChange('email', e?.target?.value)}
-          />
+          <div>
+            <Input
+              label={t('fields.name.label')}
+              type="text"
+              placeholder={t('fields.name.placeholder')}
+              value={formData?.name}
+              onChange={(e) => handleInputChange('name', e?.target?.value)}
+            />
+            {validationErrors.name && (
+              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                <Icon name="AlertCircle" size={14} />
+                <span>{validationErrors.name}</span>
+              </p>
+            )}
+          </div>
+          <div>
+            <Input
+              label={t('fields.email.label')}
+              type="email"
+              placeholder={t('fields.email.placeholder')}
+              value={formData?.email}
+              onChange={(e) => handleInputChange('email', e?.target?.value)}
+            />
+            {validationErrors.email && (
+              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                <Icon name="AlertCircle" size={14} />
+                <span>{validationErrors.email}</span>
+              </p>
+            )}
+          </div>
         </div>
 
         <Input
@@ -173,14 +233,21 @@ const ContactForm = () => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Select
-            label={t('fields.projectType.label')}
-            placeholder={t('fields.projectType.placeholder')}
-            required
-            options={projectTypeOptions}
-            value={formData?.projectType}
-            onChange={(value) => handleInputChange('projectType', value)}
-          />
+          <div>
+            <Select
+              label={t('fields.projectType.label')}
+              placeholder={t('fields.projectType.placeholder')}
+              options={projectTypeOptions}
+              value={formData?.projectType}
+              onChange={(value) => handleInputChange('projectType', value)}
+            />
+            {validationErrors.projectType && (
+              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                <Icon name="AlertCircle" size={14} />
+                <span>{validationErrors.projectType}</span>
+              </p>
+            )}
+          </div>
           <Select
             label={t('fields.budget.label')}
             placeholder={t('fields.budget.placeholder')}
@@ -204,10 +271,15 @@ const ContactForm = () => {
           <textarea
             className="w-full h-32 px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-smooth"
             placeholder={t('fields.message.placeholder')}
-            required
             value={formData?.message}
             onChange={(e) => handleInputChange('message', e?.target?.value)}
           />
+          {validationErrors.message && (
+            <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+              <Icon name="AlertCircle" size={14} />
+              <span>{validationErrors.message}</span>
+            </p>
+          )}
         </div>
 
         <div className="space-y-4">
@@ -217,13 +289,20 @@ const ContactForm = () => {
             checked={formData?.newsletter}
             onChange={(e) => handleInputChange('newsletter', e?.target?.checked)}
           />
-          <Checkbox
-            label={t('terms.label')}
-            description={t('terms.description')}
-            required
-            checked={formData?.terms}
-            onChange={(e) => handleInputChange('terms', e?.target?.checked)}
-          />
+          <div>
+            <Checkbox
+              label={t('terms.label')}
+              description={t('terms.description')}
+              checked={formData?.terms}
+              onChange={(e) => handleInputChange('terms', e?.target?.checked)}
+            />
+            {validationErrors.terms && (
+              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+                <Icon name="AlertCircle" size={14} />
+                <span>{validationErrors.terms}</span>
+              </p>
+            )}
+          </div>
         </div>
 
         {submitStatus === 'success' && (

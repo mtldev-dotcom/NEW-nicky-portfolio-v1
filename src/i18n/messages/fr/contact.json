@@ -35,9 +35,9 @@
       "description": "Je suis toujours excité de travailler sur de nouveaux projets et d'aider les entreprises à atteindre leurs objectifs numériques. Que vous ayez besoin d'un nouveau site web, d'automatisation IA ou de conseil stratégique, je suis là pour vous aider."
     },
     "form": {
-      "title": "Brief du Projet",
+      "title": "Formulaire de Contact Rapide",
       "subtitle": "Parlez-moi de votre projet",
-      "description": "Décrivez-moi votre vision, et je vous aiderai à la donner vie avec le mélange parfait de créativité et de technologie.",
+      "description": "Vous avez une question ou souhaitez me contacter ? Envoyez-moi un message rapide",
       "fields": {
         "name": {
           "label": "Nom Complet*",
@@ -101,7 +101,15 @@
       "submit": "Envoyer la Demande de Projet",
       "responseTime": "Temps de réponse attendu : Dans les 24 heures • Toutes les demandes sont confidentielles",
       "success": "Merci ! Je vous répondrai dans les 24 heures.",
-      "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+      "error": "Quelque chose s'est mal passé. Veuillez réessayer.",
+      "validation": {
+        "nameRequired": "Veuillez entrer votre nom",
+        "emailRequired": "Veuillez entrer votre email",
+        "emailInvalid": "Veuillez entrer une adresse email valide",
+        "projectTypeRequired": "Veuillez sélectionner un type de projet",
+        "messageRequired": "Veuillez entrer un message",
+        "termsRequired": "Vous devez accepter les termes et conditions"
+      }
     },
     "info": {
       "title": "Entrer en Contact",
@@ -158,17 +166,52 @@
       ]
     },
     "projectBrief": {
-      "title": "Questionnaire de Brief de Projet",
-      "step": "Étape 1 sur 4",
+      "title": "Brief de Projet Détaillé",
+      "subtitle": "Besoin d'un devis complet ? Remplissez ce brief détaillé pour les projets complexes",
+      "step": "Étape",
+      "of": "sur",
+      "stepTitle": {
+        "1": "Informations de Contact & Aperçu du Projet",
+        "2": "Fonctionnalités Clés",
+        "3": "Exigences de Design & Techniques",
+        "4": "Délais, Budget & Défis"
+      },
+      "stepDescription": {
+        "1": "Commençons par vos coordonnées et les bases du projet",
+        "2": "Quelles fonctionnalités sont essentielles pour votre projet ?",
+        "3": "Définissez l'apparence, le style et les besoins techniques",
+        "4": "Aidez-moi à comprendre vos délais et contraintes"
+      },
+      "contactInfo": {
+        "title": "Vos Informations de Contact",
+        "fields": {
+          "name": {
+            "label": "Nom Complet*",
+            "placeholder": "Votre nom"
+          },
+          "email": {
+            "label": "Adresse Email*",
+            "placeholder": "votre@email.com"
+          },
+          "phone": {
+            "label": "Numéro de Téléphone",
+            "placeholder": "+1 (514) 555-0123"
+          },
+          "company": {
+            "label": "Entreprise/Organisation",
+            "placeholder": "Votre entreprise (optionnel)"
+          }
+        }
+      },
       "overview": "Aperçu du Projet",
       "description": "Commençons par les bases de votre projet",
       "fields": {
         "goal": {
-          "label": "Quel est votre objectif principal de projet ?",
+          "label": "Quel est votre objectif principal de projet ?*",
           "placeholder": "ex: Lancer une boutique e-commerce, construire un portfolio, créer une plateforme SaaS..."
         },
         "audience": {
-          "label": "Qui est votre audience cible ?",
+          "label": "Qui est votre audience cible ?*",
           "placeholder": "ex: Jeunes professionnels, clients B2B, agences créatives..."
         },
         "inspiration": {
@@ -178,7 +221,26 @@
       },
       "navigation": {
         "previous": "Précédent",
-        "next": "Étape Suivante"
+        "next": "Étape Suivante",
+        "submit": "Générer le Brief de Projet"
+      },
+      "status": {
+        "submitting": "Envoi en cours...",
+        "success": {
+          "title": "Succès !",
+          "message": "Votre brief de projet a été soumis avec succès. Je vais l'examiner et vous répondre dans les 24-48 heures."
+        },
+        "error": {
+          "title": "Soumission Échouée",
+          "message": "Quelque chose s'est mal passé. Veuillez réessayer ou me contacter directement."
+        }
+      },
+      "validation": {
+        "nameRequired": "Veuillez entrer votre nom",
+        "emailRequired": "Veuillez entrer votre email",
+        "emailInvalid": "Veuillez entrer une adresse email valide",
+        "projectGoalRequired": "Veuillez décrire l'objectif de votre projet",
+        "targetAudienceRequired": "Veuillez décrire votre audience cible"
       }
     },
     "location": {
