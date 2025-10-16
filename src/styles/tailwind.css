@@ -234,6 +234,126 @@
     }
   }
 
+  /* Chatbot-specific animations */
+  .chatbot-float {
+    animation: chatbotFloat 3s ease-in-out infinite;
+  }
+
+  .chatbot-pulse {
+    animation: chatbotPulse 2s ease-in-out infinite;
+  }
+
+  .chatbot-slide-up {
+    animation: chatbotSlideUp 0.3s ease-out;
+  }
+
+  .chatbot-scale-in {
+    animation: chatbotScaleIn 0.2s ease-out;
+  }
+
+  .chatbot-typing {
+    animation: chatbotTyping 1.5s ease-in-out infinite;
+  }
+
+  @keyframes chatbotFloat {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes chatbotPulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(0, 255, 209, 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 30px rgba(0, 255, 209, 0.6);
+    }
+  }
+
+  @keyframes chatbotSlideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes chatbotScaleIn {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes chatbotTyping {
+
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+    }
+
+    30% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Chat message animations */
+  .chat-message-enter {
+    animation: chatMessageEnter 0.3s ease-out;
+  }
+
+  .chat-message-exit {
+    animation: chatMessageExit 0.2s ease-in;
+  }
+
+  @keyframes chatMessageEnter {
+    0% {
+      transform: translateY(10px) scale(0.95);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes chatMessageExit {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-10px) scale(0.95);
+      opacity: 0;
+    }
+  }
+
+  /* Chat input focus glow */
+  .chat-input-focus {
+    box-shadow: 0 0 0 2px rgba(0, 255, 209, 0.2);
+  }
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
 
@@ -249,6 +369,16 @@
     }
 
     .marquee-content {
+      animation: none;
+    }
+
+    .chatbot-float,
+    .chatbot-pulse,
+    .chatbot-slide-up,
+    .chatbot-scale-in,
+    .chatbot-typing,
+    .chat-message-enter,
+    .chat-message-exit {
       animation: none;
     }
   }

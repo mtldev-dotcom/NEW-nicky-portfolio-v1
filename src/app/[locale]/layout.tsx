@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import ScrollToTop from 'components/ScrollToTop';
+import Chatbot from '@/components/ui/Chatbot';
 import { getMessages } from '@/i18n/getMessages';
 import { type Locale, locales } from '@/i18n/config';
 
@@ -30,6 +31,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ScrollToTop />
       {children}
+      <Chatbot />
     </NextIntlClientProvider>
   );
 }
