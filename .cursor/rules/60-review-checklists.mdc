@@ -1,3 +1,7 @@
+---
+description: Dev ↔ Review Checklist
+alwaysApply: false
+---
 # Dev ↔ Review Checklist
 
 - [ ] EN/FR keys added and used; no hard-coded text in components.

@@ -1,3 +1,6 @@
+---
+alwaysApply: true
+---
 # Next.js 15 (App Router) Conventions
 
 ## Routing & Structure

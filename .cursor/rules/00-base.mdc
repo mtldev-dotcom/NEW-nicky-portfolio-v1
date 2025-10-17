@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 # Project Overview
 You are contributing to **Nicky Bruno Portfolio** — a Next.js 15 (App Router) + TypeScript site featuring a dark theme with neon‑mint accents, EN/FR internationalization, Tailwind CSS, and Framer Motion. The goal is a clean, accessible, performant portfolio with purposeful motion and consistent branding.
 

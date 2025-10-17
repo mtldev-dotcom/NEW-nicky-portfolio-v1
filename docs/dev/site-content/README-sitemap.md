@@ -14,3 +14,5 @@ This folder splits the full website content into page‑scoped Markdown files, e
 - `99-build-checklist.md` — ready-to-build checklist
 
 > Bilingual ready (EN/FR). Replace placeholder strings as needed.
+
+## Text content in `new-full-text-content.md`
