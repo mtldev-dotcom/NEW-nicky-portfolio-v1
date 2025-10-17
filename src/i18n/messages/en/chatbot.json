@@ -30,5 +30,7 @@
   "accessibilityCloseChat": "Close support chat",
   "accessibilitySendMessage": "Press to send message",
   "accessibilityMessageInput": "Message input field",
-  "accessibilityChatHistory": "Previous chat messages"
+  "accessibilityChatHistory": "Previous chat messages",
+  "errorRateLimit": "Too many messages. Please wait a moment.",
+  "errorServiceUnavailable": "Chat service temporarily unavailable."
 }

@@ -22,7 +22,7 @@ interface Message extends Omit<ChatMessageProps, 'id' | 'timestamp'> {
 
 const Chatbot: React.FC<ChatbotProps> = ({
     className,
-    webhookUrl = 'https://n8n.nickyhome.casa/webhook-test/60f173bc-532e-44c9-9d69-2d706373d83e',
+    webhookUrl, // Remove default - will use API route
     maxMessages = 50,
     autoOpen = false
 }) => {
@@ -96,37 +96,32 @@ const Chatbot: React.FC<ChatbotProps> = ({
         setConnectionStatus('connecting');
 
         try {
-            const response = await fetch(webhookUrl, {
+            // Use API route instead of direct webhook for security
+            const apiUrl = '/api/chat';
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    formType: 'chatbot',
                     message: content,
-                    language: locale,
-                    timestamp: new Date().toISOString(),
-                    sessionId: `session-${Date.now()}`
+                    language: locale
                 }),
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-
-            const contentType = response.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Invalid response format');
-            }
-
             const result = await response.json();
+
+            // Handle API errors
+            if (!response.ok) {
+                throw new Error(result.message || `HTTP ${response.status}: ${response.statusText}`);
+            }
 
             // Remove typing indicator and add AI response
             setMessages(prev => {
                 const withoutTyping = prev.filter(msg => !msg.isTyping);
                 const aiMessage: Message = {
                     id: `ai-${Date.now()}`,
-                    content: result.message || result.response || 'I apologize, but I couldn\'t process your request.',
+                    content: result.answer || result.message || result.response || 'I apologize, but I couldn\'t process your request.',
                     sender: 'ai',
                     timestamp: new Date()
                 };
@@ -144,11 +139,26 @@ const Chatbot: React.FC<ChatbotProps> = ({
             // Remove typing indicator and show error
             setMessages(prev => {
                 const withoutTyping = prev.filter(msg => !msg.isTyping);
+
+                // Determine appropriate error message based on error type
+                let errorContent: string;
+                if (err instanceof Error) {
+                    if (err.message.includes('429') || err.message.includes('Too many')) {
+                        errorContent = t('errorRateLimit');
+                    } else if (err.message.includes('502') || err.message.includes('503') || err.message.includes('unavailable')) {
+                        errorContent = t('errorServiceUnavailable');
+                    } else if (err.message.includes('404')) {
+                        errorContent = 'The chatbot service is currently being set up. Please try again in a moment, or contact me directly at nickdevmtl@gmail.com for immediate assistance.';
+                    } else {
+                        errorContent = t('errorSendFailed');
+                    }
+                } else {
+                    errorContent = t('errorSendFailed');
+                }
+
                 const errorMessage: Message = {
                     id: `error-${Date.now()}`,
-                    content: err instanceof Error && err.message.includes('404')
-                        ? 'The chatbot service is currently being set up. Please try again in a moment, or contact me directly at nickdevmtl@gmail.com for immediate assistance.'
-                        : t('errorSendFailed'),
+                    content: errorContent,
                     sender: 'ai',
                     timestamp: new Date(),
                     error: true

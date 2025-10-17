@@ -30,5 +30,7 @@
   "accessibilityCloseChat": "Fermer la fenêtre de chat",
   "accessibilitySendMessage": "Envoyer le message",
   "accessibilityMessageInput": "Tapez votre message",
-  "accessibilityChatHistory": "Historique de la conversation"
+  "accessibilityChatHistory": "Historique de la conversation",
+  "errorRateLimit": "Trop de messages. Veuillez patienter.",
+  "errorServiceUnavailable": "Service de chat temporairement indisponible."
 }
