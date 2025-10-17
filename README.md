@@ -83,6 +83,166 @@ npm run lint
 ## 📁 Project Structure
 
 ```
+
+Directory structure:
+└── mtldev-dotcom-new-nicky-portfolio-v1/
+    ├── README.md
+    ├── middleware.ts
+    ├── next-intl.config.ts
+    ├── next.config.mjs
+    ├── package.json
+    ├── postcss.config.js
+    ├── tailwind.config.js
+    ├── tsconfig.json
+    ├── .cursorignore
+    ├── .dockerignore
+    ├── .eslintrc.json
+    ├── docs/
+    │   ├── README.md
+    │   ├── ai-agent-configuration-guide.md
+    │   ├── chatbot-n8n-integration.md
+    │   ├── chatbot-webhook-setup-troubleshooting.md
+    │   ├── chatbot-workflow-enhancement-plan.md
+    │   ├── chatbot-workflow-implementation-guide.md
+    │   ├── contact-form-n8n-integration.md
+    │   ├── conversation-analytics-tracking-guide.md
+    │   ├── enhanced-response-format-frontend-integration.md
+    │   ├── nickbruno-text-content.md
+    │   ├── rate-limiting-security-implementation.md
+    │   ├── troubleshooting.md
+    │   └── dev/
+    │       └── new-full-text-content.md
+    ├── public/
+    │   ├── _redirects
+    │   ├── manifest.json
+    │   └── assets/
+    │       └── icons/
+    │           └── Tech-Stack-Icons-Design-Stack-Icons-dark-mode/
+    │               ├── chatgpt.webp
+    │               └── svgtopng.zip
+    └── src/
+        ├── app/
+        │   ├── globals.css
+        │   ├── layout.tsx
+        │   ├── not-found.tsx
+        │   ├── opengraph-image.tsx
+        │   ├── page.tsx
+        │   └── [locale]/
+        │       ├── layout.tsx
+        │       ├── page.tsx
+        │       ├── about/
+        │       │   └── page.tsx
+        │       ├── contact/
+        │       │   └── page.tsx
+        │       ├── portfolio/
+        │       │   └── page.tsx
+        │       └── services/
+        │           └── page.tsx
+        ├── components/
+        │   ├── AppIcon.tsx
+        │   ├── AppImage.tsx
+        │   ├── ErrorBoundary.tsx
+        │   ├── ScrollToTop.tsx
+        │   ├── sections/
+        │   │   ├── about/
+        │   │   │   ├── AboutSection.tsx
+        │   │   │   ├── CareerTimeline.tsx
+        │   │   │   ├── CredentialsShowcase.tsx
+        │   │   │   ├── ExperienceCounter.tsx
+        │   │   │   └── PersonalIntro.tsx
+        │   │   ├── contact/
+        │   │   │   ├── ContactForm.tsx
+        │   │   │   ├── ContactInfo.tsx
+        │   │   │   ├── ContactSection.tsx
+        │   │   │   ├── FAQSection.tsx
+        │   │   │   ├── LocationMap.tsx
+        │   │   │   └── ProjectBrief.tsx
+        │   │   ├── hero/
+        │   │   │   ├── FloatingTaglines.tsx
+        │   │   │   ├── HeroContent.tsx
+        │   │   │   ├── HeroExperience.tsx
+        │   │   │   ├── HeroPortrait.tsx
+        │   │   │   ├── HolographicOverlay.tsx
+        │   │   │   ├── LoadingAnimation.tsx
+        │   │   │   └── ParallaxBackground.tsx
+        │   │   ├── home/
+        │   │   │   ├── HomeBenefits.tsx
+        │   │   │   ├── HomeCapabilities.tsx
+        │   │   │   ├── HomeFeaturedProjects.tsx
+        │   │   │   ├── HomeIntro.tsx
+        │   │   │   ├── HomeTestimonials.tsx
+        │   │   │   ├── IconSphere.tsx
+        │   │   │   ├── TechStackCloud.tsx
+        │   │   │   └── TechStackShowcase.tsx
+        │   │   ├── portfolio/
+        │   │   │   ├── FeaturedProject.tsx
+        │   │   │   ├── PortfolioSection.tsx
+        │   │   │   ├── ProjectCard.tsx
+        │   │   │   ├── ProjectFilter.tsx
+        │   │   │   └── ProjectModal.tsx
+        │   │   ├── services/
+        │   │   │   ├── CapabilityStats.tsx
+        │   │   │   ├── ProcessTimeline.tsx
+        │   │   │   ├── ServiceCard.tsx
+        │   │   │   ├── ServicesSection.tsx
+        │   │   │   └── TechStack.tsx
+        │   │   └── testimonials/
+        │   │       ├── ClientLogos.tsx
+        │   │       ├── IndustryBadges.tsx
+        │   │       ├── LinkedInRecommendations.tsx
+        │   │       ├── TestimonialCard.tsx
+        │   │       ├── TestimonialCarousel.tsx
+        │   │       ├── TestimonialsSection.tsx
+        │   │       └── VideoTestimonial.tsx
+        │   ├── shadcn/
+        │   │   └── ui/
+        │   │       ├── button.tsx
+        │   │       ├── checkbox.tsx
+        │   │       └── input.tsx
+        │   └── ui/
+        │       ├── Button.tsx
+        │       ├── Chatbot.tsx
+        │       ├── ChatInput.tsx
+        │       ├── ChatMessage.tsx
+        │       ├── Checkbox.tsx
+        │       ├── Footer.tsx
+        │       ├── Header.tsx
+        │       ├── Input.tsx
+        │       ├── LanguageSwitcher.tsx
+        │       ├── LinkButton.tsx
+        │       └── Select.tsx
+        ├── i18n/
+        │   ├── config.ts
+        │   ├── getMessages.ts
+        │   ├── request.ts
+        │   └── messages/
+        │       ├── en/
+        │       │   ├── about.json
+        │       │   ├── chatbot.json
+        │       │   ├── contact.json
+        │       │   ├── global.json
+        │       │   ├── home.json
+        │       │   ├── portfolio.json
+        │       │   └── services.json
+        │       └── fr/
+        │           ├── about.json
+        │           ├── chatbot.json
+        │           ├── contact.json
+        │           ├── global.json
+        │           ├── home.json
+        │           ├── portfolio.json
+        │           └── services.json
+        ├── styles/
+        │   ├── index.css
+        │   └── tailwind.css
+        └── utils/
+            └── cn.ts
+
+
+```
+
+
+```
 .
 ├── public/                       # Static assets (logos, favicons, imagery)
 │   └── assets/
