@@ -162,6 +162,11 @@
     }
   },
   "sections": {
+    "overview": {
+      "title": "The Four Pillars of Creative Technology",
+      "subtitle": "Where strategy meets execution — and creativity meets intelligence.",
+      "description": "I provide comprehensive digital solutions that combine modern web development, AI automation, and strategic design to help your business succeed in today's digital landscape."
+    },
     "hero": {
       "badge": "Capability Showcase",
       "title": "The Four Pillars of",

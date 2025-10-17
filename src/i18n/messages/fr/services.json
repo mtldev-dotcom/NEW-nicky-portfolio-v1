@@ -162,6 +162,11 @@
     }
   },
   "sections": {
+    "overview": {
+      "title": "Ce que j'offre",
+      "subtitle": "Services de transformation numérique complets",
+      "description": "Je fournis des solutions numériques complètes qui combinent le développement web moderne, l'automatisation IA et le design stratégique pour aider votre entreprise à réussir dans le paysage numérique d'aujourd'hui."
+    },
     "hero": {
       "badge": "Présentation des Capacités",
       "title": "Les Quatre Piliers de",
