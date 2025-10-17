@@ -15,75 +15,74 @@
     "six": "Meaningful results"
   },
   "hero": {
-    "title": "Design. Automate. Elevate.",
-    "subtitle": "I create powerful digital systems that simplify, streamline, and scale your business.",
-    "description": "From stunning websites to smart automation and AI-infused tools — I help you work smarter and stand out online.",
-    "ctaPrimary": "See My Work",
-    "ctaSecondary": "Book a Discovery Call",
+    "title": "I build modern digital systems that simplify your business and make you stand out.",
+    "subtitle": "Websites • Automation • Design • Strategy",
+    "description": "From websites and automation to design and marketing — I help you work smarter, not harder.",
+    "ctaPrimary": "See my work",
+    "ctaSecondary": "Book a discovery call",
     "stats": {
       "experience": {
         "value": "20+",
-        "label": "years experience"
+        "label": "Years experience"
       },
       "projects": {
         "value": "80+",
-        "label": "projects delivered"
+        "label": "Projects delivered"
       },
       "hoursSaved": {
         "value": "4,000+",
-        "label": "hours saved"
+        "label": "Hours saved for teams"
       }
     },
-    "status": "Based in Montreal • Available for projects",
+    "status": "Available for projects",
     "response": "Response within 24h",
     "portraitAlt": "Nicky Bruno - Creative Technologist"
   },
   "intro": {
-    "greeting": "Hi, I'm Nicky Bruno — a creative technologist and digital consultant.",
-    "tagline": "I help businesses, startups, and entrepreneurs build modern websites, custom automations, and AI-driven systems that save time, boost visibility, and look incredible.",
-    "paragraph": "Modern solutions that blend creativity, tech, and strategy."
+    "greeting": "Hi, I'm Nicky Bruno, a creative technologist and digital consultant from Montreal, Canada.",
+    "tagline": "I help individuals, startups, and established businesses build modern websites, smart systems, and AI automations that save time, reduce stress, and look amazing.",
+    "paragraph": "In today's world, your digital presence is everything — whether you're a local restaurant, a contractor, a real estate agent, or a growing online brand. But the truth is, most people don't have the time or knowledge to handle websites, tech setups, or automation tools. That's where I come in. I combine design, coding, and artificial intelligence to simplify your operations, help you attract more clients, and free up your time to focus on what really matters — running your business."
   },
   "capabilities": {
     "title": "What I Do",
-    "subtitle": "Modern solutions that blend creativity, tech, and strategy:",
+    "subtitle": "Short Overview",
     "description": "Practical, modern, human-centered solutions across design, engineering, and automation.",
-    "cta": "Learn More",
+    "cta": "Learn more",
     "items": {
       "webDesign": {
-        "title": "Web Design & Dev",
-        "description": "Fast, responsive, high-converting sites."
+        "title": "Web Design & Development",
+        "description": "Fast, mobile-friendly websites that look great and convert visitors into customers."
       },
       "automation": {
-        "title": "Automation & AI",
-        "description": "Workflows that save hours every week."
+        "title": "Automation & AI Tools",
+        "description": "Save hours of repetitive work every week with custom automations (e.g. sending quotes, collecting forms, scheduling clients)."
       },
       "brandStrategy": {
         "title": "Brand & Digital Strategy",
-        "description": "Sharpen your brand, grow your impact."
+        "description": "Help you stand out online with a professional image and clear communication."
       }
     }
   },
   "benefits": {
-    "title": "Why It Works",
-    "subtitle": "Real-world impact:",
+    "title": "Real-World Benefits",
+    "subtitle": "Why businesses choose to work with me:",
     "items": {
       "timeSavings": {
         "icon": "💰",
-        "title": "10+ hours/week saved:",
-        "example": "Like automating client bookings for local service teams."
+        "title": "Save up to 10+ hours a week through smart automation.",
+        "example": "Example: a local cleaning company now automatically sends invoices and reminders using an n8n workflow I built — no more manual emails!"
       },
       "visibility": {
         "icon": "🚀",
-        "title": "Boosted visibility:",
-        "example": "A restaurant client saw 45% more bookings in 60 days."
+        "title": "Increase online visibility with websites optimized for SEO and Google Business.",
+        "example": "Example: a restaurant client saw a 45% increase in reservations within 2 months after their new site launch."
       },
       "understanding": {
         "icon": "🧠",
-        "title": "Tech made simple:",
-        "example": "No jargon. Just clear, smart solutions."
+        "title": "Make technology understandable.",
+        "example": "I don't speak in jargon — I explain how things work in plain language so you always feel in control."
       }
-    },
-      "cta": "Learn more"
+    }
   },
   "loading": {
     "title": "Preparing your experience",
@@ -122,7 +121,7 @@
     "cta": "Learn more"
   },
   "featuredProjects": {
-    "title": "Featured Work",
+    "title": "Featured Projects",
     "subtitle": "Selected work that delivers results",
     "description": "Strategy, design, and engineering working together. Explore 3 outcomes below.",
     "projects": {
@@ -130,28 +129,28 @@
         "year": "2025",
         "type": "Case Study",
         "title": "Sofia AI Desk",
-        "description": "Automated customer support with 60% faster replies.",
+        "description": "Automated customer support with a clear dashboard — ~60% faster responses.",
         "cta": "View project"
       },
       "nextxlevel": {
         "year": "2024",
         "type": "Case Study",
         "title": "Next X Level",
-        "description": "Bilingual e-commerce, smooth UX, auto product updates.",
+        "description": "Bilingual e‑commerce with clean mobile UX and automated product updates.",
         "cta": "View project"
       },
       "lumicerra": {
         "year": "2023",
         "type": "Case Study",
         "title": "Lumicerra Labs",
-        "description": "Real-time lighting dashboard with live energy insights.",
+        "description": "Real‑time dashboard for smart LED lighting with clear energy insights.",
         "cta": "View project"
       }
     },
     "cta": "Explore the full portfolio"
   },
   "testimonials": {
-    "title": "Client Voices",
+    "title": "Testimonials",
     "subtitle": "What clients say about working with me",
     "description": "Hear from businesses that have transformed their digital presence through our collaboration.",
     "badge": "Testimonials",
@@ -162,14 +161,14 @@
         "name": "Sofia Ops Team",
         "role": "Operations",
         "company": "Sofia AI Desk",
-        "content": "Nicky simplified our workflow. We save hours every week.",
+        "content": "Nicky simplified our whole workflow — we saved hours every week.",
         "projectType": "AI Automation"
       },
       {
-        "name": "Alexandra",
+        "name": "Alexandra Thompson",
         "role": "CEO",
-        "company": "InnovateTech",
-        "content": "Creative vision + tech skills = transformed results.",
+        "company": "InnovateTech Solutions",
+        "content": "Nicky's blend of creative vision and technical expertise revolutionized our process. Results speak for themselves.",
         "projectType": "Platform Design"
       },
       {
@@ -496,10 +495,5 @@
         "url": "https://adobe.com/products/aftereffects"
       }
     }
-  },
-  "finalCta": {
-    "title": "Want your digital systems to work harder for you?",
-    "subtitle": "Let's build something remarkable.",
-    "cta": "Book a Discovery Call"
   }
 }

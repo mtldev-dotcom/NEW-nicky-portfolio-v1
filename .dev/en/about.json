@@ -1,7 +1,7 @@
 {
   "title": "About Nicky Bruno",
   "subtitle": "Creative Technologist & Digital Consultant",
-  "description": "From design to AI, I build digital solutions that think, adapt, and evolve.",
+  "description": "Learn more about my journey, expertise, and approach to building modern digital solutions.",
   "metadata": {
     "title": "About - Nicky Bruno | The Creative Technologist",
     "description": "Meet Nicky Bruno, the creative technologist bridging design, development, and AI innovation from Montreal to the world.",
@@ -11,11 +11,11 @@
   "sections": {
     "intro": {
       "badge": "Identity Revelation",
-      "title": "Who I Am",
-      "titleHighlight": "",
-      "paragraph1": "Hi, I'm Nicky Bruno, a creative technologist based in Montreal. I bring together two decades of experience at the crossroads of design, development, and automation. I don't choose between creativity and code — I use both to build smarter digital systems.",
-      "paragraph2": "My work isn't about just launching websites. It's about crafting intelligent experiences that connect human intuition with machine precision. I'm fluent in both strategy and execution, design thinking and engineering — and I bring it all into every project.",
-      "paragraph3": "🌍 Global Impact 🧠 Visionary Thinking 🛠 Technical Execution 🤝 Human-Centered Collaboration",
+      "title": "The Creative",
+      "titleHighlight": "Technologist",
+      "paragraph1": "I'm Nicky Bruno, and I represent the evolution of creative professionals—where traditional design meets cutting-edge AI automation. I don't just choose between creativity or technology; I master both.",
+      "paragraph2": "For over two decades, I've been crafting intelligent experiences that think, adapt, and evolve. I'm not just building websites—I'm architecting digital experiences that bridge human intuition with machine precision.",
+      "paragraph3": "Based in Montreal's vibrant tech scene, I bring a unique blend of bilingual culture and North American innovation to every project. My approach is visionary yet grounded, technically masterful yet creatively inspired.",
       "imageAlt": "Nicky Bruno - Creative Technologist",
       "status": "ONLINE",
       "location": "Montreal, QC",
@@ -40,9 +40,9 @@
       }
     },
     "timeline": {
-      "badge": "Career Timeline",
-      "title": "Career Timeline",
-      "description": "20+ years of building future-ready digital solutions.",
+      "badge": "Career Journey",
+      "title": "Two Decades of Evolution",
+      "description": "From creative foundation to AI pioneer, each milestone represents a deliberate step toward mastering the intersection of human creativity and technological innovation.",
       "keyAchievements": "Key Achievements:",
       "currentStatus": {
         "badge": "Current Status",
@@ -51,96 +51,96 @@
       },
       "milestones": {
         "2004": {
-          "title": "Freelance Designer",
+          "title": "Creative Foundation",
           "company": "Freelance Designer",
           "location": "Montreal, QC",
-          "description": "Built first client websites, mastered Adobe Suite.",
+          "description": "Started journey in graphic design and web development, establishing the creative foundation that would define my approach to technology.",
           "achievements": ["First client portfolio", "Adobe Creative Suite mastery", "Web standards adoption"]
         },
         "2008": {
-          "title": "Creative Agency Lead",
+          "title": "Digital Evolution",
           "company": "Creative Agency Lead",
           "location": "Montreal, QC",
-          "description": "Led UX-driven projects and design teams.",
+          "description": "Led digital transformation initiatives, bridging traditional design with emerging web technologies and user experience principles.",
           "achievements": ["Team leadership", "UX methodology", "Client relationship management"]
         },
         "2012": {
-          "title": "Senior Developer",
+          "title": "Technical Mastery",
           "company": "Senior Developer",
           "location": "Montreal, QC",
-          "description": "Full-stack, database optimization, performance-focused.",
+          "description": "Deepened technical expertise in modern web frameworks, database architecture, and performance optimization strategies.",
           "achievements": ["Full-stack development", "Database optimization", "Performance engineering"]
         },
         "2016": {
-          "title": "Tech Consultant",
+          "title": "Innovation Leadership",
           "company": "Tech Consultant",
           "location": "North America",
-          "description": "Advised companies across North America on digital transformation.",
+          "description": "Expanded consulting practice across North America, specializing in digital transformation and emerging technology integration.",
           "achievements": ["Cross-border projects", "Digital strategy", "Technology consulting"]
         },
         "2018": {
-          "title": "Founder, AIAA.dev",
+          "title": "AI Integration Pioneer",
           "company": "AIAA.dev Founder",
           "location": "Montreal, QC",
-          "description": "Pioneered AI integration and custom workflow automation.",
+          "description": "Founded AI automation agency, becoming an early adopter of machine learning and artificial intelligence in creative workflows.",
           "achievements": ["AI automation", "Machine learning", "Workflow optimization"]
         },
         "2024": {
           "title": "Creative Technologist",
           "company": "Independent Practice",
           "location": "Global",
-          "description": "Delivering AI-powered, design-forward digital systems globally.",
+          "description": "Established as The Creative Technologist, mastering the intersection of design, development, and AI to create intelligent experiences.",
           "achievements": ["Global recognition", "AI-human collaboration", "Intelligent experiences"]
         }
       }
     },
     "experienceCounter": {
-      "badge": "Experience by the Numbers",
+      "badge": "By The Numbers",
       "title": "Proven Track Record",
       "description": "Two decades of bridging creativity and technology, delivering intelligent experiences that drive real business impact across industries and continents.",
       "stats": {
         "years": {
-          "label": "20+ years",
-          "description": "blending design & tech"
+          "label": "Years Experience",
+          "description": "Two decades of creative technology mastery"
         },
         "projects": {
-          "label": "80+ projects",
-          "description": "across industries"
+          "label": "Projects Delivered",
+          "description": "Intelligent experiences crafted"
         },
         "clients": {
-          "label": "15+ countries",
-          "description": "served"
+          "label": "Happy Clients",
+          "description": "From startups to enterprises"
         },
         "awards": {
-          "label": "Multiple industry awards",
+          "label": "Industry Awards",
           "description": "Recognition for excellence"
         }
       },
       "highlights": {
         "growth": {
-          "label": "40%+ improvement",
-          "description": "in business processes"
+          "label": "Growth Focused",
+          "description": "Consistently delivering 40%+ performance improvements"
         },
         "global": {
-          "label": "Early AI adopter",
-          "description": "since 2018"
+          "label": "Global Reach",
+          "description": "Projects spanning 15+ countries and 5 continents"
         },
         "pioneer": {
-          "label": "Clients from 5 continents",
-          "description": "Global reach"
+          "label": "AI Pioneer",
+          "description": "Early adopter of AI automation since 2018"
         }
       }
     },
     "credentials": {
-      "badge": "Recognized Expertise",
+      "badge": "Credentials & Recognition",
       "title": "Industry Recognition",
       "description": "Continuous learning and community contribution through certifications, speaking engagements, publications, and open source projects.",
       "sections": {
         "certifications": {
-          "title": "Certifications",
+          "title": "Professional Certifications",
           "items": {
             "aws": {
-              "title": "AWS Certified Solutions Architect",
+              "title": "AWS Solutions Architect",
               "issuer": "Amazon Web Services",
               "year": "2023"
             },
@@ -165,7 +165,7 @@
           "title": "Speaking Engagements",
           "items": {
             "aiSummit": {
-              "event": "AI & Design Summit",
+              "event": "AI & Design Summit 2024",
               "topic": "The Future of Creative AI",
               "location": "Toronto, ON",
               "attendees": "500+"
@@ -185,7 +185,7 @@
           }
         },
         "publications": {
-          "title": "Publications",
+          "title": "Industry Publications",
           "reads": "reads",
           "items": {
             "designSystems": {
@@ -209,7 +209,7 @@
           }
         },
         "openSource": {
-          "title": "Open Source",
+          "title": "Open Source Contributions",
           "items": {
             "reactAi": {
               "project": "react-ai-components",
@@ -257,39 +257,39 @@
     },
     "approach": {
       "title": "My Approach",
-      "content": "Tech should empower people. My process starts with understanding your goals and ends with smart, intuitive systems that free up your time and drive results."
+      "content": "I believe technology should serve people, not the other way around. That's why I focus on creating solutions that are not only technically sound but also intuitive and accessible. Every project starts with understanding your goals and ends with a solution that exceeds your expectations."
     },
     "values": {
-      "title": "What I Value",
+      "title": "Core Values",
       "items": {
         "innovation": {
           "title": "Innovation",
-          "description": "Always evolving"
+          "description": "Always exploring new technologies and approaches to solve problems better."
         },
         "collaboration": {
           "title": "Collaboration",
-          "description": "Co-create with purpose"
+          "description": "Working closely with clients to ensure solutions meet their specific needs."
         },
         "quality": {
           "title": "Quality",
-          "description": "Future-proof solutions"
+          "description": "Delivering high-quality solutions that stand the test of time."
         },
         "transparency": {
           "title": "Transparency",
-          "description": "No jargon, just clarity"
+          "description": "Clear communication and honest feedback throughout the project."
         }
       }
     },
     "cta": {
-      "title": "Let's Build Something Extraordinary",
-      "titleHighlight": "",
-      "description": "With 20 years of experience, a global reach, and a passion for innovation, I'm ready to take on your next digital challenge.",
+      "title": "Ready to Create Something",
+      "titleHighlight": "Extraordinary?",
+      "description": "With two decades of experience bridging creativity and technology, I'm positioned to tackle your most ambitious projects. Let's craft intelligent experiences that think, adapt, and evolve.",
       "buttons": {
         "startProject": "Start Your Project",
         "viewWork": "View My Work"
       },
       "status": {
-        "available": "Response within 24h • Currently available",
+        "available": "Available for Projects",
         "response": "Response within 24h"
       }
     }

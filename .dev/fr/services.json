@@ -1,0 +1,358 @@
+{
+  "title": "Services",
+  "subtitle": "Solutions Numériques Complètes",
+  "description": "Du développement web à l'automatisation IA, je fournis des solutions numériques de bout en bout qui aident votre entreprise à prospérer.",
+  "more": "plus",
+  "metadata": {
+    "title": "Services - Nicky Bruno | Technologue Créatif",
+    "description": "Explorez les services de design créatif, développement full-stack, automatisation IA et consultation stratégique par Nicky Bruno.",
+    "ogTitle": "Services - Nicky Bruno",
+    "ogDescription": "Services complets de technologie créative couvrant les systèmes de design, les constructions full-stack et l'automatisation intelligente."
+  },
+  "sections": {
+    "overview": {
+      "title": "Ce que j'offre",
+      "subtitle": "Services de transformation numérique complets",
+      "description": "Je fournis des solutions numériques complètes qui combinent le développement web moderne, l'automatisation IA et le design stratégique pour aider votre entreprise à réussir dans le paysage numérique d'aujourd'hui."
+    },
+    "services": {
+      "webDevelopment": {
+        "title": "Développement Web",
+        "subtitle": "Sites web modernes et responsives",
+        "description": "Sites web personnalisés construits avec les dernières technologies, optimisés pour les performances et l'expérience utilisateur.",
+        "features": [
+          "Design responsive pour tous les appareils",
+          "Optimisation SEO",
+          "Temps de chargement rapides",
+          "Design UI/UX moderne",
+          "Systèmes de gestion de contenu"
+        ],
+        "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+      },
+      "automation": {
+        "title": "IA & Automatisation",
+        "subtitle": "Solutions de workflow intelligentes",
+        "description": "Automatisez les tâches répétitives et intégrez des capacités IA pour rationaliser les opérations de votre entreprise.",
+        "features": [
+          "Automatisation de workflow",
+          "Chatbots alimentés par l'IA",
+          "Automatisation du traitement des données",
+          "Intégration avec les outils existants",
+          "Solutions IA personnalisées"
+        ],
+        "technologies": ["OpenAI", "LangChain", "n8n", "Zapier"]
+      },
+      "design": {
+        "title": "Design & Branding",
+        "subtitle": "Identité visuelle professionnelle",
+        "description": "Créez une identité de marque cohérente qui résonne avec votre audience et stimule l'engagement.",
+        "features": [
+          "Design d'identité de marque",
+          "Logo et actifs visuels",
+          "Design UI/UX",
+          "Systèmes de design",
+          "Directives de marque"
+        ],
+        "technologies": ["Figma", "Adobe Creative Suite", "Framer"]
+      },
+      "consulting": {
+        "title": "Stratégie Numérique",
+        "subtitle": "Conseil stratégique et planification",
+        "description": "Conseil stratégique pour vous aider à prendre des décisions éclairées sur votre présence numérique et vos investissements technologiques.",
+        "features": [
+          "Planification de stratégie numérique",
+          "Évaluation technologique",
+          "Optimisation des processus",
+          "Formation d'équipe",
+          "Support continu"
+        ],
+        "technologies": ["Planification Stratégique", "Analyse de Processus", "Formation"]
+      }
+    }
+  },
+  "pricing": {
+    "title": "Investissement",
+    "subtitle": "Tarification transparente pour un travail de qualité",
+    "description": "Chaque projet est unique, donc je fournis des devis personnalisés basés sur vos besoins et exigences spécifiques.",
+    "contact": "Contactez-moi pour un devis détaillé adapté à votre projet."
+  },
+  "keyCapabilities": {
+    "title": "Capacités Clés :",
+    "items": {
+      "webDevelopment": {
+        "title": "Développement Web",
+        "capabilities": [
+          "Design responsive pour tous les appareils",
+          "Optimisation SEO",
+          "Temps de chargement rapides",
+          "Design UI/UX moderne",
+          "Systèmes de gestion de contenu"
+        ],
+        "featuredProject": {
+          "title": "Projet Vedette",
+          "name": "Reconstruction de Plateforme E-commerce",
+          "description": "Migration complète de plateforme résultant en 50% de temps de chargement plus rapides et 25% d'augmentation des taux de conversion.",
+          "cta": "Voir le Cas"
+        },
+        "certifications": [
+          "Architecte Solutions AWS",
+          "Professionnel React"
+        ]
+      },
+      "automation": {
+        "title": "IA & Automatisation",
+        "capabilities": [
+          "Automatisation de workflow",
+          "Chatbots alimentés par l'IA",
+          "Automatisation du traitement des données",
+          "Intégration avec les outils existants",
+          "Solutions IA personnalisées"
+        ],
+        "featuredProject": {
+          "title": "Projet Vedette",
+          "name": "Assistant IA Service Client",
+          "description": "Chatbot intelligent déployé réduisant les tickets de support de 60% tout en maintenant 95% de satisfaction client.",
+          "cta": "Voir le Cas"
+        },
+        "certifications": [
+          "Spécialiste API OpenAI",
+          "Certification IA Google"
+        ]
+      },
+      "design": {
+        "title": "Design & Branding",
+        "capabilities": [
+          "Design d'identité de marque",
+          "Logo et actifs visuels",
+          "Design UI/UX",
+          "Systèmes de design",
+          "Directives de marque"
+        ],
+        "featuredProject": {
+          "title": "Projet Vedette",
+          "name": "Rebranding Startup Tech Montréal",
+          "description": "Refonte complète de l'identité visuelle résultant en 300% d'augmentation de l'engagement utilisateur et financement Series A réussi.",
+          "cta": "Voir le Cas"
+        },
+        "certifications": [
+          "Expert Certifié Adobe",
+          "Design UX Google"
+        ]
+      },
+      "consulting": {
+        "title": "Planification Stratégique",
+        "capabilities": [
+          "Planification de stratégie numérique",
+          "Évaluation technologique",
+          "Optimisation des processus",
+          "Formation d'équipe",
+          "Support continu"
+        ],
+        "featuredProject": {
+          "title": "Projet Vedette",
+          "name": "Implémentation Stratégie Croissance SaaS",
+          "description": "Refonte stratégique menant à 200% d'augmentation du trafic organique et 150% d'amélioration de la génération de leads.",
+          "cta": "Voir le Cas"
+        },
+        "certifications": [
+          "Certifié Google Analytics",
+          "Stratégie HubSpot"
+        ]
+      }
+    }
+  },
+  "sections": {
+    "hero": {
+      "badge": "Présentation des Capacités",
+      "title": "Les Quatre Piliers de",
+      "titleHighlight": "la Technologie Créative",
+      "description": "Où le design, le code et l'IA rencontrent la créativité. Je ne construis pas seulement des sites web—je crée des expériences intelligentes qui pensent, s'adaptent et évoluent. L'avenir du travail créatif est là, et il est magnifiquement humain.",
+      "buttons": {
+        "startProject": "Démarrer Votre Projet",
+        "watchVideo": "Regarder la Vidéo du Processus"
+      }
+    },
+    "tabs": {
+      "services": "Services Principaux",
+      "process": "Mon Processus",
+      "tech": "Stack Technologique",
+      "stats": "Expérience"
+    },
+    "services": {
+      "title": "Services Complets de Technologie Créative",
+      "description": "Du concept au déploiement, je fournis des solutions de bout en bout qui comblent l'écart entre la vision créative et l'exécution technique.",
+      "items": {
+        "webDevelopment": {
+          "title": "Développement Web",
+          "description": "Sites web personnalisés construits avec les dernières technologies, optimisés pour les performances et l'expérience utilisateur.",
+          "features": [
+            "Design responsive pour tous les appareils",
+            "Optimisation SEO",
+            "Temps de chargement rapides",
+            "Design UI/UX moderne",
+            "Systèmes de gestion de contenu"
+          ]
+        },
+        "automation": {
+          "title": "IA & Automatisation",
+          "description": "Automatisez les tâches répétitives et intégrez des capacités IA pour rationaliser les opérations de votre entreprise.",
+          "features": [
+            "Automatisation de workflow",
+            "Chatbots alimentés par l'IA",
+            "Automatisation du traitement des données",
+            "Intégration avec les outils existants",
+            "Solutions IA personnalisées"
+          ]
+        },
+        "design": {
+          "title": "Design & Branding",
+          "description": "Créez une identité de marque cohérente qui résonne avec votre audience et stimule l'engagement.",
+          "features": [
+            "Design d'identité de marque",
+            "Logo et actifs visuels",
+            "Design UI/UX",
+            "Systèmes de design",
+            "Directives de marque"
+          ]
+        },
+        "consulting": {
+          "title": "Stratégie Numérique",
+          "description": "Conseil stratégique pour vous aider à prendre des décisions éclairées sur votre présence numérique et vos investissements technologiques.",
+          "features": [
+            "Planification de stratégie numérique",
+            "Évaluation technologique",
+            "Optimisation des processus",
+            "Formation d'équipe",
+            "Support continu"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Mon Processus de Développement Éprouvé",
+      "description": "Une approche systématique qui garantit que chaque projet livre des résultats exceptionnels grâce à la planification stratégique, l'exécution créative et l'optimisation intelligente.",
+      "subtitle": "Comment nous travaillons ensemble",
+      "keyDeliverables": "Livrables Clés :",
+      "steps": {
+        "discovery": {
+          "phase": "Découverte",
+          "title": "Analyse Stratégique",
+          "description": "Plongée profonde dans vos objectifs commerciaux, votre audience cible et le paysage concurrentiel pour créer la stratégie de solution parfaite.",
+          "duration": "1-2 semaines",
+          "deliverables": {
+            "0": "Recherche de Marché",
+            "1": "Personas Utilisateurs",
+            "2": "Audit Technique",
+            "3": "Document de Stratégie"
+          }
+        },
+        "design": {
+          "phase": "Design",
+          "title": "Développement Créatif",
+          "description": "Transformer les insights en expériences visuelles convaincantes qui résonnent avec votre audience et stimulent l'engagement.",
+          "duration": "2-3 semaines",
+          "deliverables": {
+            "0": "Wireframes",
+            "1": "Design Visuel",
+            "2": "Prototypes",
+            "3": "Système de Design"
+          }
+        },
+        "development": {
+          "phase": "Développement",
+          "title": "Implémentation Technique",
+          "description": "Construire des solutions robustes et évolutives en utilisant des technologies de pointe et les meilleures pratiques pour des performances optimales.",
+          "duration": "3-6 semaines",
+          "deliverables": {
+            "0": "Développement Frontend",
+            "1": "Intégration Backend",
+            "2": "Tests",
+            "3": "Optimisation"
+          }
+        },
+        "aiIntegration": {
+          "phase": "Intégration IA",
+          "title": "Couche d'Intelligence",
+          "description": "Intégrer des capacités IA pour automatiser les processus, améliorer l'expérience utilisateur et fournir des insights intelligents.",
+          "duration": "1-2 semaines",
+          "deliverables": {
+            "0": "Modèles IA",
+            "1": "Scripts d'Automatisation",
+            "2": "Configuration Analytics",
+            "3": "Surveillance des Performances"
+          }
+        },
+        "launch": {
+          "phase": "Lancement",
+          "title": "Déploiement & Croissance",
+          "description": "Lancer votre solution avec une surveillance complète, une optimisation et un support continu pour une amélioration continue.",
+          "duration": "1 semaine",
+          "deliverables": {
+            "0": "Déploiement Production",
+            "1": "Surveillance des Performances",
+            "2": "Formation Utilisateurs",
+            "3": "Stratégie de Croissance"
+          }
+        }
+      }
+    },
+    "tech": {
+      "title": "Stack Technologique de Pointe",
+      "description": "Exploiter les derniers outils et technologies pour construire des solutions évolutives, performantes et prêtes pour l'avenir.",
+      "categories": {
+        "frontend": {
+          "title": "Frontend & Design",
+          "description": "Créer de belles expériences utilisateur responsives"
+        },
+        "backend": {
+          "title": "Backend & Infrastructure",
+          "description": "Construire des solutions côté serveur évolutives et sécurisées"
+        },
+        "ai": {
+          "title": "IA & Automatisation",
+          "description": "Intégrer l'automatisation intelligente et l'apprentissage automatique"
+        },
+        "tools": {
+          "title": "Outils & Workflow",
+          "description": "Outils professionnels pour un développement efficace"
+        }
+      }
+    },
+    "stats": {
+      "title": "Deux Décennies d'Excellence Créative",
+      "description": "Expérience et expertise construites à travers des années de projets réussis et de clients satisfaits dans diverses industries.",
+      "experience": {
+        "value": "20+",
+        "label": "Années d'Expérience",
+        "description": "Deux décennies à maîtriser l'évolution du design traditionnel à la créativité alimentée par l'IA"
+      },
+      "projects": {
+        "value": "150+",
+        "label": "Projets Livrés",
+        "description": "Lancements réussis à travers startups, agences et clients d'entreprise"
+      },
+      "clients": {
+        "value": "50+",
+        "label": "Clients Heureux",
+        "description": "Partenariats à long terme construits sur la confiance, la qualité et les solutions innovantes"
+      },
+      "retention": {
+        "value": "95%",
+        "label": "Rétention Client",
+        "description": "Les clients reviennent parce que nous livrons des résultats qui dépassent les attentes"
+      }
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Vision ?",
+      "description": "Collaborons pour créer quelque chose d'extraordinaire. Que vous ayez besoin de design, de développement ou d'intégration IA, je suis là pour donner vie à vos idées.",
+      "buttons": {
+        "startProject": "Démarrer Votre Projet",
+        "scheduleConsultation": "Planifier une Consultation"
+      },
+      "features": {
+        "freeConsultation": "Consultation gratuite de 30 min",
+        "satisfactionGuarantee": "Garantie de satisfaction à 100%"
+      }
+    }
+  }
+}

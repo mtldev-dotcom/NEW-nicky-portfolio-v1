@@ -6,12 +6,12 @@
     "portfolio": "Portfolio",
     "testimonials": "Testimonials",
     "contact": "Contact",
-    "cta": "Start a Project"
+    "cta": "Start project"
   },
   "common": {
     "loading": "Loading...",
-    "error": "Oops! Something went wrong.",
-    "retry": "Retry",
+    "error": "An error occurred",
+    "retry": "Try again",
     "close": "Close",
     "open": "Open",
     "next": "Next",
@@ -22,27 +22,27 @@
     "edit": "Edit",
     "delete": "Delete",
     "view": "View",
-    "learnMore": "Learn More",
-    "getStarted": "Get Started",
-    "readMore": "Read More",
-    "seeMore": "See More",
-    "showLess": "Show Less",
-    "showMore": "Show More",
-    "viewProject": "View Project",
-    "viewCase": "View Case",
-    "viewCaseStudy": "View Case Study",
-    "liveDemo": "Live Demo",
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "readMore": "Read more",
+    "seeMore": "See more",
+    "showLess": "Show less",
+    "showMore": "Show more",
+    "viewProject": "View project",
+    "viewCase": "View case",
+    "viewCaseStudy": "View case study",
+    "liveDemo": "Live demo",
     "caseStudy": "Case Study",
     "featuredProject": "Featured Project",
     "industryAwards": "Industry Awards",
     "communityLeader": "Community Leader",
-    "continuousLearning": "Lifelong Learner",
+    "continuousLearning": "Continuous Learning",
     "creativeTechnologist": "Creative Technologist"
   },
   "seo": {
     "title": "Nicky Bruno | Creative Technologist & Experience Designer",
-    "description": "Explore the digital work of Nicky Bruno — blending design, development, and AI storytelling to deliver future-ready experiences.",
-    "keywords": "creative technologist, web design, AI automation, UX strategy, Montreal digital consultant"
+    "description": "Step into the immersive hero experience of Nicky Bruno, the creative technologist blending design, engineering, and AI-driven storytelling.",
+    "keywords": "creative technologist, web development, AI automation, design systems, Montreal, Canada"
   },
   "meta": {
     "siteName": "Nicky Bruno",
@@ -61,7 +61,7 @@
   "footer": {
     "title": "Nicky Bruno",
     "subtitle": "Creative Technologist & Digital Consultant",
-    "description": "Crafting modern, intelligent experiences through thoughtful design and cutting-edge technology.",
+    "description": "Building modern digital experiences that combine cutting-edge technology with user-centered design.",
     "sections": {
       "services": {
         "title": "Services",
@@ -86,7 +86,7 @@
         "items": [
           "Blog",
           "Case Studies",
-          "Docs",
+          "Documentation",
           "Support"
         ]
       },
@@ -94,28 +94,28 @@
         "title": "Legal",
         "items": [
           "Privacy Policy",
-          "Terms of Use",
+          "Terms of Service",
           "Cookie Policy",
-          "GDPR Info"
+          "GDPR Compliance"
         ]
       }
     },
     "contact": {
-      "title": "Let's Connect",
+      "title": "Get In Touch",
       "email": "hello@nickybruno.com",
       "location": "Montreal, Canada",
-      "description": "Working remotely with clients worldwide"
+      "description": "Available for remote work worldwide"
     },
     "social": {
-      "title": "Connect Online",
+      "title": "Follow Me",
       "linkedin": "LinkedIn",
       "twitter": "Twitter",
       "github": "GitHub",
       "dribbble": "Dribbble"
     },
     "newsletter": {
-      "title": "Join the Newsletter",
-      "description": "Get fresh insights on AI, design, and creative technology.",
+      "title": "Stay Updated",
+      "description": "Get the latest insights on creative technology and digital innovation.",
       "placeholder": "Enter your email",
       "button": "Subscribe",
       "success": "Thank you for subscribing!",

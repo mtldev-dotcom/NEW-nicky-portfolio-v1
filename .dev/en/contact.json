@@ -1,7 +1,7 @@
 {
   "title": "Contact",
-  "subtitle": "Let's Build Something Extraordinary",
-  "description": "Have a project in mind? Let's connect and bring it to life with smart design, AI integration, and modern tech.",
+  "subtitle": "Let's Work Together",
+  "description": "Ready to transform your digital presence? Get in touch to discuss your project and how I can help.",
   "metadata": {
     "title": "Contact - Nicky Bruno | Creative Technologist",
     "description": "Let's collaborate on your next project—connect with Nicky Bruno for AI-driven design, development, and strategy.",
@@ -11,31 +11,31 @@
   "sections": {
     "hero": {
       "badge": "Ready to Start Your Project?",
-      "title": "Let's Work Together",
-      "titleHighlight": "",
-      "description": "Whether you're launching a web platform, automating with AI, or rethinking your digital strategy — I'm here to help.",
+      "title": "Let's Create Something",
+      "titleHighlight": "Extraordinary",
+      "description": "Whether you're looking to build a cutting-edge web application, integrate AI into your workflow, or create a digital experience that stands out—I'm here to help bring your vision to life.",
       "stats": {
         "response": {
-          "title": "24hr Response Time",
+          "title": "24 Hour Response",
           "description": "Quick turnaround on all inquiries"
         },
         "global": {
-          "title": "Global Collaboration",
+          "title": "Global Reach",
           "description": "Working with clients worldwide"
         },
         "confidential": {
-          "title": "100% Confidential",
+          "title": "Confidential",
           "description": "All inquiries are secure & private"
         }
       }
     },
     "intro": {
-      "title": "Quick Contact Form",
-      "subtitle": "Tell me a bit about your project. I'll get back to you within a day.",
+      "title": "Get In Touch",
+      "subtitle": "Ready to start your project?",
       "description": "I'm always excited to work on new projects and help businesses achieve their digital goals. Whether you need a new website, AI automation, or strategic consulting, I'm here to help."
     },
     "form": {
-      "title": "Required Fields:",
+      "title": "Quick Contact Form",
       "subtitle": "Tell me about your project",
       "description": "Have a question or want to get in touch? Send me a quick message",
       "fields": {
@@ -86,7 +86,7 @@
           }
         },
         "message": {
-          "label": "Message",
+          "label": "Project Details",
           "placeholder": "Describe your project, goals, and any specific requirements..."
         }
       },
@@ -112,7 +112,7 @@
       }
     },
     "info": {
-      "title": "Prefer to Reach Out Directly?",
+      "title": "Get In Touch",
       "items": {
         "email": {
           "label": "Email",
@@ -126,7 +126,7 @@
         },
         "location": {
           "label": "Location",
-          "value": "Montreal, QC – available globally",
+          "value": "Montreal, QC, Canada",
           "description": "Available for local & remote projects"
         },
         "response": {
@@ -137,23 +137,23 @@
       }
     },
     "social": {
-      "title": "Connect Online",
+      "title": "Connect & Follow",
       "items": {
         "linkedin": {
           "name": "LinkedIn",
-          "description": "For updates & networking"
+          "description": "Professional network & updates"
         },
         "github": {
           "name": "GitHub",
-          "description": "See my code & projects"
+          "description": "Code repositories & contributions"
         },
         "twitter": {
           "name": "Twitter",
-          "description": "Follow thoughts & trends"
+          "description": "Industry insights & thoughts"
         },
         "instagram": {
           "name": "Instagram",
-          "description": "Peek behind the scenes"
+          "description": "Behind-the-scenes & process"
         }
       }
     },
@@ -271,47 +271,47 @@
       }
     },
     "faq": {
-      "title": "FAQs — Quick Answers",
+      "title": "Frequently Asked Questions",
       "subtitle": "Quick answers to common questions about working together",
       "items": {
         "timeline": {
-          "question": "Project timelines?",
-          "answer": "Typically 2–12 weeks, depending on scope."
+          "question": "What's your typical project timeline?",
+          "answer": "Project timelines vary based on scope and complexity:\n\n• Simple websites: 2-4 weeks\n• Complex web applications: 6-12 weeks\n• AI integration projects: 4-8 weeks\n• Full rebrand + website: 8-16 weeks\n\nI always provide detailed timelines during our initial consultation, and I'm transparent about any potential delays or changes throughout the process."
         },
         "international": {
-          "question": "Work globally?",
-          "answer": "Yes — remote and on-site projects welcome."
+          "question": "Do you work with international clients?",
+          "answer": "Yes, I work with clients worldwide. Most of my projects are completed remotely, but I'm also available for on-site projects when needed."
         },
         "aiServices": {
-          "question": "AI services?",
-          "answer": "Yes — from automation to custom solutions."
+          "question": "What's included in your AI integration services?",
+          "answer": "My AI integration services include workflow automation, intelligent chatbots, automated data processing, integration with existing tools, and custom AI solutions tailored to your specific needs."
         },
         "revisions": {
-          "question": "Revisions?",
-          "answer": "Always included (2–3 rounds per project)."
+          "question": "How do you handle project revisions?",
+          "answer": "I include a specific number of revisions in each project, typically 2-3 rounds of major revisions. I'm transparent about what's included and clearly communicate any scope changes that might require additional revisions."
         },
         "payment": {
-          "question": "Payments?",
-          "answer": "50% upfront, balance on delivery or by milestones."
+          "question": "What's your payment structure?",
+          "answer": "I typically work with a 50% initial payment to start the project, and the balance upon delivery. For larger projects, we can establish payment milestones. I'm flexible and adapt the structure based on project needs."
         },
         "support": {
-          "question": "Ongoing support?",
-          "answer": "Absolutely — maintenance packages available."
+          "question": "Do you provide ongoing support after launch?",
+          "answer": "Yes! I offer ongoing maintenance, updates, and support packages to ensure your project continues to perform optimally after launch. This includes monitoring, security updates, and technical support."
         }
       },
       "cta": {
-        "title": "Don't see your question?",
-        "button": "Ask Me Directly"
+        "title": "Don't see your question answered?",
+        "button": "Ask me directly"
       }
     },
     "cta": {
-      "title": "Let's Talk",
-      "description": "I've helped startups, brands, and teams level up their digital presence — now let's do the same for you.",
+      "title": "Ready to Transform Your Digital Presence?",
+      "description": "Join the growing list of businesses and creators who've elevated their digital presence with cutting-edge design, development, and AI integration.",
       "buttons": {
         "startConversation": "Start a Conversation",
-        "scheduleConsultation": "Schedule a Consultation"
+        "scheduleConsultation": "Schedule Consultation"
       },
-      "location": "Based in Montreal • Serving clients worldwide"
+      "location": "Based in Montreal • Serving clients globally • Available for remote & on-site projects"
     }
   }
 }

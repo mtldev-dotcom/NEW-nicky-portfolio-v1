@@ -1,7 +1,7 @@
 {
   "title": "Portfolio",
-  "subtitle": "Creative Work. Strategic Impact.",
-  "description": "Explore how I fuse design, development, and AI to deliver real results.",
+  "subtitle": "Featured Projects & Case Studies",
+  "description": "Explore my recent work and see how I've helped businesses transform their digital presence.",
   "metadata": {
     "title": "Portfolio - Nicky Bruno | Creative Technologist",
     "description": "Dive into AI automation, immersive web experiences, and strategic digital products crafted by Nicky Bruno.",
@@ -302,11 +302,11 @@
       "badge": "Portfolio Showcase",
       "title": "Work That Speaks",
       "titleHighlight": "For Itself",
-      "description": "Each project is a story — of creativity, technology, and transformation. From SaaS platforms and AI tools to mobile apps and design systems, I craft intelligent solutions that make a difference.",
+      "description": "Explore a curated collection of projects that demonstrate the fusion of design, development, and AI innovation. Each piece tells a story of creative problem-solving and technical excellence.",
       "stats": {
         "projects": "20+ Projects",
         "clients": "50+ Clients",
-        "recognition": "Featured in industry publications"
+        "recognition": "Industry Recognition"
       }
     },
     "featured": {
@@ -315,7 +315,7 @@
     },
     "projects": {
       "title": "All Projects",
-      "description": "Looking for something specific? Filter by: 🧠 AI & Automation | 🌐 Web Platforms | 📱 Mobile Apps | 🎨 Design Tools | 🏥 Healthcare",
+      "description": "Filter by technology, industry, or project type to explore specific areas of expertise.",
       "emptyState": {
         "title": "No projects found",
         "description": "Try adjusting your filter to see more projects."
@@ -330,8 +330,8 @@
       "healthcare": "Healthcare"
     },
     "cta": {
-      "title": "Let's Build Something Amazing",
-      "description": "Have a vision? I'll help you bring it to life. Whether it's AI, web, or creative tech — I'm ready.",
+      "title": "Ready to Create Something Amazing?",
+      "description": "Let's collaborate on your next project. Whether it's AI automation, web development, or creative technology, I'm here to bring your vision to life.",
       "buttons": {
         "startProject": "Start a Project",
         "downloadPortfolio": "Download Portfolio"

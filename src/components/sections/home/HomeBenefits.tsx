@@ -69,7 +69,7 @@ const HomeBenefits = () => {
                         className="text-center mb-16"
                     >
                         <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 glow-neon">
-                            <span>{tRealResults('title')}</span>
+                            <span>{t('title')}</span>
                         </div>
 
                         <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
@@ -119,7 +119,7 @@ const HomeBenefits = () => {
                                     </p>
 
                                     <div className="mt-4 flex items-center text-sm text-primary/80">
-                                        <span className="font-medium">{tRealResults('cta')}</span>
+                                        <span className="font-medium">{t('cta')}</span>
                                         <motion.div
                                             className="ml-1 transition-transform group-hover:translate-x-0.5"
                                             animate={{ x: [0, 4, 0] }}
