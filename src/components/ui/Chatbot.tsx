@@ -22,7 +22,7 @@ interface Message extends Omit<ChatMessageProps, 'id' | 'timestamp'> {
 
 const Chatbot: React.FC<ChatbotProps> = ({
     className,
-    webhookUrl = 'https://n8n.nickyhome.casa/webhook/contact-form',
+    webhookUrl = 'https://n8n.nickyhome.casa/webhook-test/60f173bc-532e-44c9-9d69-2d706373d83e',
     maxMessages = 50,
     autoOpen = false
 }) => {
