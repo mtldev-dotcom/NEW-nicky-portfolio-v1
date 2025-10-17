@@ -4,6 +4,7 @@ import { type FC, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import Icon, { type IconName } from '../AppIcon';
@@ -25,6 +26,7 @@ const navigationItems: NavigationItem[] = [
 const Header: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasScrolledOnce, setHasScrolledOnce] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
   const tNav = useTranslations('global.navigation');
@@ -44,12 +46,17 @@ const Header: FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrolled = window.scrollY > 20;
+      setIsScrolled(scrolled);
+
+      if (scrolled && !hasScrolledOnce) {
+        setHasScrolledOnce(true);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasScrolledOnce]);
 
   const isActivePath = (path: string): boolean => {
     if (!normalizedPathname) return false;
@@ -73,7 +80,10 @@ const Header: FC = () => {
 
   return (
     <>
-      <header
+      <motion.header
+        initial={{ y: hasScrolledOnce ? 0 : -100, opacity: hasScrolledOnce ? 1 : 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${isScrolled
           ? 'bg-background/95 backdrop-blur-md border-b border-border/50'
           : 'bg-transparent'
@@ -118,6 +128,14 @@ const Header: FC = () => {
                       <div className="absolute inset-0 bg-primary/5 rounded-lg glow-neon"></div>
                     )}
                     <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-smooth"></div>
+
+                    {/* Active link underline animation */}
+                    <motion.div
+                      className="absolute bottom-0 left-1/2 h-0.5 bg-gradient-to-r from-primary to-primary/40"
+                      initial={{ width: 0, x: '-50%' }}
+                      animate={active ? { width: '80%', x: '-50%' } : { width: 0, x: '-50%' }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                    />
                   </Link>
                 );
               })}
@@ -134,7 +152,7 @@ const Header: FC = () => {
                 asChild
                 variant="default"
                 size="sm"
-                className="hidden md:flex glow-neon hover:glow-neon-active transition-smooth"
+                className="hidden md:flex glow-neon hover:glow-neon-active transition-smooth magnetic-hover"
                 iconName="Zap"
                 iconPosition="left"
                 iconSize={16}
@@ -144,65 +162,110 @@ const Header: FC = () => {
 
               <button
                 onClick={handleMobileMenuToggle}
-                className="lg:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-smooth"
-                aria-label="Toggle mobile menu"
+                className="lg:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
               >
-                <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={24} />
+                <motion.div
+                  animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={24} />
+                </motion.div>
               </button>
             </div>
           </div>
         </div>
 
-        <div
-          className={`lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border/50 transition-smooth ${isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
-            }`}
-        >
-          <nav className="px-6 py-4 space-y-2">
-            {navigationItems.map((item) => {
-              const active = isActivePath(item.path);
-              return (
-                <Link
-                  key={item.path}
-                  href={item.path === '/' ? `/${locale}` : `/${locale}${item.path}`}
-                  onClick={closeMobileMenu}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg font-inter font-medium transition-smooth ${active
-                    ? 'text-primary bg-primary/10 glow-neon'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
-                >
-                  <Icon name={item.icon} size={20} />
-                  <span>{tNav(item.labelKey)}</span>
-                </Link>
-              );
-            })}
+        {/* Enhanced Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border/50 overflow-hidden"
+              id="mobile-menu"
+              role="navigation"
+              aria-label="Mobile navigation menu"
+            >
+              <nav className="px-6 py-4 space-y-2">
+                {navigationItems.map((item, index) => {
+                  const active = isActivePath(item.path);
+                  return (
+                    <motion.div
+                      key={item.path}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link
+                        href={item.path === '/' ? `/${locale}` : `/${locale}${item.path}`}
+                        onClick={closeMobileMenu}
+                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg font-inter font-medium transition-smooth ${active
+                          ? 'text-primary bg-primary/10 glow-neon'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                          }`}
+                      >
+                        <Icon name={item.icon} size={20} />
+                        <span>{tNav(item.labelKey)}</span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
 
-            <div className="pt-4 border-t border-border/50 space-y-3">
-              {/* Language Switcher - Mobile */}
-              <LanguageSwitcher
-                variant="mobile"
-                className="lg:hidden"
-              />
+                <div className="pt-4 border-t border-border/50 space-y-3">
+                  {/* Language Switcher - Mobile */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navigationItems.length * 0.1 }}
+                  >
+                    <LanguageSwitcher
+                      variant="mobile"
+                      className="lg:hidden"
+                    />
+                  </motion.div>
 
-              <Button
-                asChild
-                variant="default"
-                fullWidth
-                className="glow-neon hover:glow-neon-active transition-smooth"
-                iconName="Zap"
-                iconPosition="left"
-                iconSize={16}
-                onClick={closeMobileMenu}
-              >
-                <Link href={`/${locale}/contact`}>{tNav('cta')}</Link>
-              </Button>
-            </div>
-          </nav>
-        </div>
-      </header>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (navigationItems.length + 1) * 0.1 }}
+                  >
+                    <Button
+                      asChild
+                      variant="default"
+                      fullWidth
+                      className="glow-neon hover:glow-neon-active transition-smooth magnetic-hover"
+                      iconName="Zap"
+                      iconPosition="left"
+                      iconSize={16}
+                      onClick={closeMobileMenu}
+                    >
+                      <Link href={`/${locale}/contact`}>{tNav('cta')}</Link>
+                    </Button>
+                  </motion.div>
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
 
-      {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40" onClick={closeMobileMenu} />
-      )}
+      {/* Mobile Menu Backdrop */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+            onClick={closeMobileMenu}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };

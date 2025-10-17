@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
@@ -10,7 +11,10 @@ import Select from 'components/ui/Select';
 
 const ContactForm = () => {
   const t = useTranslations('contact.sections.form');
-  const locale = useLocale(); // Get current language (en/fr)
+  const locale = useLocale();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,6 +29,29 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
 
   const projectTypeOptions = [
     { value: 'web-development', label: t('fields.projectType.options.web') },
@@ -117,7 +144,7 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          formType: 'contact', // Distinguish from project brief
+          formType: 'contact',
           name: formData.name,
           email: formData.email,
           company: formData.company,
@@ -127,18 +154,16 @@ const ContactForm = () => {
           message: formData.message,
           newsletter: formData.newsletter,
           terms: formData.terms,
-          language: locale // User's selected language (en/fr)
+          language: locale
         }),
       });
 
-      // Check if response is OK and has JSON content
       if (!response.ok) {
         console.error('Server error:', response.status, response.statusText);
         setSubmitStatus('error');
         return;
       }
 
-      // Check if response is JSON
       const contentType = response.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
         console.error('Invalid response type:', contentType);
@@ -173,13 +198,23 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
+
   return (
-    <div className="bg-card border border-border rounded-xl p-8 glow-neon hover:glow-neon-active transition-smooth">
-      <div className="mb-8">
+    <motion.div
+      ref={ref}
+      className="glass-panel rounded-xl p-8 glow-neon hover:glow-neon-active transition-smooth card-lift"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <motion.div className="mb-8" variants={itemVariants}>
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+          <motion.div
+            className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          >
             <Icon name="MessageCircle" size={24} className="text-primary" />
-          </div>
+          </motion.div>
           <div>
             <h3 className="text-2xl font-space-grotesk font-bold text-foreground">
               {t('title')}
@@ -189,10 +224,16 @@ const ContactForm = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
+
       <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={itemVariants}>
             <Input
               label={t('fields.name.label')}
               type="text"
@@ -201,13 +242,18 @@ const ContactForm = () => {
               onChange={(e) => handleInputChange('name', e?.target?.value)}
             />
             {validationErrors.name && (
-              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+              <motion.p
+                className="mt-1 text-sm text-red-500 flex items-center space-x-1"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <Icon name="AlertCircle" size={14} />
                 <span>{validationErrors.name}</span>
-              </p>
+              </motion.p>
             )}
-          </div>
-          <div>
+          </motion.div>
+          <motion.div variants={itemVariants}>
             <Input
               label={t('fields.email.label')}
               type="email"
@@ -216,24 +262,36 @@ const ContactForm = () => {
               onChange={(e) => handleInputChange('email', e?.target?.value)}
             />
             {validationErrors.email && (
-              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+              <motion.p
+                className="mt-1 text-sm text-red-500 flex items-center space-x-1"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <Icon name="AlertCircle" size={14} />
                 <span>{validationErrors.email}</span>
-              </p>
+              </motion.p>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <Input
-          label={t('fields.company.label')}
-          type="text"
-          placeholder={t('fields.company.placeholder')}
-          value={formData?.company}
-          onChange={(e) => handleInputChange('company', e?.target?.value)}
-        />
+        <motion.div variants={itemVariants}>
+          <Input
+            label={t('fields.company.label')}
+            type="text"
+            placeholder={t('fields.company.placeholder')}
+            value={formData?.company}
+            onChange={(e) => handleInputChange('company', e?.target?.value)}
+          />
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={itemVariants}>
             <Select
               label={t('fields.projectType.label')}
               placeholder={t('fields.projectType.placeholder')}
@@ -242,54 +300,76 @@ const ContactForm = () => {
               onChange={(value) => handleInputChange('projectType', value)}
             />
             {validationErrors.projectType && (
-              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+              <motion.p
+                className="mt-1 text-sm text-red-500 flex items-center space-x-1"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <Icon name="AlertCircle" size={14} />
                 <span>{validationErrors.projectType}</span>
-              </p>
+              </motion.p>
             )}
-          </div>
-          <Select
-            label={t('fields.budget.label')}
-            placeholder={t('fields.budget.placeholder')}
-            options={budgetOptions}
-            value={formData?.budget}
-            onChange={(value) => handleInputChange('budget', value)}
-          />
-          <Select
-            label={t('fields.timeline.label')}
-            placeholder={t('fields.timeline.placeholder')}
-            options={timelineOptions}
-            value={formData?.timeline}
-            onChange={(value) => handleInputChange('timeline', value)}
-          />
-        </div>
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <Select
+              label={t('fields.budget.label')}
+              placeholder={t('fields.budget.placeholder')}
+              options={budgetOptions}
+              value={formData?.budget}
+              onChange={(value) => handleInputChange('budget', value)}
+            />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <Select
+              label={t('fields.timeline.label')}
+              placeholder={t('fields.timeline.placeholder')}
+              options={timelineOptions}
+              value={formData?.timeline}
+              onChange={(value) => handleInputChange('timeline', value)}
+            />
+          </motion.div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={itemVariants}>
           <label className="block text-sm font-medium text-foreground mb-2">
             {t('fields.message.label')}
           </label>
-          <textarea
+          <motion.textarea
             className="w-full h-32 px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-smooth"
             placeholder={t('fields.message.placeholder')}
             value={formData?.message}
             onChange={(e) => handleInputChange('message', e?.target?.value)}
+            whileFocus={{ scale: 1.01 }}
           />
           {validationErrors.message && (
-            <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+            <motion.p
+              className="mt-1 text-sm text-red-500 flex items-center space-x-1"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
               <Icon name="AlertCircle" size={14} />
               <span>{validationErrors.message}</span>
-            </p>
+            </motion.p>
           )}
-        </div>
+        </motion.div>
 
-        <div className="space-y-4">
-          <Checkbox
-            label={t('newsletter.title')}
-            description={t('newsletter.description')}
-            checked={formData?.newsletter}
-            onChange={(e) => handleInputChange('newsletter', e?.target?.checked)}
-          />
-          <div>
+        <motion.div
+          className="space-y-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={itemVariants}>
+            <Checkbox
+              label={t('newsletter.title')}
+              description={t('newsletter.description')}
+              checked={formData?.newsletter}
+              onChange={(e) => handleInputChange('newsletter', e?.target?.checked)}
+            />
+          </motion.div>
+          <motion.div variants={itemVariants}>
             <Checkbox
               label={t('terms.label')}
               description={t('terms.description')}
@@ -297,57 +377,100 @@ const ContactForm = () => {
               onChange={(e) => handleInputChange('terms', e?.target?.checked)}
             />
             {validationErrors.terms && (
-              <p className="mt-1 text-sm text-red-500 flex items-center space-x-1">
+              <motion.p
+                className="mt-1 text-sm text-red-500 flex items-center space-x-1"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <Icon name="AlertCircle" size={14} />
                 <span>{validationErrors.terms}</span>
-              </p>
+              </motion.p>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {submitStatus === 'success' && (
-          <div className="p-4 bg-success/10 border border-success/20 rounded-lg">
-            <div className="flex items-center space-x-3">
-              <Icon name="CheckCircle" size={20} className="text-success" />
-              <div>
-                <p className="text-success font-medium">{t('success')}</p>
-                <p className="text-success/80 text-sm">I'll get back to you within 24 hours.</p>
+        {/* Success/Error Status */}
+        <AnimatePresence>
+          {submitStatus === 'success' && (
+            <motion.div
+              className="p-4 bg-success/10 border border-success/20 rounded-lg"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center space-x-3">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                >
+                  <Icon name="CheckCircle" size={20} className="text-success" />
+                </motion.div>
+                <div>
+                  <p className="text-success font-medium">{t('success')}</p>
+                  <p className="text-success/80 text-sm">I'll get back to you within 24 hours.</p>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
 
-        {submitStatus === 'error' && (
-          <div className="p-4 bg-error/10 border border-error/20 rounded-lg">
-            <div className="flex items-center space-x-3">
-              <Icon name="AlertCircle" size={20} className="text-error" />
-              <div>
-                <p className="text-error font-medium">{t('error')}</p>
-                <p className="text-error/80 text-sm">Please try again or contact me directly.</p>
+          {submitStatus === 'error' && (
+            <motion.div
+              className="p-4 bg-error/10 border border-error/20 rounded-lg"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center space-x-3">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                >
+                  <Icon name="AlertCircle" size={20} className="text-error" />
+                </motion.div>
+                <div>
+                  <p className="text-error font-medium">{t('error')}</p>
+                  <p className="text-error/80 text-sm">Please try again or contact me directly.</p>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        <Button
-          type="submit"
-          variant="default"
-          size="lg"
-          fullWidth
-          loading={isSubmitting}
-          iconName="Send"
-          iconPosition="right"
-          className="glow-neon hover:glow-neon-active"
-        >
-          {isSubmitting ? 'Sending Message...' : t('submit')}
-        </Button>
+        <motion.div variants={itemVariants}>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Button
+              type="submit"
+              variant="default"
+              size="lg"
+              fullWidth
+              loading={isSubmitting}
+              iconName="Send"
+              iconPosition="right"
+              className="glow-neon hover:glow-neon-active"
+            >
+              {isSubmitting ? 'Sending Message...' : t('submit')}
+            </Button>
+          </motion.div>
+        </motion.div>
       </form>
-      <div className="mt-6 pt-6 border-t border-border">
+
+      <motion.div
+        className="mt-6 pt-6 border-t border-border"
+        variants={itemVariants}
+      >
         <p className="text-xs text-muted-foreground text-center">
           {t('responseTime')}
         </p>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

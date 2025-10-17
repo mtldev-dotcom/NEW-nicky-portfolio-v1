@@ -102,7 +102,7 @@
     },
     "contact": {
       "title": "Entrer en Contact",
-      "email": "hello@nickybruno.com",
+      "email": "hello@nickybruno.ca",
       "location": "Montréal, Canada",
       "description": "Disponible pour le travail à distance dans le monde entier"
     },
@@ -115,7 +115,7 @@
     },
     "newsletter": {
       "title": "Restez Informé",
-      "description": "Recevez les dernières informations sur la technologie créative et l'innovation numérique.",
+      "description": "Recevez les dernières nouvelles sur l'IA, le design et la création numérique.",
       "placeholder": "Entrez votre email",
       "button": "S'abonner",
       "success": "Merci de vous être abonné !",

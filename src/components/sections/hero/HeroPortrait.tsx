@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import Image from 'components/AppImage';
 
 const HeroPortrait = () => {
   const t = useTranslations('home.hero');
@@ -29,7 +28,7 @@ const HeroPortrait = () => {
   }, []);
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-50">
       <motion.div
         className="relative"
         style={{
@@ -37,8 +36,8 @@ const HeroPortrait = () => {
         }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{
-          opacity: isLoaded ? 1 : 0,
-          scale: isLoaded ? 1 : 0.8,
+          opacity: 1,
+          scale: 1,
         }}
         transition={{ duration: 1, ease: 'easeOut' }}
       >
@@ -46,16 +45,20 @@ const HeroPortrait = () => {
           <div className="absolute inset-0 rounded-full bg-gradient-radial from-primary/20 via-primary/10 to-transparent blur-2xl" />
 
           <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-primary/30 glow-neon">
-            <Image
+            <img
               src="/assets/images/nicky-profile-img.png"
               alt={t('portraitAlt')}
               className="h-full w-full object-cover"
               ref={imageRef}
               onLoad={() => setIsLoaded(true)}
+              onError={(e) => {
+                console.log('Image failed to load, trying fallback');
+                const img = e.target as HTMLImageElement;
+                img.src = '/assets/images/profil_portrait.jpg';
+                setIsLoaded(true);
+              }}
               loading="eager"
               decoding="async"
-              fetchPriority="high"
-              sizes="(min-width: 1024px) 24rem, (min-width: 640px) 18rem, 14rem"
             />
 
             <div className="absolute inset-0 mix-blend-overlay bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />

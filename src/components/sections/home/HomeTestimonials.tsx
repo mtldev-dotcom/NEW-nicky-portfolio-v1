@@ -3,7 +3,26 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
-import TestimonialCarousel from 'components/sections/testimonials/TestimonialCarousel';
+import dynamic from 'next/dynamic';
+
+const TestimonialCarousel = dynamic(() => import('components/sections/testimonials/TestimonialCarousel'), {
+  ssr: false,
+  loading: () => <div className="h-64 flex items-center justify-center">Loading...</div>
+}) as React.ComponentType<{
+  testimonials: Array<{
+    id: number;
+    name: string;
+    role: string;
+    company: string;
+    avatar: string;
+    companyLogo: string;
+    content: string;
+    rating: number;
+    projectType: string;
+  }>;
+  autoPlay?: boolean;
+  interval?: number;
+}>;
 
 const HomeTestimonials = () => {
   const t = useTranslations('home.testimonials');

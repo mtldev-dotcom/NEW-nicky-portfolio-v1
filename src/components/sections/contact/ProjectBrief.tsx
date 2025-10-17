@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
 import { Checkbox } from 'components/ui/Checkbox';
@@ -10,7 +11,10 @@ import { useTranslations, useLocale } from 'next-intl';
 
 const ProjectBrief = () => {
   const t = useTranslations('contact.sections.projectBrief');
-  const locale = useLocale(); // Get current language (en/fr)
+  const locale = useLocale();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -34,6 +38,49 @@ const ProjectBrief = () => {
   });
 
   const totalSteps = 4;
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const stepVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      x: -50,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+  };
 
   const designPreferenceOptions = [
     { value: 'modern-minimal', label: 'Modern & Minimal' },
@@ -517,13 +564,22 @@ const ProjectBrief = () => {
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-8">
+    <motion.div
+      ref={ref}
+      className="glass-panel rounded-xl p-8 card-lift"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
       {/* Header with Description */}
-      <div className="mb-8">
+      <motion.div className="mb-8" variants={itemVariants}>
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+          <motion.div
+            className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          >
             <Icon name="FileText" size={24} className="text-primary" />
-          </div>
+          </motion.div>
           <div className="flex-1">
             <h2 className="text-2xl font-space-grotesk font-bold text-foreground">
               {t('title')}
@@ -532,82 +588,132 @@ const ProjectBrief = () => {
               {t('subtitle')}
             </p>
           </div>
-          <div className="text-sm text-muted-foreground text-right">
+          <motion.div
+            className="text-sm text-muted-foreground text-right"
+            whileHover={{ scale: 1.05 }}
+          >
             {t('step')} {currentStep} {t('of')} {totalSteps}
-          </div>
+          </motion.div>
         </div>
 
         {/* Progress Bar */}
         <div className="w-full bg-muted rounded-full h-2">
-          <div
+          <motion.div
             className="bg-primary h-2 rounded-full transition-smooth"
-            style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+            initial={{ width: 0 }}
+            animate={{ width: `${(currentStep / totalSteps) * 100}%` }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           />
         </div>
-      </div>
+      </motion.div>
 
-      {renderStep()}
-
-      <div className="flex justify-between mt-8 pt-6 border-t border-border">
-        <Button
-          variant="outline"
-          onClick={prevStep}
-          disabled={currentStep === 1 || isSubmitting}
-          iconName="ChevronLeft"
-          iconPosition="left"
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStep}
+          variants={stepVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
         >
-          {t('navigation.previous')}
-        </Button>
+          {renderStep()}
+        </motion.div>
+      </AnimatePresence>
+
+      <motion.div
+        className="flex justify-between mt-8 pt-6 border-t border-border"
+        variants={itemVariants}
+      >
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Button
+            variant="outline"
+            onClick={prevStep}
+            disabled={currentStep === 1 || isSubmitting}
+            iconName="ChevronLeft"
+            iconPosition="left"
+          >
+            {t('navigation.previous')}
+          </Button>
+        </motion.div>
 
         {currentStep < totalSteps ? (
-          <Button
-            variant="default"
-            onClick={nextStep}
-            iconName="ChevronRight"
-            iconPosition="right"
-            className="glow-neon hover:glow-neon-active"
-          >
-            {t('navigation.next')}
-          </Button>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button
+              variant="default"
+              onClick={nextStep}
+              iconName="ChevronRight"
+              iconPosition="right"
+              className="glow-neon hover:glow-neon-active"
+            >
+              {t('navigation.next')}
+            </Button>
+          </motion.div>
         ) : (
-          <Button
-            variant="default"
-            onClick={generateBrief}
-            disabled={isSubmitting}
-            iconName="FileText"
-            iconPosition="left"
-            className="glow-neon hover:glow-neon-active"
-          >
-            {isSubmitting ? t('status.submitting') : t('navigation.submit')}
-          </Button>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button
+              variant="default"
+              onClick={generateBrief}
+              disabled={isSubmitting}
+              iconName="FileText"
+              iconPosition="left"
+              className="glow-neon hover:glow-neon-active"
+            >
+              {isSubmitting ? t('status.submitting') : t('navigation.submit')}
+            </Button>
+          </motion.div>
         )}
-      </div>
+      </motion.div>
 
       {/* Success/Error Status */}
-      {submitStatus === 'success' && (
-        <div className="mt-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg flex items-start space-x-3">
-          <Icon name="CheckCircle" size={20} className="text-green-500 mt-0.5 flex-shrink-0" />
-          <div>
-            <h4 className="font-medium text-green-500 mb-1">{t('status.success.title')}</h4>
-            <p className="text-sm text-green-500/80">
-              {t('status.success.message')}
-            </p>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {submitStatus === 'success' && (
+          <motion.div
+            className="mt-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg flex items-start space-x-3"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            >
+              <Icon name="CheckCircle" size={20} className="text-green-500 mt-0.5 flex-shrink-0" />
+            </motion.div>
+            <div>
+              <h4 className="font-medium text-green-500 mb-1">{t('status.success.title')}</h4>
+              <p className="text-sm text-green-500/80">
+                {t('status.success.message')}
+              </p>
+            </div>
+          </motion.div>
+        )}
 
-      {submitStatus === 'error' && (
-        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start space-x-3">
-          <Icon name="AlertCircle" size={20} className="text-red-500 mt-0.5 flex-shrink-0" />
-          <div>
-            <h4 className="font-medium text-red-500 mb-1">{t('status.error.title')}</h4>
-            <p className="text-sm text-red-500/80">
-              {t('status.error.message')}
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
+        {submitStatus === 'error' && (
+          <motion.div
+            className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start space-x-3"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            >
+              <Icon name="AlertCircle" size={20} className="text-red-500 mt-0.5 flex-shrink-0" />
+            </motion.div>
+            <div>
+              <h4 className="font-medium text-red-500 mb-1">{t('status.error.title')}</h4>
+              <p className="text-sm text-red-500/80">
+                {t('status.error.message')}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import TechStackCloud from 'components/sections/home/TechStackCloud';
@@ -164,4 +164,4 @@ const TechStackShowcase = () => {
     );
 };
 
-export default TechStackShowcase;
+export default memo(TechStackShowcase);

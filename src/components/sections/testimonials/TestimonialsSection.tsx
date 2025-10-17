@@ -9,7 +9,27 @@ import ClientLogos from './ClientLogos';
 import IndustryBadges from './IndustryBadges';
 import LinkedInRecommendations from './LinkedInRecommendations';
 import TestimonialCard from './TestimonialCard';
-import TestimonialCarousel from './TestimonialCarousel';
+import dynamic from 'next/dynamic';
+
+const TestimonialCarousel = dynamic(() => import('./TestimonialCarousel'), {
+  ssr: false,
+  loading: () => <div className="h-64 flex items-center justify-center">Loading...</div>
+}) as React.ComponentType<{
+  testimonials: Array<{
+    id: number;
+    name: string;
+    role: string;
+    company: string;
+    avatar: string;
+    companyLogo: string;
+    content: string;
+    rating: number;
+    projectType: string;
+    audience?: string;
+  }>;
+  autoPlay?: boolean;
+  interval?: number;
+}>;
 import VideoTestimonial from './VideoTestimonial';
 
 const TestimonialsSection = () => {
@@ -148,12 +168,12 @@ const TestimonialsSection = () => {
                 <Icon name="Users" size={16} color="var(--color-primary)" />
                 <span className="text-primary text-sm font-medium">Social Proof</span>
               </div>
-              
+
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-space-grotesk font-bold text-foreground">
                 Trusted by{' '}
                 <span className="text-primary glow-neon">Innovators</span>
               </h1>
-              
+
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 From startups to enterprises, creative agencies to AI labs—discover why industry leaders choose Nicky Bruno for their most ambitious creative technology projects.
               </p>
@@ -182,16 +202,14 @@ const TestimonialsSection = () => {
                 <button
                   key={tab?.id}
                   onClick={() => setActiveTab(tab?.id)}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-smooth ${
-                    activeTab === tab?.id
-                      ? 'bg-primary text-black glow-neon' :'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                  }`}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-smooth ${activeTab === tab?.id
+                    ? 'bg-primary text-black glow-neon' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    }`}
                 >
                   <Icon name={tab?.icon} size={18} />
                   <span>{tab?.label}</span>
-                  <span className={`text-xs px-2 py-1 rounded-full ${
-                    activeTab === tab?.id ? 'bg-black/20' : 'bg-muted/50'
-                  }`}>
+                  <span className={`text-xs px-2 py-1 rounded-full ${activeTab === tab?.id ? 'bg-black/20' : 'bg-muted/50'
+                    }`}>
                     {tab?.count}
                   </span>
                 </button>

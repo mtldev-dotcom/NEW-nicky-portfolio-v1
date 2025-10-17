@@ -9,7 +9,16 @@ import Button from 'components/ui/Button';
 import FeaturedProject from './FeaturedProject';
 import ProjectCard from './ProjectCard';
 import ProjectFilter from './ProjectFilter';
-import ProjectModal from './ProjectModal';
+import dynamic from 'next/dynamic';
+
+const ProjectModal = dynamic(() => import('./ProjectModal'), {
+  ssr: false,
+  loading: () => <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">Loading...</div>
+}) as React.ComponentType<{
+  project: any;
+  isOpen: boolean;
+  onClose: () => void;
+}>;
 
 
 const PortfolioSection = () => {
@@ -257,7 +266,7 @@ const PortfolioSection = () => {
       process: getProcessSteps('projects.healthConnect.process'),
       testimonial: getTestimonial('projects.healthConnect.testimonial')
     }
-  ]), [t]);
+  ]), [t, getArrayTranslation, getProcessSteps, getTestimonial]);
 
   // Filter configuration
   const filters = [

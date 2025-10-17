@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import Button from 'components/ui/Button';
 
@@ -10,22 +10,23 @@ const statsOrder = ['experience', 'projects', 'hoursSaved'] as const;
 const HeroContent = () => {
   const t = useTranslations('home.hero');
   const locale = useLocale();
+  const shouldReduceMotion = useReducedMotion();
 
   const textVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
     visible: (custom: number) => ({
       opacity: 1,
       y: 0,
       transition: {
         delay: custom * 0.2,
-        duration: 0.8,
+        duration: shouldReduceMotion ? 0.1 : 0.8,
         ease: 'easeOut',
       },
     }),
   };
 
   const glowVariants = {
-    animate: {
+    animate: shouldReduceMotion ? {} : {
       textShadow: [
         '0 0 10px rgba(0, 255, 209, 0.5)',
         '0 0 20px rgba(0, 255, 209, 0.8)',
@@ -58,22 +59,22 @@ const HeroContent = () => {
         custom={0}
       >
         <motion.h1
-          className="mb-4 font-space-grotesk text-4xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl"
+          className="mb-4 font-space-grotesk text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-6xl lg:text-7xl"
           variants={glowVariants}
           animate="animate"
         >
           {t('title')}
         </motion.h1>
         <motion.div
-          className="h-1 w-24 rounded-full bg-gradient-to-r from-primary to-primary/50"
+          className="h-1 w-16 sm:w-24 rounded-full bg-gradient-to-r from-primary to-primary/50"
           initial={{ width: 0 }}
-          animate={{ width: 96 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          animate={{ width: shouldReduceMotion ? '100%' : 96 }}
+          transition={{ delay: 0.5, duration: shouldReduceMotion ? 0.1 : 1 }}
         />
       </motion.div>
 
       <motion.h2
-        className="mb-4 font-space-grotesk text-lg font-medium text-primary md:mb-6 md:text-2xl lg:text-3xl"
+        className="mb-4 font-space-grotesk text-base font-medium text-primary sm:text-lg md:mb-6 md:text-2xl lg:text-3xl"
         initial="hidden"
         animate="visible"
         variants={textVariants}
@@ -83,7 +84,7 @@ const HeroContent = () => {
       </motion.h2>
 
       <motion.p
-        className="mb-8 max-w-2xl font-inter text-base leading-relaxed text-muted-foreground md:mb-10 md:max-w-3xl md:text-lg lg:max-w-4xl"
+        className="mb-6 max-w-2xl font-inter text-sm leading-relaxed text-muted-foreground sm:text-base md:mb-10 md:max-w-3xl md:text-lg lg:max-w-4xl"
         initial="hidden"
         animate="visible"
         variants={textVariants}
@@ -126,25 +127,39 @@ const HeroContent = () => {
         </Button>
       </motion.div>
 
-      {/* Stats moved below CTAs to improve layout and responsiveness */}
+      {/* Status Badge */}
       <motion.div
-        className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3"
+        className="mt-6 flex items-center justify-center sm:justify-start"
         initial="hidden"
         animate="visible"
         variants={textVariants}
         custom={4}
       >
+        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+          <div className="h-2 w-2 rounded-full bg-primary animate-pulse"></div>
+          {t('status')}
+        </div>
+      </motion.div>
+
+      {/* Stats moved below CTAs to improve layout and responsiveness */}
+      <motion.div
+        className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6"
+        initial="hidden"
+        animate="visible"
+        variants={textVariants}
+        custom={5}
+      >
         {stats.map((stat) => (
           <motion.div
             key={stat.key}
-            className="text-left"
-            whileHover={{ scale: 1.05 }}
+            className="text-center sm:text-left"
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <div className="mb-1 font-space-grotesk text-2xl font-bold text-primary">
+            <div className="mb-1 font-space-grotesk text-xl font-bold text-primary sm:text-2xl">
               {stat.value}
             </div>
-            <div className="font-inter text-xs uppercase tracking-wider text-muted-foreground">
+            <div className="font-inter text-xs uppercase tracking-wider text-muted-foreground sm:text-sm">
               {stat.label}
             </div>
           </motion.div>

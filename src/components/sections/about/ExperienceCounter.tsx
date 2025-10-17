@@ -1,6 +1,7 @@
 'use client';
 
-import React, { type FC, useEffect, useMemo, useState } from "react";
+import React, { type FC, useEffect, useMemo, useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Icon, { type IconName } from "components/AppIcon";
 
@@ -56,25 +57,64 @@ const statSettings: StatSetting[] = [
 const ExperienceCounter: FC = () => {
   const t = useTranslations("about.sections.experienceCounter");
   const [progress, setProgress] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const statVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
 
   useEffect(() => {
-    const durationMs = 2000;
-    const steps = 60;
-    const stepDuration = durationMs / steps;
+    if (isInView) {
+      const durationMs = 2000;
+      const steps = 60;
+      const stepDuration = durationMs / steps;
 
-    let currentStep = 0;
-    const timer = window.setInterval(() => {
-      currentStep += 1;
-      const nextProgress = Math.min(currentStep / steps, 1);
-      setProgress(nextProgress);
+      let currentStep = 0;
+      const timer = window.setInterval(() => {
+        currentStep += 1;
+        const nextProgress = Math.min(currentStep / steps, 1);
+        setProgress(nextProgress);
 
-      if (nextProgress >= 1) {
-        window.clearInterval(timer);
-      }
-    }, stepDuration);
+        if (nextProgress >= 1) {
+          window.clearInterval(timer);
+        }
+      }, stepDuration);
 
-    return () => window.clearInterval(timer);
-  }, []);
+      return () => window.clearInterval(timer);
+    }
+  }, [isInView]);
 
   const stats = useMemo(
     () =>
@@ -88,8 +128,14 @@ const ExperienceCounter: FC = () => {
   );
 
   return (
-    <div className="bg-gradient-to-br from-card/50 to-transparent backdrop-blur-sm rounded-2xl border border-border/50 p-8 lg:p-12">
-      <div className="text-center mb-12">
+    <motion.div
+      ref={ref}
+      className="bg-gradient-to-br from-card/50 to-transparent backdrop-blur-sm rounded-2xl border border-border/50 p-8 lg:p-12 glass-panel"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <motion.div className="text-center mb-12" variants={itemVariants}>
         <div className="flex items-center justify-center space-x-3 mb-4">
           <div className="w-12 h-1 bg-primary rounded-full" />
           <span className="text-sm font-mono text-primary uppercase tracking-wider">{t('badge')}</span>
@@ -103,23 +149,39 @@ const ExperienceCounter: FC = () => {
         <p className="text-muted-foreground max-w-2xl mx-auto">
           {t('description')}
         </p>
-      </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-        {stats.map((stat) => (
-          <div key={stat.label} className="text-center group">
+      </motion.div>
+
+      <motion.div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8" variants={containerVariants}>
+        {stats.map((stat, index) => (
+          <motion.div
+            key={stat.label}
+            className="text-center group"
+            variants={statVariants}
+            whileHover={{ scale: 1.05 }}
+            transition={{ delay: index * 0.1 }}
+          >
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-smooth" />
 
-              <div className="relative bg-card/80 backdrop-blur-sm rounded-full w-20 h-20 mx-auto flex items-center justify-center border border-border/50 group-hover:border-primary/30 transition-smooth glow-neon">
+              <motion.div
+                className="relative bg-card/80 backdrop-blur-sm rounded-full w-20 h-20 mx-auto flex items-center justify-center border border-border/50 group-hover:border-primary/30 transition-smooth glow-neon"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
                 <Icon name={stat.icon} size={32} className={stat.color} />
-              </div>
+              </motion.div>
             </div>
 
             <div className="space-y-2">
-              <div className="text-4xl lg:text-5xl font-space-grotesk font-bold text-foreground">
+              <motion.div
+                className="text-4xl lg:text-5xl font-space-grotesk font-bold text-foreground"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+              >
                 {stat.value}
                 <span className={stat.color}>{stat.suffix}</span>
-              </div>
+              </motion.div>
 
               <h4 className="font-space-grotesk font-semibold text-foreground text-lg">
                 {stat.label}
@@ -129,38 +191,50 @@ const ExperienceCounter: FC = () => {
                 {stat.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="mt-12 pt-8 border-t border-border/30">
+      <motion.div
+        className="mt-12 pt-8 border-t border-border/30"
+        variants={itemVariants}
+      >
         <div className="grid md:grid-cols-3 gap-6 text-center">
-          <div className="space-y-2">
+          <motion.div
+            className="space-y-2"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center justify-center space-x-2">
               <Icon name="TrendingUp" size={20} className="text-primary" />
               <span className="font-space-grotesk font-semibold text-foreground">{t('highlights.growth.label')}</span>
             </div>
             <p className="text-sm text-muted-foreground">{t('highlights.growth.description')}</p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-2">
+          <motion.div
+            className="space-y-2"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center justify-center space-x-2">
               <Icon name="Globe" size={20} className="text-primary" />
               <span className="font-space-grotesk font-semibold text-foreground">{t('highlights.global.label')}</span>
             </div>
             <p className="text-sm text-muted-foreground">{t('highlights.global.description')}</p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-2">
+          <motion.div
+            className="space-y-2"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center justify-center space-x-2">
               <Icon name="Zap" size={20} className="text-primary" />
               <span className="font-space-grotesk font-semibold text-foreground">{t('highlights.pioneer.label')}</span>
             </div>
             <p className="text-sm text-muted-foreground">{t('highlights.pioneer.description')}</p>
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -1,10 +1,27 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo, useCallback } from 'react';
 import Icon from 'components/AppIcon';
 import TestimonialCard from './TestimonialCard';
 
-const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 }) => {
+interface TestimonialCarouselProps {
+  testimonials: Array<{
+    id: number;
+    name: string;
+    role: string;
+    company: string;
+    avatar: string;
+    companyLogo: string;
+    content: string;
+    rating: number;
+    projectType: string;
+    audience?: string;
+  }>;
+  autoPlay?: boolean;
+  interval?: number;
+}
+
+const TestimonialCarousel = memo(({ testimonials, autoPlay = true, interval = 5000 }: TestimonialCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(autoPlay);
 
@@ -12,7 +29,7 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
     if (!isAutoPlaying) return;
 
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === testimonials?.length - 1 ? 0 : prevIndex + 1
       );
     }, interval);
@@ -20,25 +37,25 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
     return () => clearInterval(timer);
   }, [isAutoPlaying, testimonials?.length, interval]);
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     setCurrentIndex(index);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000); // Resume after 10s
-  };
+  }, []);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     const newIndex = currentIndex === 0 ? testimonials?.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
+  }, [currentIndex, testimonials?.length]);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     const newIndex = currentIndex === testimonials?.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
+  }, [currentIndex, testimonials?.length]);
 
   if (!testimonials || testimonials?.length === 0) {
     return null;
@@ -48,16 +65,16 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
     <div className="relative">
       {/* Main Carousel */}
       <div className="relative overflow-hidden rounded-xl">
-        <div 
+        <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {testimonials?.map((testimonial, index) => (
             <div key={testimonial?.id} className="w-full flex-shrink-0">
-              <TestimonialCard 
+              <TestimonialCard
                 testimonial={testimonial}
                 isActive={index === currentIndex}
-                onClick={() => {}}
+                onClick={() => { }}
               />
             </div>
           ))}
@@ -71,9 +88,9 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
           className="w-10 h-10 rounded-full bg-muted/20 hover:bg-primary/20 border border-border hover:border-primary/30 flex items-center justify-center transition-smooth group"
           aria-label="Previous testimonial"
         >
-          <Icon 
-            name="ChevronLeft" 
-            size={20} 
+          <Icon
+            name="ChevronLeft"
+            size={20}
             color="var(--color-muted-foreground)"
             className="group-hover:text-primary transition-smooth"
           />
@@ -85,10 +102,9 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-smooth ${
-                index === currentIndex
-                  ? 'bg-primary w-8' :'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-              }`}
+              className={`w-2 h-2 rounded-full transition-smooth ${index === currentIndex
+                ? 'bg-primary w-8' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
@@ -100,9 +116,9 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
           className="w-10 h-10 rounded-full bg-muted/20 hover:bg-primary/20 border border-border hover:border-primary/30 flex items-center justify-center transition-smooth group"
           aria-label="Next testimonial"
         >
-          <Icon 
-            name="ChevronRight" 
-            size={20} 
+          <Icon
+            name="ChevronRight"
+            size={20}
             color="var(--color-muted-foreground)"
             className="group-hover:text-primary transition-smooth"
           />
@@ -119,9 +135,9 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
       )}
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-muted/20">
-        <div 
+        <div
           className="h-full bg-primary transition-all duration-100 ease-linear"
-          style={{ 
+          style={{
             width: isAutoPlaying ? '100%' : '0%',
             animation: isAutoPlaying ? `progress ${interval}ms linear infinite` : 'none'
           }}
@@ -135,6 +151,8 @@ const TestimonialCarousel = ({ testimonials, autoPlay = true, interval = 5000 })
       `}</style>
     </div>
   );
-};
+});
+
+TestimonialCarousel.displayName = 'TestimonialCarousel';
 
 export default TestimonialCarousel;

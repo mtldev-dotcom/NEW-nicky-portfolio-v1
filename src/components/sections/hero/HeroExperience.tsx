@@ -40,7 +40,7 @@ const HeroExperience = () => {
           <section className="relative w-full min-h-[calc(100vh-4rem)] px-6 lg:px-8 flex items-center">
             <FloatingTaglines />
 
-            <div className="relative mx-auto w-full max-w-7xl grid items-center justify-items-start gap-10 md:gap-14 lg:gap-16 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="relative mx-auto w-full max-w-7xl grid items-center justify-items-start gap-10 md:gap-14 lg:gap-16 lg:grid-cols-[1.2fr_0.8fr] md:grid-cols-2">
               <HeroContent />
               <HeroPortrait />
             </div>

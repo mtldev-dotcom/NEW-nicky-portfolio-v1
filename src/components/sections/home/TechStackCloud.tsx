@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -409,4 +409,4 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
     );
 };
 
-export default TechStackCloud;
+export default memo(TechStackCloud);
