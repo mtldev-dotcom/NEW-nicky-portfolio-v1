@@ -61,10 +61,18 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         }
 
         // Prepare payload for n8n webhook
+        // The workflow expects the data in a specific format matching the "Contact Form Webhook" structure
         const n8nPayload = {
+            body: {
+                message: body.message.trim(),
+                language: body.language
+            },
+            headers: {
+                'x-real-ip': request.headers.get('x-forwarded-for') ||
+                    request.headers.get('x-real-ip') ||
+                    'unknown'
+            },
             conversationId: sessionId,
-            message: body.message.trim(),
-            language: body.language,
             timestamp: new Date().toISOString(),
             meta: {
                 userAgent: request.headers.get('user-agent') || 'unknown',
@@ -137,8 +145,28 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         }
 
         // Format response for frontend
+        // Handle different n8n response formats
+        let aiResponse = 'I apologize, but I couldn\'t process your request.';
+
+        if (Array.isArray(n8nData) && n8nData.length > 0) {
+            // Format: [{"output": "response text"}]
+            aiResponse = n8nData[0].output || aiResponse;
+        } else if (n8nData.output) {
+            // Format: {"output": "response text"}
+            aiResponse = n8nData.output;
+        } else if (n8nData.message) {
+            // Format: {"message": "response text"}
+            aiResponse = n8nData.message;
+        } else if (n8nData.response) {
+            // Format: {"response": "response text"}
+            aiResponse = n8nData.response;
+        } else if (n8nData.answer) {
+            // Format: {"answer": "response text"}
+            aiResponse = n8nData.answer;
+        }
+
         const response: ChatApiResponse = {
-            answer: n8nData.message || n8nData.response || n8nData.answer || 'I apologize, but I couldn\'t process your request.',
+            answer: aiResponse,
             conversationId: sessionId,
             timestamp: new Date().toISOString()
         };
