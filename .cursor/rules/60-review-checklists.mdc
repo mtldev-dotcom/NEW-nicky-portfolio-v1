@@ -1,0 +1,11 @@
+# Dev ↔ Review Checklist
+
+- [ ] EN/FR keys added and used; no hard-coded text in components.
+- [ ] Keyboard navigation verified; focus visible; screen-reader labels present.
+- [ ] `prefers-reduced-motion` respected; heavy effects gated.
+- [ ] Images optimized; critical hero image only is `priority`/eager.
+- [ ] Heavy components dynamically imported; no unnecessary client boundaries.
+- [ ] Section visuals align with brand: subtle glow, mint accents, consistent spacing.
+- [ ] Lighthouse ≥ 90 Perf/A11y on changed pages; no major CLS.
+- [ ] Types clear; props well-defined; no unused exports/imports.
+- [ ] Tests or storybook examples updated if applicable.

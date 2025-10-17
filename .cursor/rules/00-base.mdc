@@ -1,0 +1,57 @@
+# Project Overview
+You are contributing to **Nicky Bruno Portfolio** — a Next.js 15 (App Router) + TypeScript site featuring a dark theme with neon‑mint accents, EN/FR internationalization, Tailwind CSS, and Framer Motion. The goal is a clean, accessible, performant portfolio with purposeful motion and consistent branding.
+
+## Objectives (what “good” looks like)
+- **Brand fidelity:** Adhere to the neon‑mint on black aesthetic; keep glow subtle and sparing.
+- **Accessibility:** Keyboard-first UX, visible focus, semantic headings, ARIA for icons, reduced-motion support.
+- **Performance:** Server Components by default; lazy/dynamic import heavy UI; correct `<Image>` sizing; minimal layout shift.
+- **i18n discipline:** No hard-coded UI text. All copy in translations with EN/FR parity.
+
+## Non-Goals
+- No ad-hoc colors. Use Tailwind tokens and existing CSS variables only.
+- No large, blurry shadows or CPU-heavy animations on large surfaces.
+- No mixing business logic into UI components; keep utilities isolated.
+
+## Coding Principles
+- **TypeScript strict.** Define `Props` interfaces at top of component files.
+- **File layout:** One primary component per file; PascalCase filenames; default export main component.
+- **Import order:** React/Next → third-party → internal UI → feature/section → types/utils.
+- **Comments:** Brief “why” comments for unusual decisions. Avoid noise.
+
+## i18n Rules
+- User-visible strings live in `src/i18n/messages/{en|fr}/*.json` with page/section namespaces.
+- Prefer semantic keys: `home.hero.title` over `title1`.
+- **Client**: `const t = useTranslations('home.hero')` → `t('cta')`  
+- **Server**: `const t = await getTranslations('services')`
+
+## Motion & Accessibility
+- Framer Motion only; use transform/opacity. Typical durations **200–800ms**.
+- Provide sane `initial/animate` pairs and respect `prefers-reduced-motion`.
+- Motion is decorative; never the sole carrier of meaning.
+
+## UI & Theme
+- Fonts: **Space Grotesk** (display), **Inter** (body), **JetBrains Mono** (code accents).
+- Use Tailwind tokens and utilities stored in `src/styles/tailwind.css` (glow, transitions, radii).
+- Primary CTA: mint on black; Secondary: outline/ghost variants.
+
+## Performance Checklist
+- [ ] Dynamic import heavy components (modals, charts, carousels).
+- [ ] `<Image>` uses `sizes` and sensible `priority` (only hero).
+- [ ] Lighthouse/Axe pass for impacted pages (Perf & A11y ≥ 90).
+
+## Key Paths
+- **Routes:** `src/app/[locale]/*`  
+- **UI components:** `src/components/ui/*`  
+- **Sections:** `src/components/sections/*`  
+- **Styles/tokens:** `src/styles/tailwind.css`  
+- **Translations:** `src/i18n/messages/{en|fr}/*`
+
+## Examples
+```tsx
+// Button import and use example
+import { Button } from '@/components/ui/Button'
+<Button variant="primary" asChild><a href="/contact">Let’s talk</a></Button>
+```
+
+## How to Work (with Cursor)
+1) Explain the change in 1–3 sentences. 2) List risks/edge cases. 3) Implement. 4) Re-run checks (build, ESLint, Lighthouse).

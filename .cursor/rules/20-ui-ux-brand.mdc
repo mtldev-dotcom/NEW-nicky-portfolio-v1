@@ -1,0 +1,27 @@
+# Brand System & Components
+
+## Visual Language
+- **Palette:** Black/near-black base, neon‑mint accents, neutral grays. Glow used sparingly.
+- **Surfaces:** Subtle glassmorphism, soft 2xl radii, thin gradient dividers.
+- **Typography:** Space Grotesk for headings, Inter for body, generous line-height.
+- **Spacing:** Comfortable vertical rhythm; avoid cramped blocks; mobile-first.
+
+## Section Blueprints
+- **Hero:** Parallax/soft particles (reduced-motion safe). Holographic overlay is optional; include two CTAs and a metrics row.
+- **Services:** 3–6 cards with icons, short benefit bullets, and “How it helps” examples.
+- **Portfolio:** Filterable grid (`All/Design/Code/AI`). `ProjectCard` → `ProjectModal` with goals, process, outcomes.
+- **Testimonials:** Compact quotes; optional carousel on desktop, stacked cards on mobile.
+- **Contact:** Two-column on desktop, one-column on mobile. Inline validation + success toast.
+
+## Motion
+- Hover: slight lift/scale (≤1.03) + soft shadow/glow.
+- Scroll reveals: small y-translate (10–20px) and opacity fade.
+- Respect `prefers-reduced-motion`: provide static fallbacks.
+
+## Don’ts
+- Don’t use mint for long paragraphs; keep it for emphasis or CTAs.
+- Don’t layer multiple strong glows on large blocks.
+
+## References
+- Components in `components/sections/*`, `components/ui/*`.  
+- Design tokens/utilities in `src/styles/tailwind.css`.

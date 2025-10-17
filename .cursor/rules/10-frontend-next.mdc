@@ -1,0 +1,38 @@
+# Next.js 15 (App Router) Conventions
+
+## Routing & Structure
+- All pages live under `src/app/[locale]/*` with locale prefix in URLs (e.g., `/en/services`, `/fr/services`).
+- **Server Components by default.** Add `'use client'` only when state/effects/motion are needed.
+- Keep shared UI in `components/ui` and `components/sections`. Avoid placing shared components in route segments.
+- Use segment metadata APIs (e.g., `generateMetadata`) and provide OpenGraph images via `opengraph-image.tsx` when relevant.
+
+## Data & Rendering
+- Prefer server-side data fetching via RSC. Avoid client-side waterfalls.
+- Co-locate small loaders/actions with route files; extract reusable logic to `/lib`.
+
+## Patterns
+**Locale-aware link**
+```tsx
+'use client'
+import Link from 'next/link'
+import { useLocale } from 'next-intl'
+
+export function ServicesLink() {
+  const locale = useLocale()
+  return <Link href={`/${locale}/services`}>Services</Link>
+}
+```
+
+**Dynamic import for heavy UI**
+```tsx
+import dynamic from 'next/dynamic'
+const ProjectModal = dynamic(() => import('@/components/sections/portfolio/ProjectModal'), { ssr: false })
+```
+
+## Don’ts
+- Don’t fetch translations repeatedly in effects or loops.
+- Don’t mix client and server concerns; if a component needs state, make a leaf client component.
+
+## Verification
+- Build without client/server boundary warnings.
+- Validate EN/FR routes for missing keys and correct metadata.

@@ -1,0 +1,34 @@
+# i18n Strict Mode
+
+## Rules
+- All user-facing text belongs in `src/i18n/messages/{en|fr}/*.json` using consistent namespaces per page/section.
+- Add EN and FR keys **together** in the same PR. No TODO placeholders.
+- Prefer semantic keys:
+  - ✅ `portfolio.filters.all`
+  - ❌ `filter1`
+
+## Usage Examples
+**Client component**
+```tsx
+'use client'
+import { useTranslations } from 'next-intl'
+
+export default function PortfolioHeader() {
+  const t = useTranslations('portfolio')
+  return <h2 className="text-xl">{t('title')}</h2>
+}
+```
+
+**Server component**
+```tsx
+import { getTranslations } from 'next-intl/server'
+
+export default async function Contact() {
+  const t = await getTranslations('contact.form')
+  return <h1>{t('title')}</h1>
+}
+```
+
+## Verification
+- Manual pass on `/en` and `/fr` routes after each change.
+- CI/ESLint task may fail build if unknown/missing keys are referenced.

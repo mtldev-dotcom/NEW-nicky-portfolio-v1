@@ -1,0 +1,15 @@
+# Using These Rules in Cursor
+
+## Tips
+- In chats, reference rules explicitly: “Follow `20-ui-ux-brand` for the Services section card styles.”
+- Ping files with **@file** to provide context, e.g., `@src/components/sections/hero/Hero.tsx`.
+- Keep rules short and modular. If a rule grows, split it and add cross-links.
+
+## Common Prompts
+- **Refactor with rules:** “Apply `00-base`, `10-frontend-next`, and `30-i18n` to refactor the Portfolio page to server components and move all strings to i18n.”
+- **Design tune-up:** “Using `20-ui-ux-brand` and `40-motion-a11y-performance`, improve hover/focus states and scroll reveal for Services cards.”
+- **Chatbot work:** “Use `50-chatbot-n8n` to implement a proxied POST and a streaming UI with typing indicator.”
+
+## Maintenance
+- When adding a new page/section, create a translation namespace for EN/FR in the same PR.
+- Re-run Lighthouse/Axe locally after UI changes.

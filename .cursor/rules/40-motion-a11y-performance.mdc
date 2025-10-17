@@ -1,0 +1,27 @@
+# Animation, A11y & Performance Guardrails
+
+## Animation
+- Use **Framer Motion** with transform/opacity only. Typical durations: **200–800ms**.
+- Avoid animating layout properties (top/left/width/height) unless trivial.
+- Provide keyboard/hover/focus affordances equivalently.
+
+**Example**
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 12 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.4, ease: 'easeOut' }}
+/>
+```
+
+## Accessibility
+- Ensure visible focus styles on interactive elements.
+- Provide `aria-label` for icon-only buttons and role-appropriate markup.
+- Respect `prefers-reduced-motion`: disable parallax/particles; provide static artwork.
+
+## Performance
+- Dynamic import heavy UI (modals, charts, carousels). Avoid SSR for purely decorative components.
+- Optimize images: correct `sizes`, lazy by default, eager only for hero.
+- Keep CLS minimal; reserve space for async content.
+- Run Lighthouse (Perf/A11y/Best Practices/SEO) for touched pages and fix regressions.
