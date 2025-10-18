@@ -165,21 +165,24 @@
         "role": "Operations",
         "company": "Sofia AI Desk",
         "content": "Nicky simplified our workflow. We save hours every week.",
-        "projectType": "AI Automation"
+        "projectType": "AI Automation",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/Sofia-AI-Desk.png"
       },
       {
         "name": "Alexandra",
         "role": "CEO",
         "company": "InnovateTech",
         "content": "Creative vision + tech skills = transformed results.",
-        "projectType": "Platform Design"
+        "projectType": "Platform Design",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/InnovateTech.png"
       },
       {
         "name": "Marcus Chen",
         "role": "Creative Director",
         "company": "Pixel Perfect Agency",
         "content": "A creative partner who speaks fluent code. Elegant, performant solutions that matched our ambition.",
-        "projectType": "Interactive Web"
+        "projectType": "Interactive Web",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/Pixel-Perfect-Agency.png"
       }
     ]
   },

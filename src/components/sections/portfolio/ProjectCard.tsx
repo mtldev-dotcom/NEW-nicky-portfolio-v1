@@ -106,6 +106,31 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
             </span>
           </motion.div>
 
+          {/* Expertise Badges */}
+          {project?.expertiseBadges && project?.expertiseBadges?.length > 0 && (
+            <motion.div
+              className="absolute bottom-4 left-4 flex flex-wrap gap-2"
+              variants={badgeVariants}
+            >
+              {project?.expertiseBadges?.map((badge, idx) => (
+                <motion.div
+                  key={idx}
+                  className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Image
+                    src={badge}
+                    alt="Expertise Badge"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
           {/* Featured Badge */}
           {project?.featured && (
             <motion.div

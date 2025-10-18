@@ -35,9 +35,31 @@ const FeaturedProject = ({ project, onViewDetails }) => {
             <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold text-foreground mb-4">
               {project?.title}
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               {project?.description}
             </p>
+
+            {/* Expertise Badges */}
+            {project?.expertiseBadges && project?.expertiseBadges?.length > 0 && (
+              <div className="flex flex-wrap gap-3 mb-6">
+                {project?.expertiseBadges?.map((badge, idx) => (
+                  <motion.div
+                    key={idx}
+                    className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex items-center justify-center"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src={badge}
+                      alt="Expertise Badge"
+                      width={28}
+                      height={28}
+                      className="object-contain"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Key Features */}

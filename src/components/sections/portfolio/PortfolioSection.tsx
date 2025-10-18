@@ -95,6 +95,10 @@ const PortfolioSection = () => {
       description: t('projects.aiaa.description'),
       fullDescription: t('projects.aiaa.fullDescription'),
       image: t('projects.aiaa.image'),
+      expertiseBadges: [
+        t('projects.aiaa.expertiseBadges.badge1'),
+        t('projects.aiaa.expertiseBadges.badge2')
+      ].filter(Boolean),
       technologies: ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "AWS"],
       techIcons: {
         "React": "Code",
@@ -127,6 +131,9 @@ const PortfolioSection = () => {
       description: t('projects.montrealTechHub.description'),
       fullDescription: t('projects.montrealTechHub.fullDescription'),
       image: t('projects.montrealTechHub.image'),
+      expertiseBadges: [
+        t('projects.montrealTechHub.expertiseBadges.badge1')
+      ].filter(Boolean),
       technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
       techIcons: {
         "Next.js": "Code",
@@ -157,6 +164,9 @@ const PortfolioSection = () => {
       description: t('projects.ecoTrack.description'),
       fullDescription: t('projects.ecoTrack.fullDescription'),
       image: t('projects.ecoTrack.image'),
+      expertiseBadges: [
+        t('projects.ecoTrack.expertiseBadges.badge1')
+      ].filter(Boolean),
       technologies: ["Vue.js", "D3.js", "Python", "FastAPI", "InfluxDB"],
       techIcons: {
         "Vue.js": "Code",
@@ -186,6 +196,9 @@ const PortfolioSection = () => {
       description: t('projects.financeFlow.description'),
       fullDescription: t('projects.financeFlow.fullDescription'),
       image: t('projects.financeFlow.image'),
+      expertiseBadges: [
+        t('projects.financeFlow.expertiseBadges.badge1')
+      ].filter(Boolean),
       technologies: ["React Native", "Redux", "Node.js", "PostgreSQL", "Stripe"],
       techIcons: {
         "React Native": "Smartphone",
@@ -215,6 +228,10 @@ const PortfolioSection = () => {
       description: t('projects.creativeStudio.description'),
       fullDescription: t('projects.creativeStudio.fullDescription'),
       image: t('projects.creativeStudio.image'),
+      expertiseBadges: [
+        t('projects.creativeStudio.expertiseBadges.badge1'),
+        t('projects.creativeStudio.expertiseBadges.badge2')
+      ].filter(Boolean),
       technologies: ["React", "WebGL", "Socket.io", "Redis", "AWS S3"],
       techIcons: {
         "React": "Code",
@@ -244,6 +261,9 @@ const PortfolioSection = () => {
       description: t('projects.healthConnect.description'),
       fullDescription: t('projects.healthConnect.fullDescription'),
       image: t('projects.healthConnect.image'),
+      expertiseBadges: [
+        t('projects.healthConnect.expertiseBadges.badge1')
+      ].filter(Boolean),
       technologies: ["Angular", "WebRTC", "Express.js", "MongoDB", "Stripe"],
       techIcons: {
         "Angular": "Code",

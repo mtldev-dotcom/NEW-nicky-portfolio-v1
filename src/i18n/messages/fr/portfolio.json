@@ -28,6 +28,10 @@
       "title": "AIAA.dev - Plateforme d'Automatisation IA",
       "type": "Plateforme IA",
       "image": "/assets/projects/aiaa-dev.webp",
+      "expertiseBadges": {
+        "badge1": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/google-ai-ml.png",
+        "badge2": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/aws-certification.png"
+      },
       "description": "Plateforme d'automatisation IA révolutionnaire qui rationalise les flux de travail créatifs et améliore la productivité grâce à l'automatisation intelligente des tâches.",
       "fullDescription": "AIAA.dev représente l'avenir de l'automatisation créative, combinant une technologie IA de pointe avec un design intuitif pour créer une plateforme qui comprend vraiment les flux de travail créatifs. Ce projet illustre la fusion parfaite de l'intelligence artificielle et de la créativité humaine, permettant aux professionnels d'automatiser les tâches répétitives tout en maintenant le contrôle créatif.\n\nLa plateforme propose des algorithmes d'apprentissage automatique avancés qui apprennent du comportement des utilisateurs, des analyses prédictives pour l'optimisation des flux de travail, et une intégration transparente avec les outils créatifs populaires. Construite avec l'évolutivité à l'esprit, elle sert des milliers de professionnels créatifs dans le monde entier.",
       "client": "AIAA Labs",
@@ -71,13 +75,17 @@
       "testimonial": {
         "quote": "AIAA.dev a transformé notre processus créatif. Ce qui prenait des heures se fait maintenant automatiquement, permettant à notre équipe de se concentrer sur ce qui compte le plus - la créativité.",
         "author": "Sarah Chen",
-        "role": "Directrice Créative, Studio de Design"
+        "role": "Directrice Créative, Studio de Design",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/Pixel-Perfect-Agency.png"
       }
     },
     "montrealTechHub": {
       "title": "Montreal Tech Hub",
       "type": "Plateforme Web",
       "image": "/assets/projects/montreal-tech-hub.webp",
+      "expertiseBadges": {
+        "badge1": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/react-advanced.png"
+      },
       "description": "Plateforme communautaire connectant l'écosystème technologique de Montréal avec des événements, du réseautage et des outils de collaboration.",
       "fullDescription": "Montreal Tech Hub sert de cœur numérique à la communauté technologique florissante de Montréal. Cette plateforme rassemble développeurs, designers, entrepreneurs et passionnés de technologie dans un espace unifié pour la collaboration et la croissance.\n\nLe projet propose la gestion d'événements, le réseautage professionnel, l'intégration de tableaux d'emplois et des forums communautaires. Construit avec des technologies web modernes, il offre une expérience transparente sur tous les appareils tout en maintenant la nature bilingue essentielle à la culture de Montréal.",
       "client": "Communauté Tech de Montréal",
@@ -117,13 +125,17 @@
       "testimonial": {
         "quote": "Cette plateforme est devenue essentielle pour la communauté tech de Montréal. C'est là où nous nous connectons, collaborons et grandissons ensemble.",
         "author": "Marc Dubois",
-        "role": "Entrepreneur Tech"
+        "role": "Entrepreneur Tech",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/InnovateTech.png"
       }
     },
     "ecoTrack": {
       "title": "EcoTrack Analytics",
       "type": "Plateforme de Données",
       "image": "/assets/projects/ecotrack-analytics.webp",
+      "expertiseBadges": {
+        "badge1": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/google-ai-ml.png"
+      },
       "description": "Plateforme d'analyses de durabilité aidant les entreprises à suivre et optimiser leur impact environnemental.",
       "fullDescription": "EcoTrack Analytics permet aux entreprises de prendre des décisions basées sur les données concernant leur impact environnemental. La plateforme combine des capteurs IoT, l'apprentissage automatique et de belles visualisations pour fournir des insights actionnables pour les initiatives de durabilité.\n\nProposant une surveillance en temps réel, des analyses prédictives et des rapports complets, EcoTrack aide les organisations à réduire leur empreinte carbone tout en maintenant l'efficacité opérationnelle. La plateforme s'intègre avec les systèmes d'entreprise existants et fournit des tableaux de bord personnalisables pour différents besoins de parties prenantes.",
       "client": "Solutions GreenTech",
@@ -163,13 +175,17 @@
       "testimonial": {
         "quote": "EcoTrack nous a donné une visibilité sans précédent sur notre impact environnemental. Nous avons réduit notre empreinte carbone de 25% la première année.",
         "author": "Jennifer Walsh",
-        "role": "Directrice de Durabilité"
+        "role": "Directrice de Durabilité",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/Sofia-AI-Desk.png"
       }
     },
     "financeFlow": {
       "title": "FinanceFlow Mobile",
       "type": "Application Mobile",
       "image": "/assets/projects/financeflow-mobile.webp",
+      "expertiseBadges": {
+        "badge1": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/react-advanced.png"
+      },
       "description": "Application de gestion financière personnelle avec des insights alimentés par l'IA et des fonctionnalités de budgétisation automatisées.",
       "fullDescription": "FinanceFlow Mobile révolutionne la gestion financière personnelle en combinant un design intuitif avec des capacités IA puissantes. L'application apprend des modèles de dépenses des utilisateurs pour fournir des insights personnalisés et des recommandations de budgétisation automatisées.\n\nConstruite avec React Native pour la compatibilité cross-platform, l'application propose l'intégration bancaire, la catégorisation des dépenses, le suivi d'objectifs et la gestion de portefeuille d'investissement. Des mesures de sécurité avancées garantissent que les données financières des utilisateurs restent protégées tout en offrant une expérience utilisateur transparente.",
       "client": "Startup FinTech",
@@ -209,13 +225,18 @@
       "testimonial": {
         "quote": "FinanceFlow a complètement changé la façon dont je gère mon argent. Les insights IA sont incroyablement précis et utiles.",
         "author": "David Kim",
-        "role": "Utilisateur de l'App"
+        "role": "Utilisateur de l'App",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/InnovateTech.png"
       }
     },
     "creativeStudio": {
       "title": "CreativeStudio Pro",
       "type": "Outil de Design",
       "image": "/assets/projects/creative-studio-pro.webp",
+      "expertiseBadges": {
+        "badge1": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/adobe-ux.webp",
+        "badge2": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/react-advanced.png"
+      },
       "description": "Plateforme de design collaborative avec édition en temps réel, contrôle de version et fonctionnalités de design assistées par l'IA.",
       "fullDescription": "CreativeStudio Pro est une plateforme de design de nouvelle génération qui combine la puissance des outils de design traditionnels avec des fonctionnalités de collaboration modernes et une assistance IA. Construite pour les équipes créatives, elle permet une collaboration transparente tout en maintenant la qualité et la cohérence du design.\n\nLa plateforme propose une édition collaborative en temps réel, des suggestions de design intelligentes, une gestion automatisée des actifs et un contrôle de version complet. Des algorithmes IA avancés aident les designers avec des suggestions de mise en page, la génération de palettes de couleurs et la maintenance de systèmes de design.",
       "client": "Agence de Design",
@@ -255,13 +276,17 @@
       "testimonial": {
         "quote": "CreativeStudio Pro a transformé notre flux de travail de design. La collaboration en temps réel et les fonctionnalités IA sont révolutionnaires.",
         "author": "Lisa Rodriguez",
-        "role": "Chef d'Équipe Design"
+        "role": "Chef d'Équipe Design",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/Pixel-Perfect-Agency.png"
       }
     },
     "healthConnect": {
       "title": "Plateforme HealthConnect",
       "type": "Santé",
       "image": "/assets/projects/healthconnect-platform.webp",
+      "expertiseBadges": {
+        "badge1": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/badges/aws-certification.png"
+      },
       "description": "Plateforme de télémédecine connectant les patients avec les prestataires de soins de santé à travers des consultations vidéo sécurisées.",
       "fullDescription": "La Plateforme HealthConnect répond au besoin croissant de soins de santé accessibles en fournissant une solution de télémédecine sécurisée et conviviale. La plateforme permet des connexions transparentes entre patients et prestataires de soins de santé tout en maintenant les plus hauts standards de sécurité des données médicales.\n\nProposant la planification de rendez-vous, des consultations vidéo sécurisées, des dossiers médicaux électroniques, la gestion d'ordonnances et le traitement des paiements, HealthConnect offre une expérience de soins de santé complète. La plateforme est conforme HIPAA et inclut des fonctionnalités avancées comme l'évaluation des symptômes alimentée par l'IA et l'intégration de surveillance de santé.",
       "client": "Réseau de Santé",
@@ -301,7 +326,8 @@
       "testimonial": {
         "quote": "HealthConnect a rendu les soins de santé plus accessibles pour nos patients. La plateforme est intuitive et sécurisée.",
         "author": "Dr. Michael Thompson",
-        "role": "Médecin de Soins Primaires"
+        "role": "Médecin de Soins Primaires",
+        "companyLogo": "/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/company-logos/Sofia-AI-Desk.png"
       }
     }
   },
