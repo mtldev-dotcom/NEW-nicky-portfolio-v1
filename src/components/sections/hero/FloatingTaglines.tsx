@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 
 const FloatingTaglines = () => {
   const t = useTranslations('home.floatingTaglines');
-  const taglineKeys = ['one', 'two', 'three', 'four', 'five', 'six'] as const;
+  const taglineKeys = ['one', 'two', 'three'] as const; // Reduced to 2-3 as requested
 
   const taglines = taglineKeys.map((key, index) => ({
     text: t(key),
@@ -16,7 +16,7 @@ const FloatingTaglines = () => {
     animate: (custom) => ({
       rotate: 360,
       transition: {
-        duration: 20 + custom * 2,
+        duration: 25 + custom * 3, // Slower loop (20-30s as requested)
         repeat: Infinity,
         ease: "linear"
       }
@@ -37,10 +37,11 @@ const FloatingTaglines = () => {
   return (
     <div className="absolute inset-0 pointer-events-none hidden md:block">
       {taglines?.map((tagline, index) => {
-        const radius = 200 + index * 30;
-        const angle = (index * 60) * (Math.PI / 180);
+        // Shallow arc positioning near headline, not over body copy
+        const radius = 120 + index * 20; // Smaller radius for shallow arc
+        const angle = (index * 120) * (Math.PI / 180); // 120° spacing for 3 items
         const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
+        const y = Math.sin(angle) * radius - 50; // Offset upward to stay near headline
 
         return (
           <motion.div
@@ -52,11 +53,16 @@ const FloatingTaglines = () => {
             variants={orbitVariants}
             animate="animate"
             custom={index}
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ 
-              opacity: 1, 
+            initial={{ opacity: 0.5, scale: 0 }}
+            whileInView={{
+              opacity: 0.5,
               scale: 1,
               transition: { delay: tagline?.delay, duration: 0.8 }
+            }}
+            whileHover={{
+              opacity: 1,
+              scale: 1.1,
+              transition: { duration: 0.3 }
             }}
           >
             <motion.div
