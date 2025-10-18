@@ -94,7 +94,7 @@ const PortfolioSection = () => {
       type: t('projects.aiaa.type'),
       description: t('projects.aiaa.description'),
       fullDescription: t('projects.aiaa.fullDescription'),
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      image: t('projects.aiaa.image'),
       technologies: ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "AWS"],
       techIcons: {
         "React": "Code",
@@ -126,7 +126,7 @@ const PortfolioSection = () => {
       type: t('projects.montrealTechHub.type'),
       description: t('projects.montrealTechHub.description'),
       fullDescription: t('projects.montrealTechHub.fullDescription'),
-      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop",
+      image: t('projects.montrealTechHub.image'),
       technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
       techIcons: {
         "Next.js": "Code",
@@ -156,7 +156,7 @@ const PortfolioSection = () => {
       type: t('projects.ecoTrack.type'),
       description: t('projects.ecoTrack.description'),
       fullDescription: t('projects.ecoTrack.fullDescription'),
-      image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?w=800&h=600&fit=crop",
+      image: t('projects.ecoTrack.image'),
       technologies: ["Vue.js", "D3.js", "Python", "FastAPI", "InfluxDB"],
       techIcons: {
         "Vue.js": "Code",
@@ -185,7 +185,7 @@ const PortfolioSection = () => {
       type: t('projects.financeFlow.type'),
       description: t('projects.financeFlow.description'),
       fullDescription: t('projects.financeFlow.fullDescription'),
-      image: "https://images.pixabay.com/photo/2016/11/27/21/42/stock-1863880_1280.jpg?w=800&h=600&fit=crop",
+      image: t('projects.financeFlow.image'),
       technologies: ["React Native", "Redux", "Node.js", "PostgreSQL", "Stripe"],
       techIcons: {
         "React Native": "Smartphone",
@@ -214,7 +214,7 @@ const PortfolioSection = () => {
       type: t('projects.creativeStudio.type'),
       description: t('projects.creativeStudio.description'),
       fullDescription: t('projects.creativeStudio.fullDescription'),
-      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop",
+      image: t('projects.creativeStudio.image'),
       technologies: ["React", "WebGL", "Socket.io", "Redis", "AWS S3"],
       techIcons: {
         "React": "Code",
@@ -243,7 +243,7 @@ const PortfolioSection = () => {
       type: t('projects.healthConnect.type'),
       description: t('projects.healthConnect.description'),
       fullDescription: t('projects.healthConnect.fullDescription'),
-      image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?w=800&h=600&fit=crop",
+      image: t('projects.healthConnect.image'),
       technologies: ["Angular", "WebRTC", "Express.js", "MongoDB", "Stripe"],
       techIcons: {
         "Angular": "Code",

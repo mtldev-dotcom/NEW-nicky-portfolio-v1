@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
-import Image from 'components/AppImage';
+import Image from 'next/image';
 import Button from 'components/ui/Button';
 
 const ProjectCard = ({ project, index, onViewDetails }) => {
@@ -89,7 +89,9 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
             <Image
               src={project?.image}
               alt={project?.title}
-              className="w-full h-full object-cover transition-smooth"
+              fill
+              className="object-cover transition-smooth"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

@@ -15,7 +15,9 @@
     "six": "Meaningful results"
   },
   "hero": {
-    "title": "Design. Automate. Elevate.",
+    "titleDesign": "Design.",
+    "titleAutomate": "Automate.",
+    "titleElevate": "Elevate.",
     "subtitle": "I create powerful digital systems that simplify, streamline, and scale your business.",
     "description": "From stunning websites to smart automation and AI-infused tools — I help you work smarter and stand out online.",
     "ctaPrimary": "See My Work",

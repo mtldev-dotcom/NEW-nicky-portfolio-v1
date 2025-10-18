@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Icon from 'components/AppIcon';
-import Image from 'components/AppImage';
+import Image from 'next/image';
 import Button from 'components/ui/Button';
 
 const FeaturedProject = ({ project, onViewDetails }) => {
@@ -122,7 +122,9 @@ const FeaturedProject = ({ project, onViewDetails }) => {
             <Image
               src={project?.image}
               alt={project?.title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </div>

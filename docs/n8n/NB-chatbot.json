@@ -1,0 +1,182 @@
+{
+  "name": "NB-chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ba8aa11e-331e-4226-89a9-064b050c6423",
+              "name": "timestamp",
+              "value": "={{ $now.setZone('America/Montreal').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            },
+            {
+              "id": "1ac62e43-ca18-4a8b-a4c2-b4077f31deee",
+              "name": "ChatUserIP",
+              "value": "={{ $('Webhook').item.json.headers['x-real-ip'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0ff997ed-72b7-43b4-a6b8-b250e6906ee0",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are Nicky Bruno's AI assistant, a professional full-stack developer and AI integration specialist. Your role is to help visitors to Nicky's portfolio website with questions about:\n\n**Services & Expertise:**\n- Web development (React, Next.js, Node.js)\n- AI integration and automation\n- Full-stack development\n- Database design and optimization\n- API development and integration\n- Cloud deployment and DevOps\n\n**Professional Information:**\n- Based in Montreal, Canada\n- Fluent in English and French\n- Specializes in modern web technologies\n- Experienced with AI/ML integration\n- Available for freelance projects\n\n**Communication Style:**\n- Professional yet friendly\n- Technical but accessible\n- Helpful and solution-oriented\n- Respectful of user's time\n- Encourage meaningful conversations about projects\n\n**Response Guidelines:**\n1. Answer questions about Nicky's services and expertise\n2. Provide helpful technical guidance when appropriate\n3. Suggest scheduling a consultation for complex projects\n4. Always maintain professionalism\n5. If unsure about something, admit it and offer to connect them with Nicky directly\n6. Keep responses concise but informative\n7. Use the user's language (English/French) based on their preference\n\n**Important:** Never make promises about pricing, timelines, or specific deliverables. Always recommend a consultation for detailed project discussions.\n\nUser's message: {{ $('Webhook').item.json.body.body.message }}\nUser's language: {{ $('Webhook').item.json.body.body.language }}\nSession ID: {{ $('Webhook').item.json.body.conversationId }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "93cbb35e-aa33-40a4-968f-2ff8e42a98dd",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.ChatUserIP }}",
+        "contextWindowLength": 30
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "5b594de7-c624-4d89-9e6f-f1bcc0580ce5",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        48,
+        208
+      ],
+      "id": "ada2a1d5-150e-496b-9cbf-a1fb81b45d8e",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "IHgOSJ7ErSEUKAej",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "fb80cf37-e8d1-4a0b-b060-e6572adbe8bd",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        16
+      ],
+      "id": "c3f1c84b-2582-4d66-9afc-18030f1e1938",
+      "name": "Webhook",
+      "webhookId": "fb80cf37-e8d1-4a0b-b060-e6572adbe8bd"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        560,
+        0
+      ],
+      "id": "e54ff4ec-4e83-416f-948d-3e121541c4a0",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b3eccc49-987d-4fe1-a942-a1fb41fff8d1",
+  "meta": {
+    "instanceId": "8ce6008ce00a7961a76839b9eb8ba996b07e9b6776ff1a7859f92bdf49835e97"
+  },
+  "id": "1QPQjin1e9tIyytt",
+  "tags": []
+}

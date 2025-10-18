@@ -1,0 +1,828 @@
+{
+  "name": "NB forms contact",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://nicky-portfolio.nickyhome.casa,http://localhost:3000"
+        }
+      },
+      "id": "webhook-trigger",
+      "name": "Contact Form Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        128,
+        688
+      ],
+      "webhookId": "contact-form-nickybruno",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "name-check",
+              "leftValue": "={{ $json.body.name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            },
+            {
+              "id": "email-check",
+              "leftValue": "={{ $json.body.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            },
+            {
+              "id": "email-format-check",
+              "leftValue": "={{ $json.body.email }}",
+              "rightValue": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
+              "operator": {
+                "type": "string",
+                "operation": "regex"
+              }
+            },
+            {
+              "id": "message-check",
+              "leftValue": "={{ $json.body.message }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "validate-fields",
+      "name": "Validate Form Data",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        576,
+        368
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.language }}",
+                    "rightValue": "en",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "0fe3bb24-4d23-4347-abce-b793b66e75e8"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "english"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "473d866a-604c-4863-b17a-b6aaf6044b4a",
+                    "leftValue": "={{ $json.body.language }}",
+                    "rightValue": "fr",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "french"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        800,
+        288
+      ],
+      "id": "058263c4-45b6-4cbe-80f5-8b03c3f1e2ef",
+      "name": "Switch Language"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.email }}",
+        "subject": "Thank you for contacting Nicky Bruno - We received your inquiry!",
+        "message": "=<html>\n<body style=\"font-family: Arial, sans-serif; line-height: 1.6; color: #333;\">\n  <div style=\"max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;\">\n    <div style=\"background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);\">\n      <h2 style=\"color: #2563eb; margin-top: 0;\">Thank You for Reaching Out!</h2>\n      \n      <p>Hi {{ $json.body.name }},</p>\n      \n      <p>Thank you for contacting me through my portfolio website. I've received your inquiry and will get back to you as soon as possible, usually within 24-48 hours.</p>\n      \n      <div style=\"background-color: #f3f4f6; padding: 20px; border-left: 4px solid #2563eb; margin: 20px 0; border-radius: 4px;\">\n        <h3 style=\"margin-top: 0; color: #1f2937; font-size: 16px;\">Your Submission Details:</h3>\n        \n        <table style=\"width: 100%; border-collapse: collapse;\">\n          <tr>\n            <td style=\"padding: 8px 0; font-weight: bold; color: #4b5563; width: 140px;\">Name:</td>\n            <td style=\"padding: 8px 0; color: #1f2937;\">{{ $json.body.name }}</td>\n          </tr>\n          <tr>\n            <td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Email:</td>\n            <td style=\"padding: 8px 0; color: #1f2937;\">{{ $json.body.email }}</td>\n          </tr>\n          {{ $json.body.company ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Company:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.company + '</td></tr>' : '' }}\n          {{ $json.body.projectType ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Project Type:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.projectType + '</td></tr>' : '' }}\n          {{ $json.body.budget ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Budget:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.budget + '</td></tr>' : '' }}\n          {{ $json.body.timeline ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Timeline:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.timeline + '</td></tr>' : '' }}\n        </table>\n        \n        <div style=\"margin-top: 15px; padding-top: 15px; border-top: 1px solid #e5e7eb;\">\n          <p style=\"margin: 0; font-weight: bold; color: #4b5563;\">Your message:</p>\n          <p style=\"margin: 10px 0 0 0; font-style: italic; color: #1f2937;\">{{ $json.body.message }}</p>\n        </div>\n      </div>\n      \n      {{ $json.body.newsletter ? '<div style=\"background-color: #dbeafe; padding: 12px 16px; border-radius: 6px; margin: 20px 0;\"><p style=\"margin: 0; color: #1e40af; font-size: 14px;\">✅ You\\'ve subscribed to receive updates and insights about web development and AI.</p></div>' : '' }}\n      \n      <p>In the meantime, feel free to:</p>\n      <ul style=\"color: #4b5563;\">\n        <li style=\"margin-bottom: 8px;\">Check out my <a href=\"https://nickybruno.com/portfolio\" style=\"color: #2563eb; text-decoration: none; font-weight: 500;\">portfolio projects</a></li>\n        <li style=\"margin-bottom: 8px;\">Learn more about <a href=\"https://nickybruno.com/services\" style=\"color: #2563eb; text-decoration: none; font-weight: 500;\">my services</a></li>\n        <li style=\"margin-bottom: 8px;\">Connect with me on <a href=\"https://linkedin.com/in/nickybruno\" style=\"color: #2563eb; text-decoration: none; font-weight: 500;\">LinkedIn</a></li>\n      </ul>\n      \n      <p style=\"margin-top: 20px;\">Best regards,<br>\n      <strong style=\"color: #1f2937;\">Nicky Bruno</strong><br>\n      <span style=\"color: #6b7280; font-size: 14px;\">Full-Stack Developer & AI Integration Specialist</span></p>\n      \n      <hr style=\"border: none; border-top: 1px solid #e5e7eb; margin: 20px 0;\">\n      \n      <p style=\"font-size: 12px; color: #9ca3af; text-align: center;\">This is an automated confirmation email. Please do not reply directly to this message.</p>\n    </div>\n  </div>\n</body>\n</html>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "send-gmail-en",
+      "name": "Send Email (English)",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1024,
+        192
+      ],
+      "webhookId": "ab3d2650-3b36-4f0c-b025-a05f781e910f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "suGIn8IhuZdfLhdP",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.email }}",
+        "subject": "Merci de m'avoir contacté - Nous avons bien reçu votre demande!",
+        "message": "=<html>\n<body style=\"font-family: Arial, sans-serif; line-height: 1.6; color: #333;\">\n  <div style=\"max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;\">\n    <div style=\"background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);\">\n      <h2 style=\"color: #2563eb; margin-top: 0;\">Merci de m'avoir contacté!</h2>\n      \n      <p>Bonjour {{ $json.body.name }},</p>\n      \n      <p>Merci de m'avoir contacté via mon site portfolio. J'ai bien reçu votre demande et je vous répondrai dans les plus brefs délais, généralement sous 24 à 48 heures.</p>\n      \n      <div style=\"background-color: #f3f4f6; padding: 20px; border-left: 4px solid #2563eb; margin: 20px 0; border-radius: 4px;\">\n        <h3 style=\"margin-top: 0; color: #1f2937; font-size: 16px;\">Détails de votre demande:</h3>\n        \n        <table style=\"width: 100%; border-collapse: collapse;\">\n          <tr>\n            <td style=\"padding: 8px 0; font-weight: bold; color: #4b5563; width: 140px;\">Nom:</td>\n            <td style=\"padding: 8px 0; color: #1f2937;\">{{ $json.body.name }}</td>\n          </tr>\n          <tr>\n            <td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Email:</td>\n            <td style=\"padding: 8px 0; color: #1f2937;\">{{ $json.body.email }}</td>\n          </tr>\n          {{ $json.body.company ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Entreprise:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.company + '</td></tr>' : '' }}\n          {{ $json.body.projectType ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Type de projet:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.projectType + '</td></tr>' : '' }}\n          {{ $json.body.budget ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Budget:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.budget + '</td></tr>' : '' }}\n          {{ $json.body.timeline ? '<tr><td style=\"padding: 8px 0; font-weight: bold; color: #4b5563;\">Délais:</td><td style=\"padding: 8px 0; color: #1f2937;\">' + $json.body.timeline + '</td></tr>' : '' }}\n        </table>\n        \n        <div style=\"margin-top: 15px; padding-top: 15px; border-top: 1px solid #e5e7eb;\">\n          <p style=\"margin: 0; font-weight: bold; color: #4b5563;\">Votre message:</p>\n          <p style=\"margin: 10px 0 0 0; font-style: italic; color: #1f2937;\">{{ $json.body.message }}</p>\n        </div>\n      </div>\n      \n      {{ $json.body.newsletter ? '<div style=\"background-color: #dbeafe; padding: 12px 16px; border-radius: 6px; margin: 20px 0;\"><p style=\"margin: 0; color: #1e40af; font-size: 14px;\">✅ Vous êtes inscrit pour recevoir des mises à jour et des informations sur le développement web et l\\'IA.</p></div>' : '' }}\n      \n      <p>En attendant, n'hésitez pas à:</p>\n      <ul style=\"color: #4b5563;\">\n        <li style=\"margin-bottom: 8px;\">Consulter mon <a href=\"https://nickybruno.com/fr/portfolio\" style=\"color: #2563eb; text-decoration: none; font-weight: 500;\">portfolio de projets</a></li>\n        <li style=\"margin-bottom: 8px;\">En savoir plus sur <a href=\"https://nickybruno.com/fr/services\" style=\"color: #2563eb; text-decoration: none; font-weight: 500;\">mes services</a></li>\n        <li style=\"margin-bottom: 8px;\">Me contacter sur <a href=\"https://linkedin.com/in/nickybruno\" style=\"color: #2563eb; text-decoration: none; font-weight: 500;\">LinkedIn</a></li>\n      </ul>\n      \n      <p style=\"margin-top: 20px;\">Cordialement,<br>\n      <strong style=\"color: #1f2937;\">Nicky Bruno</strong><br>\n      <span style=\"color: #6b7280; font-size: 14px;\">Développeur Full-Stack & Spécialiste en Intégration IA</span></p>\n      \n      <hr style=\"border: none; border-top: 1px solid #e5e7eb; margin: 20px 0;\">\n      \n      <p style=\"font-size: 12px; color: #9ca3af; text-align: center;\">Ceci est un email de confirmation automatique. Veuillez ne pas répondre directement à ce message.</p>\n    </div>\n  </div>\n</body>\n</html>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "send-gmail-fr",
+      "name": "Send Email (French)",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1024,
+        384
+      ],
+      "webhookId": "a845722a-d32e-42b5-a13e-1a6a50b0d2f6",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "suGIn8IhuZdfLhdP",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1cXeF6d4daCUp1hewbrZKd75CVjoixghbO8eHjT7TAqI",
+          "mode": "list",
+          "cachedResultName": "nickybruno.com",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cXeF6d4daCUp1hewbrZKd75CVjoixghbO8eHjT7TAqI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "contact-form",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cXeF6d4daCUp1hewbrZKd75CVjoixghbO8eHjT7TAqI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $now.setZone('America/Montreal').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+            "Name": "={{ $('Contact Form Webhook').item.json.body.name }}",
+            "Email": "={{ $('Contact Form Webhook').item.json.body.email }}",
+            "Company": "={{ $('Contact Form Webhook').item.json.body.company }}",
+            "Project Type": "={{ $('Contact Form Webhook').item.json.body.projectType }}",
+            "Budget": "={{ $('Contact Form Webhook').item.json.body.budget }}",
+            "Timeline": "={{ $('Contact Form Webhook').item.json.body.timeline }}",
+            "Message": "={{ $('Contact Form Webhook').item.json.body.message }}",
+            "Newsletter": "={{ $('Contact Form Webhook').item.json.body.newsletter }}",
+            "Terms Accepted": "={{ $('Contact Form Webhook').item.json.body.terms }}",
+            "Language": "={{ $('Contact Form Webhook').item.json.body.language }}",
+            "Status": "pending",
+            "IP": "={{ $('Contact Form Webhook').item.json.headers['x-real-ip'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Type",
+              "displayName": "Project Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Timeline",
+              "displayName": "Timeline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Newsletter",
+              "displayName": "Newsletter",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Terms Accepted",
+              "displayName": "Terms Accepted",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Language",
+              "displayName": "Language",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "IP",
+              "displayName": "IP",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1248,
+        288
+      ],
+      "id": "0ebe3f7a-9d4f-46f3-a9f5-8d5818d4e611",
+      "name": "Save to Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WhtXuanWjEY029zu",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"message\": \"Thank you! Your message has been received. Check your email for confirmation.\",\n  \"data\": {\n    \"name\": \"{{ $('Contact Form Webhook').item.json.body.name }}\",\n    \"email\": \"{{ $('Contact Form Webhook').item.json.body.email }}\",\n    \"language\": \"{{ $('Contact Form Webhook').item.json.body.language }}\",\n    \"timestamp\": \"{{ $now.toISO() }}\"\n  }\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-success",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1472,
+        288
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": false,\n  \"message\": \"Validation failed. Please check your form data.\",\n  \"errors\": [\n    \"{{ $json.body.name ? '' : 'Name is required' }}\",\n    \"{{ $json.body.email ? ($json.body.email.match(/^[\\\\w-\\\\.]+@([\\\\w-]+\\\\.)+[\\\\w-]{2,4}$/) ? '' : 'Valid email is required') : 'Email is required' }}\",\n    \"{{ $json.body.message ? '' : 'Message is required' }}\"\n  ]\n}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "respond-error",
+      "name": "Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        800,
+        480
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.formType }}",
+                    "rightValue": "contact",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "4113206f-c575-4133-b6a2-bfab6d60b609"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "contact"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.formType }}",
+                    "rightValue": "projectBrief",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "984b949a-7c43-46ed-b24d-2fb01d68464c"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "projectBrief"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "34a94fbd-8abc-4076-984a-f2d241f21df0",
+                    "leftValue": "={{ $json.body.formType }}",
+                    "rightValue": "chatbot",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "chatbot"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "form-type-router",
+      "name": "Form Type Router",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        352,
+        672
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1cXeF6d4daCUp1hewbrZKd75CVjoixghbO8eHjT7TAqI",
+          "mode": "list",
+          "cachedResultName": "nickybruno.com",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cXeF6d4daCUp1hewbrZKd75CVjoixghbO8eHjT7TAqI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 323226144,
+          "mode": "list",
+          "cachedResultName": "project-briefs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cXeF6d4daCUp1hewbrZKd75CVjoixghbO8eHjT7TAqI/edit#gid=323226144"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Project Goal": "={{ $json.body.projectGoal }}",
+            "Target Audience": "={{ $json.body.targetAudience }}",
+            "Key Features": "={{ $json.body.keyFeatures }}",
+            "Design Preference": "={{ $json.body.designPreference }}",
+            "Tech Requirements": "={{ $json.body.techRequirements }}",
+            "Timeline": "={{ $json.body.timeline }}",
+            "Budget": "={{ $json.body.budget }}",
+            "Inspiration": "={{ $json.body.inspiration }}",
+            "Challenges": "={{ $json.body.challenges }}",
+            "Language": "={{ $json.body.language }}",
+            "Status": "pending",
+            "IP": "={{ $json.headers['x-real-ip'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Project Goal",
+              "displayName": "Project Goal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Target Audience",
+              "displayName": "Target Audience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Key Features",
+              "displayName": "Key Features",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Design Preference",
+              "displayName": "Design Preference",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tech Requirements",
+              "displayName": "Tech Requirements",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Timeline",
+              "displayName": "Timeline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Inspiration",
+              "displayName": "Inspiration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Challenges",
+              "displayName": "Challenges",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Language",
+              "displayName": "Language",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "IP",
+              "displayName": "IP",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "save-project-brief",
+      "name": "Save Project Brief",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        576,
+        688
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WhtXuanWjEY029zu",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"message\": \"Thank you! Your project brief has been received. I'll review it and get back to you within 24-48 hours.\",\n  \"data\": {\n    \"formType\": \"projectBrief\",\n    \"language\": \"{{ $('Contact Form Webhook').item.json.body.language }}\",\n    \"timestamp\": \"{{ $now.toISO() }}\"\n  }\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "brief-success-response",
+      "name": "Brief Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        800,
+        688
+      ],
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Validate Form Data": {
+      "main": [
+        [
+          {
+            "node": "Switch Language",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Language": {
+      "main": [
+        [
+          {
+            "node": "Send Email (English)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Email (French)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email (English)": {
+      "main": [
+        [
+          {
+            "node": "Save to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email (French)": {
+      "main": [
+        [
+          {
+            "node": "Save to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contact Form Webhook": {
+      "main": [
+        [
+          {
+            "node": "Form Type Router",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Form Type Router": {
+      "main": [
+        [
+          {
+            "node": "Validate Form Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save Project Brief",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Save Project Brief": {
+      "main": [
+        [
+          {
+            "node": "Brief Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "versionId": "5c4dc0ff-a522-4a3e-b6d5-a9fc6f8ccb58",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8ce6008ce00a7961a76839b9eb8ba996b07e9b6776ff1a7859f92bdf49835e97"
+  },
+  "id": "6NpILQ8dWthS1fjR",
+  "tags": []
+}

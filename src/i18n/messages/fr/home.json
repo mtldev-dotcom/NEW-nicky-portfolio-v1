@@ -15,7 +15,9 @@
     "six": "Résultats significatifs"
   },
   "hero": {
-    "title": "Concevoir. Automatiser. Améliorer.",
+    "titleDesign": "Concevoir.",
+    "titleAutomate": "Automatiser.",
+    "titleElevate": "Améliorer.",
     "subtitle": "Je crée des systèmes numériques puissants qui simplifient, rationalisent et développent votre activité.",
     "description": "Des sites web époustouflants aux outils d'automatisation et d'IA intelligents — je vous aide à travailler plus efficacement et à vous démarquer en ligne.",
     "ctaPrimary": "Voir mon travail",

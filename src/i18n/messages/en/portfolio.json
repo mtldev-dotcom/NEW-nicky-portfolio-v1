@@ -27,6 +27,7 @@
     "aiaa": {
       "title": "AIAA.dev - AI Automation Platform",
       "type": "AI Platform",
+      "image": "/assets/projects/aiaa-dev.webp",
       "description": "Revolutionary AI automation platform that streamlines creative workflows and enhances productivity through intelligent task automation.",
       "fullDescription": "AIAA.dev represents the future of creative automation, combining cutting-edge AI technology with intuitive design to create a platform that truly understands creative workflows. This project showcases the perfect fusion of artificial intelligence and human creativity, enabling professionals to automate repetitive tasks while maintaining creative control.\n\nThe platform features advanced machine learning algorithms that learn from user behavior, predictive analytics for workflow optimization, and seamless integration with popular creative tools. Built with scalability in mind, it serves thousands of creative professionals worldwide.",
       "client": "AIAA Labs",
@@ -76,6 +77,7 @@
     "montrealTechHub": {
       "title": "Montreal Tech Hub",
       "type": "Web Platform",
+      "image": "/assets/projects/montreal-tech-hub.webp",
       "description": "Community platform connecting Montreal's tech ecosystem with events, networking, and collaboration tools.",
       "fullDescription": "Montreal Tech Hub serves as the digital heart of Montreal's thriving technology community. This platform brings together developers, designers, entrepreneurs, and tech enthusiasts in a unified space for collaboration and growth.\n\nThe project features event management, professional networking, job board integration, and community forums. Built with modern web technologies, it provides a seamless experience across all devices while maintaining the bilingual nature essential to Montreal's culture.",
       "client": "Montreal Tech Community",
@@ -121,6 +123,7 @@
     "ecoTrack": {
       "title": "EcoTrack Analytics",
       "type": "Data Platform",
+      "image": "/assets/projects/ecotrack-analytics.webp",
       "description": "Sustainability analytics platform helping businesses track and optimize their environmental impact.",
       "fullDescription": "EcoTrack Analytics empowers businesses to make data-driven decisions about their environmental impact. The platform combines IoT sensors, machine learning, and beautiful visualizations to provide actionable insights for sustainability initiatives.\n\nFeaturing real-time monitoring, predictive analytics, and comprehensive reporting, EcoTrack helps organizations reduce their carbon footprint while maintaining operational efficiency. The platform integrates with existing business systems and provides customizable dashboards for different stakeholder needs.",
       "client": "GreenTech Solutions",
@@ -166,6 +169,7 @@
     "financeFlow": {
       "title": "FinanceFlow Mobile",
       "type": "Mobile App",
+      "image": "/assets/projects/financeflow-mobile.webp",
       "description": "Personal finance management app with AI-powered insights and automated budgeting features.",
       "fullDescription": "FinanceFlow Mobile revolutionizes personal finance management by combining intuitive design with powerful AI capabilities. The app learns from user spending patterns to provide personalized insights and automated budgeting recommendations.\n\nBuilt with React Native for cross-platform compatibility, the app features bank integration, expense categorization, goal tracking, and investment portfolio management. Advanced security measures ensure user financial data remains protected while providing seamless user experience.",
       "client": "FinTech Startup",
@@ -211,6 +215,7 @@
     "creativeStudio": {
       "title": "CreativeStudio Pro",
       "type": "Design Tool",
+      "image": "/assets/projects/creative-studio-pro.webp",
       "description": "Collaborative design platform with real-time editing, version control, and AI-assisted design features.",
       "fullDescription": "CreativeStudio Pro is a next-generation design platform that combines the power of traditional design tools with modern collaboration features and AI assistance. Built for creative teams, it enables seamless collaboration while maintaining design quality and consistency.\n\nThe platform features real-time collaborative editing, intelligent design suggestions, automated asset management, and comprehensive version control. Advanced AI algorithms help designers with layout suggestions, color palette generation, and design system maintenance.",
       "client": "Design Agency",
@@ -256,6 +261,7 @@
     "healthConnect": {
       "title": "HealthConnect Platform",
       "type": "Healthcare",
+      "image": "/assets/projects/healthconnect-platform.webp",
       "description": "Telemedicine platform connecting patients with healthcare providers through secure video consultations.",
       "fullDescription": "HealthConnect Platform addresses the growing need for accessible healthcare by providing a secure, user-friendly telemedicine solution. The platform enables seamless connections between patients and healthcare providers while maintaining the highest standards of medical data security.\n\nFeaturing appointment scheduling, secure video consultations, electronic health records, prescription management, and payment processing, HealthConnect provides a comprehensive healthcare experience. The platform is HIPAA compliant and includes advanced features like AI-powered symptom assessment and health monitoring integration.",
       "client": "Healthcare Network",
