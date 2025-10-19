@@ -4740,7 +4740,7 @@ Optional: Company, Budget Range, Timeline, and Project Details.
 
 ### **Prefer to Reach Out Directly?**
 
-📧 **Email:** hello@nickybruno.ca  
+📧 **Email:** hello@nickybruno.com  
  📞 **Phone:** \+1 (514) 555-0123  
  📍 **Location:** Montreal, QC – available globally
 
@@ -6318,7 +6318,7 @@ FILE: docs/dev/new-full-text-content.md
 
 ### **Direct Contact**
 
-📧 hello@nickybruno.ca  
+📧 hello@nickybruno.com  
  📞 \+1 (514) 555-0123  
  📍 Montreal • Worldwide Clients
 
@@ -8289,7 +8289,7 @@ const ContactInfo = () => {
       label: t('items.email.label'),
       value: t('items.email.value'),
       description: t('items.email.description'),
-      action: 'mailto:hello@nickybruno.ca'
+      action: 'mailto:hello@nickybruno.com'
     },
     {
       icon: 'Phone',
@@ -8804,7 +8804,7 @@ const FAQSection = () => {
             {t('cta.title')}
           </p>
           <a
-            href="mailto:hello@nickybruno.ca?subject=Question about your services"
+            href="mailto:hello@nickybruno.com?subject=Question about your services"
             className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth"
           >
             <Icon name="Mail" size={16} />
@@ -16100,7 +16100,7 @@ const Footer = (): JSX.Element => {
 
           <div className="flex items-center space-x-6">
             <a
-              href="mailto:hello@nickybruno.ca"
+              href="mailto:hello@nickybruno.com"
               className="text-muted-foreground hover:text-primary transition-smooth"
             >
               <Icon name="Mail" size={20} />
@@ -17705,7 +17705,7 @@ FILE: src/i18n/messages/en/contact.json
       "items": {
         "email": {
           "label": "Email",
-          "value": "hello@nickybruno.ca",
+          "value": "hello@nickybruno.com",
           "description": "Primary contact for project inquiries"
         },
         "phone": {
@@ -19768,7 +19768,7 @@ FILE: src/i18n/messages/fr/contact.json
       "items": {
         "email": {
           "label": "Email",
-          "value": "hello@nickybruno.ca",
+          "value": "hello@nickybruno.com",
           "description": "Contact principal pour les demandes de projet"
         },
         "phone": {

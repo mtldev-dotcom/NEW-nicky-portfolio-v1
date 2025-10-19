@@ -167,7 +167,7 @@ const FAQSection = () => {
             {t('cta.title')}
           </p>
           <motion.a
-            href="mailto:hello@nickybruno.ca?subject=Question about your services"
+            href="mailto:hello@nickybruno.com?subject=Question about your services"
             className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

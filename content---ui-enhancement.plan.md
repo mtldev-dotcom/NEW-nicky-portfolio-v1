@@ -17,7 +17,7 @@ Comprehensive enhancement of the Nicky Bruno Portfolio by integrating richer con
 
 - Update footer content with new Newsletter CTA copy from `01-globals.md`
 - Add missing navigation states (Testimonials as standalone section)
-- Integrate contact information updates (hello@nickybruno.ca vs .com)
+- Integrate contact information updates (hello@nickybruno.com vs .com)
 - Add new footer sections structure per content docs
 
 **Why:** Foundation for consistent messaging across all pages
@@ -108,7 +108,7 @@ Comprehensive enhancement of the Nicky Bruno Portfolio by integrating richer con
 
 **Updates from `06-contact.md`:**
 
-- Update email to hello@nickybruno.ca (consistent)
+- Update email to hello@nickybruno.com (consistent)
 - Add budget range options to form
 - Expand FAQ from 3 to 6 questions
 - Add "Quick Actions" section

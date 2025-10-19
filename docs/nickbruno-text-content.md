@@ -420,7 +420,7 @@ Optional: Company, Budget Range, Timeline, and Project Details.
 
 ### **Prefer to Reach Out Directly?**
 
-📧 **Email:** hello@nickybruno.ca  
+📧 **Email:** hello@nickybruno.com  
  📞 **Phone:** \+1 (514) 555-0123  
  📍 **Location:** Montreal, QC – available globally
 

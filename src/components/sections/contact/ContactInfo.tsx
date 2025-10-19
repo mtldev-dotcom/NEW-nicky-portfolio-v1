@@ -14,7 +14,7 @@ const ContactInfo = () => {
       label: t('items.email.label'),
       value: t('items.email.value'),
       description: t('items.email.description'),
-      action: 'mailto:hello@nickybruno.ca'
+      action: 'mailto:hello@nickybruno.com'
     },
     {
       icon: 'Phone',

@@ -392,7 +392,7 @@
 
 ### **Direct Contact**
 
-📧 hello@nickybruno.ca  
+📧 hello@nickybruno.com  
  📞 \+1 (514) 555-0123  
  📍 Montreal • Worldwide Clients
 
