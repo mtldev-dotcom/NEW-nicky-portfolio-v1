@@ -1,8 +1,15 @@
-import {redirect} from 'next/navigation';
-import {defaultLocale} from '@/i18n/config';
+import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
+import { detectLocale } from '@/i18n/config';
 
-// Fallback server-side redirect from "/" to "/<defaultLocale>"
-// Ensures root path works even if middleware doesn't match "/"
-export default function RootRedirect() {
-  redirect(`/${defaultLocale}`);
+export default async function RootPage() {
+    // Get the Accept-Language header
+    const headersList = await headers();
+    const acceptLanguage = headersList.get('accept-language');
+
+    // Detect the locale
+    const detectedLocale = detectLocale(acceptLanguage);
+
+    // Redirect to the detected locale
+    redirect(`/${detectedLocale}`);
 }
