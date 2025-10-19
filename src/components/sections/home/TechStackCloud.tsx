@@ -167,17 +167,18 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
     const [isHovering, setIsHovering] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+    const [clickedIcon, setClickedIcon] = useState<string | null>(null);
     const [activeTab, setActiveTab] = useState<TabType>('all');
     const [hasMounted, setHasMounted] = useState(false);
 
-    // Tabs config
-    const tabs: { id: TabType; label: string }[] = [
-        { id: 'all', label: t('tabs.all') },
-        { id: 'core', label: t('tabs.core') },
-        { id: 'automation', label: t('tabs.automation') },
-        { id: 'cloud', label: t('tabs.cloud') },
-        { id: 'backend', label: t('tabs.backend') },
-        { id: 'design', label: t('tabs.design') },
+    // Tabs config with icons
+    const tabs: { id: TabType; label: string; icon: string }[] = [
+        { id: 'all', label: t('tabs.all'), icon: 'html5.png' },
+        { id: 'core', label: t('tabs.core'), icon: 'react.png' },
+        { id: 'automation', label: t('tabs.automation'), icon: 'openai.png' },
+        { id: 'cloud', label: t('tabs.cloud'), icon: 'aws.png' },
+        { id: 'backend', label: t('tabs.backend'), icon: 'nodejs.png' },
+        { id: 'design', label: t('tabs.design'), icon: 'figma.png' },
     ];
 
     // Filtered tech list based on active tab
@@ -244,34 +245,57 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
     }, []);
 
     const handleIconClick = useCallback((tech: TechItem) => {
-        const url = t(`tools.${tech.id}.url`);
-        if (url && url !== `tools.${tech.id}.url`) {
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-    }, [t]);
+        // Toggle clicked state - if already clicked, hide label; if not clicked, show label
+        setClickedIcon(clickedIcon === tech.id ? null : tech.id);
+    }, [clickedIcon]);
+
+    // Close tooltip when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (clickedIcon && !(event.target as Element).closest('.tech-icon-container')) {
+                setClickedIcon(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [clickedIcon]);
 
     return (
         <div className={`relative flex flex-col items-center justify-center ${className}`}>
             {/* Tabs */}
-            <div className="mb-6 w-full max-w-full px-4">
+            {/* <div className="mb-6 w-full max-w-full px-4">
                 <div className="flex items-center justify-center bg-card/50 backdrop-blur-sm border border-border/60 rounded-xl p-1 overflow-x-auto scrollbar-hide">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`relative px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeTab === tab.id
-                                ? 'text-primary bg-primary/10'
-                                : 'text-muted-foreground hover:text-foreground hover:bg-card/50'
+                            className={`relative px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 whitespace-nowrap flex-shrink-0 group ${activeTab === tab.id
+                                ? 'bg-primary/10'
+                                : 'hover:bg-card/50'
                                 }`}
+                            title={tab.label}
+                            aria-label={tab.label}
                         >
                             {activeTab === tab.id && (
                                 <div className="absolute inset-0 bg-primary/10 rounded-lg" />
                             )}
-                            <span className="relative z-10">{tab.label}</span>
+                            <div className="relative z-10 flex items-center justify-center">
+                                <Image
+                                    src={`/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/${tab.icon}`}
+                                    alt={tab.label}
+                                    width={20}
+                                    height={20}
+                                    className={`w-5 h-5 object-contain transition-all duration-300 ${activeTab === tab.id
+                                        ? 'opacity-100 scale-110'
+                                        : 'opacity-70 group-hover:opacity-100 group-hover:scale-105'
+                                        }`}
+                                />
+                            </div>
                         </button>
                     ))}
                 </div>
-            </div>
+            </div> */}
             {/* 3D Container */}
             <div
                 ref={containerRef}
@@ -347,7 +371,7 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                         >
                             {/* Icon container with animation isolated to child so transforms don't clash */}
                             <motion.div
-                                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl backdrop-blur-sm border border-border/40 glow-neon group cursor-pointer transition-all duration-300 hover:glow-neon-active active:scale-95"
+                                className="tech-icon-container flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl backdrop-blur-sm border border-border/40 glow-neon group cursor-pointer transition-all duration-300 hover:glow-neon-active active:scale-95"
                                 style={{
                                     backgroundColor: `${tech.color}15`,
                                     borderColor: `${tech.color}40`,
@@ -360,8 +384,7 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                                 whileTap={{ scale: 0.95 }}
                                 onMouseEnter={() => setHoveredIcon(tech.id)}
                                 onMouseLeave={() => setHoveredIcon(null)}
-                                onTouchStart={() => setHoveredIcon(tech.id)}
-                                onTouchEnd={() => setHoveredIcon(null)}
+                                onTouchStart={() => handleIconClick(tech)}
                                 onClick={() => handleIconClick(tech)}
                             >
                                 <Image
@@ -373,8 +396,8 @@ const TechStackCloud: React.FC<TechStackCloudProps> = ({ className = '' }) => {
                                 />
                             </motion.div>
 
-                            {/* Tooltip */}
-                            {hoveredIcon === tech.id && (
+                            {/* Tooltip - show on click/touch */}
+                            {(hoveredIcon === tech.id || clickedIcon === tech.id) && (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}

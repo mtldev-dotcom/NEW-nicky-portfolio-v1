@@ -150,6 +150,11 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
+  .font-emoji {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', 'EmojiOne Mozilla', 'Twemoji Mozilla', 'Segoe UI Symbol', sans-serif;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
   /* Holographic glow effects */
   .glow-neon {
     box-shadow: var(--shadow-glow);

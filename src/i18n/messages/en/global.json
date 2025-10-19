@@ -56,7 +56,7 @@
     "switchTo": "Switch to",
     "english": "English",
     "french": "Français",
-    "ariaLabel": "Select language"
+    "ariaLabel": "Switch language"
   },
   "footer": {
     "title": "Nicky Bruno",

@@ -120,8 +120,8 @@
           "description": "Primary contact for project inquiries"
         },
         "phone": {
-          "label": "Phone",
-          "value": "+1 (514) 555-0123",
+          "label": "Phone (SMS)",
+          "value": "+1 (438) 470-0773",
           "description": "Available Mon-Fri, 9AM-6PM EST"
         },
         "location": {

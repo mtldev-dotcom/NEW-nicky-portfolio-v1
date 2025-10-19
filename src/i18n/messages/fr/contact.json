@@ -120,8 +120,8 @@
           "description": "Contact principal pour les demandes de projet"
         },
         "phone": {
-          "label": "Téléphone",
-          "value": "+1 (514) 555-0123",
+          "label": "Téléphone (SMS)",
+          "value": "+1 (438) 470-0773",
           "description": "Disponible Lun-Ven, 9h-18h HNE"
         },
         "location": {

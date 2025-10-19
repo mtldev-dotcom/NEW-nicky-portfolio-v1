@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, memo } from 'react';
+import { useState, memo, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import TechStackCloud from 'components/sections/home/TechStackCloud';
@@ -24,6 +24,7 @@ type TabType = 'all' | 'core' | 'automation' | 'cloud';
 const TechStackShowcase = () => {
     const t = useTranslations('home.techStack');
     const [activeTab, setActiveTab] = useState<TabType>('all');
+    const [clickedMarqueeIcon, setClickedMarqueeIcon] = useState<string | null>(null);
 
     const tabs = [
         { id: 'all' as TabType, label: t('tabs.all') },
@@ -31,6 +32,18 @@ const TechStackShowcase = () => {
         { id: 'automation' as TabType, label: t('tabs.automation') },
         { id: 'cloud' as TabType, label: t('tabs.cloud') },
     ];
+
+    // Close marquee tooltip when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (clickedMarqueeIcon && !(event.target as Element).closest('.marquee-icon-container')) {
+                setClickedMarqueeIcon(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [clickedMarqueeIcon]);
 
     return (
         <section className="relative py-20 px-6 lg:px-8 bg-background overflow-hidden">
@@ -58,10 +71,6 @@ const TechStackShowcase = () => {
                     </h2>
 
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-                        {t('subtitle')}
-                    </p>
-
-                    <p className="text-sm text-muted-foreground/80 max-w-xl mx-auto">
                         {t('description')}
                     </p>
                 </motion.div>
@@ -138,21 +147,39 @@ const TechStackShowcase = () => {
                             >
                                 {/* Duplicate for seamless loop */}
                                 {[...MARQUEE_ICONS, ...MARQUEE_ICONS].map((icon, index) => {
-                                    const toolUrl = t(`tools.${icon.id}.url`);
+                                    const toolName = t(`tools.${icon.id}.name`);
+                                    const toolDescription = t(`tools.${icon.id}.description`);
 
                                     return (
-                                        <motion.div
-                                            key={`marquee-${index}`}
-                                            className="flex-shrink-0 w-16 h-16 rounded-xl backdrop-blur-sm border border-border/40 flex items-center justify-center glow-neon group cursor-pointer"
-                                            whileHover={{ scale: 1.05, y: -2 }}
-                                            onClick={() => window.open(toolUrl, '_blank')}
-                                        >
-                                            <img
-                                                src={`/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/${icon.icon}`}
-                                                alt={t(`tools.${icon.id}.name`)}
-                                                className="w-8 h-8 object-contain"
-                                            />
-                                        </motion.div>
+                                        <div key={`marquee-${index}`} className="relative">
+                                            <motion.div
+                                                className="marquee-icon-container flex-shrink-0 w-16 h-16 rounded-xl backdrop-blur-sm border border-border/40 flex items-center justify-center glow-neon group cursor-pointer"
+                                                whileHover={{ scale: 1.05, y: -2 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                onClick={() => setClickedMarqueeIcon(clickedMarqueeIcon === icon.id ? null : icon.id)}
+                                                onTouchStart={() => setClickedMarqueeIcon(clickedMarqueeIcon === icon.id ? null : icon.id)}
+                                            >
+                                                <img
+                                                    src={`/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/${icon.icon}`}
+                                                    alt={toolName}
+                                                    className="w-8 h-8 object-contain"
+                                                />
+                                            </motion.div>
+
+                                            {/* Tooltip for marquee icons */}
+                                            {clickedMarqueeIcon === icon.id && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: 10 }}
+                                                    className="absolute -top-20 left-1/2 -translate-x-1/2 bg-black/95 backdrop-blur-md border border-white/20 rounded-xl px-3 py-2 text-xs whitespace-nowrap shadow-2xl z-50"
+                                                >
+                                                    <div className="font-bold text-white text-sm">{toolName}</div>
+                                                    <div className="text-gray-300 text-xs mt-1">{toolDescription}</div>
+                                                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black/95" />
+                                                </motion.div>
+                                            )}
+                                        </div>
                                     );
                                 })}
                             </motion.div>

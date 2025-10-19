@@ -40,7 +40,7 @@ const TestimonialCard = ({ testimonial, isActive, onClick }) => {
         <div className="flex items-center space-x-4">
           <div className="relative">
             <Image
-              src={testimonial?.avatar}
+              src="/assets/images/profil-pic.webp"
               alt={testimonial?.name}
               width={48}
               height={48}
