@@ -66,8 +66,9 @@ const HeroContent = () => {
           variants={glowVariants}
           animate="animate"
         >
-          <span className="block">
+          <span className="block relative">
             {t('titleDesign')}
+            <span className="absolute bottom-0 left-0 h-1 w-full rounded-full bg-gradient-to-r from-gray-400/60 via-gray-400/30 to-gray-400/10"></span>
           </span>
           <span className="block text-primary relative">
             {t('titleAutomate')}
