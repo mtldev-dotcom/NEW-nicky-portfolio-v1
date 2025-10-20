@@ -16,7 +16,7 @@ This portfolio demonstrates advanced web development practices including:
 ---
 
 ## 🛠 Tech Stack
-
+ 
 ### Core Framework
 - **Next.js 15 (App Router)** — streaming routes, metadata, built-in i18n routing  
 - **TypeScript** — typed components, utilities, and strict path aliases  
