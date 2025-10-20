@@ -25,14 +25,14 @@ const DemoCard = ({ card, index }: DemoCardProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const shouldReduceMotion = useReducedMotion();
 
-    // Use existing portfolio images as placeholders
-    const placeholderImages = [
-        '/assets/projects/aiaa-dev.webp',
-        '/assets/projects/creative-studio-pro.webp',
-        '/assets/projects/ecotrack-analytics.webp',
-        '/assets/projects/financeflow-mobile.webp',
-        '/assets/projects/healthconnect-platform.webp',
-        '/assets/projects/montreal-tech-hub.webp',
+    // Use showroom images
+    const showroomImages = [
+        '/assets/images/showroom/showroom-datavault-analytics.webp',
+        '/assets/images/showroom/showroom-ecomix-storefront.webp',
+        '/assets/images/showroom/showroom-flowpilot-dashboard.webp',
+        '/assets/images/showroom/showroom-lumina-studio-cms.webp',
+        '/assets/images/showroom/showroom-nova-ai.webp',
+        '/assets/images/showroom/showroom-securai-bot.webp',
     ];
 
     const cardVariants = {
@@ -66,7 +66,7 @@ const DemoCard = ({ card, index }: DemoCardProps) => {
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                     <Image
-                        src={placeholderImages[index % placeholderImages.length]}
+                        src={showroomImages[index % showroomImages.length]}
                         alt={card.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -159,7 +159,7 @@ const DemoCard = ({ card, index }: DemoCardProps) => {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 card={card}
-                imageSrc={placeholderImages[index % placeholderImages.length]}
+                imageSrc={showroomImages[index % showroomImages.length]}
             />
         </>
     );
