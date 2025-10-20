@@ -22,7 +22,7 @@ export default function OpengraphImage() {
           background: 'radial-gradient(circle at 20% 20%, rgba(0,255,209,0.2), transparent 60%), radial-gradient(circle at 80% 30%, rgba(0,255,209,0.1), transparent 55%)',
           backgroundColor: '#040404',
           color: '#f5f5f5',
-          fontFamily: 'Space Grotesk, Inter, sans-serif',
+          fontFamily: 'system-ui, sans-serif',
         }}
       >
         <div

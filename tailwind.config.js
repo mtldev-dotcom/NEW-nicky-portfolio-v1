@@ -80,11 +80,11 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)"
       },
       fontFamily: {
-        "space-grotesk": ["Space Grotesk", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
-        "jetbrains-mono": ["JetBrains Mono", "monospace"],
-        sans: ["Inter", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"]
+        "space-grotesk": ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
+        inter: ["var(--font-inter)", "Inter", "sans-serif"],
+        "jetbrains-mono": ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"],
+        sans: ["var(--font-inter)", "Inter", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"]
       },
       fontSize: {
         hero: ["4rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
@@ -126,12 +126,12 @@ module.exports = {
           "100%": { opacity: "1" }
         },
         slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "0%": { transform: "translateY(100%)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" }
         },
         slideDown: {
-          "0%": { transform: "translateY(-20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" }
+          "0%": { transform: "translateY(0)", opacity: "1" },
+          "100%": { transform: "translateY(100%)", opacity: "0" }
         },
         scaleIn: {
           "0%": { transform: "scale(0.95)", opacity: "0" },

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
@@ -21,14 +21,14 @@ const ThemeCustomizer = ({ tool, index }: ThemeCustomizerProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const shouldReduceMotion = useReducedMotion();
 
-    const accentColors = [
+    const accentColors = useMemo(() => [
         { name: 'mint', value: '#00FFD1', label: 'Mint' },
         { name: 'emerald', value: '#10B981', label: 'Emerald' },
         { name: 'cyan', value: '#06B6D4', label: 'Cyan' },
         { name: 'blue', value: '#3B82F6', label: 'Blue' },
         { name: 'purple', value: '#8B5CF6', label: 'Purple' },
         { name: 'pink', value: '#EC4899', label: 'Pink' },
-    ];
+    ], []);
 
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -115,8 +115,8 @@ const ThemeCustomizer = ({ tool, index }: ThemeCustomizerProps) => {
                             <button
                                 onClick={() => setIsDarkMode(false)}
                                 className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${!isDarkMode
-                                        ? 'bg-primary text-black'
-                                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                                    ? 'bg-primary text-black'
+                                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
                                     }`}
                             >
                                 Light
@@ -124,8 +124,8 @@ const ThemeCustomizer = ({ tool, index }: ThemeCustomizerProps) => {
                             <button
                                 onClick={() => setIsDarkMode(true)}
                                 className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${isDarkMode
-                                        ? 'bg-primary text-black'
-                                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                                    ? 'bg-primary text-black'
+                                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
                                     }`}
                             >
                                 Dark
@@ -141,8 +141,8 @@ const ThemeCustomizer = ({ tool, index }: ThemeCustomizerProps) => {
                                     key={color.name}
                                     onClick={() => setAccentColor(color.name)}
                                     className={`w-6 h-6 rounded-full border-2 transition-all ${accentColor === color.name
-                                            ? 'border-foreground scale-110'
-                                            : 'border-border hover:border-primary/50'
+                                        ? 'border-foreground scale-110'
+                                        : 'border-border hover:border-primary/50'
                                         }`}
                                     style={{ backgroundColor: color.value }}
                                     title={color.label}
@@ -210,8 +210,8 @@ const ThemeCustomizer = ({ tool, index }: ThemeCustomizerProps) => {
                                     <button
                                         onClick={() => setIsDarkMode(false)}
                                         className={`p-4 rounded-lg border transition-all ${!isDarkMode
-                                                ? 'border-primary bg-primary/10 text-primary'
-                                                : 'border-border hover:border-primary/50'
+                                            ? 'border-primary bg-primary/10 text-primary'
+                                            : 'border-border hover:border-primary/50'
                                             }`}
                                     >
                                         <Icon name="Sun" size={24} className="mx-auto mb-2" />
@@ -220,8 +220,8 @@ const ThemeCustomizer = ({ tool, index }: ThemeCustomizerProps) => {
                                     <button
                                         onClick={() => setIsDarkMode(true)}
                                         className={`p-4 rounded-lg border transition-all ${isDarkMode
-                                                ? 'border-primary bg-primary/10 text-primary'
-                                                : 'border-border hover:border-primary/50'
+                                            ? 'border-primary bg-primary/10 text-primary'
+                                            : 'border-border hover:border-primary/50'
                                             }`}
                                     >
                                         <Icon name="Moon" size={24} className="mx-auto mb-2" />
@@ -241,8 +241,8 @@ const ThemeCustomizer = ({ tool, index }: ThemeCustomizerProps) => {
                                             key={color.name}
                                             onClick={() => setAccentColor(color.name)}
                                             className={`p-3 rounded-lg border transition-all ${accentColor === color.name
-                                                    ? 'border-primary bg-primary/10'
-                                                    : 'border-border hover:border-primary/50'
+                                                ? 'border-primary bg-primary/10'
+                                                : 'border-border hover:border-primary/50'
                                                 }`}
                                         >
                                             <div
