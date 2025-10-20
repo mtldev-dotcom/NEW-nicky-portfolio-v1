@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "portfolio": "Portfolio",
+    "showroom": "Showroom",
     "testimonials": "Testimonials",
     "contact": "Contact",
     "cta": "Start a Project"
@@ -76,7 +76,7 @@
         "title": "Company",
         "items": [
           "About",
-          "Portfolio",
+          "Showroom",
           "Testimonials",
           "Contact"
         ]
@@ -123,6 +123,13 @@
     },
     "copyright": "© 2024 Nicky Bruno. All rights reserved.",
     "madeWith": "Made with ❤️ in Montreal",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "confidentialTagline": "Your systems, your data, your control.",
+    "securityBadges": {
+      "gdpr": "GDPR Compliant",
+      "encrypted": "Encrypted Communications",
+      "nda": "NDA Standard",
+      "local": "Local Hosting Available"
+    }
   }
 }

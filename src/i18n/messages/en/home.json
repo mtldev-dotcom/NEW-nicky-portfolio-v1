@@ -18,7 +18,8 @@
     "titleDesign": "Design.",
     "titleAutomate": "Automate.",
     "titleElevate": "Elevate.",
-    "subtitle": "I create powerful digital systems that simplify, streamline, and scale your business.",
+    "subtitle": "I create secure, private digital systems that simplify, streamline, and scale your business — all under strict confidentiality.",
+    "confidentialTagline": "Confidential. Custom. Controlled.",
     "description": "From stunning websites to smart automation and AI-infused tools — I help you work smarter and stand out online.",
     "ctaPrimary": "See My Work",
     "ctaSecondary": "Book a Discovery Call",
@@ -499,6 +500,30 @@
         "name": "After Effects",
         "description": "Motion graphics software",
         "url": "https://adobe.com/products/aftereffects"
+      }
+    }
+  },
+  "trust": {
+    "badge": "Privacy by Design",
+    "title": "Your Ideas Stay Yours",
+    "subtitle": "Every engagement starts with an NDA. Your data is never shared, sold, or exposed.",
+    "intro": "Your ideas stay yours. Every engagement starts with an NDA. Systems can be deployed locally or privately hosted. No shared data, no public leaks.",
+    "cards": {
+      "nda": {
+        "title": "NDA-Protected",
+        "description": "Every project begins with a signed confidentiality agreement."
+      },
+      "onPremise": {
+        "title": "On-Premise Options",
+        "description": "Deploy on your own servers for maximum control and security."
+      },
+      "zeroSharing": {
+        "title": "Zero Data Sharing",
+        "description": "Your data never leaves your infrastructure without permission."
+      },
+      "privateHosting": {
+        "title": "Private Hosting",
+        "description": "Secure, encrypted hosting tailored to your privacy requirements."
       }
     }
   },

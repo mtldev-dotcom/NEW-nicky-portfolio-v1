@@ -239,6 +239,18 @@
       "subtitle": "Comment nous travaillons ensemble",
       "keyDeliverables": "Livrables Clés :",
       "steps": {
+        "nda": {
+          "phase": "NDA et Découverte",
+          "title": "Démarrage confidentiel du projet",
+          "description": "Commencez avec un NDA signé et une découverte sécurisée pour protéger vos idées dès le premier jour.",
+          "duration": "Jour 1",
+          "deliverables": {
+            "0": "NDA Signé",
+            "1": "Accord de Confidentialité",
+            "2": "Configuration Communication Sécurisée",
+            "3": "Protocole de Confidentialité"
+          }
+        },
         "discovery": {
           "phase": "Découverte",
           "title": "Analyse Stratégique",

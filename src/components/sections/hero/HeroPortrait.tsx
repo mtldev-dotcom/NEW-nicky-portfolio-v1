@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import PortraitGeometricBackground from './PortraitGeometricBackground';
 
 const HeroPortrait = () => {
@@ -89,9 +90,11 @@ const HeroPortrait = () => {
           <div className="absolute inset-0 rounded-full bg-gradient-radial from-primary/20 via-primary/10 to-transparent blur-2xl" />
 
           <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-primary/30 glow-neon">
-            <img
+            <Image
               src="/assets/images/nicky-profile-img-no-bkground.png"
               alt={t('portraitAlt')}
+              width={384}
+              height={384}
               className="h-full w-full object-cover"
               ref={imageRef}
               onLoad={() => setIsLoaded(true)}
@@ -101,8 +104,8 @@ const HeroPortrait = () => {
                 img.src = '/assets/images/profil_portrait.jpg';
                 setIsLoaded(true);
               }}
-              loading="eager"
-              decoding="async"
+              priority
+              quality={90}
             />
 
             <div className="absolute inset-0 mix-blend-overlay bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />

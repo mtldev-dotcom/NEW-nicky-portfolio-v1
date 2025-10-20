@@ -14,6 +14,7 @@
       "title": "Let's Work Together",
       "titleHighlight": "",
       "description": "Whether you're launching a web platform, automating with AI, or rethinking your digital strategy — I'm here to help.",
+      "privacyNote": "Every message stays private. Your data is never shared or stored beyond your request.",
       "stats": {
         "response": {
           "title": "24hr Response Time",
@@ -313,5 +314,16 @@
       },
       "location": "Based in Montreal • Serving clients worldwide"
     }
+  },
+  "privacyAssurance": {
+    "title": "Your Privacy is Guaranteed",
+    "items": [
+      "All communications encrypted end-to-end",
+      "No data sold or shared with third parties",
+      "GDPR and privacy law compliant",
+      "Optional on-premise meetings available",
+      "Secure file transfer protocols",
+      "Data retention per your requirements"
+    ]
   }
 }

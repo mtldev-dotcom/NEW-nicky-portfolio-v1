@@ -239,6 +239,18 @@
       "subtitle": "How we work together",
       "keyDeliverables": "Key Deliverables:",
       "steps": {
+        "nda": {
+          "phase": "NDA & Discovery",
+          "title": "Confidential project kickoff",
+          "description": "Begin with signed NDA and secure discovery to protect your ideas from day one.",
+          "duration": "Day 1",
+          "deliverables": {
+            "0": "Signed NDA",
+            "1": "Confidentiality Agreement",
+            "2": "Secure Communication Setup",
+            "3": "Privacy Protocol"
+          }
+        },
         "discovery": {
           "phase": "Discovery",
           "title": "Understand your goals & users",

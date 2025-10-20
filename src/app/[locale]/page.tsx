@@ -21,6 +21,10 @@ const HomeBenefits = dynamic(() => import('components/sections/home/HomeBenefits
   loading: () => <div className="h-96 bg-background" />,
 });
 
+const HomeTrust = dynamic(() => import('components/sections/home/HomeTrust'), {
+  loading: () => <div className="h-96 bg-background" />,
+});
+
 const TechStackShowcase = dynamic(() => import('components/sections/home/TechStackShowcase'), {
   loading: () => <div className="h-96 bg-background" />,
 });
@@ -62,6 +66,7 @@ export default function LocaleHomePage() {
         <HomeIntro />
         <HomeCapabilities />
         <HomeBenefits />
+        <HomeTrust />
         <TechStackShowcase />
         <HomeFeaturedProjects />
         <HomeTestimonials />

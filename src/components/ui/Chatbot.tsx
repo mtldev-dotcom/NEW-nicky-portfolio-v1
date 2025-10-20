@@ -35,14 +35,56 @@ const Chatbot: React.FC<ChatbotProps> = ({
     const [isLoading, setIsLoading] = useState(false);
     const [connectionStatus, setConnectionStatus] = useState<'online' | 'offline' | 'connecting' | 'error'>('online');
     const [error, setError] = useState<string | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatContainerRef = useRef<HTMLDivElement>(null);
+
+    // Mobile breakpoint detection and body scroll lock
+    useEffect(() => {
+        const checkMobile = () => {
+            const mobile = window.innerWidth <= 768;
+            setIsMobile(mobile);
+        };
+
+        // Initial check
+        checkMobile();
+
+        // Listen for resize events
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Body scroll lock for mobile when chat is open
+    useEffect(() => {
+        if ((isOpen || isClosing) && isMobile) {
+            document.body.style.overflow = 'hidden';
+            return () => {
+                document.body.style.overflow = '';
+            };
+        }
+    }, [isOpen, isClosing, isMobile]);
 
     // Auto-scroll to bottom when new messages arrive
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
+
+    // Handle virtual keyboard on mobile - ensure input stays visible
+    useEffect(() => {
+        if ((isOpen || isClosing) && isMobile) {
+            const handleResize = () => {
+                // Small delay to ensure keyboard animation completes
+                setTimeout(() => {
+                    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            };
+
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
+    }, [isOpen, isClosing, isMobile]);
 
     // Initialize with welcome message
     useEffect(() => {
@@ -57,19 +99,54 @@ const Chatbot: React.FC<ChatbotProps> = ({
         }
     }, [t, messages.length]);
 
-    // Handle escape key to close chat
+    // Handle escape key to close chat (desktop only)
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape' && isOpen) {
+            if (e.key === 'Escape' && isOpen && !isMobile) {
                 setIsOpen(false);
             }
         };
 
-        if (isOpen) {
+        if (isOpen && !isMobile) {
             document.addEventListener('keydown', handleEscape);
             return () => document.removeEventListener('keydown', handleEscape);
         }
-    }, [isOpen]);
+    }, [isOpen, isMobile]);
+
+    // Focus trap for mobile full-screen chat
+    useEffect(() => {
+        if ((isOpen || isClosing) && isMobile && chatContainerRef.current) {
+            const focusableElements = chatContainerRef.current.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const firstElement = focusableElements[0] as HTMLElement;
+            const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+            const handleTabKey = (e: KeyboardEvent) => {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstElement) {
+                            lastElement?.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastElement) {
+                            firstElement?.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            };
+
+            // Focus first element only when opening (not closing)
+            if (isOpen && !isClosing) {
+                firstElement?.focus();
+            }
+
+            document.addEventListener('keydown', handleTabKey);
+            return () => document.removeEventListener('keydown', handleTabKey);
+        }
+    }, [isOpen, isClosing, isMobile]);
 
     const sendMessage = async (content: string) => {
         if (!content.trim() || isLoading) return;
@@ -186,8 +263,22 @@ const Chatbot: React.FC<ChatbotProps> = ({
     };
 
     const toggleChat = () => {
-        setIsOpen(!isOpen);
-        if (!isOpen) {
+        if (isOpen) {
+            // Start closing animation on mobile
+            if (isMobile) {
+                setIsClosing(true);
+                // Wait for animation to complete before actually closing
+                setTimeout(() => {
+                    setIsOpen(false);
+                    setIsClosing(false);
+                }, 300); // Match animation duration
+            } else {
+                // Desktop: close immediately
+                setIsOpen(false);
+            }
+        } else {
+            // Opening chat
+            setIsOpen(true);
             setIsMinimized(false);
         }
     };
@@ -236,22 +327,44 @@ const Chatbot: React.FC<ChatbotProps> = ({
             </div>
 
             {/* Chat Window */}
-            {isOpen && (
+            {(isOpen || isClosing) && (
                 <div
                     ref={chatContainerRef}
                     className={cn(
-                        'fixed bottom-24 right-6 z-50 w-96 h-[600px]',
-                        'bg-card border border-border rounded-xl shadow-2xl',
-                        'flex flex-col overflow-hidden',
+                        'fixed z-[9999] bg-background flex flex-col',
+                        // Mobile full-screen
+                        'max-md:inset-0 max-md:w-screen max-md:h-screen max-md:rounded-none',
+                        // Respect iOS safe-areas
+                        'max-md:pt-[env(safe-area-inset-top)] max-md:pb-[env(safe-area-inset-bottom)]',
+                        // Desktop widget (existing)
+                        'md:bottom-24 md:right-6 md:w-96 md:h-[600px] md:rounded-xl md:border md:border-border md:shadow-2xl',
+                        // Animation
                         'animate-scale-in',
-                        isMinimized && 'h-16'
+                        // Minimize state (desktop only)
+                        !isMobile && isMinimized && 'h-16'
                     )}
+                    role={isMobile ? "dialog" : undefined}
+                    aria-modal={isMobile ? "true" : undefined}
                 >
                     {/* Header */}
-                    <div className="flex items-center justify-between p-4 border-b border-border bg-muted/50">
+                    <div className={cn(
+                        'flex items-center justify-between border-b border-border',
+                        // Mobile header with neon-mint background and safe area support
+                        'max-md:h-16 max-md:bg-primary max-md:text-primary-foreground max-md:px-4',
+                        // iOS safe area support
+                        'max-md:pt-[env(safe-area-inset-top)] max-md:pb-[env(safe-area-inset-bottom)]',
+                        // Desktop header (existing)
+                        'md:h-auto md:bg-muted/50 md:p-4'
+                    )}>
                         <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                                <Icon name="Bot" size={16} className="text-primary-foreground" />
+                            <div className={cn(
+                                'w-8 h-8 rounded-full flex items-center justify-center',
+                                // Mobile: white icon on mint background
+                                'max-md:bg-primary-foreground max-md:text-primary',
+                                // Desktop: mint icon on muted background
+                                'md:bg-primary md:text-primary-foreground'
+                            )}>
+                                <Icon name="Bot" size={16} />
                             </div>
                             <div>
                                 <h3 className="font-medium text-foreground">{t('title')}</h3>
@@ -272,29 +385,41 @@ const Chatbot: React.FC<ChatbotProps> = ({
                         </div>
 
                         <div className="flex items-center space-x-1">
-                            <Button
-                                onClick={toggleMinimize}
-                                size="icon"
-                                variant="ghost"
-                                className="w-8 h-8"
-                                iconName={isMinimized ? "Maximize2" : "Minimize2"}
-                                iconSize={16}
-                                aria-label={isMinimized ? t('actionMaximize') : t('actionMinimize')}
-                            />
-                            <Button
-                                onClick={clearMessages}
-                                size="icon"
-                                variant="ghost"
-                                className="w-8 h-8"
-                                iconName="Trash2"
-                                iconSize={16}
-                                aria-label={t('actionClear')}
-                            />
+                            {/* Desktop-only buttons */}
+                            {!isMobile && (
+                                <>
+                                    <Button
+                                        onClick={toggleMinimize}
+                                        size="icon"
+                                        variant="ghost"
+                                        className="w-8 h-8"
+                                        iconName={isMinimized ? "Maximize2" : "Minimize2"}
+                                        iconSize={16}
+                                        aria-label={isMinimized ? t('actionMaximize') : t('actionMinimize')}
+                                    />
+                                    <Button
+                                        onClick={clearMessages}
+                                        size="icon"
+                                        variant="ghost"
+                                        className="w-8 h-8"
+                                        iconName="Trash2"
+                                        iconSize={16}
+                                        aria-label={t('actionClear')}
+                                    />
+                                </>
+                            )}
+                            {/* Close button - always visible */}
                             <Button
                                 onClick={toggleChat}
                                 size="icon"
                                 variant="ghost"
-                                className="w-8 h-8"
+                                className={cn(
+                                    'w-8 h-8',
+                                    // Mobile: white text on mint background
+                                    'max-md:text-primary-foreground max-md:hover:bg-primary-foreground/10',
+                                    // Desktop: default ghost styling
+                                    'md:text-foreground'
+                                )}
                                 iconName="X"
                                 iconSize={16}
                                 aria-label={t('actionClose')}
@@ -303,9 +428,9 @@ const Chatbot: React.FC<ChatbotProps> = ({
                     </div>
 
                     {/* Messages Area */}
-                    {!isMinimized && (
+                    {((!isMobile && !isMinimized) || isMobile) && (
                         <>
-                            <div className="flex-1 overflow-y-auto p-4 space-y-2">
+                            <div className="flex-1 overflow-y-auto p-4 pb-24 space-y-2 max-md:pb-[calc(24px+env(safe-area-inset-bottom))]">
                                 {messages.map((message) => (
                                     <ChatMessage
                                         key={message.id}
@@ -347,12 +472,14 @@ const Chatbot: React.FC<ChatbotProps> = ({
                             )}
 
                             {/* Input Area */}
-                            <ChatInput
-                                onSendMessage={sendMessage}
-                                disabled={isLoading}
-                                placeholder={t('placeholder')}
-                                maxLength={1000}
-                            />
+                            <div className="sticky bottom-0 left-0 right-0 bg-background/95 backdrop-blur-xs border-t border-border max-md:pb-[env(safe-area-inset-bottom)]">
+                                <ChatInput
+                                    onSendMessage={sendMessage}
+                                    disabled={isLoading}
+                                    placeholder={t('placeholder')}
+                                    maxLength={1000}
+                                />
+                            </div>
                         </>
                     )}
                 </div>

@@ -236,9 +236,15 @@
     }
   }
 
-  /* Chatbot-specific animations */
-  .chatbot-float {
-    animation: chatbotFloat 3s ease-in-out infinite;
+  /* Mobile chat animations */
+  @media (max-width: 768px) {
+    .chat-mobile-slide-up {
+      animation: slideUp 300ms ease-out;
+    }
+
+    .chat-mobile-slide-down {
+      animation: slideDown 300ms ease-out;
+    }
   }
 
   .chatbot-pulse {

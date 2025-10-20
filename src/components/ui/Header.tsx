@@ -19,7 +19,7 @@ const navigationItems: NavigationItem[] = [
   { labelKey: 'home', path: '/', icon: 'Home' },
   { labelKey: 'about', path: '/about', icon: 'User' },
   { labelKey: 'services', path: '/services', icon: 'Briefcase' },
-  { labelKey: 'portfolio', path: '/portfolio', icon: 'FolderOpen' },
+  { labelKey: 'showroom', path: '/showroom', icon: 'Eye' },
   { labelKey: 'contact', path: '/contact', icon: 'Mail' },
 ];
 

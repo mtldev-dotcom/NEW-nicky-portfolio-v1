@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Icon from 'components/AppIcon';
 import Button from './Button';
 import Input from './Input';
+import SecurityBadges from './SecurityBadges';
 
 const Footer = (): JSX.Element => {
   const t = useTranslations('global.footer');
@@ -66,7 +67,7 @@ const Footer = (): JSX.Element => {
             </h4>
             <ul className="space-y-2">
               {t.raw('sections.company.items').map((item: string, index: number) => {
-                const paths = ['about', 'portfolio', 'testimonials', 'contact'];
+                const paths = ['about', 'showroom', 'testimonials', 'contact'];
                 return (
                   <li key={index}>
                     <Link
@@ -175,6 +176,14 @@ const Footer = (): JSX.Element => {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border/50">
+          {/* Confidential Tagline */}
+          <div className="text-center mb-8">
+            <p className="text-lg font-space-grotesk font-medium text-primary mb-4">
+              {t('confidentialTagline')}
+            </p>
+            <SecurityBadges />
+          </div>
+
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center glow-neon">

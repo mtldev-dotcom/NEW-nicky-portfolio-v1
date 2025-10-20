@@ -14,6 +14,7 @@
       "title": "Créons Quelque Chose",
       "titleHighlight": "d'Extraordinaire",
       "description": "Que vous cherchiez à construire une application web de pointe, intégrer l'IA dans votre workflow, ou créer une expérience numérique qui se démarque—je suis là pour vous aider à donner vie à votre vision.",
+      "privacyNote": "Chaque message reste privé. Vos données ne sont jamais partagées ou stockées au-delà de votre demande.",
       "stats": {
         "response": {
           "title": "Réponse en 24h",
@@ -313,5 +314,16 @@
       },
       "location": "Basé à Montréal • Servant des clients mondialement • Disponible pour projets distants et sur site"
     }
+  },
+  "privacyAssurance": {
+    "title": "Votre confidentialité est garantie",
+    "items": [
+      "Toutes les communications chiffrées de bout en bout",
+      "Aucune donnée vendue ou partagée avec des tiers",
+      "Conforme au RGPD et aux lois sur la confidentialité",
+      "Rencontres sur site optionnelles disponibles",
+      "Protocoles de transfert de fichiers sécurisés",
+      "Rétention des données selon vos exigences"
+    ]
   }
 }

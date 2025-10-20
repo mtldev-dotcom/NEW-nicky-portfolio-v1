@@ -7,6 +7,7 @@ import CareerTimeline from './CareerTimeline';
 import CredentialsShowcase from './CredentialsShowcase';
 import ExperienceCounter from './ExperienceCounter';
 import PersonalIntro from './PersonalIntro';
+import CodeOfTrust from './CodeOfTrust';
 
 const AboutSection: FC = () => {
   const locale = useLocale();
@@ -51,6 +52,13 @@ const AboutSection: FC = () => {
           </div>
         </section>
 
+        {/* Code of Trust Section */}
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <CodeOfTrust />
+          </div>
+        </section>
+
         {/* Call to Action Section */}
         <section className="py-16 lg:py-24">
           <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
@@ -75,7 +83,7 @@ const AboutSection: FC = () => {
                 </Link>
 
                 <Link
-                  href={`/${locale}/portfolio`}
+                  href={`/${locale}/showroom`}
                   className="inline-flex items-center justify-center rounded-lg border border-border px-8 py-4 font-space-grotesk font-semibold text-foreground transition-smooth hover:border-primary/50"
                 >
                   {t('sections.cta.buttons.viewWork')}

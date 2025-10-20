@@ -3,6 +3,7 @@
 import { useState, memo, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import TechStackCloud from 'components/sections/home/TechStackCloud';
 
 // Marquee icons (most used)
@@ -159,9 +160,11 @@ const TechStackShowcase = () => {
                                                 onClick={() => setClickedMarqueeIcon(clickedMarqueeIcon === icon.id ? null : icon.id)}
                                                 onTouchStart={() => setClickedMarqueeIcon(clickedMarqueeIcon === icon.id ? null : icon.id)}
                                             >
-                                                <img
+                                                <Image
                                                     src={`/assets/icons/Tech-Stack-Icons-Design-Stack-Icons-dark-mode/${icon.icon}`}
                                                     alt={toolName}
+                                                    width={32}
+                                                    height={32}
                                                     className="w-8 h-8 object-contain"
                                                 />
                                             </motion.div>

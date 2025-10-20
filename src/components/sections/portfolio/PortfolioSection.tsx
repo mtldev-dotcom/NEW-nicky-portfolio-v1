@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Header from 'components/ui/Header';
@@ -30,7 +30,7 @@ const PortfolioSection = () => {
   const tGlobal = useTranslations('global');
 
   // Helper function to safely get array translations using indexed notation
-  const getArrayTranslation = (key: string): string[] => {
+  const getArrayTranslation = useCallback((key: string): string[] => {
     const array: string[] = [];
     let index = 0;
     // Iterate up to 6 items (typical feature list length)
@@ -47,10 +47,10 @@ const PortfolioSection = () => {
       }
     }
     return array;
-  };
+  }, [t]);
 
   // Helper function to get process steps using indexed notation
-  const getProcessSteps = (key: string): Array<{ title: string, description: string }> => {
+  const getProcessSteps = useCallback((key: string): Array<{ title: string, description: string }> => {
     const array: Array<{ title: string, description: string }> = [];
     let index = 0;
     // Iterate up to 4 items (most projects have exactly 4 process steps)
@@ -69,10 +69,10 @@ const PortfolioSection = () => {
       }
     }
     return array;
-  };
+  }, [t]);
 
   // Helper function to get testimonial object using dot notation
-  const getTestimonial = (key: string): { quote: string, author: string, role: string } => {
+  const getTestimonial = useCallback((key: string): { quote: string, author: string, role: string } => {
     try {
       // @ts-ignore - Suppress type error for dynamic key
       const quote = t(`${key}.quote` as any);
@@ -84,7 +84,7 @@ const PortfolioSection = () => {
     } catch (error) {
       return { quote: '', author: '', role: '' };
     }
-  };
+  }, [t]);
 
   // Project data from translations
   const projects = useMemo(() => ([

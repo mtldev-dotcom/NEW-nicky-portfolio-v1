@@ -48,7 +48,7 @@ const HeroContent = () => {
     icon: key === 'experience' ? 'Calendar' : key === 'projects' ? 'Briefcase' : 'Clock',
   }));
 
-  const primaryHref = `/${locale}/portfolio`;
+  const primaryHref = `/${locale}/showroom`;
   const secondaryHref = `/${locale}/contact`;
 
   return (
