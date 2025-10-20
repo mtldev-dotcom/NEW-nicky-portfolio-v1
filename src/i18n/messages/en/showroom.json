@@ -80,9 +80,13 @@
     ],
     "modal": {
       "aboutTitle": "About this Concept",
+      "featuresTitle": "Key Features",
       "stackTitle": "Tech Stack",
-      "tryDemo": "Try Live Demo",
-      "viewScreens": "View Screens",
+      "tryDemo": "View Demo",
+      "viewScreens": "View Screenshots",
+      "privacyTitle": "Privacy Protected",
+      "privacyNote": "This demo uses fictional data and anonymized examples. Real client projects are developed under strict NDAs.",
+      "demoBadge": "DEMO PROJECT",
       "close": "Close"
     }
   },

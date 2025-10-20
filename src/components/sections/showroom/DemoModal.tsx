@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Icon from 'components/AppIcon';
 import Button from 'components/ui/Button';
+import { useTranslations } from 'next-intl';
 
 interface DemoModalProps {
     isOpen: boolean;
@@ -22,6 +23,7 @@ interface DemoModalProps {
 }
 
 const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
+    const t = useTranslations('showroom.gallery.modal');
     const modalVariants = {
         hidden: { opacity: 0, scale: 0.9 },
         visible: {
@@ -99,7 +101,7 @@ const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
                                         />
                                         <div className="absolute top-4 left-4">
                                             <span className="px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-xs font-medium text-primary backdrop-blur-sm">
-                                                DEMO PROJECT
+                                                {t('demoBadge')}
                                             </span>
                                         </div>
                                     </div>
@@ -107,7 +109,7 @@ const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
                                     {/* About Section */}
                                     <div className="space-y-3">
                                         <h3 className="text-lg font-space-grotesk font-semibold text-foreground">
-                                            About this Concept
+                                            {t('aboutTitle')}
                                         </h3>
                                         <p className="text-muted-foreground leading-relaxed">
                                             {card.description}
@@ -120,7 +122,7 @@ const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
                                     {/* Highlights */}
                                     <div>
                                         <h3 className="text-lg font-space-grotesk font-semibold text-foreground mb-3">
-                                            Key Features
+                                            {t('featuresTitle')}
                                         </h3>
                                         <div className="space-y-2">
                                             {card.highlights.map((highlight, idx) => (
@@ -135,7 +137,7 @@ const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
                                     {/* Tech Stack */}
                                     <div>
                                         <h3 className="text-lg font-space-grotesk font-semibold text-foreground mb-3">
-                                            Tech Stack
+                                            {t('stackTitle')}
                                         </h3>
                                         <div className="flex flex-wrap gap-2">
                                             {card.stack.map((tech, idx) => (
@@ -157,7 +159,7 @@ const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
                                             iconName="ExternalLink"
                                             iconPosition="right"
                                         >
-                                            Try Live Demo
+                                            {t('tryDemo')}
                                         </Button>
                                         <Button
                                             variant="outline"
@@ -165,7 +167,7 @@ const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
                                             iconName="Eye"
                                             iconPosition="right"
                                         >
-                                            View Screenshots
+                                            {t('viewScreens')}
                                         </Button>
                                     </div>
 
@@ -174,8 +176,8 @@ const DemoModal = ({ isOpen, onClose, card, imageSrc }: DemoModalProps) => {
                                         <div className="flex items-start gap-3">
                                             <Icon name="Shield" size={16} className="text-primary mt-0.5" />
                                             <div className="text-sm text-muted-foreground">
-                                                <p className="font-medium text-foreground mb-1">Privacy Protected</p>
-                                                <p>This demo uses fictional data and anonymized examples. Real client projects are developed under strict NDAs.</p>
+                                                <p className="font-medium text-foreground mb-1">{t('privacyTitle')}</p>
+                                                <p>{t('privacyNote')}</p>
                                             </div>
                                         </div>
                                     </div>

@@ -80,9 +80,13 @@
     ],
     "modal": {
       "aboutTitle": "À propos de ce concept",
+      "featuresTitle": "Fonctionnalités clés",
       "stackTitle": "Stack technique",
-      "tryDemo": "Tester la démo",
-      "viewScreens": "Voir les écrans",
+      "tryDemo": "Voir la démo",
+      "viewScreens": "Voir les captures",
+      "privacyTitle": "Confidentialité protégée",
+      "privacyNote": "Cette démo utilise des données fictives et des exemples anonymisés. Les projets réels sont développés sous NDA strict.",
+      "demoBadge": "PROJET DÉMO",
       "close": "Fermer"
     }
   },
