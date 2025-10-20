@@ -338,5 +338,28 @@
         "year": "2021"
       }
     }
+  },
+  "codeOfTrust": {
+    "badge": "Code of Trust",
+    "title": "Built on Confidentiality",
+    "description": "20 years building discreet systems for teams who value privacy as much as performance.",
+    "cards": {
+      "nda": {
+        "title": "NDA & Private Contracts",
+        "description": "Standard practice for every engagement, protecting your intellectual property and business secrets."
+      },
+      "deployment": {
+        "title": "Local / On-Premise Deployments",
+        "description": "Your systems, your servers. Deploy anywhere from cloud to fully on-premise infrastructure."
+      },
+      "encryption": {
+        "title": "Encrypted Communication & Backups",
+        "description": "End-to-end encryption for all communications, with secure backup protocols."
+      },
+      "transparency": {
+        "title": "Transparent Pricing & Source Access",
+        "description": "Clear pricing, no hidden fees. You own your code and all project assets."
+      }
+    }
   }
 }

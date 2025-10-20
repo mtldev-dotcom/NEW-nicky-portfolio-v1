@@ -123,6 +123,13 @@
     },
     "copyright": "© 2024 Nicky Bruno. Tous droits réservés.",
     "madeWith": "Fait avec ❤️ à Montréal",
-    "backToTop": "Retour en haut"
+    "backToTop": "Retour en haut",
+    "confidentialTagline": "Vos systèmes, vos données, votre contrôle.",
+    "securityBadges": {
+      "gdpr": "Conforme RGPD",
+      "encrypted": "Communications Chiffrées",
+      "nda": "Standard NDA",
+      "local": "Hébergement Local Disponible"
+    }
   }
 }

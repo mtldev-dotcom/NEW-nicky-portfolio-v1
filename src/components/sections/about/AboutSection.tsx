@@ -7,6 +7,7 @@ import CareerTimeline from './CareerTimeline';
 import CredentialsShowcase from './CredentialsShowcase';
 import ExperienceCounter from './ExperienceCounter';
 import PersonalIntro from './PersonalIntro';
+import CodeOfTrust from './CodeOfTrust';
 
 const AboutSection: FC = () => {
   const locale = useLocale();
@@ -48,6 +49,13 @@ const AboutSection: FC = () => {
         <section className="bg-gradient-to-br from-card/20 to-transparent py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <CredentialsShowcase />
+          </div>
+        </section>
+
+        {/* Code of Trust Section */}
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <CodeOfTrust />
           </div>
         </section>
 

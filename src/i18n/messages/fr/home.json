@@ -18,7 +18,8 @@
     "titleDesign": "Concevoir.",
     "titleAutomate": "Automatiser.",
     "titleElevate": "Améliorer.",
-    "subtitle": "Je crée des systèmes numériques puissants qui simplifient, rationalisent et développent votre entreprise.",
+    "subtitle": "Je crée des systèmes numériques sécurisés et privés qui simplifient, rationalisent et développent votre entreprise — le tout sous stricte confidentialité.",
+    "confidentialTagline": "Confidentiel. Personnalisé. Contrôlé.",
     "description": "Des sites web époustouflants aux outils d'automatisation et d'IA intelligents — je vous aide à travailler plus efficacement et à vous démarquer en ligne.",
     "ctaPrimary": "Voir mon travail",
     "ctaSecondary": "Réserver un appel découverte",
@@ -498,6 +499,30 @@
         "name": "After Effects",
         "description": "Logiciel de motion graphics",
         "url": "https://adobe.com/products/aftereffects"
+      }
+    }
+  },
+  "trust": {
+    "badge": "Confidentialité par conception",
+    "title": "Vos idées restent les vôtres",
+    "subtitle": "Chaque collaboration commence par un NDA. Vos données ne sont jamais partagées, vendues ou exposées.",
+    "intro": "Vos idées restent les vôtres. Chaque collaboration commence par un NDA. Les systèmes peuvent être déployés localement ou hébergés en privé. Aucune donnée partagée, aucune fuite publique.",
+    "cards": {
+      "nda": {
+        "title": "Protégé par NDA",
+        "description": "Chaque projet commence par un accord de confidentialité signé."
+      },
+      "onPremise": {
+        "title": "Options sur site",
+        "description": "Déployez sur vos propres serveurs pour un contrôle et une sécurité maximaux."
+      },
+      "zeroSharing": {
+        "title": "Zéro partage de données",
+        "description": "Vos données ne quittent jamais votre infrastructure sans permission."
+      },
+      "privateHosting": {
+        "title": "Hébergement privé",
+        "description": "Hébergement sécurisé et chiffré adapté à vos exigences de confidentialité."
       }
     }
   }

@@ -1,8 +1,8 @@
 ## **🔒 Overall Strategy — “Confidential by Design”**
 
-Your brand already projects premium precision, automation, and calm control .
+nicky's brand already projects premium precision, automation, and calm control .
 
-We’ll extend that by emphasizing trust, discretion, and professionalism throughout the entire site — showing that you operate like a true digital partner who values client privacy as much as results.
+We’ll extend that by emphasizing trust, discretion, and professionalism throughout the entire site — showing that nicky  operate like a true digital partner who values client privacy as much as results.
 
 ### **Key Narrative Shift**
 

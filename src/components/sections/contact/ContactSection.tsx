@@ -11,6 +11,7 @@ import ContactInfo from './ContactInfo';
 import FAQSection from './FAQSection';
 import LocationMap from './LocationMap';
 import ProjectBrief from './ProjectBrief';
+import PrivacyAssurance from './PrivacyAssurance';
 
 const MotionDiv = (props: any) => <motion.div {...props} />;
 
@@ -186,6 +187,11 @@ const ContactSection = () => {
             <MotionDiv variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <LocationMap />
               <FAQSection />
+            </MotionDiv>
+
+            {/* Privacy Assurance */}
+            <MotionDiv variants={itemVariants}>
+              <PrivacyAssurance />
             </MotionDiv>
 
             {/* Call to Action */}

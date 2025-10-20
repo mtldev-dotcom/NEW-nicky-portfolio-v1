@@ -338,5 +338,28 @@
         "year": "2021"
       }
     }
+  },
+  "codeOfTrust": {
+    "badge": "Code de confiance",
+    "title": "Bâti sur la confidentialité",
+    "description": "20 ans à construire des systèmes discrets pour des équipes qui valorisent la confidentialité autant que la performance.",
+    "cards": {
+      "nda": {
+        "title": "NDA et contrats privés",
+        "description": "Pratique standard pour chaque mission, protégeant votre propriété intellectuelle et vos secrets commerciaux."
+      },
+      "deployment": {
+        "title": "Déploiements locaux / sur site",
+        "description": "Vos systèmes, vos serveurs. Déployez n'importe où, du cloud à l'infrastructure entièrement sur site."
+      },
+      "encryption": {
+        "title": "Communications et sauvegardes chiffrées",
+        "description": "Chiffrement de bout en bout pour toutes les communications, avec des protocoles de sauvegarde sécurisés."
+      },
+      "transparency": {
+        "title": "Tarification transparente et accès au code source",
+        "description": "Tarification claire, pas de frais cachés. Vous possédez votre code et tous les actifs du projet."
+      }
+    }
   }
 }
