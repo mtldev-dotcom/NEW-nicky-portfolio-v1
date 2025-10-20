@@ -52,7 +52,7 @@ const PROJECTS: MiniProject[] = [
 const HomeFeaturedProjects = () => {
   const locale = useLocale();
   const t = useTranslations('home.featuredProjects');
-  const portfolioHref = `/${locale}/portfolio`;
+  const showroomHref = `/${locale}/showroom`;
 
   return (
     <section className="relative py-20 px-6 lg:px-8 bg-background">
@@ -115,7 +115,7 @@ const HomeFeaturedProjects = () => {
 
                 <div className="pt-4 flex items-center justify-between">
                   <Link
-                    href={portfolioHref}
+                    href={showroomHref}
                     className="inline-flex items-center gap-1 text-sm font-medium text-white/90 hover:text-white transition-smooth"
                   >
                     {t('projects.sofia.cta')}
@@ -145,7 +145,7 @@ const HomeFeaturedProjects = () => {
 
         <div className="mt-10 text-center">
           <Link
-            href={portfolioHref}
+            href={showroomHref}
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
           >
             {t('cta')}

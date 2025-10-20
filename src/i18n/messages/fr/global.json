@@ -3,7 +3,7 @@
     "home": "Accueil",
     "about": "À propos",
     "services": "Services",
-    "portfolio": "Portfolio",
+    "showroom": "Salle d'exposition",
     "testimonials": "Témoignages",
     "contact": "Contact",
     "cta": "Démarrer un projet"
@@ -76,7 +76,7 @@
         "title": "Entreprise",
         "items": [
           "À propos",
-          "Portfolio",
+          "Salle d'exposition",
           "Témoignages",
           "Contact"
         ]

@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Showroom",
+    "description": "Confidential by Design. Explore fictional demos and safe prototypes that reflect real capabilities—without exposing client data.",
+    "navLabel": "Showroom"
+  },
+  "hero": {
+    "headline": "Confidential by Design.",
+    "subhead": "Explore anonymized demos and prototypes that mirror real client solutions—minus the sensitive data.",
+    "chips": ["NDA-Protected", "On-Premise", "Private Cloud", "Fictional Data"]
+  },
+  "intro": {
+    "lead": "Most of my client work is protected under NDA. This showroom lets you experience what's possible without revealing any private details.",
+    "body": "Each example demonstrates a real capability—web, automation, and AI—using fictional brands and placeholder content. If you'd like to see a tailored demo, I can spin up a private instance for your team."
+  },
+  "gallery": {
+    "sectionTitle": "Demo Gallery",
+    "sectionSubtitle": "A curated set of fictional projects showing what I build—securely, privately, and with measurable outcomes.",
+    "cards": [
+      {
+        "id": "nova-ai",
+        "title": "Nova AI Assistant",
+        "tagline": "Conversational bookings & lead triage.",
+        "description": "An AI assistant that schedules calls, answers FAQs, and hands off to humans when needed.",
+        "highlights": ["On-premise capable", "Human-handoff", "Conversation logs"],
+        "stack": ["Next.js", "n8n", "Postgres", "LLM"],
+        "primaryCta": "View Demo",
+        "secondaryCta": "See Stack"
+      },
+      {
+        "id": "ecomix-storefront",
+        "title": "Ecomix Storefront",
+        "tagline": "Bilingual e-commerce with smooth UX.",
+        "description": "Fictional shop showcasing fast product browsing, checkout, and multi-currency support.",
+        "highlights": ["EN/FR i18n", "Currency switcher", "Analytics-ready"],
+        "stack": ["Next.js", "Stripe", "Payload/Medusa", "Vercel/Container"],
+        "primaryCta": "View Demo",
+        "secondaryCta": "See Stack"
+      },
+      {
+        "id": "flowpilot-dashboard",
+        "title": "FlowPilot Dashboard",
+        "tagline": "Automation control center.",
+        "description": "Visualize workflows, job statuses, and throughput with n8n integration.",
+        "highlights": ["Real-time logs", "Retry & alerts", "Role permissions"],
+        "stack": ["Next.js", "n8n", "WebSockets", "Postgres"],
+        "primaryCta": "View Demo",
+        "secondaryCta": "See Stack"
+      },
+      {
+        "id": "datavault-analytics",
+        "title": "DataVault Analytics",
+        "tagline": "Privacy-first KPI tracking.",
+        "description": "Clean dashboards with private datasets, RBAC, and audit trails.",
+        "highlights": ["RBAC", "Audit trails", "Encrypted layer"],
+        "stack": ["Next.js", "Supabase/Postgres", "Recharts/D3"],
+        "primaryCta": "View Demo",
+        "secondaryCta": "See Stack"
+      },
+      {
+        "id": "lumina-studio-cms",
+        "title": "Lumina Studio CMS",
+        "tagline": "Creative collaboration demo.",
+        "description": "Commenting, versioning, and dark mode within a fictional CMS.",
+        "highlights": ["Multi-user", "Realtime presence", "Dark mode"],
+        "stack": ["Next.js", "WS/RTC", "Payload/Custom"],
+        "primaryCta": "View Demo",
+        "secondaryCta": "See Stack"
+      },
+      {
+        "id": "securai-bot",
+        "title": "SecurAI Bot",
+        "tagline": "Local, offline AI assistant.",
+        "description": "LLM chatbot running on local hardware with custom context memory.",
+        "highlights": ["Private inference", "No external calls", "Embeddings cache"],
+        "stack": ["Local LLM", "Ollama/OpenWebUI", "RAG"],
+        "primaryCta": "View Demo",
+        "secondaryCta": "See Stack"
+      }
+    ],
+    "modal": {
+      "aboutTitle": "About this Concept",
+      "stackTitle": "Tech Stack",
+      "tryDemo": "Try Live Demo",
+      "viewScreens": "View Screens",
+      "close": "Close"
+    }
+  },
+  "tools": {
+    "sectionTitle": "Interactive Tools",
+    "items": [
+      {
+        "id": "ai-chat-sandbox",
+        "title": "AI Chat Sandbox",
+        "description": "Test the embedded chatbot demo connected to an n8n workflow.",
+        "cta": "Try it"
+      },
+      {
+        "id": "workflow-visualizer",
+        "title": "Workflow Visualizer",
+        "description": "Drag-and-drop builder that previews automation flows.",
+        "cta": "Try it"
+      },
+      {
+        "id": "theme-customizer",
+        "title": "Theme Customizer",
+        "description": "Toggle dark/light and adjust accent hues for the holographic UI.",
+        "cta": "Open"
+      },
+      {
+        "id": "performance-meter",
+        "title": "Performance Meter",
+        "description": "See how optimization impacts load time and Core Web Vitals.",
+        "cta": "Measure"
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy Statement",
+    "quote": "Every project I build is unique—and often private. This showroom features fictional or anonymized examples only. Actual client systems are developed under NDA, hosted securely, and never shared publicly.",
+    "bullets": [
+      "Signed NDAs for all engagements",
+      "Local or on-premise hosting available",
+      "Encrypted communication & backups",
+      "Strict confidentiality workflow"
+    ]
+  },
+  "cta": {
+    "headline": "Want your own private system?",
+    "subhead": "Let's design, automate, and deploy it—securely and confidentially.",
+    "primary": "Book a Confidential Call",
+    "secondary": "Start a Secure Project",
+    "footnote": "Every conversation starts under NDA."
+  }
+}

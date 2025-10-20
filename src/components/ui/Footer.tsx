@@ -66,7 +66,7 @@ const Footer = (): JSX.Element => {
             </h4>
             <ul className="space-y-2">
               {t.raw('sections.company.items').map((item: string, index: number) => {
-                const paths = ['about', 'portfolio', 'testimonials', 'contact'];
+                const paths = ['about', 'showroom', 'testimonials', 'contact'];
                 return (
                   <li key={index}>
                     <Link

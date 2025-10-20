@@ -75,7 +75,7 @@ const AboutSection: FC = () => {
                 </Link>
 
                 <Link
-                  href={`/${locale}/portfolio`}
+                  href={`/${locale}/showroom`}
                   className="inline-flex items-center justify-center rounded-lg border border-border px-8 py-4 font-space-grotesk font-semibold text-foreground transition-smooth hover:border-primary/50"
                 >
                   {t('sections.cta.buttons.viewWork')}
